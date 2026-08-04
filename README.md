@@ -12,6 +12,7 @@
 ## 当前主题
 
 - [Attention：从直觉到公式](daily/2026/08/2026-08-03-attention.md)
+- [Attention：从公式到最小实现](daily/2026/08/2026-08-04-attention-implementation.md)
 
 ## 提交约定
 
@@ -19,4 +20,3 @@
 - `review:` 补充复盘或修正理解
 - `practice:` 添加练习代码或实验
 - `docs:` 调整仓库说明与结构
-
