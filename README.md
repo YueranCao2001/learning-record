@@ -13,6 +13,7 @@
 
 - [Attention：从直觉到公式](daily/2026/08/2026-08-03-attention.md)
 - [Attention：从公式到最小实现](daily/2026/08/2026-08-04-attention-implementation.md)
+- [Multi-Head Attention：多头拆分、计算与合并](daily/2026/08/2026-08-05-multi-head-attention.md)
 
 ## 提交约定
 
