@@ -17,6 +17,7 @@
 - [位置编码：让 Attention 理解顺序](daily/2026/08/2026-08-10-positional-encoding.md)
 - [RoPE：用旋转编码相对位置](daily/2026/08/2026-08-11-rope.md)
 - [Transformer 解码器块：串起完整前向传播](daily/2026/08/2026-08-12-transformer-decoder-block.md)
+- [KV Cache：从显存公式到 MQA 与 GQA](daily/2026/08/2026-08-18-kv-cache-mqa-gqa.md)
 
 ## 提交约定
 
