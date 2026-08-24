@@ -18,6 +18,7 @@
 - [RoPE：用旋转编码相对位置](daily/2026/08/2026-08-11-rope.md)
 - [Transformer 解码器块：串起完整前向传播](daily/2026/08/2026-08-12-transformer-decoder-block.md)
 - [KV Cache：从显存公式到 MQA 与 GQA](daily/2026/08/2026-08-18-kv-cache-mqa-gqa.md)
+- [从 Logits 到 Token：Temperature、Top-k 与 Top-p](daily/2026/08/2026-08-24-logits-sampling.md)
 
 ## 提交约定
 
