@@ -767,7 +767,7 @@ Rethinking Benchmark Contamination 的实验说明，改写样本可以绕过字
 
 - 难度；
 - 主题；
--长度；
+- 长度；
 - 来源；
 - 题型
 
