@@ -408,7 +408,7 @@ if bad.item():
 
 若某个 rank 独自跳过 backward，而其他 ranks 进入 gradient collective，结果可能是 hang。
 
-forward 已经 non-finite 时，没有完成 gradient overflow 棽测；无条件调用 `scaler.update()` 也不一定合理。Loss scaling 只改变 backward 的梯度尺度，不能修复 forward 中的 `exp` overflow、除零或非法 mask。
+forward 已经 non-finite 时，没有完成 gradient overflow 检测；无条件调用 `scaler.update()` 也不一定合理。Loss scaling 只改变 backward 的梯度尺度，不能修复 forward 中的 `exp` overflow、除零或非法 mask。
 
 ---
 
