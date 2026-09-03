@@ -26,6 +26,7 @@
 - [训练性能诊断：FLOPs、MFU、Roofline 与 Profiling](daily/2026/08/2026-08-31-training-performance-roofline-mfu.md)
 - [训练数据流水线：Packing、Shuffling、Prefetch 与可恢复采样](daily/2026/09/2026-09-01-training-data-pipeline.md)
 - [训练数据治理：质量过滤、去重、污染检测、Provenance 与数据混合](daily/2026/09/2026-09-02-data-quality-dedup-contamination.md)
+- [训练异常诊断：Loss Spike、梯度范数、NaN/Inf 与 Checkpoint Rollback](daily/2026/09/2026-09-03-training-instability-loss-spike-nan-recovery.md)
 
 ## 提交约定
 
