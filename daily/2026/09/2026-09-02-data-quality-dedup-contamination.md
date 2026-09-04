@@ -298,9 +298,9 @@ Gopher / MassiveText 展示过一组可解释规则，但这些阈值只能作�
 
 设原始文本为 `x`，规范化函数为 `c(x)`，稳定摘要为：
 
-\[
+```math
 h_x = H(c(x))
-\]
+```
 
 一个保守示例：
 
@@ -340,11 +340,11 @@ normalized_hash = sha256_text(normalized_text)
 
 如果把一个理想的 `b` 位 hash 用在 `n` 个对象上，至少一次碰撞的近似概率为：
 
-\[
+```math
 P(\text{collision})
 \approx
 1-\exp\left(-\frac{n(n-1)}{2\cdot 2^b}\right)
-\]
+```
 
 当 `n = 10^9`、`b = 64` 时，概率约为 2.7%，已经不能忽略。
 
@@ -371,9 +371,9 @@ Bloom Filter 能低内存回答：
 
 其假阳性率近似为：
 
-\[
+```math
 p \approx \left(1-e^{-kn/m}\right)^k
-\]
+```
 
 Bloom Filter 的用途是流式 exact-membership 候选判断，不是 near-duplicate 算法。需要注意：
 
@@ -391,12 +391,12 @@ Bloom Filter 的用途是流式 exact-membership 候选判断，不是 near-dupl
 
 两个文档的 Jaccard 相似度为：
 
-\[
+```math
 J(A,B)
 =
 \frac{|S(A)\cap S(B)|}
 {|S(A)\cup S(B)|}
-\]
+```
 
 例如 word 5-gram 可以捕捉局部连续短语。`w` 太小会让常见短语制造误报；太大则对轻微编辑更敏感，降低召回。
 
@@ -415,19 +415,19 @@ J(A,B)
 
 MinHash 的核心性质是：
 
-\[
+```math
 P[h_{\min}(A)=h_{\min}(B)] = J(A,B)
-\]
+```
 
 使用 `k` 个独立 MinHash 值，可估计：
 
-\[
+```math
 \hat J(A,B)
 =
 \frac{1}{k}
 \sum_{j=1}^{k}
 \mathbf{1}[h_j(A)=h_j(B)]
-\]
+```
 
 `k` 越大，估计方差通常越小，但计算和存储越高。MinHash 的作用是把巨大的 shingle 集合压缩成签名，不是加密 hash，也不适合作为文档永久 ID。
 
@@ -442,11 +442,11 @@ P[h_{\min}(A)=h_{\min}(B)] = J(A,B)
 
 如果两文档真实相似度为 `s`，至少一个 band 完全相同、从而成为候选的概率约为：
 
-\[
+```math
 P_{\text{candidate}}(s)
 =
 1-\left(1-s^r\right)^b
-\]
+```
 
 这形成一条 S 曲线，而不是硬阈值。因此：
 
@@ -466,12 +466,12 @@ FineWeb 的一个公开配置使用 word 5-gram、112 个哈希和 14 × 8 bandi
 
 可以补充 containment：
 
-\[
+```math
 C(A,B)
 =
 \frac{|S(A)\cap S(B)|}
 {\min(|S(A)|,|S(B)|)}
-\]
+```
 
 当短文几乎被长文包含时，containment 会接近 1。它适合发现：
 
@@ -974,28 +974,28 @@ sampler 选择某个域的概率。
 
 设过滤去重后第 `i` 个域有 `n_i` 个有效 token。按自然数据量的比例为：
 
-\[
+```math
 p_i
 =
 \frac{n_i}{\sum_j n_j}
-\]
+```
 
 常见温度形式：
 
-\[
+```math
 q_i(\alpha)
 =
 \frac{p_i^\alpha}{\sum_j p_j^\alpha}
 =
 \frac{n_i^\alpha}{\sum_j n_j^\alpha}
-\]
+```
 
 其中：
 
-- `\alpha = 1`：按数据量采样；
-- `0 < \alpha < 1`：拉平分布，提高小域占比；
-- `\alpha \to 0`：趋向领域均匀；
-- `\alpha > 1`：进一步偏向大域，较少用于低资源重平衡。
+- $`\alpha = 1`$ ：按数据量采样；
+- $`0 < \alpha < 1`$ ：拉平分布，提高小域占比；
+- $`\alpha \to 0`$ ：趋向领域均匀；
+- $`\alpha > 1`$ ：进一步偏向大域，较少用于低资源重平衡。
 
 必须说明 `n_i` 是文档、原始 token 还是最终有效 token。不同定义会产生不同权重。
 
@@ -1005,11 +1005,11 @@ q_i(\alpha)
 
 若总训练预算为 `T` 个 token，则第 `i` 域的平均 token 暴露轮次近似为：
 
-\[
+```math
 E_i
 =
 \frac{Tq_i}{n_i}
-\]
+```
 
 例如一个很小的高质量域即使只拿到 5% 采样权重，也可能被重复几十轮。
 
@@ -1035,12 +1035,12 @@ E_i
 
 目标权重 `q_i` 不等于实际训练比例。定义：
 
-\[
+```math
 \hat q_i
 =
 \frac{\text{domain }i\text{ 的有效 loss token}}
 {\text{全部领域的有效 loss token}}
-\]
+```
 
 偏差可能来自：
 
@@ -1056,12 +1056,12 @@ E_i
 
 可以使用总变差距离：
 
-\[
+```math
 TV(q,\hat q)
 =
 \frac12
 \sum_i |q_i-\hat q_i|
-\]
+```
 
 并按固定 step window 与 DP rank 监控，避免长期平均掩盖局部 drift。
 
@@ -1180,9 +1180,9 @@ DCLM 的固定 recipe 实验展示过：额外 curated sources 可以帮助较�
 
 绘制：
 
-\[
+```math
 1-(1-s^r)^b
-\]
+```
 
 并在人工标注对上统计 precision / recall 与 retained-token curve。命中和未命中都要分层抽样。
 
@@ -1209,7 +1209,7 @@ DCLM 的固定 recipe 实验展示过：额外 curated sources 可以帮助较�
 
 ### 测试 6：Mixture 审计
 
-比较 natural、domain-uniform 和多个 `\alpha`，记录 target `q`、observed `\hat q`、TV、coverage、repeat factor 与各域验证指标。
+比较 natural、domain-uniform 和多个 $`\alpha`$ ，记录 target `q`、observed $`\hat q`$ 、TV、coverage、repeat factor 与各域验证指标。
 
 ### 测试 7：Reproducible Build
 
@@ -1329,7 +1329,7 @@ MinHash 与 SHA-256 的角色有什么不同？
 
 ### 问题 7
 
-`\alpha < 1` 为什么可能让小域过拟合？
+$`\alpha < 1`$ 为什么可能让小域过拟合？
 
 **答案：** 它提高小域的采样比例；当域大小 `n_i` 很小时，`E_i=Tq_i/n_i` 会变大，同一 token 被重复很多轮。
 
@@ -1379,7 +1379,7 @@ B:   100,000 tokens
 C:    10,000 tokens
 ```
 
-分别计算 `\alpha = 1.0、0.5、0.3` 的 `q_i`，并在 `T = 10,000,000` 时计算 `E_i`。解释哪个域最容易被重复记忆。
+分别计算 $`\alpha = 1.0`$ 、 $`\alpha = 0.5`$ 、 $`\alpha = 0.3`$ 的 `q_i`，并在 `T = 10,000,000` 时计算 `E_i`。解释哪个域最容易被重复记忆。
 
 ### 练习 7：做固定预算过滤消融
 

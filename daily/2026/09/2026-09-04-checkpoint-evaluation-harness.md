@@ -24,11 +24,11 @@
 
 一次评测结果可以写成：
 
-\[
+```math
 R=f(\theta,D,P,T,G,E,A)
-\]
+```
 
-- `\theta`：checkpoint；
+- $`\theta`$ ：checkpoint；
 - `D`：数据版本、split 和样本集合；
 - `P`：prompt、few-shot 与选项顺序；
 - `T`：tokenizer、chat template、上下文截断；
@@ -100,15 +100,15 @@ training_data_version / code_commit
 
 对真正计分的 token 集合 `V`：
 
-\[
-S=-\sum_{t\in V}\log p_\theta(x_t\mid x_{<t})
-\]
+```math
+S=-\sum_{t\in V}\log p_\theta(x_t\mid x_{\lt t})
+```
 
-\[
+```math
 L_{\mathrm{token}}=\frac{S}{|V|},
 \qquad
 \mathrm{PPL}=\exp(L_{\mathrm{token}})
-\]
+```
 
 log 使用自然对数。只有纯 hard-label NLL 才能这样转换为 PPL；含 label smoothing、正则项或辅助项的总训练 loss 不能直接指数化后叫作 PPL。
 
@@ -132,13 +132,13 @@ B: 90 个有效 token，mean NLL = 4
 
 正确：
 
-\[
+```math
 L=\frac{10\times2+90\times4}{100}=3.8
-\]
+```
 
-\[
+```math
 \mathrm{PPL}=\exp(3.8)\approx44.70
-\]
+```
 
 错误的等权 batch mean 是 `3`，对应 PPL 约 `20.09`。
 
@@ -208,11 +208,11 @@ PPL 的单位是每 token，token 粒度改变会改变尺度。
 
 可以补充：
 
-\[
+```math
 \mathrm{BPB}
 =
 \frac{S}{\ln2\cdot N_{\mathrm{scored\ UTF8\ bytes}}}
-\]
+```
 
 但仍要统一原始文本、规范化、计分区间、边界、special tokens 和 tokenizer 的有损行为。
 
@@ -277,12 +277,12 @@ finally:
 
 给定问题 `q` 与候选 `a_i`：
 
-\[
+```math
 s_i=\sum_{t=1}^{|a_i|}
-\log p_\theta(a_{i,t}\mid q,a_{i,<t}),
+\log p_\theta(a_{i,t}\mid q,a_{i,\lt t}),
 \qquad
 \hat i=\arg\max_i s_i
-\]
+```
 
 通常只计 continuation，不把共享 prompt 的概率加入候选分数。
 
@@ -303,9 +303,9 @@ s_i=\sum_{t=1}^{|a_i|}
 
 长度归一化可写为：
 
-\[
+```math
 s_i^{\mathrm{norm}}=\frac{s_i}{d(a_i)}
-\]
+```
 
 `d(a_i)` 由任务实现决定，不应默认等于 token 数。
 
@@ -352,13 +352,13 @@ raw output
 
 ## 16. 代码生成与 `pass@k`
 
-每题生成 `n` 个候选，其中 `c` 个通过测试，`n\ge k` 时：
+每题生成 `n` 个候选，其中 `c` 个通过测试， $`n\ge k`$ 时：
 
-\[
+```math
 \widehat{\mathrm{pass@k}}
 =
 1-\frac{\binom{n-c}{k}}{\binom nk}
-\]
+```
 
 最后对题目取均值。它衡量 k 次尝试至少一次通过，不是 top-k classification，也不表示系统能选出那条正确候选。
 
@@ -401,9 +401,9 @@ Greedy decoding 减少采样随机性，但不保证跨 backend、硬件和版�
 
 它们不是同一个事件。对候选分数做 softmax：
 
-\[
+```math
 p_i=\frac{\exp(s_i)}{\sum_j\exp(s_j)}
-\]
+```
 
 只是指定候选集合和 scoring protocol 下的相对权重，不自动等于现实正确率。尤其长度归一化 scores 不能未经说明当成完整序列概率。
 
@@ -413,24 +413,24 @@ p_i=\frac{\exp(s_i)}{\sum_j\exp(s_j)}
 
 多分类 Brier 的一个约定：
 
-\[
+```math
 \mathrm{Brier}
 =
 \frac1N\sum_{i=1}^N\sum_{c=1}^C(p_{ic}-y_{ic})^2
-\]
+```
 
-`y` 是 one-hot；这里不除类别数或 2，范围为 `[0,2]`。二元单事件版本 `N^{-1}\sum_i(q_i-z_i)^2` 的范围是 `[0,1]`，不要混用。
+`y` 是 one-hot；这里不除类别数或 2，范围为 `[0,2]`。二元单事件版本 $`N^{-1}\sum_i(q_i-z_i)^2`$ 的范围是 `[0,1]`，不要混用。
 
 按 top-label confidence 分 bins `B_m`：
 
-\[
+```math
 \mathrm{ECE}
 =
 \sum_m\frac{|B_m|}{N}
 \left|
-\operatorname{acc}(B_m)-\operatorname{conf}(B_m)
+\mathrm{acc}(B_m)-\mathrm{conf}(B_m)
 \right|
-\]
+```
 
 明确 bin 数、边界、等宽/等频、样本量，以及 top-label/classwise/binary-event 定义。ECE 对分箱和有限样本敏感。
 
@@ -442,9 +442,9 @@ p_i=\frac{\exp(s_i)}{\sum_j\exp(s_j)}
 
 对分类 logits：
 
-\[
-p_c=\operatorname{softmax}(z/T)_c,\qquad T>0
-\]
+```math
+p_c=\mathrm{softmax}(z/T)_c,\qquad T>0
+```
 
 在独立 calibration set 上拟合 `T`，冻结后测 test。固定 logits 下正 temperature 不改变 argmax，但改变 confidence；效果仍需验证。
 
@@ -456,18 +456,18 @@ p_c=\operatorname{softmax}(z/T)_c,\qquad T>0
 
 设 confidence 为 `c_i`：
 
-\[
+```math
 \mathrm{coverage}(\tau)
 =
 \frac{\#\{i:c_i\ge\tau\}}N
-\]
+```
 
-\[
+```math
 \mathrm{risk}(\tau)
 =
 \frac{\#\{i:c_i\ge\tau,\hat y_i\ne y_i\}}
 {\#\{i:c_i\ge\tau\}}
-\]
+```
 
 只回答少数容易题可能 risk 很低，但 coverage 也低。两者必须一起报告；阈值在 dev/calibration 上选择。
 
@@ -507,9 +507,9 @@ p_c=\operatorname{softmax}(z/T)_c,\qquad T>0
 
 相同题目上的分数为 `a_i,b_i`：
 
-\[
+```math
 \Delta=\frac1N\sum_i(b_i-a_i)
-\]
+```
 
 先按 stable sample ID join，再让 A/B 共同重采样同一批索引，保留题目难度相关性。
 
@@ -587,11 +587,11 @@ def paired_bootstrap(a, b, repeats=2000, seed=42):
 
 NLL/PPL 每次重算：
 
-\[
+```math
 L^*=\frac{\sum_{d\in D^*}S_d}{\sum_{d\in D^*}T_d},
 \qquad
 \mathrm{PPL}^*=\exp(L^*)
-\]
+```
 
 不是逐文档 PPL 平均。同一道题的 100 次生成也不是 100 道独立题目。
 

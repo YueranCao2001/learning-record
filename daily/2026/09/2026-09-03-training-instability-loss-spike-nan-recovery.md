@@ -130,7 +130,7 @@ Loss 曲线看起来 spike，不一定是模型突然坏了，也可能是统计
 
 对语言模型，日志 loss 应优先按全局有效 token 计算：
 
-\[
+```math
 L_{\text{global}}
 =
 \frac{
@@ -138,7 +138,7 @@ L_{\text{global}}
 }{
 \sum_r \text{valid\_token\_count}_r
 }
-\]
+```
 
 若各 rank 先做本地 mean，再等权平均，token 较少的 rank 会被赋予过高权重。
 
@@ -148,7 +148,7 @@ L_{\text{global}}
 
 假设 DDP 默认对 `R` 个 ranks 的 gradients 求平均。为了让最终梯度对应全局 token mean，可让 rank `r` 对本地 token loss sum 使用：
 
-\[
+```math
 L_r^{\text{backward}}
 =
 \text{local\_loss\_sum}_r
@@ -156,11 +156,11 @@ L_r^{\text{backward}}
 \frac{R}{
 \text{global\_valid\_tokens}
 }
-\]
+```
 
 DDP 平均后：
 
-\[
+```math
 \frac{1}{R}
 \sum_r
 \nabla L_r^{\text{backward}}
@@ -170,7 +170,7 @@ DDP 平均后：
 }{
 \text{global\_valid\_tokens}
 }
-\]
+```
 
 梯度累积且每个 microbatch 有效 token 数不同时，也要对整个 accumulation window 的分母保持一致。可选方法包括：
 
@@ -416,7 +416,7 @@ forward 已经 non-finite 时，没有完成 gradient overflow 检测；无条�
 
 把所有参数梯度视为一个长向量 `g`，L2 norm 为：
 
-\[
+```math
 \|g\|_2
 =
 \sqrt{
@@ -424,26 +424,26 @@ forward 已经 non-finite 时，没有完成 gradient overflow 检测；无条�
 \sum_j
 g_{p,j}^2
 }
-\]
+```
 
 Norm clipping 的缩放系数可写成：
 
-\[
+```math
 c
 =
 \min\left(
 1,
 \frac{\tau}{\|g\|_2+\epsilon}
 \right)
-\]
+```
 
 然后：
 
-\[
+```math
 g \leftarrow c g
-\]
+```
 
-其中 `\tau` 是 `max_norm`。
+其中 $`\tau`$ 是 `max_norm`。
 
 `torch.nn.utils.clip_grad_norm_` 原地修改 gradients，并返回**裁剪前**的 total norm。因此日志应记录：
 
@@ -535,24 +535,24 @@ loss > 10 → spike
 
 一种 robust baseline 是滑动 median 与 MAD：
 
-\[
+```math
 m_t
 =
-\operatorname{median}(x_{t-w:t})
-\]
+\mathrm{median}(x_{t-w:t})
+```
 
-\[
+```math
 MAD_t
 =
-\operatorname{median}(|x_i-m_t|)
-\]
+\mathrm{median}(|x_i-m_t|)
+```
 
-\[
+```math
 z_t^{\text{robust}}
 =
 \frac{|x_t-m_t|}
 {1.4826\cdot MAD_t+\epsilon}
-\]
+```
 
 可同时跟踪：
 
@@ -564,7 +564,7 @@ z_t^{\text{robust}}
 注意：
 
 - warmup 与 curriculum 切换会改变基线；
-- MAD 接近 0 时要加 `\epsilon`；
+- MAD 接近 0 时要加 $`\epsilon`$ ；
 - 阈值必须用历史 incident 和误报率校准；
 - finite spike 默认应先告警和收集证据，不宜立即永久删除数据。
 
@@ -578,7 +578,7 @@ NaN / Inf 则属于硬告警，不需要统计阈值。
 
 建议汇总：
 
-\[
+```math
 L_{\min},
 \quad
 L_{\max},
@@ -586,7 +586,7 @@ L_{\max},
 L_{\text{mean}},
 \quad
 L_{\max}-L_{\min}
-\]
+```
 
 并记录每个 rank 的：
 
@@ -607,7 +607,7 @@ L_{\max}-L_{\min}
 
 梯度范数没有考虑 optimizer moments、学习率和参数尺度。可以补充：
 
-\[
+```math
 \rho
 =
 \frac{
@@ -615,19 +615,19 @@ L_{\max}-L_{\min}
 }{
 \|\theta\|_2+\epsilon
 }
-\]
+```
 
 其中：
 
-\[
+```math
 \Delta\theta
 =
 \theta_{\text{after step}}
 -
 \theta_{\text{before step}}
-\]
+```
 
-可按层或参数组记录 `\rho`。它能帮助发现：
+可按层或参数组记录 $`\rho`$ 。它能帮助发现：
 
 - scheduler 恢复后 LR 突变；
 - 某个参数组 LR 配错；

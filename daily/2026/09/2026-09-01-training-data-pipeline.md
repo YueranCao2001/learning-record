@@ -323,8 +323,8 @@ B: 0 1 2
 
 若一个物理序列包含长度 `L_1, L_2, ..., L_n` 的独立样本：
 
-- 稠密 attention 规模约为 `T^2`，其中 `T = \sum_i L_i`；
-- 理想 varlen / block-diagonal attention 规模约为 `\sum_i L_i^2`。
+- 稠密 attention 规模约为 `T^2`，其中 $`T = \sum_i L_i`$ ；
+- 理想 varlen / block-diagonal attention 规模约为 $`\sum_i L_i^2`$ 。
 
 因此 packing 有两个层次：
 
