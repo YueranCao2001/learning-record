@@ -27,6 +27,7 @@
 - [训练数据流水线：Packing、Shuffling、Prefetch 与可恢复采样](daily/2026/09/2026-09-01-training-data-pipeline.md)
 - [训练数据治理：质量过滤、去重、污染检测、Provenance 与数据混合](daily/2026/09/2026-09-02-data-quality-dedup-contamination.md)
 - [训练异常诊断：Loss Spike、梯度范数、NaN/Inf 与 Checkpoint Rollback](daily/2026/09/2026-09-03-training-instability-loss-spike-nan-recovery.md)
+- [Checkpoint 评估：Validation Loss、任务指标、Calibration 与 Evaluation Harness](daily/2026/09/2026-09-04-checkpoint-evaluation-harness.md)
 
 ## 提交约定
 
