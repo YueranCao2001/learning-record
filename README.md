@@ -29,6 +29,7 @@
 - [训练异常诊断：Loss Spike、梯度范数、NaN/Inf 与 Checkpoint Rollback](daily/2026/09/2026-09-03-training-instability-loss-spike-nan-recovery.md)
 - [Checkpoint 评估：Validation Loss、任务指标、Calibration 与 Evaluation Harness](daily/2026/09/2026-09-04-checkpoint-evaluation-harness.md)
 - [Supervised Fine-Tuning：Chat Template、Assistant-only Loss、Packing 与 LoRA](daily/2026/09/2026-09-07-supervised-fine-tuning-chat-template-lora.md)
+- [Direct Preference Optimization：偏好对、Reference Model、DPO Loss 与长度偏差](daily/2026/09/2026-09-08-direct-preference-optimization.md)
 
 ## 提交约定
 
