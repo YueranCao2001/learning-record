@@ -31,6 +31,8 @@
 - [Supervised Fine-Tuning：Chat Template、Assistant-only Loss、Packing 与 LoRA](daily/2026/09/2026-09-07-supervised-fine-tuning-chat-template-lora.md)
 - [Direct Preference Optimization：偏好对、Reference Model、DPO Loss 与长度偏差](daily/2026/09/2026-09-08-direct-preference-optimization.md)
 
+- [在线强化学习后训练：Rollout、Advantage、PPO 与 GRPO](daily/2026/09/2026-09-09-online-rl-ppo-grpo.md)
+
 ## 提交约定
 
 - `learn:` 新增学习记录
