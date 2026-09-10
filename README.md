@@ -32,6 +32,7 @@
 - [Direct Preference Optimization：偏好对、Reference Model、DPO Loss 与长度偏差](daily/2026/09/2026-09-08-direct-preference-optimization.md)
 
 - [在线强化学习后训练：Rollout、Advantage、PPO 与 GRPO](daily/2026/09/2026-09-09-online-rl-ppo-grpo.md)
+- [RL Rollout 工程：权重同步、采样 Log Probability、异步队列与 Policy Staleness](daily/2026/09/2026-09-10-rl-rollout-engineering.md)
 
 ## 提交约定
 
