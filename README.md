@@ -34,6 +34,7 @@
 - [在线强化学习后训练：Rollout、Advantage、PPO 与 GRPO](daily/2026/09/2026-09-09-online-rl-ppo-grpo.md)
 - [RL Rollout 工程：权重同步、采样 Log Probability、异步队列与 Policy Staleness](daily/2026/09/2026-09-10-rl-rollout-engineering.md)
 - [可验证奖励与评估器工程：答案抽取、容差、失败分类与 Reward Hacking](daily/2026/09/2026-09-11-verifiable-rewards-evaluator.md)
+- [后训练链路复盘：SFT、DPO、PPO/GRPO 的统一实验协议与验收](daily/2026/09/2026-09-14-post-training-end-to-end-review.md)
 
 ## 提交约定
 
