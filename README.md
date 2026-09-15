@@ -35,6 +35,7 @@
 - [RL Rollout 工程：权重同步、采样 Log Probability、异步队列与 Policy Staleness](daily/2026/09/2026-09-10-rl-rollout-engineering.md)
 - [可验证奖励与评估器工程：答案抽取、容差、失败分类与 Reward Hacking](daily/2026/09/2026-09-11-verifiable-rewards-evaluator.md)
 - [后训练链路复盘：SFT、DPO、PPO/GRPO 的统一实验协议与验收](daily/2026/09/2026-09-14-post-training-end-to-end-review.md)
+- [小模型后训练实验设计：固定 Baseline、数据切分、一步训练与恢复对照](daily/2026/09/2026-09-15-small-model-experiment-design.md)
 
 ## 提交约定
 
