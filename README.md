@@ -36,6 +36,7 @@
 - [可验证奖励与评估器工程：答案抽取、容差、失败分类与 Reward Hacking](daily/2026/09/2026-09-11-verifiable-rewards-evaluator.md)
 - [后训练链路复盘：SFT、DPO、PPO/GRPO 的统一实验协议与验收](daily/2026/09/2026-09-14-post-training-end-to-end-review.md)
 - [小模型后训练实验设计：固定 Baseline、数据切分、一步训练与恢复对照](daily/2026/09/2026-09-15-small-model-experiment-design.md)
+- [评估结果的统计解释：配对比较、分组 Bootstrap 与选择偏差](daily/2026/09/2026-09-16-paired-evaluation-group-bootstrap.md)
 
 ## 提交约定
 
