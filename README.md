@@ -39,6 +39,7 @@
 - [评估结果的统计解释：配对比较、分组 Bootstrap 与选择偏差](daily/2026/09/2026-09-16-paired-evaluation-group-bootstrap.md)
 - [错误分析与消融实验：从失败案例到可检验的改进假设](daily/2026/09/2026-09-17-error-analysis-ablation-experiments.md)
 - [实验追踪与可复现报告：Run Manifest、内容指纹与结果重算](daily/2026/09/2026-09-18-experiment-tracking-reproducible-reports.md)
+- [推理部署验收：延迟、吞吐、显存与失败率](daily/2026/09/2026-09-20-inference-serving-acceptance.md)
 
 ## 提交约定
 
