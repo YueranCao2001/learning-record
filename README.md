@@ -40,6 +40,7 @@
 - [错误分析与消融实验：从失败案例到可检验的改进假设](daily/2026/09/2026-09-17-error-analysis-ablation-experiments.md)
 - [实验追踪与可复现报告：Run Manifest、内容指纹与结果重算](daily/2026/09/2026-09-18-experiment-tracking-reproducible-reports.md)
 - [推理部署验收：延迟、吞吐、显存与失败率](daily/2026/09/2026-09-20-inference-serving-acceptance.md)
+- [连续批处理与请求调度：Prefill、Decode 和 KV 容量](daily/2026/09/2026-09-21-continuous-batching-request-scheduling.md)
 
 ## 提交约定
 
