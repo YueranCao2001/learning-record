@@ -41,6 +41,7 @@
 - [实验追踪与可复现报告：Run Manifest、内容指纹与结果重算](daily/2026/09/2026-09-18-experiment-tracking-reproducible-reports.md)
 - [推理部署验收：延迟、吞吐、显存与失败率](daily/2026/09/2026-09-20-inference-serving-acceptance.md)
 - [连续批处理与请求调度：Prefill、Decode 和 KV 容量](daily/2026/09/2026-09-21-continuous-batching-request-scheduling.md)
+- [PagedAttention 与 KV 块管理：映射、共享、写时复制和释放](daily/2026/09/2026-09-22-paged-attention-kv-block-management.md)
 
 ## 提交约定
 
