@@ -43,6 +43,7 @@
 - [连续批处理与请求调度：Prefill、Decode 和 KV 容量](daily/2026/09/2026-09-21-continuous-batching-request-scheduling.md)
 - [PagedAttention 与 KV 块管理：映射、共享、写时复制和释放](daily/2026/09/2026-09-22-paged-attention-kv-block-management.md)
 - [推理量化：权重、KV Cache、Scale 与质量验收](daily/2026/09/2026-09-23-inference-weight-kv-quantization.md)
+- [投机解码：草稿、目标验证与拒绝采样](daily/2026/09/2026-09-24-speculative-decoding-rejection-sampling.md)
 
 ## 提交约定
 
