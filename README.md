@@ -45,6 +45,7 @@
 - [推理量化：权重、KV Cache、Scale 与质量验收](daily/2026/09/2026-09-23-inference-weight-kv-quantization.md)
 - [投机解码：草稿、目标验证与拒绝采样](daily/2026/09/2026-09-24-speculative-decoding-rejection-sampling.md)
 - [结构化输出与约束解码：Schema、语法状态和 Token Mask](daily/2026/09/2026-09-25-structured-output-constrained-decoding.md)
+- [工具调用的可靠执行：权限、幂等键、重试与结果回传](daily/2026/09/2026-09-26-reliable-tool-execution-idempotency.md)
 
 ## 提交约定
 
