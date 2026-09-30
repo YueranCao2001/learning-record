@@ -49,6 +49,7 @@
 - [检索增强生成：检索、证据组织与引用核验](daily/2026/09/2026-09-27-rag-retrieval-evidence-citations.md)
 - [检索排序：BM25、向量检索、RRF 与评估](daily/2026/09/2026-09-28-retrieval-ranking-bm25-rrf-evaluation.md)
 - [查询改写与多跳检索：意图保留、证据依赖和停止条件](daily/2026/09/2026-09-29-query-rewriting-multi-hop-retrieval.md)
+- [RAG 端到端评估与回归测试](daily/2026/09/2026-09-30-rag-evaluation-regression-tests.md)
 
 ## 提交约定
 
