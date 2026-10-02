@@ -51,6 +51,7 @@
 - [查询改写与多跳检索：意图保留、证据依赖和停止条件](daily/2026/09/2026-09-29-query-rewriting-multi-hop-retrieval.md)
 - [RAG 端到端评估与回归测试](daily/2026/09/2026-09-30-rag-evaluation-regression-tests.md)
 - [长上下文与上下文压缩](daily/2026/10/2026-10-01-long-context-evidence-compression.md)
+- [RAG 提示注入与信任边界](daily/2026/10/2026-10-02-rag-prompt-injection-trust-boundaries.md)
 
 ## 提交约定
 
