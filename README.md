@@ -52,6 +52,7 @@
 - [RAG 端到端评估与回归测试](daily/2026/09/2026-09-30-rag-evaluation-regression-tests.md)
 - [长上下文与上下文压缩](daily/2026/10/2026-10-01-long-context-evidence-compression.md)
 - [RAG 提示注入与信任边界](daily/2026/10/2026-10-02-rag-prompt-injection-trust-boundaries.md)
+- [RAG 缓存与失效策略](daily/2026/10/2026-10-03-rag-cache-invalidation.md)
 
 ## 提交约定
 
