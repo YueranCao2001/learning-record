@@ -54,6 +54,7 @@
 - [RAG 提示注入与信任边界](daily/2026/10/2026-10-02-rag-prompt-injection-trust-boundaries.md)
 - [RAG 缓存与失效策略](daily/2026/10/2026-10-03-rag-cache-invalidation.md)
 - [RAG 增量索引与版本发布](daily/2026/10/2026-10-04-rag-incremental-index-publication.md)
+- [RAG 可观测性与故障定位](daily/2026/10/2026-10-05-rag-observability-trace-diagnostics.md)
 
 ## 提交约定
 
