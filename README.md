@@ -56,6 +56,7 @@
 - [RAG 增量索引与版本发布](daily/2026/10/2026-10-04-rag-incremental-index-publication.md)
 - [RAG 可观测性与故障定位](daily/2026/10/2026-10-05-rag-observability-trace-diagnostics.md)
 - [RAG 超时预算与降级策略](daily/2026/10/2026-10-06-rag-deadlines-retries-fallbacks.md)
+- [RAG 流量控制与过载保护](daily/2026/10/2026-10-07-rag-admission-overload-protection.md)
 
 ## 提交约定
 
