@@ -57,6 +57,7 @@
 - [RAG 可观测性与故障定位](daily/2026/10/2026-10-05-rag-observability-trace-diagnostics.md)
 - [RAG 超时预算与降级策略](daily/2026/10/2026-10-06-rag-deadlines-retries-fallbacks.md)
 - [RAG 流量控制与过载保护](daily/2026/10/2026-10-07-rag-admission-overload-protection.md)
+- [RAG 工程端到端复盘与统一验收](daily/2026/10/2026-10-08-rag-end-to-end-acceptance-review.md)
 
 ## 提交约定
 
