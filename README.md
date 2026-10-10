@@ -59,6 +59,7 @@
 - [RAG 流量控制与过载保护](daily/2026/10/2026-10-07-rag-admission-overload-protection.md)
 - [RAG 工程端到端复盘与统一验收](daily/2026/10/2026-10-08-rag-end-to-end-acceptance-review.md)
 - [最小离线 RAG 检索与证据实验](daily/2026/10/2026-10-09-offline-rag-retrieval-evidence-experiment.md)
+- [中文文本检索与 BM25 对照实验](daily/2026/10/2026-10-10-chinese-tokenization-bm25-experiment.md)
 
 ## 提交约定
 
