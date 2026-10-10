@@ -14,4 +14,3 @@ Attention、位置机制、解码器结构、KV Cache 与采样。沿着张量�
 - 2026-08-24 [从 Logits 到 Token：Temperature、Top-k 与 Top-p](../daily/2026/08/2026-08-24-logits-sampling.md)
 
 [返回主题索引](README.md)
-

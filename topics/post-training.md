@@ -18,4 +18,3 @@ SFT、DPO、PPO 与 GRPO、Rollout 和奖励评估器。当前记录以概念及
 [评估与实验方法](evaluation-experiments.md) 提供这条实践链路的设计与验收入口。
 
 [返回主题索引](README.md)
-
