@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "dataset_version": "synthetic-policy-v1",
+  "synthetic": true,
+  "documents": [
+    {
+      "id": "rule",
+      "text": "普通设备支持30天内退货。",
+      "readers": [
+        "alice"
+      ]
+    },
+    {
+      "id": "exception",
+      "text": "定制设备不适用上述退货规则。",
+      "readers": [
+        "alice"
+      ]
+    },
+    {
+      "id": "warranty",
+      "text": "设备保修期限为12个月。",
+      "readers": [
+        "alice"
+      ]
+    },
+    {
+      "id": "private",
+      "text": "普通设备定制设备退货保修期限内部统计。",
+      "readers": [
+        "bob"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "ordinary",
+      "query": "普通设备退货",
+      "user": "alice",
+      "required": [
+        "rule"
+      ],
+      "slice": "direct"
+    },
+    {
+      "id": "custom",
+      "query": "定制设备退货",
+      "user": "alice",
+      "required": [
+        "rule",
+        "exception"
+      ],
+      "slice": "multi_evidence"
+    },
+    {
+      "id": "warranty",
+      "query": "保修期限",
+      "user": "alice",
+      "required": [
+        "warranty"
+      ],
+      "slice": "direct"
+    },
+    {
+      "id": "synonym",
+      "query": "质保多久",
+      "user": "alice",
+      "required": [
+        "warranty"
+      ],
+      "slice": "synonym"
+    },
+    {
+      "id": "missing",
+      "query": "配送运费",
+      "user": "alice",
+      "required": [],
+      "slice": "unanswerable"
+    }
+  ]
+}

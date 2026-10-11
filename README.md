@@ -81,6 +81,7 @@
 - [RAG 工程端到端复盘与统一验收](daily/2026/10/2026-10-08-rag-end-to-end-acceptance-review.md)
 - [最小离线 RAG 检索与证据实验](daily/2026/10/2026-10-09-offline-rag-retrieval-evidence-experiment.md)
 - [中文文本检索与 BM25 对照实验](daily/2026/10/2026-10-10-chinese-tokenization-bm25-experiment.md)
+- [将文本检索练习整理为共享基线](daily/2026/10/2026-10-11-reusable-retrieval-baseline.md)
 
 ## 提交约定
 

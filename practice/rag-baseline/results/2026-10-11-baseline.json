@@ -1,0 +1,305 @@
+{
+  "report_schema_version": 1,
+  "dataset_version": "synthetic-policy-v1",
+  "synthetic": true,
+  "python_version": "3.12.14",
+  "data_sha256": "a28f1b580b234370de3b0862f84f4cfa587dc706de8080b3142e64a8c3b1c8f5",
+  "code_sha256": {
+    "retrieval.py": "ea1da7cf964f731728ce7a291dd705e45bbb4355ec9ed7fe3d680c55ee49853d",
+    "run.py": "0c6e0867f038fe8713c6a0cb86ab5d77a5d5e5cfe59a9fa7121ba69d59b87024"
+  },
+  "idf": "log(N/df); visible documents only",
+  "k1": 1.2,
+  "b": 0.75,
+  "query_term_frequency": "unique",
+  "results": [
+    {
+      "config": "word_overlap",
+      "k": 2,
+      "answerable_count": 4,
+      "complete_count": 3,
+      "coverage": "3/4",
+      "rows": [
+        {
+          "case_id": "ordinary",
+          "slice": "direct",
+          "query": "普通设备退货",
+          "user": "alice",
+          "required": [
+            "rule"
+          ],
+          "hits": [
+            {
+              "id": "rule",
+              "score": 2
+            },
+            {
+              "id": "exception",
+              "score": 1
+            }
+          ],
+          "evidence_recall": "1",
+          "complete_evidence": true,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "custom",
+          "slice": "multi_evidence",
+          "query": "定制设备退货",
+          "user": "alice",
+          "required": [
+            "exception",
+            "rule"
+          ],
+          "hits": [
+            {
+              "id": "exception",
+              "score": 2
+            },
+            {
+              "id": "rule",
+              "score": 1
+            }
+          ],
+          "evidence_recall": "1",
+          "complete_evidence": true,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "warranty",
+          "slice": "direct",
+          "query": "保修期限",
+          "user": "alice",
+          "required": [
+            "warranty"
+          ],
+          "hits": [
+            {
+              "id": "warranty",
+              "score": 2
+            }
+          ],
+          "evidence_recall": "1",
+          "complete_evidence": true,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "synonym",
+          "slice": "synonym",
+          "query": "质保多久",
+          "user": "alice",
+          "required": [
+            "warranty"
+          ],
+          "hits": [],
+          "evidence_recall": "0",
+          "complete_evidence": false,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "missing",
+          "slice": "unanswerable",
+          "query": "配送运费",
+          "user": "alice",
+          "required": [],
+          "hits": [],
+          "evidence_recall": null,
+          "complete_evidence": null,
+          "unanswerable_returned": false
+        }
+      ]
+    },
+    {
+      "config": "word_bm25",
+      "k": 2,
+      "answerable_count": 4,
+      "complete_count": 3,
+      "coverage": "3/4",
+      "rows": [
+        {
+          "case_id": "ordinary",
+          "slice": "direct",
+          "query": "普通设备退货",
+          "user": "alice",
+          "required": [
+            "rule"
+          ],
+          "hits": [
+            {
+              "id": "rule",
+              "score": 1.504077396776
+            },
+            {
+              "id": "exception",
+              "score": 0.405465108108
+            }
+          ],
+          "evidence_recall": "1",
+          "complete_evidence": true,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "custom",
+          "slice": "multi_evidence",
+          "query": "定制设备退货",
+          "user": "alice",
+          "required": [
+            "exception",
+            "rule"
+          ],
+          "hits": [
+            {
+              "id": "exception",
+              "score": 1.504077396776
+            },
+            {
+              "id": "rule",
+              "score": 0.405465108108
+            }
+          ],
+          "evidence_recall": "1",
+          "complete_evidence": true,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "warranty",
+          "slice": "direct",
+          "query": "保修期限",
+          "user": "alice",
+          "required": [
+            "warranty"
+          ],
+          "hits": [
+            {
+              "id": "warranty",
+              "score": 2.197224577336
+            }
+          ],
+          "evidence_recall": "1",
+          "complete_evidence": true,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "synonym",
+          "slice": "synonym",
+          "query": "质保多久",
+          "user": "alice",
+          "required": [
+            "warranty"
+          ],
+          "hits": [],
+          "evidence_recall": "0",
+          "complete_evidence": false,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "missing",
+          "slice": "unanswerable",
+          "query": "配送运费",
+          "user": "alice",
+          "required": [],
+          "hits": [],
+          "evidence_recall": null,
+          "complete_evidence": null,
+          "unanswerable_returned": false
+        }
+      ]
+    },
+    {
+      "config": "bigram_bm25",
+      "k": 2,
+      "answerable_count": 4,
+      "complete_count": 3,
+      "coverage": "3/4",
+      "rows": [
+        {
+          "case_id": "ordinary",
+          "slice": "direct",
+          "query": "普通设备退货",
+          "user": "alice",
+          "required": [
+            "rule"
+          ],
+          "hits": [
+            {
+              "id": "rule",
+              "score": 2.602689685444
+            },
+            {
+              "id": "exception",
+              "score": 0.390926518574
+            }
+          ],
+          "evidence_recall": "1",
+          "complete_evidence": true,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "custom",
+          "slice": "multi_evidence",
+          "query": "定制设备退货",
+          "user": "alice",
+          "required": [
+            "exception",
+            "rule"
+          ],
+          "hits": [
+            {
+              "id": "exception",
+              "score": 2.509366150907
+            },
+            {
+              "id": "rule",
+              "score": 0.405465108108
+            }
+          ],
+          "evidence_recall": "1",
+          "complete_evidence": true,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "warranty",
+          "slice": "direct",
+          "query": "保修期限",
+          "user": "alice",
+          "required": [
+            "warranty"
+          ],
+          "hits": [
+            {
+              "id": "warranty",
+              "score": 3.423143869412
+            }
+          ],
+          "evidence_recall": "1",
+          "complete_evidence": true,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "synonym",
+          "slice": "synonym",
+          "query": "质保多久",
+          "user": "alice",
+          "required": [
+            "warranty"
+          ],
+          "hits": [],
+          "evidence_recall": "0",
+          "complete_evidence": false,
+          "unanswerable_returned": null
+        },
+        {
+          "case_id": "missing",
+          "slice": "unanswerable",
+          "query": "配送运费",
+          "user": "alice",
+          "required": [],
+          "hits": [],
+          "evidence_recall": null,
+          "complete_evidence": null,
+          "unanswerable_returned": false
+        }
+      ]
+    }
+  ]
+}
