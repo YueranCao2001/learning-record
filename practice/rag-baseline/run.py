@@ -1,5 +1,6 @@
 """Run the fixed synthetic retrieval baseline; emit a JSON report to stdout."""
 import hashlib
+import argparse
 import json
 import platform
 from fractions import Fraction
@@ -57,8 +58,8 @@ def evaluate(data, k=2):
     return results
 
 
-def report():
-    raw = (HERE / "data" / "baseline-v1.json").read_bytes()
+def report(dataset=None, k=2):
+    raw = (Path(dataset) if dataset else HERE / "data" / "baseline-v1.json").read_bytes()
     data = json.loads(raw.decode("utf-8"))
     code_files = ("retrieval.py", "run.py")
     return {"report_schema_version": 1, "dataset_version": data["dataset_version"],
@@ -67,8 +68,14 @@ def report():
             "code_sha256": {f: hashlib.sha256((HERE / f).read_bytes()).hexdigest()
                             for f in code_files},
             "idf": "log(N/df); visible documents only", "k1": 1.2, "b": 0.75,
-            "query_term_frequency": "unique", "results": evaluate(data)}
+            "query_term_frequency": "unique", "results": evaluate(data, k)}
 
 
 if __name__ == "__main__":
-    print(json.dumps(report(), ensure_ascii=False, indent=2, allow_nan=False))
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--dataset", type=Path, default=None)
+    parser.add_argument("--k", type=int, default=2)
+    args = parser.parse_args()
+    if args.k < 1:
+        parser.error("--k must be positive")
+    print(json.dumps(report(args.dataset, args.k), ensure_ascii=False, indent=2, allow_nan=False))

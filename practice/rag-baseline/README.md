@@ -25,8 +25,25 @@ python practice/rag-baseline/run.py
 
 ## 当前限制
 
-三种配置的完整证据覆盖率相同，都是 3/4。近义表达仍漏召回，这不是重构后应隐藏的失败。无答案题的召回与完整覆盖为 null，另外记录是否返回片段。
+v1 的三种配置完整证据覆盖率相同，都是 3/4。近义表达仍漏召回，这不是重构后应隐藏的失败。无答案题的召回与完整覆盖为 null，另外记录是否返回片段。
 
-下一步补充有区分力的案例并保存逐题排名，不先增加同义词扩展。原文引用检查的共享模块也仍待接入。
+v2 的机制诊断见下节。下一步接入原文引用检查的共享模块；同义词扩展与生成评估仍未完成。
+
+## 机制诊断数据
+
+2026 年 10 月 12 日新增 [baseline-v2.json](data/baseline-v2.json)。保留 v1 的原片段与问题，新增词频、长度和词边界三组诊断。每组用独立读者隔离三个可见片段，避免新增片段改变原问题的 BM25 统计量。检索代码与词典不变。
+
+新增问题中的 required 是预先指定的诊断目标，用于观察目标位置，不是独立标注的唯一语义证据。尤其长度案例中的长短片段都包含同一事实，不能将长片段排名靠前解释为回答必然错误。数据中的 design 记录运行前的预期方向；这些案例不是独立质量测试集。
+
+从仓库根目录执行：
+
+```powershell
+python -X utf8 practice/rag-baseline/run.py --dataset practice/rag-baseline/data/baseline-v2.json --k 1
+python -X utf8 practice/rag-baseline/run.py --dataset practice/rag-baseline/data/baseline-v2.json --k 2
+```
+
+保存的实际报告：[Top-1](results/2026-10-12-v2-top1.json)、[Top-2](results/2026-10-12-v2-top2.json)。每份包含三种配置、八道问题，共 24 条记录。Top-1 排名有差异；Top-2 均覆盖三个新增目标，近义漏召回仍存在。
+
+不直接比较 v1 与 v2 的总分：问题和诊断目标已经变化。v1 的历史报告保持不变；运行器新增命令行选项会改变代码指纹，但默认 v1 的检索结果保持一致。
 
 [当天笔记](../../daily/2026/10/2026-10-11-reusable-retrieval-baseline.md)

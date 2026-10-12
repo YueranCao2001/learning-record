@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "dataset_version": "synthetic-policy-v2-diagnostics",
+  "synthetic": true,
+  "documents": [
+    {
+      "id": "rule",
+      "text": "普通设备支持30天内退货。",
+      "readers": [
+        "alice"
+      ]
+    },
+    {
+      "id": "exception",
+      "text": "定制设备不适用上述退货规则。",
+      "readers": [
+        "alice"
+      ]
+    },
+    {
+      "id": "warranty",
+      "text": "设备保修期限为12个月。",
+      "readers": [
+        "alice"
+      ]
+    },
+    {
+      "id": "private",
+      "text": "普通设备定制设备退货保修期限内部统计。",
+      "readers": [
+        "bob"
+      ]
+    },
+    {
+      "id": "a_freq",
+      "text": "退货说明。",
+      "readers": [
+        "frequency"
+      ]
+    },
+    {
+      "id": "z_freq",
+      "text": "退货退货退货说明。",
+      "readers": [
+        "frequency"
+      ]
+    },
+    {
+      "id": "f_freq",
+      "text": "保修期限。",
+      "readers": [
+        "frequency"
+      ]
+    },
+    {
+      "id": "a_long",
+      "text": "设备保修期限为12个月。附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明附加说明",
+      "readers": [
+        "length"
+      ]
+    },
+    {
+      "id": "z_short",
+      "text": "设备保修期限为12个月。",
+      "readers": [
+        "length"
+      ]
+    },
+    {
+      "id": "f_length",
+      "text": "普通设备支持退货。",
+      "readers": [
+        "length"
+      ]
+    },
+    {
+      "id": "a_boundary",
+      "text": "设备不支持退货。",
+      "readers": [
+        "boundary"
+      ]
+    },
+    {
+      "id": "z_boundary",
+      "text": "普通设备支持退货。",
+      "readers": [
+        "boundary"
+      ]
+    },
+    {
+      "id": "f_boundary",
+      "text": "保修期限为12个月。",
+      "readers": [
+        "boundary"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "ordinary",
+      "query": "普通设备退货",
+      "user": "alice",
+      "required": [
+        "rule"
+      ],
+      "slice": "direct"
+    },
+    {
+      "id": "custom",
+      "query": "定制设备退货",
+      "user": "alice",
+      "required": [
+        "rule",
+        "exception"
+      ],
+      "slice": "multi_evidence"
+    },
+    {
+      "id": "warranty",
+      "query": "保修期限",
+      "user": "alice",
+      "required": [
+        "warranty"
+      ],
+      "slice": "direct"
+    },
+    {
+      "id": "synonym",
+      "query": "质保多久",
+      "user": "alice",
+      "required": [
+        "warranty"
+      ],
+      "slice": "synonym"
+    },
+    {
+      "id": "missing",
+      "query": "配送运费",
+      "user": "alice",
+      "required": [],
+      "slice": "unanswerable"
+    },
+    {
+      "id": "frequency",
+      "query": "退货",
+      "user": "frequency",
+      "required": [
+        "z_freq"
+      ],
+      "slice": "frequency"
+    },
+    {
+      "id": "length",
+      "query": "保修期限",
+      "user": "length",
+      "required": [
+        "z_short"
+      ],
+      "slice": "length"
+    },
+    {
+      "id": "boundary",
+      "query": "设备支持",
+      "user": "boundary",
+      "required": [
+        "z_boundary"
+      ],
+      "slice": "boundary"
+    }
+  ],
+  "design": {
+    "purpose": "Constructed mechanism diagnostics, not an independent quality benchmark.",
+    "predictions": [
+      "frequency: overlap tie resolves to a_freq; word BM25 should prefer z_freq.",
+      "length: overlap tie resolves to a_long; word BM25 should prefer z_short.",
+      "boundary: word representation should prefer a_boundary; bigrams should prefer z_boundary."
+    ],
+    "controls": "Each new slice has its own reader and three visible documents; retrieval.py, lexicon, k1 and b unchanged."
+  }
+}
