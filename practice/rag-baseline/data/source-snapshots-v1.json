@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "snapshot_version": "synthetic-sources-v1",
+  "synthetic": true,
+  "sources": [
+    {
+      "source_id": "rule",
+      "version": "v1",
+      "text": "普通设备支持30天内退货。"
+    },
+    {
+      "source_id": "exception",
+      "version": "v1",
+      "text": "定制设备不适用上述退货规则。"
+    },
+    {
+      "source_id": "warranty",
+      "version": "v1",
+      "text": "设备保修期限为12个月。"
+    },
+    {
+      "source_id": "private",
+      "version": "v1",
+      "text": "普通设备定制设备退货保修期限内部统计。"
+    }
+  ]
+}

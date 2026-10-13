@@ -1,6 +1,6 @@
 # 离线 RAG 检索基线
 
-将 2026 年 10 月 10 日的三个文本检索配置整理为共享代码。当前只有检索与证据覆盖评估，没有生成、压缩或语义引用核验。
+将 2026 年 10 月 10 日的三个文本检索配置整理为共享代码，并接入输入证据与原文引用检查。当前没有生成、压缩或语义引用核验。
 
 ## 固定输入
 
@@ -27,7 +27,7 @@ python practice/rag-baseline/run.py
 
 v1 的三种配置完整证据覆盖率相同，都是 3/4。近义表达仍漏召回，这不是重构后应隐藏的失败。无答案题的召回与完整覆盖为 null，另外记录是否返回片段。
 
-v2 的机制诊断见下节。下一步接入原文引用检查的共享模块；同义词扩展与生成评估仍未完成。
+v2 的机制诊断与原文引用检查见下节。同义词扩展与真实生成评估仍未完成。
 
 ## 机制诊断数据
 
@@ -47,3 +47,18 @@ python -X utf8 practice/rag-baseline/run.py --dataset practice/rag-baseline/data
 不直接比较 v1 与 v2 的总分：问题和诊断目标已经变化。v1 的历史报告保持不变；运行器新增命令行选项会改变代码指纹，但默认 v1 的检索结果保持一致。
 
 [当天笔记](../../daily/2026/10/2026-10-11-reusable-retrieval-baseline.md)
+
+## 原文引用检查
+
+[citations.py](citations.py) 从检索结果组装绑定来源版本的证据包。引用必须来自实际输入，满足当前允许集合、版本、范围与原文匹配。固定来源在 [source-snapshots-v1.json](data/source-snapshots-v1.json)，来自同一合成 v1 语料，不改动原检索数据。
+
+```powershell
+python -m unittest discover -s practice/rag-baseline -p "test_*.py" -v
+python -X utf8 practice/rag-baseline/citation_demo.py
+```
+
+[实际报告](results/2026-10-13-citations.json) 保存十个案例：八个异常引用被拒绝，正常引用和真实引文搭配错误结论均通过原文检查。共 21 项测试通过。这不是生成质量或语义支持评价。
+
+偏移为 Python 字符串的左闭右开区间。允许集合、来源快照和输入证据由可信应用层提供，调用者不得将模型自报的权限当作允许集合。证据摘要不是来源认证签名；本地撤权案例不证明真实并发权限同步已经实现。
+
+下一步建立实际生成的输入输出协议和独立问题标注，在明确模型与预算后接入生成。参见 [10 月 13 日笔记](../../daily/2026/10/2026-10-13-source-citation-checks.md)。

@@ -83,6 +83,7 @@
 - [中文文本检索与 BM25 对照实验](daily/2026/10/2026-10-10-chinese-tokenization-bm25-experiment.md)
 - [将文本检索练习整理为共享基线](daily/2026/10/2026-10-11-reusable-retrieval-baseline.md)
 - [用诊断案例区分检索表示与排序](daily/2026/10/2026-10-12-retrieval-ranking-diagnostic-cases.md)
+- [将原文引用检查接入共享检索项目](daily/2026/10/2026-10-13-source-citation-checks.md)
 
 ## 提交约定
 

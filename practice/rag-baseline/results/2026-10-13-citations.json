@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "python_version": "3.12.14",
+  "query": "普通设备退货",
+  "user": "alice",
+  "config": "word_overlap",
+  "k": 2,
+  "snapshot_version": "synthetic-sources-v1",
+  "sha256": {
+    "dataset": "a28f1b580b234370de3b0862f84f4cfa587dc706de8080b3142e64a8c3b1c8f5",
+    "snapshots": "199730e838e0522642d8c6e0d89ee7cda02a9e221cebba86c33e709eba4b06f1",
+    "retrieval.py": "ea1da7cf964f731728ce7a291dd705e45bbb4355ec9ed7fe3d680c55ee49853d",
+    "run.py": "8bdb5887d58b3d61481b722deab6fe3a2d683641cfe1e5b7363c4f8af1af69d4",
+    "citations.py": "59d29e647e18c7c68b288e7f2ece50c788be362544f0fe87f070460e496614c8",
+    "citation_demo.py": "d43b0a5bc57cc140e85b735f3059452a3681a811000825070019100166be6b2f"
+  },
+  "supplied_evidence": [
+    {
+      "chunk_id": "63ba9b9d7673cdf0627a9218630925db662ba2e3684eccbe340d79b033415b06",
+      "source_id": "rule",
+      "version": "v1",
+      "start": 0,
+      "end": 13,
+      "text": "普通设备支持30天内退货。"
+    },
+    {
+      "chunk_id": "28a5d8e19019171533ac9e7e3e11ee99fed0549c69ef939d89f5a8e86aec406f",
+      "source_id": "exception",
+      "version": "v1",
+      "start": 0,
+      "end": 14,
+      "text": "定制设备不适用上述退货规则。"
+    }
+  ],
+  "rows": [
+    {
+      "case_id": "valid",
+      "citation": {
+        "chunk_id": "63ba9b9d7673cdf0627a9218630925db662ba2e3684eccbe340d79b033415b06",
+        "source_id": "rule",
+        "version": "v1",
+        "start": 0,
+        "end": 13,
+        "quote": "普通设备支持30天内退货。"
+      },
+      "provenance_passed": true,
+      "expected_provenance": true,
+      "reason": null,
+      "semantic_support": "not_evaluated"
+    },
+    {
+      "case_id": "forged_id",
+      "citation": {
+        "chunk_id": "invented",
+        "source_id": "rule",
+        "version": "v1",
+        "start": 0,
+        "end": 13,
+        "quote": "普通设备支持30天内退货。"
+      },
+      "provenance_passed": false,
+      "expected_provenance": false,
+      "reason": "citation not in supplied evidence",
+      "semantic_support": "not_evaluated"
+    },
+    {
+      "case_id": "altered_quote",
+      "citation": {
+        "chunk_id": "63ba9b9d7673cdf0627a9218630925db662ba2e3684eccbe340d79b033415b06",
+        "source_id": "rule",
+        "version": "v1",
+        "start": 0,
+        "end": 13,
+        "quote": "所有设备支持退货。"
+      },
+      "provenance_passed": false,
+      "expected_provenance": false,
+      "reason": "quote differs from source",
+      "semantic_support": "not_evaluated"
+    },
+    {
+      "case_id": "wrong_version",
+      "citation": {
+        "chunk_id": "63ba9b9d7673cdf0627a9218630925db662ba2e3684eccbe340d79b033415b06",
+        "source_id": "rule",
+        "version": "v2",
+        "start": 0,
+        "end": 13,
+        "quote": "普通设备支持30天内退货。"
+      },
+      "provenance_passed": false,
+      "expected_provenance": false,
+      "reason": "citation source or version mismatch",
+      "semantic_support": "not_evaluated"
+    },
+    {
+      "case_id": "wrong_source",
+      "citation": {
+        "chunk_id": "63ba9b9d7673cdf0627a9218630925db662ba2e3684eccbe340d79b033415b06",
+        "source_id": "warranty",
+        "version": "v1",
+        "start": 0,
+        "end": 13,
+        "quote": "普通设备支持30天内退货。"
+      },
+      "provenance_passed": false,
+      "expected_provenance": false,
+      "reason": "citation source or version mismatch",
+      "semantic_support": "not_evaluated"
+    },
+    {
+      "case_id": "not_in_context",
+      "citation": {
+        "chunk_id": "4579d8d2f19e7535d7e6e53513991f347aba0b7ae43a69c8fe5190b06fecbd30",
+        "source_id": "warranty",
+        "version": "v1",
+        "start": 0,
+        "end": 12,
+        "quote": "设备保修期限为12个月。"
+      },
+      "provenance_passed": false,
+      "expected_provenance": false,
+      "reason": "citation not in supplied evidence",
+      "semantic_support": "not_evaluated"
+    },
+    {
+      "case_id": "outside_range",
+      "citation": {
+        "chunk_id": "63ba9b9d7673cdf0627a9218630925db662ba2e3684eccbe340d79b033415b06",
+        "source_id": "rule",
+        "version": "v1",
+        "start": 0,
+        "end": 14,
+        "quote": "普通设备支持30天内退货。"
+      },
+      "provenance_passed": false,
+      "expected_provenance": false,
+      "reason": "citation outside supplied range",
+      "semantic_support": "not_evaluated"
+    },
+    {
+      "case_id": "changed_snapshot",
+      "citation": {
+        "chunk_id": "63ba9b9d7673cdf0627a9218630925db662ba2e3684eccbe340d79b033415b06",
+        "source_id": "rule",
+        "version": "v1",
+        "start": 0,
+        "end": 13,
+        "quote": "普通设备支持30天内退货。"
+      },
+      "provenance_passed": false,
+      "expected_provenance": false,
+      "reason": "invalid evidence range",
+      "semantic_support": "not_evaluated"
+    },
+    {
+      "case_id": "revoked",
+      "citation": {
+        "chunk_id": "63ba9b9d7673cdf0627a9218630925db662ba2e3684eccbe340d79b033415b06",
+        "source_id": "rule",
+        "version": "v1",
+        "start": 0,
+        "end": 13,
+        "quote": "普通设备支持30天内退货。"
+      },
+      "provenance_passed": false,
+      "expected_provenance": false,
+      "reason": "source no longer authorized",
+      "semantic_support": "not_evaluated"
+    },
+    {
+      "case_id": "contradictory_claim",
+      "citation": {
+        "chunk_id": "63ba9b9d7673cdf0627a9218630925db662ba2e3684eccbe340d79b033415b06",
+        "source_id": "rule",
+        "version": "v1",
+        "start": 0,
+        "end": 13,
+        "quote": "普通设备支持30天内退货。"
+      },
+      "provenance_passed": true,
+      "expected_provenance": true,
+      "reason": null,
+      "semantic_support": "not_evaluated",
+      "claim": "所有设备都支持30天内退货。",
+      "manual_note": "The claim broadens ordinary equipment to all equipment; exact quote checking does not catch it."
+    }
+  ],
+  "cases_matched_expectation": 10,
+  "provenance_pass_count": 2,
+  "semantic_support_evaluated": false
+}
