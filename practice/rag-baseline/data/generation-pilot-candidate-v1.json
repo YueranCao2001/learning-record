@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "dataset_version": "generation-pilot-candidate-v1",
+  "synthetic": true,
+  "review_status": "self_checked_pending_independent_review",
+  "independent_confirmation_set": false,
+  "context_mode": "controlled_context_not_retrieval",
+  "allowed_sources": [
+    "rule",
+    "exception",
+    "warranty",
+    "dated-policy"
+  ],
+  "cases": [
+    {
+      "id": "ordinary_return",
+      "query": "普通设备可以在多少天内退货？",
+      "context_sources": [
+        [
+          "rule",
+          "v1"
+        ]
+      ],
+      "rubric": {
+        "expected_status": "completed",
+        "must_preserve": [
+          "普通设备范围",
+          "30天"
+        ],
+        "unsupported": [
+          "所有设备均可退货"
+        ],
+        "support_sources": [
+          [
+            "rule",
+            "v1"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "custom_exception",
+      "query": "定制设备是否适用普通设备的30天退货规则？",
+      "context_sources": [
+        [
+          "rule",
+          "v1"
+        ],
+        [
+          "exception",
+          "v1"
+        ]
+      ],
+      "rubric": {
+        "expected_status": "completed",
+        "must_preserve": [
+          "定制设备不适用该普通设备规则"
+        ],
+        "unsupported": [
+          "定制设备一律支持30天退货"
+        ],
+        "support_sources": [
+          [
+            "rule",
+            "v1"
+          ],
+          [
+            "exception",
+            "v1"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "delivery_missing",
+      "query": "配送运费是多少？",
+      "context_sources": [],
+      "rubric": {
+        "expected_status": "insufficient_evidence",
+        "must_preserve": [
+          "当前证据没有运费信息"
+        ],
+        "unsupported": [
+          "编造价格或免运费"
+        ],
+        "support_sources": []
+      }
+    },
+    {
+      "id": "related_not_supporting",
+      "query": "保修期间维修一定免费吗？",
+      "context_sources": [
+        [
+          "warranty",
+          "v1"
+        ]
+      ],
+      "rubric": {
+        "expected_status": "insufficient_evidence",
+        "must_preserve": [
+          "保修期限不能决定维修是否免费"
+        ],
+        "unsupported": [
+          "保修期内一定免费",
+          "保修期内一定收费"
+        ],
+        "support_sources": []
+      }
+    },
+    {
+      "id": "version_conflict",
+      "query": "2026年10月16日购买的普通设备，两份政策期限不同，应采用哪一份？",
+      "context_sources": [
+        [
+          "dated-policy",
+          "v1"
+        ],
+        [
+          "dated-policy",
+          "v2"
+        ]
+      ],
+      "rubric": {
+        "expected_status": "completed",
+        "must_preserve": [
+          "按购买日期适用新版",
+          "7天退货期限",
+          "旧版30天适用于此前购买范围"
+        ],
+        "unsupported": [
+          "只按版本编号大小决定",
+          "全部历史订单一律改为7天"
+        ],
+        "support_sources": [
+          [
+            "dated-policy",
+            "v1"
+          ],
+          [
+            "dated-policy",
+            "v2"
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "snapshot_version": "generation-pilot-sources-v1",
+  "synthetic": true,
+  "sources": [
+    {
+      "source_id": "rule",
+      "version": "v1",
+      "text": "普通设备支持30天内退货。"
+    },
+    {
+      "source_id": "exception",
+      "version": "v1",
+      "text": "定制设备不适用上述退货规则。"
+    },
+    {
+      "source_id": "warranty",
+      "version": "v1",
+      "text": "设备保修期限为12个月。"
+    },
+    {
+      "source_id": "dated-policy",
+      "version": "v1",
+      "text": "普通设备退货政策旧版：适用于2026年1月1日及之后、2026年10月15日之前购买的普通设备，支持30天内退货。",
+      "effective_from": "2026-01-01",
+      "effective_until_exclusive": "2026-10-15"
+    },
+    {
+      "source_id": "dated-policy",
+      "version": "v2",
+      "text": "普通设备退货政策新版：适用于2026年10月15日及之后购买的普通设备，支持7天内退货；此前购买的设备仍按旧版办理。",
+      "effective_from": "2026-10-15",
+      "effective_until_exclusive": null
+    }
+  ]
+}

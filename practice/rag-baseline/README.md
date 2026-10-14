@@ -70,3 +70,16 @@ python -X utf8 practice/rag-baseline/citation_demo.py
 [生成协议](generation-protocol.md) 说明具体字段、状态与运行清单；[五题草案](data/generation-review-draft.json) 尚待独立审查，版本冲突题缺少来源，不能直接运行或当作未见确认集。
 
 下一步确认模型和预算、审查标注，并接入后端执行一题 smoke test。当前没有模型适配器或实际调用。参见 [10 月 14 日笔记](../../daily/2026/10/2026-10-14-generation-contract-review-draft.md)。
+
+## 生成请求准备
+
+[试跑候选](data/generation-pilot-candidate-v1.json) 与 [试跑来源](data/generation-pilot-sources-v1.json) 补齐五题的控制上下文、评分依据和日期版本来源；状态为自查完成、待独立审查。
+
+```powershell
+python -m unittest discover -s practice/rag-baseline -p "test_*.py" -v
+python -X utf8 practice/rag-baseline/prepare_generation.py
+```
+
+共 33 项测试通过。[本次实际准备结果](results/2026-10-15-prepared-requests.json) 含五份请求、model_calls=0。评分依据不会进入请求；上下文人为指定，不代表实际检索或模型回答结果。
+
+下一步需确定后端与预算，独立审查后执行一题真实生成。参见 [10 月 15 日笔记](../../daily/2026/10/2026-10-15-pilot-sources-and-scoring-rubric.md)。

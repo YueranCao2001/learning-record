@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "execution_kind": "request_preparation_only",
+  "model_calls": 0,
+  "dataset_version": "generation-pilot-candidate-v1",
+  "review_status": "self_checked_pending_independent_review",
+  "context_mode": "controlled_context_not_retrieval",
+  "sha256": {
+    "candidate": "7a6507b146a43b1bd23d90e569ecaca8784a2931474b831bd8c974e2e43f25cb",
+    "sources": "242bf7f91ffb65a0385f548450ff1f7acc9e035e59dd4817e1ff63c27c06203a",
+    "prepare_generation.py": "8cd3f2d81f1e98193ee4e42076647ee05c732a61402b27000cd87f1565c07dad",
+    "generation_contract.py": "57d7ed57407b544120d95d935f913bc54defba46e10bb57a693b8818a8c8d3eb",
+    "citations.py": "59d29e647e18c7c68b288e7f2ece50c788be362544f0fe87f070460e496614c8",
+    "retrieval.py": "ea1da7cf964f731728ce7a291dd705e45bbb4355ec9ed7fe3d680c55ee49853d"
+  },
+  "requests": [
+    {
+      "contract_version": 1,
+      "request_id": "ordinary_return",
+      "query": "普通设备可以在多少天内退货？",
+      "context_sha256": "1c90232a39d58eedf99680603d990b7c1179b771400d0674ddfa14ece2b815fd",
+      "evidence": [
+        {
+          "chunk_id": "63ba9b9d7673cdf0627a9218630925db662ba2e3684eccbe340d79b033415b06",
+          "source_id": "rule",
+          "version": "v1",
+          "start": 0,
+          "end": 13,
+          "text": "普通设备支持30天内退货。"
+        }
+      ]
+    },
+    {
+      "contract_version": 1,
+      "request_id": "custom_exception",
+      "query": "定制设备是否适用普通设备的30天退货规则？",
+      "context_sha256": "05557df00a9f83a77d63c97a340ba949483fbf3ddd142f25e69d2bc993c9ac48",
+      "evidence": [
+        {
+          "chunk_id": "63ba9b9d7673cdf0627a9218630925db662ba2e3684eccbe340d79b033415b06",
+          "source_id": "rule",
+          "version": "v1",
+          "start": 0,
+          "end": 13,
+          "text": "普通设备支持30天内退货。"
+        },
+        {
+          "chunk_id": "28a5d8e19019171533ac9e7e3e11ee99fed0549c69ef939d89f5a8e86aec406f",
+          "source_id": "exception",
+          "version": "v1",
+          "start": 0,
+          "end": 14,
+          "text": "定制设备不适用上述退货规则。"
+        }
+      ]
+    },
+    {
+      "contract_version": 1,
+      "request_id": "delivery_missing",
+      "query": "配送运费是多少？",
+      "context_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "evidence": []
+    },
+    {
+      "contract_version": 1,
+      "request_id": "related_not_supporting",
+      "query": "保修期间维修一定免费吗？",
+      "context_sha256": "459b2843b39b9a475c1f2b72a860ad50fa5f208b8ea50fe883f7ec437aa50dbe",
+      "evidence": [
+        {
+          "chunk_id": "4579d8d2f19e7535d7e6e53513991f347aba0b7ae43a69c8fe5190b06fecbd30",
+          "source_id": "warranty",
+          "version": "v1",
+          "start": 0,
+          "end": 12,
+          "text": "设备保修期限为12个月。"
+        }
+      ]
+    },
+    {
+      "contract_version": 1,
+      "request_id": "version_conflict",
+      "query": "2026年10月16日购买的普通设备，两份政策期限不同，应采用哪一份？",
+      "context_sha256": "d4ca861a6f2094e3d8795bd515e300a9c576bbdb78a7605731991fd6933913d6",
+      "evidence": [
+        {
+          "chunk_id": "379019ed5dcc3e01f8e207bfa0650cde2d3dc588235c216b996a4a6cee1746b3",
+          "source_id": "dated-policy",
+          "version": "v1",
+          "start": 0,
+          "end": 57,
+          "text": "普通设备退货政策旧版：适用于2026年1月1日及之后、2026年10月15日之前购买的普通设备，支持30天内退货。"
+        },
+        {
+          "chunk_id": "a07ea975f373ab52e78e2e9e857386f25e28cd1b060e3e7a1b63e067fbb16584",
+          "source_id": "dated-policy",
+          "version": "v2",
+          "start": 0,
+          "end": 58,
+          "text": "普通设备退货政策新版：适用于2026年10月15日及之后购买的普通设备，支持7天内退货；此前购买的设备仍按旧版办理。"
+        }
+      ]
+    }
+  ]
+}
