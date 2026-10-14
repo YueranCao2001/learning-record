@@ -61,4 +61,12 @@ python -X utf8 practice/rag-baseline/citation_demo.py
 
 偏移为 Python 字符串的左闭右开区间。允许集合、来源快照和输入证据由可信应用层提供，调用者不得将模型自报的权限当作允许集合。证据摘要不是来源认证签名；本地撤权案例不证明真实并发权限同步已经实现。
 
-下一步建立实际生成的输入输出协议和独立问题标注，在明确模型与预算后接入生成。参见 [10 月 13 日笔记](../../daily/2026/10/2026-10-13-source-citation-checks.md)。
+原文检查的边界见 [10 月 13 日笔记](../../daily/2026/10/2026-10-13-source-citation-checks.md)。
+
+## 生成协议与审查草案
+
+[generation_contract.py](generation_contract.py) 已复用引用检查，校验请求绑定、响应状态与逐主张引用。使用手工响应夹具的七项新增测试后，整个项目共 28 项测试通过。
+
+[生成协议](generation-protocol.md) 说明具体字段、状态与运行清单；[五题草案](data/generation-review-draft.json) 尚待独立审查，版本冲突题缺少来源，不能直接运行或当作未见确认集。
+
+下一步确认模型和预算、审查标注，并接入后端执行一题 smoke test。当前没有模型适配器或实际调用。参见 [10 月 14 日笔记](../../daily/2026/10/2026-10-14-generation-contract-review-draft.md)。

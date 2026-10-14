@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "dataset_version": "generation-review-draft-v1",
+  "synthetic": true,
+  "review_status": "pending",
+  "independent_confirmation_set": false,
+  "cases": [
+    {
+      "id": "ordinary_return",
+      "query": "普通设备可以在多少天内退货？",
+      "candidate_sources": ["rule"],
+      "review_focus": "答案应保留普通设备范围和30天期限，不扩大到所有设备。"
+    },
+    {
+      "id": "custom_exception",
+      "query": "定制设备是否适用普通设备的30天退货规则？",
+      "candidate_sources": ["rule", "exception"],
+      "review_focus": "一般规则与定制例外共同审查，不能只引用一般规则。"
+    },
+    {
+      "id": "delivery_missing",
+      "query": "配送运费是多少？",
+      "candidate_sources": [],
+      "review_focus": "现有快照没有运费信息；确认缺证据时应说明缺失，不编造价格。"
+    },
+    {
+      "id": "related_not_supporting",
+      "query": "保修期间维修一定免费吗？",
+      "candidate_sources": ["warranty"],
+      "review_focus": "12个月保修期限不直接支持免费维修的结论。"
+    },
+    {
+      "id": "version_conflict",
+      "query": "两份退货政策期限不同，当前应采用哪一份？",
+      "candidate_sources": [],
+      "execution_status": "needs_new_versioned_sources",
+      "review_focus": "需先提供两份政策的来源、版本与生效信息；未确认适用时间前不能任意选取。"
+    }
+  ]
+}
