@@ -2,7 +2,7 @@
 
 ## 当前接口
 
-[generation_contract.py](generation_contract.py) 提供 build_request 与 validate_response。前者保存查询和实际输入证据，后者检查响应结构、请求绑定和原文引用。当前没有模型适配器或网络调用。
+[generation_contract.py](generation_contract.py) 提供 build_request 与 validate_response。前者保存查询和实际输入证据，后者检查响应结构、请求绑定和原文引用。[ollama_smoke.py](ollama_smoke.py) 已接通本地单题调用，尚无全问题集运行入口。
 
 请求字段为 contract_version、request_id、query、context_sha256、evidence。context_sha256 按输入证据的顺序与完整字段计算，应用层保留原请求和证据包，不从模型回传值重建可信上下文。它用于定位记录，不是身份认证或数字签名。
 
@@ -23,7 +23,7 @@ eligible_for_answer_review 只表示能够进入后续审查。主张范围合�
 
 生成运行清单需包含后端、模型版本、提示版本、解码配置、输出预算、超时、数据版本及代码指纹。每次记录原始输出、标准化响应、耗时、输入输出 token 数与成本；后端未提供的字段为 null，不填 0。
 
-当前模型、调用方式和预算待确定。确认后先用一题 smoke test 检查实际字段与完成原因，再冻结配置运行整个小集；不在每天更新笔记时自动开启付费调用。
+已选择本机 Ollama 与 qwen3:8b，完成一次控制上下文的普通退货题调用。固定提示和参数后继续逐题运行；未接入付费 API。首次输出和实际参数见 [运行报告](results/2026-10-16-ollama-smoke.json)。
 
 ## 待审查问题
 

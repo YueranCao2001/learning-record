@@ -1,6 +1,6 @@
 # 离线 RAG 检索基线
 
-将 2026 年 10 月 10 日的三个文本检索配置整理为共享代码，并接入输入证据与原文引用检查。当前没有生成、压缩或语义引用核验。
+将三个文本检索配置整理为共享代码，并接入输入证据、原文引用与 Ollama 本地单题生成。当前没有压缩或自动语义支持评价。
 
 ## 固定输入
 
@@ -69,7 +69,7 @@ python -X utf8 practice/rag-baseline/citation_demo.py
 
 [生成协议](generation-protocol.md) 说明具体字段、状态与运行清单；[五题草案](data/generation-review-draft.json) 尚待独立审查，版本冲突题缺少来源，不能直接运行或当作未见确认集。
 
-下一步确认模型和预算、审查标注，并接入后端执行一题 smoke test。当前没有模型适配器或实际调用。参见 [10 月 14 日笔记](../../daily/2026/10/2026-10-14-generation-contract-review-draft.md)。
+协议准备阶段见 [10 月 14 日笔记](../../daily/2026/10/2026-10-14-generation-contract-review-draft.md)，本地模型接入状态见下节。
 
 ## 生成请求准备
 
@@ -82,4 +82,21 @@ python -X utf8 practice/rag-baseline/prepare_generation.py
 
 共 33 项测试通过。[本次实际准备结果](results/2026-10-15-prepared-requests.json) 含五份请求、model_calls=0。评分依据不会进入请求；上下文人为指定，不代表实际检索或模型回答结果。
 
-下一步需确定后端与预算，独立审查后执行一题真实生成。参见 [10 月 15 日笔记](../../daily/2026/10/2026-10-15-pilot-sources-and-scoring-rubric.md)。
+准备阶段见 [10 月 15 日笔记](../../daily/2026/10/2026-10-15-pilot-sources-and-scoring-rubric.md)。五题候选仍待独立审查。
+
+## Ollama 本地单题入口
+
+[ollama_smoke.py](ollama_smoke.py) 固定访问 127.0.0.1:11434，使用本机 qwen3:8b。每次显式执行最多发起一次生成请求，不下载模型、不访问云端、不自动重试。模型先通过 Ollama 的安装流程下载到本机，不提交到 Git。
+
+```powershell
+ollama pull qwen3:8b
+python -X utf8 practice/rag-baseline/ollama_smoke.py
+```
+
+入口选择第一道普通退货题，使用人工固定上下文。模型返回 answer、status、citations、reason；引用仅接受原输入 ID 和唯一匹配的原文，应用层确定性计算字符位置并复用原文检查。不会猜测缺失引用或修正错误原文；当前整段短答案作为一个主张，并不自动拆解多主张。
+
+输出保留原始 Ollama 响应、实际提示与输入、参数、模型摘要、用量、耗时、规范化结果和失败原因。temperature=0、seed=42、num_ctx=4096、num_predict=512、think=false；后端正常停止才进入规范化，截断结果不算完成。成本未知为 null，本地运行仍消耗计算资源。
+
+接口依据 [Ollama Chat API](https://docs.ollama.com/api/chat) 与 [结构化输出说明](https://docs.ollama.com/capabilities/structured-outputs)。后续修改提示或重跑必须另存记录，不能覆盖首次输出。
+
+2026 年 10 月 16 日首题真实调用正常停止，回答为普通设备可以在30天内退货，引用检查通过。[原始报告](results/2026-10-16-ollama-smoke.json) 与 [助手单题审查](results/2026-10-16-ollama-smoke-review.json) 分别保存，不冒称独立评估。37 项本地测试通过，其他四题和真实检索链路待运行。详见 [当天笔记](../../daily/2026/10/2026-10-16-ollama-first-local-generation.md)。

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "report": "2026-10-16-ollama-smoke.json",
+  "case_id": "ordinary_return",
+  "reviewer": "assistant",
+  "independent_review": false,
+  "scope": "single synthetic controlled-context smoke test",
+  "answer": "普通设备可以在30天内退货。",
+  "answer_matches_supplied_evidence": true,
+  "citation_supports_this_answer": true,
+  "reason": "回答保留普通设备范围与30天期限；引文为普通设备支持30天内退货，没有增加其他承诺。",
+  "not_evaluated": [
+    "其他四题",
+    "拒答行为",
+    "真实检索链路",
+    "多主张引用覆盖",
+    "独立泛化质量",
+    "重复运行延迟分布"
+  ]
+}
