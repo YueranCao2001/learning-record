@@ -2,7 +2,7 @@
 
 ## 当前接口
 
-[generation_contract.py](generation_contract.py) 提供 build_request 与 validate_response。前者保存查询和实际输入证据，后者检查响应结构、请求绑定和原文引用。[ollama_smoke.py](ollama_smoke.py) 已接通本地单题调用，尚无全问题集运行入口。
+[generation_contract.py](generation_contract.py) 提供 build_request 与 validate_response。前者保存查询和实际输入证据，后者检查响应结构、请求绑定和原文引用。[ollama_smoke.py](ollama_smoke.py) 已支持 --case 按问题 ID 发起单次本地调用，未实现独立质量自动评分。
 
 请求字段为 contract_version、request_id、query、context_sha256、evidence。context_sha256 按输入证据的顺序与完整字段计算，应用层保留原请求和证据包，不从模型回传值重建可信上下文。它用于定位记录，不是身份认证或数字签名。
 

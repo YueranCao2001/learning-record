@@ -93,10 +93,24 @@ ollama pull qwen3:8b
 python -X utf8 practice/rag-baseline/ollama_smoke.py
 ```
 
-入口选择第一道普通退货题，使用人工固定上下文。模型返回 answer、status、citations、reason；引用仅接受原输入 ID 和唯一匹配的原文，应用层确定性计算字符位置并复用原文检查。不会猜测缺失引用或修正错误原文；当前整段短答案作为一个主张，并不自动拆解多主张。
+入口默认选择普通退货题，也可使用 --case 指定固定问题 ID，仍使用人工固定上下文。模型返回 answer、status、citations、reason；引用仅接受原输入 ID 和唯一匹配的原文，应用层确定性计算字符位置并复用原文检查。不会猜测缺失引用或修正错误原文；当前整段短答案作为一个主张，并不自动拆解多主张。
 
 输出保留原始 Ollama 响应、实际提示与输入、参数、模型摘要、用量、耗时、规范化结果和失败原因。temperature=0、seed=42、num_ctx=4096、num_predict=512、think=false；后端正常停止才进入规范化，截断结果不算完成。成本未知为 null，本地运行仍消耗计算资源。
 
 接口依据 [Ollama Chat API](https://docs.ollama.com/api/chat) 与 [结构化输出说明](https://docs.ollama.com/capabilities/structured-outputs)。后续修改提示或重跑必须另存记录，不能覆盖首次输出。
 
 2026 年 10 月 16 日首题真实调用正常停止，回答为普通设备可以在30天内退货，引用检查通过。[原始报告](results/2026-10-16-ollama-smoke.json) 与 [助手单题审查](results/2026-10-16-ollama-smoke-review.json) 分别保存，不冒称独立评估。37 项本地测试通过，其他四题和真实检索链路待运行。详见 [当天笔记](../../daily/2026/10/2026-10-16-ollama-first-local-generation.md)。
+
+## 例外与缺证据案例
+
+2026 年 10 月 17 日，在相同模型、提示和参数下执行以下三题，每题一次，无自动重试：
+
+```powershell
+python -X utf8 practice/rag-baseline/ollama_smoke.py --case custom_exception
+python -X utf8 practice/rag-baseline/ollama_smoke.py --case delivery_missing
+python -X utf8 practice/rag-baseline/ollama_smoke.py --case related_not_supporting
+```
+
+[定制题](results/2026-10-17-custom_exception.json) 答案保留例外，但唯一引文中的上述缺少一般规则引用，助手按既定评分依据标为引用支持不完整。[运费题](results/2026-10-17-delivery_missing.json) 和 [维修题](results/2026-10-17-related_not_supporting.json) 均返回证据不足，answer 为空，reason 说明缺失。
+
+[审查记录](results/2026-10-17-review.json) 与原输出分开，仍非独立审查。39 项本地测试通过；下一步先运行日期版本题，再版本化对照引用充分性约束。详见 [当天笔记](../../daily/2026/10/2026-10-17-exceptions-and-insufficient-evidence.md)。

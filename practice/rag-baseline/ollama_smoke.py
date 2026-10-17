@@ -1,5 +1,6 @@
 """One explicit local Ollama call on synthetic controlled context; no automatic retries."""
 import hashlib
+import argparse
 import json
 import platform
 import time
@@ -87,12 +88,19 @@ def normalize(raw, request, evidence):
                        if result["status"] == "completed" else [])}
 
 
-def run():
+def select_request(requests, case_id):
+    matches = [request for request in requests if request["request_id"] == case_id]
+    if len(matches) != 1:
+        raise ValueError("case ID must match exactly one prepared request")
+    return matches[0]
+
+
+def run(case_id="ordinary_return"):
     candidate_path = HERE / "data/generation-pilot-candidate-v1.json"
     source_path = HERE / "data/generation-pilot-sources-v1.json"
     candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
     sources = json.loads(source_path.read_text(encoding="utf-8"))
-    request = prepare(candidate, sources)[0]
+    request = select_request(prepare(candidate, sources), case_id)
     evidence = tuple(Evidence(**c) for c in request["evidence"])
     payload = payload_for(request)
     tags = http("/api/tags")
@@ -129,4 +137,7 @@ def run():
 
 
 if __name__ == "__main__":
-    print(json.dumps(run(), ensure_ascii=False, indent=2, allow_nan=False))
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--case", default="ordinary_return")
+    args = parser.parse_args()
+    print(json.dumps(run(args.case), ensure_ascii=False, indent=2, allow_nan=False))

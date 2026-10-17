@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "reviewer": "assistant",
+  "independent_review": false,
+  "scope": "three synthetic controlled-context cases, one call per case, not a benchmark",
+  "rows": [
+    {
+      "case_id": "custom_exception",
+      "report": "2026-10-17-custom_exception.json",
+      "answer_supported_by_full_context": true,
+      "provenance_check_passed": true,
+      "citation_support_review": "partial_missing_antecedent",
+      "reason": "回答正确保留定制例外；但答案明确提到普通设备30天规则，唯一引文只含上述退货规则，按既定评分依据应补一般规则引用以闭合指代。",
+      "action": "后续单独测试引用充分性约束；不得补写或覆盖此次模型引用。"
+    },
+    {
+      "case_id": "delivery_missing",
+      "report": "2026-10-17-delivery_missing.json",
+      "refusal_appropriate_for_supplied_context": true,
+      "reason": "输入为空，响应说明未提供运费证据，没有编造金额；本次不是模拟真实检索失败。"
+    },
+    {
+      "case_id": "related_not_supporting",
+      "report": "2026-10-17-related_not_supporting.json",
+      "refusal_appropriate_for_supplied_context": true,
+      "reason": "输入只说明12个月保修期限，未说明维修费用，拒绝据此推断免费是恰当的。"
+    }
+  ],
+  "not_evaluated": [
+    "独立问题泛化",
+    "版本冲突题",
+    "真实检索链路",
+    "稳定延迟与吞吐"
+  ]
+}

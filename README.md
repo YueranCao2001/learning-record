@@ -87,6 +87,7 @@
 - [固定生成协议与待审查问题集](daily/2026/10/2026-10-14-generation-contract-review-draft.md)
 - [补齐生成试跑来源与评分依据](daily/2026/10/2026-10-15-pilot-sources-and-scoring-rubric.md)
 - [使用 Ollama 完成第一道本地生成测试](daily/2026/10/2026-10-16-ollama-first-local-generation.md)
+- [验证定制例外与证据不足响应](daily/2026/10/2026-10-17-exceptions-and-insufficient-evidence.md)
 
 ## 提交约定
 
