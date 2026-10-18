@@ -88,6 +88,7 @@
 - [补齐生成试跑来源与评分依据](daily/2026/10/2026-10-15-pilot-sources-and-scoring-rubric.md)
 - [使用 Ollama 完成第一道本地生成测试](daily/2026/10/2026-10-16-ollama-first-local-generation.md)
 - [验证定制例外与证据不足响应](daily/2026/10/2026-10-17-exceptions-and-insufficient-evidence.md)
+- [验证日期版本并冻结五题首次基线](daily/2026/10/2026-10-18-policy-version-first-pass-review.md)
 
 ## 提交约定
 

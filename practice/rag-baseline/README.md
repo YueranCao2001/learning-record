@@ -114,3 +114,13 @@ python -X utf8 practice/rag-baseline/ollama_smoke.py --case related_not_supporti
 [定制题](results/2026-10-17-custom_exception.json) 答案保留例外，但唯一引文中的上述缺少一般规则引用，助手按既定评分依据标为引用支持不完整。[运费题](results/2026-10-17-delivery_missing.json) 和 [维修题](results/2026-10-17-related_not_supporting.json) 均返回证据不足，answer 为空，reason 说明缺失。
 
 [审查记录](results/2026-10-17-review.json) 与原输出分开，仍非独立审查。39 项本地测试通过；下一步先运行日期版本题，再版本化对照引用充分性约束。详见 [当天笔记](../../daily/2026/10/2026-10-17-exceptions-and-insufficient-evidence.md)。
+
+## 日期题与首次基线
+
+```powershell
+python -X utf8 practice/rag-baseline/ollama_smoke.py --case version_conflict
+```
+
+2026 年 10 月 18 日完成 [日期题首次调用](results/2026-10-18-version_conflict.json)，选新版并通过原文核验；[助手审查](results/2026-10-18-version-review.json) 指出答案没有展开预定的日期、7天期限与旧版范围说明。39 项本地测试通过。
+
+[五题基线清单](results/2026-10-18-first-pass-manifest.json) 保存原报告链接、指纹和共同配置。三题 completed、两题 insufficient_evidence 是状态计数，不是准确率。接下来只对引用充分性做单因素提示对照，日期说明完整性另作独立改动。详见 [当天笔记](../../daily/2026/10/2026-10-18-policy-version-first-pass-review.md)。

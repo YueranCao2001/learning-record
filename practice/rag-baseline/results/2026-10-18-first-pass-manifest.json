@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "baseline": "controlled-context-first-pass-v1",
+  "synthetic_sources": true,
+  "independent_evaluation": false,
+  "context_mode": "controlled_context_not_retrieval",
+  "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "generation_options": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 4096,
+    "num_predict": 512
+  },
+  "prompt_sha256": "52139d21766ae716cb18f3b48c2a49f5c3e283992e363867fbaabca7a619dc19",
+  "runs": [
+    {
+      "case_id": "ordinary_return",
+      "report": "2026-10-16-ollama-smoke.json",
+      "sha256": "3181d39ef93cfe3d6afe16e2df6b16f720f563f272f340f5ecd475847bf3fdf3",
+      "status": "completed",
+      "provenance_checked_citations": 1
+    },
+    {
+      "case_id": "custom_exception",
+      "report": "2026-10-17-custom_exception.json",
+      "sha256": "1c23e4574da98158499c325dde0c670b98dd6e63a7bf5fb12a491d358eaa0dcf",
+      "status": "completed",
+      "provenance_checked_citations": 1
+    },
+    {
+      "case_id": "delivery_missing",
+      "report": "2026-10-17-delivery_missing.json",
+      "sha256": "12cf3c9b2c4e65bdb6e0068470f36efe7e5a402ac8f069e4aae6d5c14c017717",
+      "status": "insufficient_evidence",
+      "provenance_checked_citations": 0
+    },
+    {
+      "case_id": "related_not_supporting",
+      "report": "2026-10-17-related_not_supporting.json",
+      "sha256": "d639ae9850bb694113f6089cd57d770339025903837decf210793a5403650f81",
+      "status": "insufficient_evidence",
+      "provenance_checked_citations": 0
+    },
+    {
+      "case_id": "version_conflict",
+      "report": "2026-10-18-version_conflict.json",
+      "sha256": "efa8df835743f0b6ddecf56e68c1f91c2647f16ea12567968373992d75843908",
+      "status": "completed",
+      "provenance_checked_citations": 1
+    }
+  ],
+  "transport_or_protocol_failures": 0,
+  "completed_responses": 3,
+  "insufficient_evidence_responses": 2,
+  "aggregate_quality_score": null,
+  "note": "Status counts are not accuracy. Assistant reviews identify a citation antecedent gap and incomplete date explanation; independent review and real retrieval are pending."
+}

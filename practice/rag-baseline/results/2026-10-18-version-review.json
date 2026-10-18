@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "reviewer": "assistant",
+  "independent_review": false,
+  "report": "2026-10-18-version_conflict.json",
+  "case_id": "version_conflict",
+  "answer": "应采用新版政策。",
+  "version_selection_supported_by_context": true,
+  "provenance_check_passed": true,
+  "citation_supports_stated_answer": true,
+  "predeclared_rubric_completeness": "partial",
+  "missing_from_answer": [
+    "没有说明10月16日购买落入10月15日及之后的适用范围",
+    "没有在answer中说明7天期限",
+    "没有解释旧版适用于此前购买范围"
+  ],
+  "reason": "新版全文引用支持选择新版；但预先评分依据要求的日期推理、期限和旧版范围未在answer展开。引用含这些事实不能自动算作答案已表达。单看哪一份的选择是正确的，不将简短答案误记为选版错误。",
+  "action": "保留首次输出，后续版本化修改回答完整性与引用充分性要求，并检查拒答退化。"
+}
