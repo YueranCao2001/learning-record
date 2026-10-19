@@ -44,11 +44,19 @@ def http(path, payload=None, timeout=180):
         return json.loads(response.read().decode("utf-8"))
 
 
-def payload_for(request):
+def prompt_for(version):
+    if version == "baseline-v1":
+        return PROMPT
+    if version == "citation-v2":
+        return PROMPT + "\n" + (HERE / "prompts/citation-sufficiency-v2.txt").read_text(encoding="utf-8").strip()
+    raise ValueError("unknown prompt version")
+
+
+def payload_for(request, prompt_version="baseline-v1"):
     return {"model": MODEL, "stream": False, "think": False,
             "keep_alive": "5m", "format": SCHEMA,
             "options": {"temperature": 0, "seed": 42, "num_ctx": 4096, "num_predict": 512},
-            "messages": [{"role": "system", "content": PROMPT},
+            "messages": [{"role": "system", "content": prompt_for(prompt_version)},
                          {"role": "user", "content": json.dumps(request, ensure_ascii=False)}]}
 
 
@@ -95,25 +103,29 @@ def select_request(requests, case_id):
     return matches[0]
 
 
-def run(case_id="ordinary_return"):
+def run(case_id="ordinary_return", prompt_version="baseline-v1"):
     candidate_path = HERE / "data/generation-pilot-candidate-v1.json"
     source_path = HERE / "data/generation-pilot-sources-v1.json"
     candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
     sources = json.loads(source_path.read_text(encoding="utf-8"))
     request = select_request(prepare(candidate, sources), case_id)
     evidence = tuple(Evidence(**c) for c in request["evidence"])
-    payload = payload_for(request)
+    payload = payload_for(request, prompt_version)
     tags = http("/api/tags")
     installed = next((m for m in tags["models"] if m["name"] == MODEL), None)
     if installed is None:
         raise ValueError("model not installed; run ollama pull qwen3:8b first")
     files = [candidate_path, source_path] + [HERE / name for name in
         ("ollama_smoke.py", "prepare_generation.py", "generation_contract.py", "citations.py", "retrieval.py")]
+    if prompt_version == "citation-v2":
+        files.append(HERE / "prompts/citation-sufficiency-v2.txt")
     report = {"schema_version": 1, "execution_kind": "real_local_model_smoke",
               "context_mode": candidate["context_mode"], "synthetic_sources": True,
               "candidate_review_status": candidate["review_status"],
               "python_version": platform.python_version(), "ollama_version": http("/api/version"),
               "model_metadata": installed, "request": request, "http_payload": payload,
+              "prompt_version": prompt_version,
+              "prompt_sha256": hashlib.sha256(payload["messages"][0]["content"].encode("utf-8")).hexdigest(),
               "sha256": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
               "generation_attempts": 1, "automatic_retries": 0,
               "normalized": None, "validation": None, "failure": None,
@@ -139,5 +151,6 @@ def run(case_id="ordinary_return"):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--case", default="ordinary_return")
+    parser.add_argument("--prompt-version", choices=("baseline-v1", "citation-v2"), default="baseline-v1")
     args = parser.parse_args()
-    print(json.dumps(run(args.case), ensure_ascii=False, indent=2, allow_nan=False))
+    print(json.dumps(run(args.case, args.prompt_version), ensure_ascii=False, indent=2, allow_nan=False))

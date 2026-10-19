@@ -89,6 +89,7 @@
 - [使用 Ollama 完成第一道本地生成测试](daily/2026/10/2026-10-16-ollama-first-local-generation.md)
 - [验证定制例外与证据不足响应](daily/2026/10/2026-10-17-exceptions-and-insufficient-evidence.md)
 - [验证日期版本并冻结五题首次基线](daily/2026/10/2026-10-18-policy-version-first-pass-review.md)
+- [引用充分性提示的单因素对照](daily/2026/10/2026-10-19-citation-prompt-single-factor-comparison.md)
 
 ## 提交约定
 

@@ -3,7 +3,7 @@ import json
 import unittest
 
 from citations import full_quote
-from ollama_smoke import normalize, payload_for, select_request
+from ollama_smoke import normalize, payload_for, select_request, prompt_for, PROMPT
 import test_generation_contract as fixture_module
 
 
@@ -28,6 +28,18 @@ class AdapterTests(unittest.TestCase):
     def test_case_selection(self):
         other = dict(self.request, request_id="other")
         self.assertEqual(select_request([self.request, other], "other"), other)
+
+    def test_prompt_single_factor(self):
+        baseline = payload_for(self.request)
+        candidate = payload_for(self.request, "citation-v2")
+        self.assertEqual(prompt_for("baseline-v1"), PROMPT)
+        self.assertTrue(candidate["messages"][0]["content"].startswith(PROMPT + "\n"))
+        candidate["messages"][0] = baseline["messages"][0]
+        self.assertEqual(candidate, baseline)
+
+    def test_unknown_prompt(self):
+        with self.assertRaises(ValueError):
+            payload_for(self.request, "unknown")
 
     def test_invalid_case_selection(self):
         for requests, case_id in (([self.request], "missing"),

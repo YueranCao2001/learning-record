@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "reviewer": "assistant",
+  "independent_review": false,
+  "experiment": "citation-sufficiency-single-factor-v2",
+  "scope": "one contemporaneous custom-case pair; three candidate regressions compared with historical first-pass outputs",
+  "changed_factor": "system prompt appended citation antecedent sufficiency clause only",
+  "unchanged": [
+    "model digest",
+    "synthetic query and evidence",
+    "schema",
+    "normalizer",
+    "temperature and seed",
+    "context and output limits"
+  ],
+  "custom_pair": {
+    "control_report": "2026-10-19-custom-control.json",
+    "candidate_report": "2026-10-19-custom-citation-v2.json",
+    "answer_unchanged": true,
+    "control_cited_sources": [
+      "exception"
+    ],
+    "candidate_cited_sources": [
+      "exception",
+      "rule"
+    ],
+    "assistant_assessment": "citation antecedent gap resolved in this pair",
+    "reason": "两段逐字引文共同说明普通设备30天规则与定制例外，补齐上述指代，不是单纯增加引用数量。"
+  },
+  "regressions": [
+    {
+      "report": "2026-10-19-ordinary-citation-v2.json",
+      "case": "ordinary_return",
+      "assessment": "答案与原首次输出相同，只引用唯一一般规则；没有显示新增引文，但单证据输入不能测试复杂过引。"
+    },
+    {
+      "report": "2026-10-19-delivery-citation-v2.json",
+      "case": "delivery_missing",
+      "assessment": "仍为证据不足，未编造运费，无引用。"
+    },
+    {
+      "report": "2026-10-19-related-citation-v2.json",
+      "case": "related_not_supporting",
+      "assessment": "仍为证据不足，未由期限推断维修免费，无引用。"
+    }
+  ],
+  "unresolved": [
+    "日期版本题未使用新提示运行",
+    "未修改或验证日期解释完整性",
+    "独立确认集与独立审查仍缺",
+    "实际检索上下文与干扰证据未验证",
+    "单次配对不证明稳定性或泛化"
+  ],
+  "aggregate_quality_score": null
+}

@@ -124,3 +124,16 @@ python -X utf8 practice/rag-baseline/ollama_smoke.py --case version_conflict
 2026 年 10 月 18 日完成 [日期题首次调用](results/2026-10-18-version_conflict.json)，选新版并通过原文核验；[助手审查](results/2026-10-18-version-review.json) 指出答案没有展开预定的日期、7天期限与旧版范围说明。39 项本地测试通过。
 
 [五题基线清单](results/2026-10-18-first-pass-manifest.json) 保存原报告链接、指纹和共同配置。三题 completed、两题 insufficient_evidence 是状态计数，不是准确率。接下来只对引用充分性做单因素提示对照，日期说明完整性另作独立改动。详见 [当天笔记](../../daily/2026/10/2026-10-18-policy-version-first-pass-review.md)。
+
+## 引用提示单因素对照
+
+--prompt-version 可选 baseline-v1 与 citation-v2，默认仍为 baseline-v1。候选仅在原提示后追加 [指代引用充分性条款](prompts/citation-sufficiency-v2.txt)，不改变模型、Schema、证据或解码参数，也不要求扩写日期说明。
+
+```powershell
+python -X utf8 practice/rag-baseline/ollama_smoke.py --case custom_exception --prompt-version baseline-v1
+python -X utf8 practice/rag-baseline/ollama_smoke.py --case custom_exception --prompt-version citation-v2
+```
+
+2026 年 10 月 19 日，定制题当日控制只引 exception，候选同时引用 exception 与 rule，答案相同。普通题仍只引用 rule，两种缺证据题继续拒答。[对照审查](results/2026-10-19-citation-ab-review.json) 为助手探索性判断，不是独立评测。41 项本地测试通过，日期题尚未用新提示运行。
+
+五份原始报告的链接、运行命令和 token 开销见 [当天笔记](../../daily/2026/10/2026-10-19-citation-prompt-single-factor-comparison.md)。首次基线不覆盖，后续重跑另存记录。
