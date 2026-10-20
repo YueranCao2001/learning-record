@@ -137,3 +137,16 @@ python -X utf8 practice/rag-baseline/ollama_smoke.py --case custom_exception --p
 2026 年 10 月 19 日，定制题当日控制只引 exception，候选同时引用 exception 与 rule，答案相同。普通题仍只引用 rule，两种缺证据题继续拒答。[对照审查](results/2026-10-19-citation-ab-review.json) 为助手探索性判断，不是独立评测。41 项本地测试通过，日期题尚未用新提示运行。
 
 五份原始报告的链接、运行命令和 token 开销见 [当天笔记](../../daily/2026/10/2026-10-19-citation-prompt-single-factor-comparison.md)。首次基线不覆盖，后续重跑另存记录。
+
+## 日期回归与候选处置
+
+2026 年 10 月 20 日，用 citation-v2 跑日期题，答案错误选择旧版；随后 baseline-v1 当日控制选择新版。两者原文核验都通过。候选多引了一份真实政策，不代表事实判断更好。
+
+```powershell
+python -X utf8 practice/rag-baseline/ollama_smoke.py --case version_conflict --prompt-version citation-v2
+python -X utf8 practice/rag-baseline/ollama_smoke.py --case version_conflict --prompt-version baseline-v1
+```
+
+[候选报告](results/2026-10-20-version-citation-v2.json)、[控制报告](results/2026-10-20-version-control.json) 与 [助手审查](results/2026-10-20-version-regression-review.json) 分别保存。41 项本地测试通过不抵消候选事实性错误；默认仍为 baseline-v1，citation-v2 暂不推广。
+
+下一步先固定小规模重复协议，检查差异稳定性，不即时改提示挑成功样本。详见 [当天笔记](../../daily/2026/10/2026-10-20-citation-prompt-date-regression.md)。

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "reviewer": "assistant",
+  "independent_review": false,
+  "case_id": "version_conflict",
+  "execution_order": [
+    "citation-v2",
+    "baseline-v1"
+  ],
+  "generation_attempts_per_condition": 1,
+  "automatic_retries": 0,
+  "expected_selection": "v2 for purchase date 2026-10-16",
+  "candidate": {
+    "report": "2026-10-20-version-citation-v2.json",
+    "answer": "应采用旧版政策。",
+    "version_selection_correct": false,
+    "answer_supported_by_supplied_context": false,
+    "provenance_passed": true,
+    "cited_versions": [
+      "v1",
+      "v2"
+    ],
+    "finding": "两个引文都真实且在输入中，但10月16日购买落在新版范围；选择旧版是事实性错误。引用数增加不能修复错误结论。"
+  },
+  "control": {
+    "report": "2026-10-20-version-control.json",
+    "answer": "应采用新版政策。",
+    "version_selection_correct": true,
+    "provenance_passed": true,
+    "cited_versions": [
+      "v2"
+    ],
+    "remaining_issue": "仍未展开既定日期解释、7天期限与旧版范围要求，与首次基线相同。"
+  },
+  "decision": "retain baseline-v1 default; do not promote citation-v2",
+  "reason": "候选在定制题修复引用，但本次日期回归出现更严重的选版错误，不能以局部修复抵消。",
+  "limits": [
+    "仅一组当日配对，候选先运行，未随机化顺序",
+    "加载和提示缓存条件不同，不作性能结论",
+    "观察到输出退化但尚不能确定内部错误机制或一般发生率",
+    "真实检索与独立审查未完成"
+  ],
+  "aggregate_quality_score": null
+}
