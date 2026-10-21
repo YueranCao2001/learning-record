@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "protocol_id": "date-repeat-v1",
+  "created_before_execution": true,
+  "case_id": "version_conflict",
+  "purpose": "Fixed-condition repeatability check on one known failure before pausing RAG work, not independent accuracy estimation.",
+  "schedule": [
+    {"run_id": "01-baseline", "prompt_version": "baseline-v1"},
+    {"run_id": "02-candidate", "prompt_version": "citation-v2"},
+    {"run_id": "03-candidate", "prompt_version": "citation-v2"},
+    {"run_id": "04-baseline", "prompt_version": "baseline-v1"}
+  ],
+  "model": "qwen3:8b",
+  "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "options": {"temperature": 0, "seed": 42, "num_ctx": 4096, "num_predict": 512},
+  "think": false,
+  "automatic_retries": 0,
+  "maximum_generation_calls": 4,
+  "stop_rule": "Run this schedule once; retain all outcomes, never extend based on whether they look good. Abort remaining calls if the service is unavailable.",
+  "correct_selection": "v2 for purchase date 2026-10-16",
+  "review_rule": "Review the actual answer separately from exact-quote validation; paraphrases and unexpected output stay pending until reviewed.",
+  "limitations": ["two repeats per condition on one synthetic query", "fixed rather than random order", "same seed and temperature are not independent model trials", "no claims about production quality or general error probability"],
+  "next_track": "SFT preparation from 2026-10-22; retain baseline-v1 default and do not promote citation-v2."
+}

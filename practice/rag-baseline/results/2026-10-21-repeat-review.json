@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "protocol": "../data/date-repeat-protocol-v1.json",
+  "reviewer": "assistant",
+  "independent_review": false,
+  "scope": "one known synthetic query with fixed seed and fixed A-B-B-A order",
+  "rows": [
+    {
+      "run_id": "01-baseline",
+      "report": "2026-10-21-repeat-01-baseline.json",
+      "prompt_version": "baseline-v1",
+      "answer": "应采用新版政策。",
+      "provenance_passed": true,
+      "version_selection_correct": true
+    },
+    {
+      "run_id": "02-candidate",
+      "report": "2026-10-21-repeat-02-candidate.json",
+      "prompt_version": "citation-v2",
+      "answer": "应采用旧版政策。",
+      "provenance_passed": true,
+      "version_selection_correct": false
+    },
+    {
+      "run_id": "03-candidate",
+      "report": "2026-10-21-repeat-03-candidate.json",
+      "prompt_version": "citation-v2",
+      "answer": "应采用旧版政策。",
+      "provenance_passed": true,
+      "version_selection_correct": false
+    },
+    {
+      "run_id": "04-baseline",
+      "report": "2026-10-21-repeat-04-baseline.json",
+      "prompt_version": "baseline-v1",
+      "answer": "应采用新版政策。",
+      "provenance_passed": true,
+      "version_selection_correct": true
+    }
+  ],
+  "baseline_correct_selections": 2,
+  "candidate_correct_selections": 0,
+  "counts_are_not_general_accuracy": true,
+  "conclusion": "固定设定内重复出现昨天的差异；候选不推广，默认保持baseline-v1。",
+  "causal_mechanism": "not_established",
+  "remaining": [
+    "日期解释完整性",
+    "真实检索链路",
+    "独立审查与独立问题"
+  ],
+  "track_change": {
+    "effective_date": "2026-10-22",
+    "next_track": "supervised fine-tuning preparation",
+    "training_performed": false,
+    "model_selected": false
+  },
+  "credentials_policy": "Do not send HF passwords or tokens; use local least-privilege authentication only when needed."
+}

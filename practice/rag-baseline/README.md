@@ -150,3 +150,9 @@ python -X utf8 practice/rag-baseline/ollama_smoke.py --case version_conflict --p
 [候选报告](results/2026-10-20-version-citation-v2.json)、[控制报告](results/2026-10-20-version-control.json) 与 [助手审查](results/2026-10-20-version-regression-review.json) 分别保存。41 项本地测试通过不抵消候选事实性错误；默认仍为 baseline-v1，citation-v2 暂不推广。
 
 下一步先固定小规模重复协议，检查差异稳定性，不即时改提示挑成功样本。详见 [当天笔记](../../daily/2026/10/2026-10-20-citation-prompt-date-regression.md)。
+
+## 固定重复与阶段暂存
+
+2026 年 10 月 21 日按运行前保存的 [协议](data/date-repeat-protocol-v1.json) 执行 A-B-B-A 共四次，原提示两次选新版，候选两次错误选旧版。[助手审查](results/2026-10-21-repeat-review.json) 链接全部输出；固定 seed 和单题重复不是独立质量评估。
+
+项目阶段暂存，baseline-v1 保持默认，citation-v2 不推广。用户安排自10月22日起转向微调，真实检索、独立审查与日期说明未完成项保留，不自动继续增加 RAG 提示实验。详见 [阶段收尾笔记](../../daily/2026/10/2026-10-21-repeatability-review-and-sft-handoff.md)。
