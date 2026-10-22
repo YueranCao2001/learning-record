@@ -1,0 +1,109 @@
+[
+  {
+    "id": "dev-01",
+    "raw": "{\"event\":\"天文讲座\",\"time\":\"11月2日19:00\",\"location\":\"青石展厅\"}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      112953,
+      107483,
+      2198,
+      1678,
+      3252,
+      16,
+      16,
+      9754,
+      17,
+      8903,
+      16,
+      24,
+      25,
+      15,
+      15,
+      2198,
+      2527,
+      3252,
+      99467,
+      99385,
+      111829,
+      9207,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": true,
+      "fields_correct": 3
+    }
+  },
+  {
+    "id": "dev-02",
+    "raw": "{\"event\":\"周六15:00\",\"time\":\"周六15:00\",\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      114414,
+      16,
+      20,
+      25,
+      15,
+      15,
+      2198,
+      1678,
+      3252,
+      114414,
+      16,
+      20,
+      25,
+      15,
+      15,
+      2198,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "dev-03",
+    "raw": "{\"event\":\"欢迎参加写作工坊\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      100437,
+      101061,
+      105293,
+      48692,
+      100896,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  }
+]

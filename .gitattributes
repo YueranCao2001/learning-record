@@ -1,0 +1,2 @@
+# Preserve experiment input/evidence bytes for recorded SHA-256 fingerprints.
+practice/sft-extraction/** -text

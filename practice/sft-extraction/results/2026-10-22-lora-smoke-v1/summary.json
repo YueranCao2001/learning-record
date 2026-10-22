@@ -1,0 +1,16 @@
+{
+  "steps": 6,
+  "trainable_parameters": 1146880,
+  "changed_adapter_tensors": 112,
+  "frozen_base_sha256_before": "6e3b95e495f1d3b35720d37b9a36be0598567e1839b72974677745950758886f",
+  "frozen_base_sha256_after": "6e3b95e495f1d3b35720d37b9a36be0598567e1839b72974677745950758886f",
+  "base_unchanged": true,
+  "adapter_reload_exact": true,
+  "reload_generation_tokens_equal": true,
+  "peak_training_allocated_bytes": 1669400576,
+  "baseline_exact": 2,
+  "after_exact": 1,
+  "dev_count": 3,
+  "exact_training_resume_tested": false,
+  "uploaded": false
+}
