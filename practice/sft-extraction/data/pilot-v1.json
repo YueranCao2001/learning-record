@@ -1,0 +1,13 @@
+{
+  "version": "pilot-v1",
+  "provenance": "Assistant-authored fictional Chinese event notices; diagnostic fixtures, not real-world evaluation data.",
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "rows": [
+    {"id": "train-01", "group": "notice-01", "split": "train", "text": "读书交流会将于10月25日14:00在星河书屋举行。", "expected": {"event": "读书交流会", "time": "10月25日14:00", "location": "星河书屋"}},
+    {"id": "train-02", "group": "notice-02", "split": "train", "text": "摄影分享会的地点是云杉教室，具体时间另行通知。", "expected": {"event": "摄影分享会", "time": null, "location": "云杉教室"}},
+    {"id": "train-03", "group": "notice-03", "split": "train", "text": "10月28日09:30举办编程体验课，地点尚未确定。", "expected": {"event": "编程体验课", "time": "10月28日09:30", "location": null}},
+    {"id": "dev-01", "group": "notice-04", "split": "dev", "text": "活动：天文讲座；地点：青石展厅；时间：11月2日19:00。", "expected": {"event": "天文讲座", "time": "11月2日19:00", "location": "青石展厅"}},
+    {"id": "dev-02", "group": "notice-05", "split": "dev", "text": "周六15:00举行手工沙龙，举办地点待通知。", "expected": {"event": "手工沙龙", "time": "周六15:00", "location": null}},
+    {"id": "dev-03", "group": "notice-06", "split": "dev", "text": "欢迎参加写作工坊。时间和地点稍后公布。", "expected": {"event": "写作工坊", "time": null, "location": null}}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-22",
+  "scope": "Only the available bundled Python was inspected; not a machine-wide inventory.",
+  "python": "3.12.14",
+  "packages": {"torch": null, "transformers": null, "peft": null, "trl": null, "datasets": null, "huggingface_hub": null, "accelerate": null},
+  "cuda_available": null,
+  "torch_cuda": null,
+  "nvidia_smi": {"returncode": 0, "stdout": "NVIDIA GeForce RTX 5070, 12227 MiB, 610.88"},
+  "auth_checked": false,
+  "model_run": false,
+  "hf_repo_created": false,
+  "uploaded": false
+}

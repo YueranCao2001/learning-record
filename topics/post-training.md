@@ -4,6 +4,7 @@ SFT、DPO、PPO 与 GRPO、Rollout 和奖励评估器。当前记录以概念及
 
 ## 日期笔记
 
+- 2026-10-22 [中文信息抽取微调：样例契约与环境检查](../daily/2026/10/2026-10-22-sft-extraction-contract-and-preflight.md)
 - 2026-09-07 [Supervised Fine-Tuning：Chat Template、Assistant-only Loss、Packing 与 LoRA](../daily/2026/09/2026-09-07-supervised-fine-tuning-chat-template-lora.md)
 - 2026-09-08 [Direct Preference Optimization：偏好对、Reference Model、DPO Loss 与长度偏差](../daily/2026/09/2026-09-08-direct-preference-optimization.md)
 - 2026-09-09 [在线强化学习后训练：Rollout、Advantage、PPO 与 GRPO](../daily/2026/09/2026-09-09-online-rl-ppo-grpo.md)
@@ -15,7 +16,9 @@ SFT、DPO、PPO 与 GRPO、Rollout 和奖励评估器。当前记录以概念及
 
 用户已安排自2026年10月22日起，将当前学习主线转向大模型微调。先确认任务、候选模型与脱敏数据，核查训练环境，再用小规模 SFT 做模板与监督边界检查、一步训练、保存恢复和独立评估。已有 LoRA、QLoRA 笔记作为参考，不预先假定显存一定足够。
 
-目前未选择训练模型、未安装新训练环境、未启动真实微调。Hugging Face 凭据保留在本机，聊天和仓库只记录非敏感模型 ID、训练参数及执行证据。
+2026年10月22日开始 [中文信息抽取练习](../practice/sft-extraction/README.md)，候选基座为 `Qwen/Qwen3-0.6B`，计划使用 LoRA。当前完成6条合成诊断样例、输出评分契约与7项测试；GPU 可见，但被检查的 Python 环境缺少训练依赖，尚未启动真实模型训练。
+
+后续目标为私有 HF 模型仓库 `YueranCao2001/qwen3-0.6b-zh-extraction-lora`，尚未创建或上传。Hugging Face 凭据保留在本机，聊天和仓库只记录非敏感模型 ID、训练参数及执行证据。
 
 真实模型的模板检查、一步训练、保存恢复与独立评估，不因合成数值测试通过而自动完成。转向训练后先落实 [小模型实验设计](../daily/2026/09/2026-09-15-small-model-experiment-design.md) 中的待办，再扩大算法范围。
 

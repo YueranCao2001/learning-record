@@ -92,6 +92,7 @@
 - [引用充分性提示的单因素对照](daily/2026/10/2026-10-19-citation-prompt-single-factor-comparison.md)
 - [引用候选提示的日期题退化](daily/2026/10/2026-10-20-citation-prompt-date-regression.md)
 - [日期回归重复检查与微调阶段衔接](daily/2026/10/2026-10-21-repeatability-review-and-sft-handoff.md)
+- [中文信息抽取微调：样例契约与环境检查](daily/2026/10/2026-10-22-sft-extraction-contract-and-preflight.md)
 
 ## 提交约定
 
