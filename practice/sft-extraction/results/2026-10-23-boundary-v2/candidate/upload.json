@@ -1,0 +1,28 @@
+{
+  "repo": "YueranCao2001/qwen3-0.6b-zh-extraction-lora",
+  "commit": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "private": true,
+  "revision": "boundary-v2-20261023",
+  "main_before": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "main_after": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "publisher_huggingface_hub": "2.2.0",
+  "files_sha256": {
+    "LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+    "README.md": "39fe8c9fdf3baa0d08cb27260bf5b23d11aa4353483f55cea2a4fae6051fe848",
+    "adapter_config.json": "d81c63b2afddaf262c11a817d2cb48490720b31b4583d759ee66ce160db3377b",
+    "adapter_model.safetensors": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12",
+    "added_tokens.json": "79f6ec6fcc423d3a82bfac8b9033b1daac7b7bce06a5f5f441637b480cc605de",
+    "chat_template.jinja": "51fa65c79bb57f058dc7ef8734884bd325fe9d45bb03a61bfef59785d3bc2da9",
+    "environment.json": "39ca03803caa725979285fbb8a8d0bc70e8825b08b2ef8908331073a16c96986",
+    "evaluation.json": "9d11131393688b2159b0539a70bd978340b2b3ca1f64194b48bd078ea6c5fba4",
+    "manifest.json": "cc42935745992b2c66ce264d848fe89f057a5ae539258aa726c62c3bd802d31c",
+    "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+    "special_tokens_map.json": "57255613bbe23c9497211ca68561ff429a51e871dbaf5a59998fa4c8f7fe168a",
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "b2a0d89cf5c89d5d844c56d82e9c3731f862d720a6ce221c31955b628960cde7",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  },
+  "download_hashes_equal": true,
+  "remote_model_reload_verified": true,
+  "downloaded_snapshot": "E:\\Evren\\Evren_work\\.hf-verify-cache\\models--YueranCao2001--qwen3-0.6b-zh-extraction-lora\\snapshots\\e3b24d1115c21cf69feaa5e6e9cf85a98f502c84"
+}

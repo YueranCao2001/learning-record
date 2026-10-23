@@ -1,0 +1,54 @@
+{
+  "version": "boundary-v2",
+  "question": "Under a fixed six-step budget, what changes when the second pass over the original three notices is replaced with three targeted boundary examples?",
+  "base": "Qwen/Qwen3-0.6B",
+  "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "seed": 42,
+  "steps_per_arm": 6,
+  "batch_size": 1,
+  "lr": 0.0002,
+  "control_order": [
+    "train-01",
+    "train-02",
+    "train-03",
+    "train-01",
+    "train-02",
+    "train-03"
+  ],
+  "candidate_order": [
+    "train-01",
+    "train-02",
+    "train-03",
+    "boundary-train-01",
+    "boundary-train-02",
+    "boundary-train-03"
+  ],
+  "dev_ids": [
+    "dev-01",
+    "dev-02",
+    "dev-03",
+    "boundary-dev-01",
+    "boundary-dev-02",
+    "boundary-dev-03",
+    "boundary-dev-04",
+    "boundary-dev-05",
+    "boundary-dev-06"
+  ],
+  "lora": {
+    "r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.0,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "bias": "none"
+  },
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 128
+  },
+  "stop": "Run baseline once, then control and candidate once each. Do not tune steps, labels or prompts after observing outputs. On execution failure, retain evidence and only repair infrastructure faults.",
+  "interpretation": "Synthetic open diagnostics, no sealed test. Data coverage, exposure counts, token budget and ordered recency change together. A single-seed result does not uniquely identify a causal mechanism or establish generalization.",
+  "publication": "Publish the final candidate as a dated experimental HF branch, regardless of score direction; retain main and yesterday's pinned revision. Do not promote candidate to default."
+}

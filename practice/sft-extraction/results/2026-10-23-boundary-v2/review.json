@@ -1,0 +1,257 @@
+{
+  "metrics": {
+    "old_regression": {
+      "base": {
+        "n": 3,
+        "exact": 2,
+        "fields_correct": 7,
+        "event_correct": 3
+      },
+      "control": {
+        "n": 3,
+        "exact": 1,
+        "fields_correct": 7,
+        "event_correct": 1
+      },
+      "candidate": {
+        "n": 3,
+        "exact": 3,
+        "fields_correct": 9,
+        "event_correct": 3
+      }
+    },
+    "new_diagnostic": {
+      "base": {
+        "n": 6,
+        "exact": 3,
+        "fields_correct": 15,
+        "event_correct": 6
+      },
+      "control": {
+        "n": 6,
+        "exact": 2,
+        "fields_correct": 14,
+        "event_correct": 4
+      },
+      "candidate": {
+        "n": 6,
+        "exact": 6,
+        "fields_correct": 18,
+        "event_correct": 6
+      }
+    },
+    "all": {
+      "base": {
+        "n": 9,
+        "exact": 5,
+        "fields_correct": 22,
+        "event_correct": 9
+      },
+      "control": {
+        "n": 9,
+        "exact": 3,
+        "fields_correct": 21,
+        "event_correct": 5
+      },
+      "candidate": {
+        "n": 9,
+        "exact": 9,
+        "fields_correct": 27,
+        "event_correct": 9
+      }
+    }
+  },
+  "paired": [
+    {
+      "id": "dev-01",
+      "base": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      },
+      "control": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      },
+      "candidate": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "dev-02",
+      "base": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 1
+      },
+      "control": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "dev-03",
+      "base": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      },
+      "control": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "boundary-dev-01",
+      "base": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "control": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "boundary-dev-02",
+      "base": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      },
+      "control": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      },
+      "candidate": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "boundary-dev-03",
+      "base": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "control": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "boundary-dev-04",
+      "base": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      },
+      "control": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "boundary-dev-05",
+      "base": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      },
+      "control": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      },
+      "candidate": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "boundary-dev-06",
+      "base": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "control": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    }
+  ],
+  "control_old_tokens_reproduce_yesterday": true,
+  "interpretation": "One fixed-seed, targeted synthetic diagnostic comparison; not independent test accuracy. Exposure/order and supervised token counts differ between arms."
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "step": 1,
+    "id": "train-01",
+    "loss": 0.26909181475639343,
+    "grad_norm_before_clip": 3.9763193130493164,
+    "target_tokens": 29
+  },
+  {
+    "step": 2,
+    "id": "train-02",
+    "loss": 0.31595292687416077,
+    "grad_norm_before_clip": 4.1565937995910645,
+    "target_tokens": 18
+  },
+  {
+    "step": 3,
+    "id": "train-03",
+    "loss": 0.16144484281539917,
+    "grad_norm_before_clip": 2.155667781829834,
+    "target_tokens": 26
+  },
+  {
+    "step": 4,
+    "id": "boundary-train-01",
+    "loss": 0.1839858740568161,
+    "grad_norm_before_clip": 5.414761066436768,
+    "target_tokens": 23
+  },
+  {
+    "step": 5,
+    "id": "boundary-train-02",
+    "loss": 0.30322226881980896,
+    "grad_norm_before_clip": 10.04448127746582,
+    "target_tokens": 16
+  },
+  {
+    "step": 6,
+    "id": "boundary-train-03",
+    "loss": 0.026847921311855316,
+    "grad_norm_before_clip": 1.2518606185913086,
+    "target_tokens": 24
+  }
+]

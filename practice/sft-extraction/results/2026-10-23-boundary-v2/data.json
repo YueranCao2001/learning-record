@@ -1,0 +1,181 @@
+{
+  "version": "boundary-v2",
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "provenance": "Assistant-authored fictional notices for a targeted, open diagnostic experiment. Not a sealed test set. Group IDs identify source notices, not template families; train/dev may share layout patterns.",
+  "rows": [
+    {
+      "id": "train-01",
+      "group": "notice-01",
+      "split": "train",
+      "text": "读书交流会将于10月25日14:00在星河书屋举行。",
+      "expected": {
+        "event": "读书交流会",
+        "time": "10月25日14:00",
+        "location": "星河书屋"
+      }
+    },
+    {
+      "id": "train-02",
+      "group": "notice-02",
+      "split": "train",
+      "text": "摄影分享会的地点是云杉教室，具体时间另行通知。",
+      "expected": {
+        "event": "摄影分享会",
+        "time": null,
+        "location": "云杉教室"
+      }
+    },
+    {
+      "id": "train-03",
+      "group": "notice-03",
+      "split": "train",
+      "text": "10月28日09:30举办编程体验课，地点尚未确定。",
+      "expected": {
+        "event": "编程体验课",
+        "time": "10月28日09:30",
+        "location": null
+      }
+    },
+    {
+      "id": "dev-01",
+      "group": "notice-04",
+      "split": "dev",
+      "text": "活动：天文讲座；地点：青石展厅；时间：11月2日19:00。",
+      "expected": {
+        "event": "天文讲座",
+        "time": "11月2日19:00",
+        "location": "青石展厅"
+      }
+    },
+    {
+      "id": "dev-02",
+      "group": "notice-05",
+      "split": "dev",
+      "text": "周六15:00举行手工沙龙，举办地点待通知。",
+      "expected": {
+        "event": "手工沙龙",
+        "time": "周六15:00",
+        "location": null
+      }
+    },
+    {
+      "id": "dev-03",
+      "group": "notice-06",
+      "split": "dev",
+      "text": "欢迎参加写作工坊。时间和地点稍后公布。",
+      "expected": {
+        "event": "写作工坊",
+        "time": null,
+        "location": null
+      }
+    },
+    {
+      "id": "boundary-train-01",
+      "group": "notice-07",
+      "split": "train",
+      "category": "time-first",
+      "text": "周五18:30在银杏教室举办书法体验课。",
+      "expected": {
+        "event": "书法体验课",
+        "time": "周五18:30",
+        "location": "银杏教室"
+      }
+    },
+    {
+      "id": "boundary-train-02",
+      "group": "notice-08",
+      "split": "train",
+      "category": "welcome",
+      "text": "欢迎参加音乐工作坊。时间和地点稍后公布。",
+      "expected": {
+        "event": "音乐工作坊",
+        "time": null,
+        "location": null
+      }
+    },
+    {
+      "id": "boundary-train-03",
+      "group": "notice-09",
+      "split": "train",
+      "category": "welcome",
+      "text": "欢迎参加绘画沙龙，时间为11月5日15:00，地点待通知。",
+      "expected": {
+        "event": "绘画沙龙",
+        "time": "11月5日15:00",
+        "location": null
+      }
+    },
+    {
+      "id": "boundary-dev-01",
+      "group": "notice-10",
+      "split": "dev",
+      "category": "time-first",
+      "text": "周日10:30在松风礼堂举办陶艺体验课。",
+      "expected": {
+        "event": "陶艺体验课",
+        "time": "周日10:30",
+        "location": "松风礼堂"
+      }
+    },
+    {
+      "id": "boundary-dev-02",
+      "group": "notice-11",
+      "split": "dev",
+      "category": "time-first",
+      "text": "11月9日16:00，剪纸交流会在白桦教室举行。",
+      "expected": {
+        "event": "剪纸交流会",
+        "time": "11月9日16:00",
+        "location": "白桦教室"
+      }
+    },
+    {
+      "id": "boundary-dev-03",
+      "group": "notice-12",
+      "split": "dev",
+      "category": "welcome",
+      "text": "欢迎参加园艺沙龙，活动时间为11月10日09:00，地点是碧泉花房。",
+      "expected": {
+        "event": "园艺沙龙",
+        "time": "11月10日09:00",
+        "location": "碧泉花房"
+      }
+    },
+    {
+      "id": "boundary-dev-04",
+      "group": "notice-13",
+      "split": "dev",
+      "category": "welcome",
+      "text": "欢迎参加历史讲座。时间和地点稍后公布。",
+      "expected": {
+        "event": "历史讲座",
+        "time": null,
+        "location": null
+      }
+    },
+    {
+      "id": "boundary-dev-05",
+      "group": "notice-14",
+      "split": "dev",
+      "category": "other-layout",
+      "text": "报名须知：参与者可报名古籍修复课，举办时间待定，地址待定。",
+      "expected": {
+        "event": "古籍修复课",
+        "time": null,
+        "location": null
+      }
+    },
+    {
+      "id": "boundary-dev-06",
+      "group": "notice-15",
+      "split": "dev",
+      "category": "other-layout",
+      "text": "地点：回声剧场。即兴表演课将于下周三19:30开始。",
+      "expected": {
+        "event": "即兴表演课",
+        "time": "下周三19:30",
+        "location": "回声剧场"
+      }
+    }
+  ]
+}

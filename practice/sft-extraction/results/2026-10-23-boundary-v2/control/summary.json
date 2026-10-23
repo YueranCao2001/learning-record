@@ -1,0 +1,16 @@
+{
+  "steps": 6,
+  "base_unchanged": true,
+  "frozen_base_sha256_before": "6e3b95e495f1d3b35720d37b9a36be0598567e1839b72974677745950758886f",
+  "frozen_base_sha256_after": "6e3b95e495f1d3b35720d37b9a36be0598567e1839b72974677745950758886f",
+  "changed_adapter_tensors": 112,
+  "initial_adapter_sha256": "a730f69e0e8c7cb529c3b1fe2bd833ac93f2166ecb522371b109c54d03908404",
+  "trained_target_tokens": 146,
+  "trainable_parameters": 1146880,
+  "peak_training_allocated_bytes": 1669392384,
+  "after_exact": 3,
+  "dev_count": 9,
+  "adapter_reload_exact": true,
+  "reload_generation_tokens_equal": true,
+  "exact_training_resume_tested": false
+}

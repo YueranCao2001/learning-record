@@ -1,0 +1,14 @@
+{
+  "provenance": "Assistant-authored fictional notices for a targeted, open diagnostic experiment. Not a sealed test set. Group IDs identify source notices, not template families; train/dev may share layout patterns.",
+  "rows": [
+    {"id": "boundary-train-01", "group": "notice-07", "split": "train", "category": "time-first", "text": "周五18:30在银杏教室举办书法体验课。", "expected": {"event": "书法体验课", "time": "周五18:30", "location": "银杏教室"}},
+    {"id": "boundary-train-02", "group": "notice-08", "split": "train", "category": "welcome", "text": "欢迎参加音乐工作坊。时间和地点稍后公布。", "expected": {"event": "音乐工作坊", "time": null, "location": null}},
+    {"id": "boundary-train-03", "group": "notice-09", "split": "train", "category": "welcome", "text": "欢迎参加绘画沙龙，时间为11月5日15:00，地点待通知。", "expected": {"event": "绘画沙龙", "time": "11月5日15:00", "location": null}},
+    {"id": "boundary-dev-01", "group": "notice-10", "split": "dev", "category": "time-first", "text": "周日10:30在松风礼堂举办陶艺体验课。", "expected": {"event": "陶艺体验课", "time": "周日10:30", "location": "松风礼堂"}},
+    {"id": "boundary-dev-02", "group": "notice-11", "split": "dev", "category": "time-first", "text": "11月9日16:00，剪纸交流会在白桦教室举行。", "expected": {"event": "剪纸交流会", "time": "11月9日16:00", "location": "白桦教室"}},
+    {"id": "boundary-dev-03", "group": "notice-12", "split": "dev", "category": "welcome", "text": "欢迎参加园艺沙龙，活动时间为11月10日09:00，地点是碧泉花房。", "expected": {"event": "园艺沙龙", "time": "11月10日09:00", "location": "碧泉花房"}},
+    {"id": "boundary-dev-04", "group": "notice-13", "split": "dev", "category": "welcome", "text": "欢迎参加历史讲座。时间和地点稍后公布。", "expected": {"event": "历史讲座", "time": null, "location": null}},
+    {"id": "boundary-dev-05", "group": "notice-14", "split": "dev", "category": "other-layout", "text": "报名须知：参与者可报名古籍修复课，举办时间待定，地址待定。", "expected": {"event": "古籍修复课", "time": null, "location": null}},
+    {"id": "boundary-dev-06", "group": "notice-15", "split": "dev", "category": "other-layout", "text": "地点：回声剧场。即兴表演课将于下周三19:30开始。", "expected": {"event": "即兴表演课", "time": "下周三19:30", "location": "回声剧场"}}
+  ]
+}

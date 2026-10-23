@@ -16,6 +16,11 @@ def validate_target(value):
 def load_pilot(path=None):
     path = path or Path(__file__).parent / "data/pilot-v1.json"
     data = json.loads(Path(path).read_text(encoding="utf-8"))
+    return validate_pilot_data(data)
+
+
+def validate_pilot_data(data):
+    """Validate in-memory compositions with the same original sample rules."""
     seen, groups, texts = set(), {}, set()
     counts = {"train": 0, "dev": 0}
     for row in data["rows"]:

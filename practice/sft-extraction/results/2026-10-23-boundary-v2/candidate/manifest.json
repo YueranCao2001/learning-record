@@ -1,0 +1,76 @@
+{
+  "base": "Qwen/Qwen3-0.6B",
+  "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "steps": 6,
+  "protocol": {
+    "version": "boundary-v2",
+    "question": "Under a fixed six-step budget, what changes when the second pass over the original three notices is replaced with three targeted boundary examples?",
+    "base": "Qwen/Qwen3-0.6B",
+    "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "seed": 42,
+    "steps_per_arm": 6,
+    "batch_size": 1,
+    "lr": 0.0002,
+    "control_order": [
+      "train-01",
+      "train-02",
+      "train-03",
+      "train-01",
+      "train-02",
+      "train-03"
+    ],
+    "candidate_order": [
+      "train-01",
+      "train-02",
+      "train-03",
+      "boundary-train-01",
+      "boundary-train-02",
+      "boundary-train-03"
+    ],
+    "dev_ids": [
+      "dev-01",
+      "dev-02",
+      "dev-03",
+      "boundary-dev-01",
+      "boundary-dev-02",
+      "boundary-dev-03",
+      "boundary-dev-04",
+      "boundary-dev-05",
+      "boundary-dev-06"
+    ],
+    "lora": {
+      "r": 8,
+      "lora_alpha": 16,
+      "lora_dropout": 0.0,
+      "target_modules": [
+        "q_proj",
+        "v_proj"
+      ],
+      "bias": "none"
+    },
+    "generation": {
+      "do_sample": false,
+      "max_new_tokens": 128
+    },
+    "stop": "Run baseline once, then control and candidate once each. Do not tune steps, labels or prompts after observing outputs. On execution failure, retain evidence and only repair infrastructure faults.",
+    "interpretation": "Synthetic open diagnostics, no sealed test. Data coverage, exposure counts, token budget and ordered recency change together. A single-seed result does not uniquely identify a causal mechanism or establish generalization.",
+    "publication": "Publish the final candidate as a dated experimental HF branch, regardless of score direction; retain main and yesterday's pinned revision. Do not promote candidate to default."
+  },
+  "data_file": "results/2026-10-23-boundary-v2/data.json",
+  "data_sha256": "cdadc1c27167d4476a938961fd127be5278b2fe28d8612be7c120beb9f871008",
+  "protocol_sha256": "40d8dc19916acff792bf79cb36efecb950a76d61f10cbc03bc1399387cda54c5",
+  "code_sha256": {
+    "boundary_experiment.py": "ac135baa5e3f1efbdf8d33bfbc825613070b5abddb21d9eac480780959638b52",
+    "boundary_data.py": "4ce2718e05aacb8832ba76f3166b6f461f8445a036be16588ba3181c68367698",
+    "train_smoke.py": "978b0cd842e41b555e3fce1da688a9b86292f2ff2af897e20b8a4cf6ef6f0e3e",
+    "contract.py": "2ccbc15d96b7e78bd18abdad06708087b8d0fb828dbc55b21bd3e92e1800213d"
+  },
+  "packing": false,
+  "max_length": 512,
+  "enable_thinking": false,
+  "dtype": "bfloat16",
+  "optimizer": "AdamW",
+  "weight_decay": 0,
+  "clip_grad_norm": 1,
+  "scope": "Synthetic open diagnostics, no sealed test. Data coverage, exposure counts, token budget and ordered recency change together. A single-seed result does not uniquely identify a causal mechanism or establish generalization."
+}

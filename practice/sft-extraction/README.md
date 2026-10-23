@@ -4,6 +4,12 @@
 
 ## 当前状态
 
+2026-10-23 完成 [边界样例固定预算对照](../../daily/2026/10/2026-10-23-sft-boundary-data-comparison.md)：两组从相同基座和初始 adapter 开始，各六步；对照重复旧3条 train，候选将后三步换为3条新边界样例。旧3题+新6题的整条匹配为基座5/9、对照3/9、候选9/9。候选只发布到私有分支 `boundary-v2-20261023`，远程 commit `e3b24d1115c21cf69feaa5e6e9cf85a98f502c84` 下载/加载通过，`main` 不变。23项本地测试通过。
+
+这些是根据已知失败设计的可见合成题，模板有重叠、没有封存测试集；9/9不是泛化准确率。两组匹配步骤而非 token 总数（146 vs 136），样例曝光与顺序亦改变；候选不直接推广。[比较证据](results/2026-10-23-boundary-v2/review.json)、[同步证据](results/2026-10-23-boundary-v2/candidate/upload.json)。
+
+### 历史起点
+
 2026-10-22 完成六条合成样例、GPU 六步 LoRA 训练、本地保存加载，以及 HF 上传与固定 commit 下载加载验证。3 train + 3 dev 仅用于检查训练管线，不足以证明泛化。所有 dev 标签已可见，不是封存测试集。组 ID 检查不等于语义去重完成。
 
 私有模型仓库：[qwen3-0.6b-zh-extraction-lora](https://huggingface.co/YueranCao2001/qwen3-0.6b-zh-extraction-lora)，验证 commit 为 `def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f`。不要向聊天发送 Token。
@@ -24,7 +30,7 @@ python -X utf8 -m unittest -v
 
 ## 后续验收顺序
 
-以下为阶段清单：第1—4项的 GPU、模板、六步训练及推理重载已完成，第6项也完成了私有上传及下载加载。精确续训仍未验证；接下来优先分析退化与补充数据，不自动增加训练轮数。
+以下为阶段清单：第1—4项的 GPU、模板、六步训练及推理重载已完成，第6项也完成了私有上传及下载加载。10月23日进一步完成了边界样例对照；接下来优先明确标注边界和独立审查评估，不自动增加训练轮数。精确续训仍未验证。
 
 1. 建独立虚拟环境，不修改应用自带 Python；安装兼容 RTX 5070 的训练依赖，执行 GPU 张量及反向传播检查，记录版本。
 2. 固定基座/tokenizer revision，审核非思考模式模板、EOS、assistant 监督 mask 和截断；先 `packing=False`。
@@ -34,6 +40,18 @@ python -X utf8 -m unittest -v
 6. 本地认证后创建私有 HF 模型仓库，只上传审核后的 adapter、必要配置/tokenizer、模型卡和逐题评估摘要，排除数据、凭据及中间状态。检查远程 commit 和下载加载后再称同步成功。GitHub 只存代码、诊断数据与笔记。
 
 ## 本次真实训练的复现入口
+
+下方默认命令对应10月22日的六步 smoke test；10月23日对照实验的入口如下。已有 run 不能覆盖，重新训练须换名称。原 smoke 脚本保留为冻结参考；新入口复用模型/模板/评分函数，而不修改历史证据。
+
+```powershell
+& 'E:\Evren\Evren_work\.venv-sft\Scripts\python.exe' -X utf8 boundary_experiment.py --run new-comparison-run
+& 'E:\Evren\Evren_work\.venv-sft\Scripts\python.exe' -X utf8 review_boundary.py --run new-comparison-run
+# 先审查产物和对应模型卡，再显式上传；保持独立实验分支。
+& 'E:\Evren\Evren_work\.venv-hf\Scripts\python.exe' -X utf8 publish.py --run new-comparison-run --arm candidate --revision boundary-v2-20261023 --model-card boundary-model-card.md --execute
+& 'E:\Evren\Evren_work\.venv-sft\Scripts\python.exe' -X utf8 verify_remote.py --run new-comparison-run --arm candidate
+```
+
+新数据由不变的 `pilot-v1.json` 和 [boundary-additions-v2.json](data/boundary-additions-v2.json) 组成；[protocol](data/boundary-protocol-v2.json) 在执行前固定顺序、预算和停止条件。生成完整数据快照、源码指纹、逐 token mask、基线、两组训练日志及重载结果。`publish.py` 现在支持明确指定 arm、模型卡和 HF revision，`verify_remote.py` 从对应 manifest 选择数据，而非写死旧3题。
 
 独立训练环境位于 `E:\Evren\Evren_work\.venv-sft`，应用自带 Python 未修改。训练使用 PyTorch + PEFT 的显式循环，不依赖 TRL。顶层版本见 [requirements.txt](requirements.txt)，实际依赖见 [requirements-lock.txt](requirements-lock.txt)。HF 上传使用单独的 `.venv-hf`（huggingface_hub 2.2.0），不把新版 Hub 强行装入固定的训练依赖组合。
 

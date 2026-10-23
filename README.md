@@ -93,6 +93,7 @@
 - [引用候选提示的日期题退化](daily/2026/10/2026-10-20-citation-prompt-date-regression.md)
 - [日期回归重复检查与微调阶段衔接](daily/2026/10/2026-10-21-repeatability-review-and-sft-handoff.md)
 - [中文信息抽取微调：首个 LoRA 训练与 HF 同步](daily/2026/10/2026-10-22-sft-extraction-contract-and-preflight.md)
+- [中文信息抽取微调：边界样例的固定预算对照](daily/2026/10/2026-10-23-sft-boundary-data-comparison.md)
 
 ## 提交约定
 
