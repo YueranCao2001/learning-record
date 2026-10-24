@@ -1,0 +1,336 @@
+{
+  "metrics": {
+    "old_regression": {
+      "base": {
+        "n": 9,
+        "exact": 5,
+        "fields_correct": 22
+      },
+      "candidate": {
+        "n": 9,
+        "exact": 9,
+        "fields_correct": 27
+      }
+    },
+    "new_open_audit": {
+      "base": {
+        "n": 12,
+        "exact": 6,
+        "fields_correct": 30
+      },
+      "candidate": {
+        "n": 12,
+        "exact": 11,
+        "fields_correct": 35
+      }
+    },
+    "complete": {
+      "base": {
+        "n": 6,
+        "exact": 2,
+        "fields_correct": 14
+      },
+      "candidate": {
+        "n": 6,
+        "exact": 6,
+        "fields_correct": 18
+      }
+    },
+    "missing-both": {
+      "base": {
+        "n": 2,
+        "exact": 2,
+        "fields_correct": 6
+      },
+      "candidate": {
+        "n": 2,
+        "exact": 2,
+        "fields_correct": 6
+      }
+    },
+    "missing-location": {
+      "base": {
+        "n": 2,
+        "exact": 0,
+        "fields_correct": 4
+      },
+      "candidate": {
+        "n": 2,
+        "exact": 2,
+        "fields_correct": 6
+      }
+    },
+    "missing-time": {
+      "base": {
+        "n": 2,
+        "exact": 2,
+        "fields_correct": 6
+      },
+      "candidate": {
+        "n": 2,
+        "exact": 1,
+        "fields_correct": 5
+      }
+    },
+    "retention": {
+      "base": {
+        "n": 5,
+        "correct": 2
+      },
+      "candidate": {
+        "n": 5,
+        "correct": 3
+      }
+    }
+  },
+  "paired_errors_or_differences": [
+    {
+      "id": "dev-02",
+      "expected": {
+        "event": "手工沙龙",
+        "time": "周六15:00",
+        "location": null
+      },
+      "base_raw": "{\n  \"event\": \"手工沙龙\",\n  \"time\": \"15:00\",\n  \"location\": \"待通知\"\n}",
+      "candidate_raw": "{\"event\":\"手工沙龙\",\"time\":\"周六15:00\",\"location\":null}",
+      "base_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 1
+      },
+      "candidate_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "boundary-dev-01",
+      "expected": {
+        "event": "陶艺体验课",
+        "time": "周日10:30",
+        "location": "松风礼堂"
+      },
+      "base_raw": "{\n  \"event\": \"陶艺体验课\",\n  \"time\": \"10:30\",\n  \"location\": \"松风礼堂\"\n}",
+      "candidate_raw": "{\"event\":\"陶艺体验课\",\"time\":\"周日10:30\",\"location\":\"松风礼堂\"}",
+      "base_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "boundary-dev-03",
+      "expected": {
+        "event": "园艺沙龙",
+        "time": "11月10日09:00",
+        "location": "碧泉花房"
+      },
+      "base_raw": "{\n  \"event\": \"园艺沙龙\",\n  \"time\": \"11月10日\",\n  \"location\": \"碧泉花房\"\n}",
+      "candidate_raw": "{\"event\":\"园艺沙龙\",\"time\":\"11月10日09:00\",\"location\":\"碧泉花房\"}",
+      "base_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "boundary-dev-06",
+      "expected": {
+        "event": "即兴表演课",
+        "time": "下周三19:30",
+        "location": "回声剧场"
+      },
+      "base_raw": "{\n  \"event\": \"即兴表演课\",\n  \"time\": null,\n  \"location\": \"回声剧场\"\n}",
+      "candidate_raw": "{\"event\":\"即兴表演课\",\"time\":\"下周三19:30\",\"location\":\"回声剧场\"}",
+      "base_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "audit-02",
+      "expected": {
+        "event": "皮具制作课",
+        "time": "下周二晚上19:00",
+        "location": "云帆工坊"
+      },
+      "base_raw": "{\n  \"event\": \"皮具制作课\",\n  \"time\": \"19:00\",\n  \"location\": \"云帆工坊\"\n}",
+      "candidate_raw": "{\"event\":\"皮具制作课\",\"time\":\"下周二晚上19:00\",\"location\":\"云帆工坊\"}",
+      "base_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "audit-03",
+      "expected": {
+        "event": "地图绘制体验课",
+        "time": null,
+        "location": "潮汐教室"
+      },
+      "base_raw": "{\n  \"event\": \"地图绘制体验课\",\n  \"time\": null,\n  \"location\": \"潮汐教室\"\n}",
+      "candidate_raw": "{\"event\":\"地图绘制体验课\",\"time\":null,\"location\":null}",
+      "base_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      },
+      "candidate_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      }
+    },
+    {
+      "id": "audit-04",
+      "expected": {
+        "event": "科学摄影讲座",
+        "time": "11月14日上午09:30",
+        "location": null
+      },
+      "base_raw": "{\n  \"event\": \"科学摄影讲座\",\n  \"time\": \"11月14日\",\n  \"location\": null\n}",
+      "candidate_raw": "{\"event\":\"科学摄影讲座\",\"time\":\"11月14日上午09:30\",\"location\":null}",
+      "base_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "audit-06",
+      "expected": {
+        "event": "城市速写课",
+        "time": "本周五14:00",
+        "location": "蒲公英展厅"
+      },
+      "base_raw": "{\n  \"event\": \"城市速写课\",\n  \"time\": \"14:00\",\n  \"location\": \"蒲公英展厅\"\n}",
+      "candidate_raw": "{\"event\":\"城市速写课\",\"time\":\"本周五14:00\",\"location\":\"蒲公英展厅\"}",
+      "base_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "audit-08",
+      "expected": {
+        "event": "数字绘本分享会",
+        "time": "周日20:00",
+        "location": "萤火线上教室"
+      },
+      "base_raw": "{\n  \"event\": \"数字绘本分享会\",\n  \"time\": \"20:00\",\n  \"location\": \"萤火线上教室\"\n}",
+      "candidate_raw": "{\"event\":\"数字绘本分享会\",\"time\":\"周日20:00\",\"location\":\"萤火线上教室\"}",
+      "base_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "audit-10",
+      "expected": {
+        "event": "香草种植课",
+        "time": "11月18日10:00",
+        "location": null
+      },
+      "base_raw": "{\n  \"event\": \"香草种植课\",\n  \"time\": \"11月18日\",\n  \"location\": null\n}",
+      "candidate_raw": "{\"event\":\"香草种植课\",\"time\":\"11月18日10:00\",\"location\":null}",
+      "base_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    },
+    {
+      "id": "audit-12",
+      "expected": {
+        "event": "诗歌朗读会",
+        "time": "周六下午14:30",
+        "location": "澄明讲堂"
+      },
+      "base_raw": "{\n  \"event\": \"诗歌朗读会\",\n  \"time\": \"14:30\",\n  \"location\": \"澄明讲堂\"\n}",
+      "candidate_raw": "{\"event\":\"诗歌朗读会\",\"time\":\"周六下午14:30\",\"location\":\"澄明讲堂\"}",
+      "base_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": false,
+        "fields_correct": 2
+      },
+      "candidate_score": {
+        "json_valid": true,
+        "schema_valid": true,
+        "exact": true,
+        "fields_correct": 3
+      }
+    }
+  ],
+  "old_candidate_tokens_reproduce": true,
+  "total_generation_calls": 52,
+  "training_steps": 0,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "scope": "Open synthetic audit and five elementary retention probes, authored by the same assistant after observing past errors. Not broad capability validation or independent test accuracy."
+}

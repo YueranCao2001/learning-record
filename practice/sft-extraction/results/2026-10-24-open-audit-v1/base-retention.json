@@ -1,0 +1,78 @@
+[
+  {
+    "id": "retention-01",
+    "raw": "17 + 26 = 43",
+    "token_ids": [
+      16,
+      22,
+      488,
+      220,
+      17,
+      21,
+      284,
+      220,
+      19,
+      18,
+      151645
+    ],
+    "ended_with_eos": true,
+    "correct": false
+  },
+  {
+    "id": "retention-02",
+    "raw": "42",
+    "token_ids": [
+      19,
+      17,
+      151645
+    ],
+    "ended_with_eos": true,
+    "correct": false
+  },
+  {
+    "id": "retention-03",
+    "raw": "```json\n[1, 4, 9]\n```",
+    "token_ids": [
+      73594,
+      2236,
+      198,
+      58,
+      16,
+      11,
+      220,
+      19,
+      11,
+      220,
+      24,
+      921,
+      73594,
+      151645
+    ],
+    "ended_with_eos": true,
+    "correct": false
+  },
+  {
+    "id": "retention-04",
+    "raw": "猫",
+    "token_ids": [
+      100472,
+      151645
+    ],
+    "ended_with_eos": true,
+    "correct": true
+  },
+  {
+    "id": "retention-05",
+    "raw": "AB-204",
+    "token_ids": [
+      1867,
+      12,
+      17,
+      15,
+      19,
+      151645
+    ],
+    "ended_with_eos": true,
+    "correct": true
+  }
+]

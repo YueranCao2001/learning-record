@@ -4,6 +4,7 @@ SFT、DPO、PPO 与 GRPO、Rollout 和奖励评估器。当前记录以概念及
 
 ## 日期笔记
 
+- 2026-10-24 [中文信息抽取微调：冻结标注规则与开放审计](../daily/2026/10/2026-10-24-sft-annotation-rules-open-audit.md)
 - 2026-10-23 [中文信息抽取微调：边界样例的固定预算对照](../daily/2026/10/2026-10-23-sft-boundary-data-comparison.md)
 - 2026-10-22 [中文信息抽取微调：首个 LoRA 训练与 HF 同步](../daily/2026/10/2026-10-22-sft-extraction-contract-and-preflight.md)
 - 2026-09-07 [Supervised Fine-Tuning：Chat Template、Assistant-only Loss、Packing 与 LoRA](../daily/2026/09/2026-09-07-supervised-fine-tuning-chat-template-lora.md)
@@ -26,6 +27,10 @@ SFT、DPO、PPO 与 GRPO、Rollout 和奖励评估器。当前记录以概念及
 候选已同步至私有 HF 分支 `boundary-v2-20261023`，commit `e3b24d1115c21cf69feaa5e6e9cf85a98f502c84` 的下载哈希及加载生成通过验证，`main` 保持昨天版本。23项本地测试通过。下一项是标注边界规则和独立人工审查评估，而不是直接推广候选。精确续训和基础能力保留评估仍待完成。
 
 真实模型的模板检查、一步训练、保存恢复与独立评估，不因合成数值测试通过而自动完成。转向训练后先落实 [小模型实验设计](../daily/2026/09/2026-09-15-small-model-experiment-design.md) 中的待办，再扩大算法范围。
+
+10月24日冻结单活动标注规则，对相同基座/候选执行52次只读 GPU 生成，0步训练。旧9题仍为5/9 vs 9/9；新12条开放审计为6/12 vs 11/12，但候选将明确地点“潮汐教室”遗漏为 null。5条基础探针严格通过为2/5 vs 3/5，需区分内容错误与格式问题，不作为综合能力验收。独立人工审查仍为 pending；34项本地测试通过。
+
+审计文件已同步到原 HF 实验分支的 evaluations 子目录（commit `4890a0afc0d0eb3f9561d34f7220e5b0ffeaf6ad`），模型权重和 main 不变。下一项围绕新地点遗漏做最小对照，继续保留人工复核和精确续训待办。
 
 [评估与实验方法](evaluation-experiments.md) 提供这条实践链路的设计与验收入口。
 

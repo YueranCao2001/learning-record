@@ -4,6 +4,12 @@
 
 ## 当前状态
 
+2026-10-24 完成 [冻结标注规则与开放审计](../../daily/2026/10/2026-10-24-sft-annotation-rules-open-audit.md)：使用固定 `e3b24d11` 候选，0步训练、52次生成。旧9题仍为基座5/9、候选9/9；新12条开放审计为6/12、11/12，保留一处候选遗漏明确地点的退化。5条基础探针严格通过为2/5、3/5，其中有内容正确而格式未遵循的失败。人工复核仍为 pending，不将结果称独立测试准确率。
+
+今天仅将审计文档同步到 HF 实验分支的 `evaluations/2026-10-24-open-audit-v1/`（commit `4890a0afc0d0eb3f9561d34f7220e5b0ffeaf6ad`）；权重和 main 未改变。[逐题审查](results/2026-10-24-open-audit-v1/review.json)、[同步证据](results/2026-10-24-open-audit-v1/hf-audit-upload.json)。34项本地测试通过。下一项先做明确地点遗漏的最小对照，不自动追加训练。
+
+### 前一轮数据对照
+
 2026-10-23 完成 [边界样例固定预算对照](../../daily/2026/10/2026-10-23-sft-boundary-data-comparison.md)：两组从相同基座和初始 adapter 开始，各六步；对照重复旧3条 train，候选将后三步换为3条新边界样例。旧3题+新6题的整条匹配为基座5/9、对照3/9、候选9/9。候选只发布到私有分支 `boundary-v2-20261023`，远程 commit `e3b24d1115c21cf69feaa5e6e9cf85a98f502c84` 下载/加载通过，`main` 不变。23项本地测试通过。
 
 这些是根据已知失败设计的可见合成题，模板有重叠、没有封存测试集；9/9不是泛化准确率。两组匹配步骤而非 token 总数（146 vs 136），样例曝光与顺序亦改变；候选不直接推广。[比较证据](results/2026-10-23-boundary-v2/review.json)、[同步证据](results/2026-10-23-boundary-v2/candidate/upload.json)。
@@ -17,6 +23,8 @@
 逐题整条匹配从基座的2/3降为 adapter 的1/3；虽然训练 loss 降低、输出格式紧凑了，但事实抽取有退化，不推广替代基座。证据保存在 [本次运行](results/2026-10-22-lora-smoke-v1/summary.json) 和 [上传验证](results/2026-10-22-lora-smoke-v1/upload.json)。
 
 ## 离线检查
+
+本次开放审计入口为 `audit_evaluation.py --run 新名称`，协议见 [audit-protocol-v1.json](data/audit-protocol-v1.json)，标注规则见 [annotation-rules-v1.md](annotation-rules-v1.md)。运行需要既有本地基座和已校验的 pinned adapter 下载副本；不会创建 optimizer、更新权重或重试调分。`publish_audit.py --run 名称 --execute` 只追加审核过的审计文件，拒绝在原分支已被其他提交改变时继续写入。
 
 以下命令从本目录执行，用实际可用 Python 替换 `python`：
 
