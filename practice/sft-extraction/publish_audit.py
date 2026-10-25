@@ -23,31 +23,39 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
+    parser.add_argument("--kind", choices=("audit", "minimal"), default="audit")
+    parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
     output = ROOT / "results" / args.run
     review = json.loads((output / "review.json").read_text(encoding="utf-8"))
     assert review["training_steps"] == 0 and review["human_review"] == "pending"
-    assert review["old_candidate_tokens_reproduce"] and review["total_generation_calls"] == 52
+    if args.kind == "audit":
+        assert review["old_candidate_tokens_reproduce"] and review["total_generation_calls"] == 52
+        files = FILES
+    else:
+        assert all(review["anchor_tokens_reproduce"].values()) and review["total_generation_calls"] == 12
+        assert review["source_groups"] == 1
+        files = FILES - {"base-retention.json", "candidate-retention.json"}
     bundle = ROOT / "artifacts" / args.run / "audit-documents"
     bundle.mkdir(parents=True, exist_ok=True)
-    for name in FILES:
+    for name in files:
         source = ROOT / name if name.endswith(".md") else output / name
         shutil.copyfile(source, bundle / name)
-    assert {p.name for p in bundle.iterdir()} == FILES
-    hashes = {name: digest(bundle / name) for name in sorted(FILES)}
+    assert {p.name for p in bundle.iterdir()} == files
+    hashes = {name: digest(bundle / name) for name in sorted(files)}
     prefix = "evaluations/" + args.run
-    print(json.dumps({"branch": BRANCH, "prefix": prefix, "files": sorted(FILES), "weight_upload": False}), flush=True)
+    print(json.dumps({"branch": BRANCH, "prefix": prefix, "files": sorted(files), "weight_upload": False}), flush=True)
     if not args.execute:
         return
     api = HfApi()
     assert api.whoami()["name"] == "YueranCao2001"
     assert api.model_info(REPO).private is True
     main_before = api.model_info(REPO, revision="main").sha
-    assert api.model_info(REPO, revision=BRANCH).sha == TESTED, "branch changed since evaluated adapter; inspect before writing"
+    assert api.model_info(REPO, revision=BRANCH).sha == args.expected_head, "branch head changed; inspect before writing"
     commit = api.upload_folder(repo_id=REPO, folder_path=bundle, path_in_repo=prefix,
-               revision=BRANCH, allow_patterns=sorted(FILES),
-               commit_message="Add open audit and retention evidence; leave weights unchanged")
+               revision=BRANCH, allow_patterns=sorted(files),
+               commit_message="Add read-only diagnostic evidence; leave weights unchanged")
     report = {"repo": REPO, "branch": BRANCH, "commit": commit.oid, "tested_adapter_revision": TESTED,
               "path_in_repo": prefix, "files_sha256": hashes, "weight_upload": False,
               "main_before": main_before, "main_after": api.model_info(REPO, revision="main").sha,

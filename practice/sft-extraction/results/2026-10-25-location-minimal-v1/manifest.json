@@ -1,0 +1,46 @@
+{
+  "protocol": {
+    "version": "location-minimal-protocol-v1",
+    "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+    "seed": 42,
+    "training_steps": 0,
+    "conditions": [
+      "base",
+      "candidate"
+    ],
+    "case_ids": [
+      "minimal-00",
+      "minimal-01",
+      "minimal-02",
+      "minimal-03",
+      "minimal-04",
+      "minimal-05"
+    ],
+    "total_generation_calls": 12,
+    "generation": {
+      "do_sample": false,
+      "max_new_tokens": 128
+    },
+    "instruction": "unchanged pilot-v1 instruction; annotation rules not added to prompt",
+    "stop": "Generate once per model/case in the listed order. No training, prompt tuning, label changes or additional variants after seeing outputs. Preserve all outputs.",
+    "interpretation": "Each intervention is relative to the anchor, not cumulative. Surface wording, token count and positions can change. One source group and one seed cannot identify an internal causal mechanism or estimate generalization accuracy.",
+    "decision": "Keep main and model weights unchanged; sync diagnostic records only. Human review remains pending."
+  },
+  "source_sha256": {
+    "data/location-minimal-v1.json": "46fdaca849b66fe896b5d808e56a7d7fb00891ab128ceb178a97d367df3a5579",
+    "data/location-minimal-protocol-v1.json": "c6e5116910de3b518ef69b8daa6620d128ee52fc2b33a97da46ad0513c0ac549",
+    "data/audit-v1.json": "617d9167f25bdf1fba24593ff86e5589fcfbe05bc66eb671156a601f73427035",
+    "data/pilot-v1.json": "cdaebb4c304f312afe5f2faf392fe362ae9ae277c992123e8332dd113810e8f5",
+    "evaluate_location.py": "4e462bd7f5b0ae8ac90bbb97a69ec590a6936742e68125ae2652579df3c7bdae",
+    "location_minimal.py": "1269eef4b944a69550b125011a8290eeea811edf5e0749da4b01bf4da629f333",
+    "audit_evaluation.py": "144d5707249343c1615cdf431d6b5fdad6f832d15e2657a8e38f61c2be071ccd",
+    "train_smoke.py": "978b0cd842e41b555e3fce1da688a9b86292f2ff2af897e20b8a4cf6ef6f0e3e",
+    "contract.py": "2ccbc15d96b7e78bd18abdad06708087b8d0fb828dbc55b21bd3e92e1800213d",
+    "annotation-rules-v1.md": "67e3c770e053f3d31fb20b4781feaf70ae06924dfcc5cc51fb1837a199723b53"
+  },
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12",
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "training_steps": 0,
+  "annotation_rules_in_prompt": false
+}

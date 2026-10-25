@@ -1,0 +1,196 @@
+[
+  {
+    "id": "minimal-00",
+    "raw": "{\"event\":\"地图绘制体验课\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      100826,
+      116073,
+      101904,
+      99504,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "minimal-01",
+    "raw": "{\"event\":\"地图绘制体验课\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      100826,
+      116073,
+      101904,
+      99504,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "minimal-02",
+    "raw": "{\"event\":\"地图绘制体验课\",\"time\":\"11月20日14:00\",\"location\":\"潮汐教室\"}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      100826,
+      116073,
+      101904,
+      99504,
+      2198,
+      1678,
+      3252,
+      16,
+      16,
+      9754,
+      17,
+      15,
+      8903,
+      16,
+      19,
+      25,
+      15,
+      15,
+      2198,
+      2527,
+      3252,
+      100227,
+      119132,
+      106323,
+      9207,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": true,
+      "fields_correct": 3
+    }
+  },
+  {
+    "id": "minimal-03",
+    "raw": "{\"event\":\"地图绘制体验课\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      100826,
+      116073,
+      101904,
+      99504,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "minimal-04",
+    "raw": "{\"event\":\"地图绘制体验课\",\"time\":null,\"location\":\"潮汐教室\"}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      100826,
+      116073,
+      101904,
+      99504,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      3252,
+      100227,
+      119132,
+      106323,
+      9207,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": true,
+      "fields_correct": 3
+    }
+  },
+  {
+    "id": "minimal-05",
+    "raw": "{\"event\":\"地图绘制体验课\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      100826,
+      116073,
+      101904,
+      99504,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  }
+]

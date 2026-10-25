@@ -1,0 +1,20 @@
+{
+  "version": "location-minimal-v1",
+  "parent_id": "audit-03",
+  "source_group": "notice-18",
+  "event": "地图绘制体验课",
+  "location": "潮汐教室",
+  "header": "面向初学者的活动已确定：活动名称为地图绘制体验课。",
+  "location_clause": "场地设在潮汐教室",
+  "time_clause": "开课时间另行公布",
+  "variants": [
+    {"id": "minimal-00", "factor": "anchor"},
+    {"id": "minimal-01", "factor": "time-wording", "time_clause": "开课时间待定"},
+    {"id": "minimal-02", "factor": "time-present", "time_clause": "开课时间为11月20日14:00", "expected_time": "11月20日14:00"},
+    {"id": "minimal-03", "factor": "clause-order", "reverse_clauses": true},
+    {"id": "minimal-04", "factor": "location-wording", "location_clause": "地点是潮汐教室"},
+    {"id": "minimal-05", "factor": "header-shortening", "header": "活动名称为地图绘制体验课。"}
+  ],
+  "provenance": "Assistant-authored variants of the known failure audit-03. All share one source group and are related diagnostic interventions, not independent evaluation samples.",
+  "human_review": "pending"
+}

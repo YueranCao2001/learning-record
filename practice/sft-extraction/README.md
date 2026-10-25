@@ -4,6 +4,12 @@
 
 ## 当前状态
 
+2026-10-25 完成 [地点遗漏最小对照](../../daily/2026/10/2026-10-25-sft-location-minimal-pairs.md)：一个来源组上的六种固定输入、基座与候选共12次生成、0步训练。补入明确时间或改用“地点是”时，候选地点恢复；时间缺失措辞、顺序或开头缩短未修复。原题 token 重现昨天结果，不能据此宣称内部原因或通用修复。[逐条件记录](results/2026-10-25-location-minimal-v1/review.json)。42项本地测试通过。
+
+HF 只追加7个诊断文件（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`），下载哈希、权重不变及 main 不变验证通过。[同步证据](results/2026-10-25-location-minimal-v1/hf-audit-upload.json)。下一工程项优先精确续训对照，地点问题和独立复核待办保留。
+
+### 前一轮开放审计
+
 2026-10-24 完成 [冻结标注规则与开放审计](../../daily/2026/10/2026-10-24-sft-annotation-rules-open-audit.md)：使用固定 `e3b24d11` 候选，0步训练、52次生成。旧9题仍为基座5/9、候选9/9；新12条开放审计为6/12、11/12，保留一处候选遗漏明确地点的退化。5条基础探针严格通过为2/5、3/5，其中有内容正确而格式未遵循的失败。人工复核仍为 pending，不将结果称独立测试准确率。
 
 今天仅将审计文档同步到 HF 实验分支的 `evaluations/2026-10-24-open-audit-v1/`（commit `4890a0afc0d0eb3f9561d34f7220e5b0ffeaf6ad`）；权重和 main 未改变。[逐题审查](results/2026-10-24-open-audit-v1/review.json)、[同步证据](results/2026-10-24-open-audit-v1/hf-audit-upload.json)。34项本地测试通过。下一项先做明确地点遗漏的最小对照，不自动追加训练。
@@ -23,6 +29,8 @@
 逐题整条匹配从基座的2/3降为 adapter 的1/3；虽然训练 loss 降低、输出格式紧凑了，但事实抽取有退化，不推广替代基座。证据保存在 [本次运行](results/2026-10-22-lora-smoke-v1/summary.json) 和 [上传验证](results/2026-10-22-lora-smoke-v1/upload.json)。
 
 ## 离线检查
+
+地点最小对照入口为 `evaluate_location.py --run 新名称`，输入见 [location-minimal-v1.json](data/location-minimal-v1.json)，协议见 [location-minimal-protocol-v1.json](data/location-minimal-protocol-v1.json)。复用既有生成、评分和参数哈希函数，不创建 optimizer。文档发布使用 `publish_audit.py --kind minimal --expected-head 已审查分支头`，不更换被测模型 revision；模型 commit 和仅文档 commit 分开记录。
 
 本次开放审计入口为 `audit_evaluation.py --run 新名称`，协议见 [audit-protocol-v1.json](data/audit-protocol-v1.json)，标注规则见 [annotation-rules-v1.md](annotation-rules-v1.md)。运行需要既有本地基座和已校验的 pinned adapter 下载副本；不会创建 optimizer、更新权重或重试调分。`publish_audit.py --run 名称 --execute` 只追加审核过的审计文件，拒绝在原分支已被其他提交改变时继续写入。
 

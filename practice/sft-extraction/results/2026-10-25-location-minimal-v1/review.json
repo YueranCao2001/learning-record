@@ -1,0 +1,97 @@
+{
+  "table": [
+    {
+      "id": "minimal-00",
+      "factor": "anchor",
+      "base": {
+        "location": "潮汐教室",
+        "location_correct": true,
+        "exact": true
+      },
+      "candidate": {
+        "location": null,
+        "location_correct": false,
+        "exact": false
+      }
+    },
+    {
+      "id": "minimal-01",
+      "factor": "time-wording",
+      "base": {
+        "location": "潮汐教室",
+        "location_correct": true,
+        "exact": true
+      },
+      "candidate": {
+        "location": null,
+        "location_correct": false,
+        "exact": false
+      }
+    },
+    {
+      "id": "minimal-02",
+      "factor": "time-present",
+      "base": {
+        "location": "潮汐教室",
+        "location_correct": true,
+        "exact": false
+      },
+      "candidate": {
+        "location": "潮汐教室",
+        "location_correct": true,
+        "exact": true
+      }
+    },
+    {
+      "id": "minimal-03",
+      "factor": "clause-order",
+      "base": {
+        "location": "潮汐教室",
+        "location_correct": true,
+        "exact": true
+      },
+      "candidate": {
+        "location": null,
+        "location_correct": false,
+        "exact": false
+      }
+    },
+    {
+      "id": "minimal-04",
+      "factor": "location-wording",
+      "base": {
+        "location": "潮汐教室",
+        "location_correct": true,
+        "exact": true
+      },
+      "candidate": {
+        "location": "潮汐教室",
+        "location_correct": true,
+        "exact": true
+      }
+    },
+    {
+      "id": "minimal-05",
+      "factor": "header-shortening",
+      "base": {
+        "location": "潮汐教室",
+        "location_correct": true,
+        "exact": true
+      },
+      "candidate": {
+        "location": null,
+        "location_correct": false,
+        "exact": false
+      }
+    }
+  ],
+  "anchor_tokens_reproduce": {
+    "base": true,
+    "candidate": true
+  },
+  "total_generation_calls": 12,
+  "source_groups": 1,
+  "training_steps": 0,
+  "human_review": "pending",
+  "promote_to_main": false
+}

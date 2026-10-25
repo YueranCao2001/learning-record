@@ -1,0 +1,80 @@
+[
+  {
+    "id": "minimal-00",
+    "group": "notice-18",
+    "parent_id": "audit-03",
+    "factor": "anchor",
+    "split": "dev",
+    "text": "面向初学者的活动已确定：活动名称为地图绘制体验课。场地设在潮汐教室，开课时间另行公布。",
+    "expected": {
+      "event": "地图绘制体验课",
+      "time": null,
+      "location": "潮汐教室"
+    }
+  },
+  {
+    "id": "minimal-01",
+    "group": "notice-18",
+    "parent_id": "audit-03",
+    "factor": "time-wording",
+    "split": "dev",
+    "text": "面向初学者的活动已确定：活动名称为地图绘制体验课。场地设在潮汐教室，开课时间待定。",
+    "expected": {
+      "event": "地图绘制体验课",
+      "time": null,
+      "location": "潮汐教室"
+    }
+  },
+  {
+    "id": "minimal-02",
+    "group": "notice-18",
+    "parent_id": "audit-03",
+    "factor": "time-present",
+    "split": "dev",
+    "text": "面向初学者的活动已确定：活动名称为地图绘制体验课。场地设在潮汐教室，开课时间为11月20日14:00。",
+    "expected": {
+      "event": "地图绘制体验课",
+      "time": "11月20日14:00",
+      "location": "潮汐教室"
+    }
+  },
+  {
+    "id": "minimal-03",
+    "group": "notice-18",
+    "parent_id": "audit-03",
+    "factor": "clause-order",
+    "split": "dev",
+    "text": "面向初学者的活动已确定：活动名称为地图绘制体验课。开课时间另行公布，场地设在潮汐教室。",
+    "expected": {
+      "event": "地图绘制体验课",
+      "time": null,
+      "location": "潮汐教室"
+    }
+  },
+  {
+    "id": "minimal-04",
+    "group": "notice-18",
+    "parent_id": "audit-03",
+    "factor": "location-wording",
+    "split": "dev",
+    "text": "面向初学者的活动已确定：活动名称为地图绘制体验课。地点是潮汐教室，开课时间另行公布。",
+    "expected": {
+      "event": "地图绘制体验课",
+      "time": null,
+      "location": "潮汐教室"
+    }
+  },
+  {
+    "id": "minimal-05",
+    "group": "notice-18",
+    "parent_id": "audit-03",
+    "factor": "header-shortening",
+    "split": "dev",
+    "text": "活动名称为地图绘制体验课。场地设在潮汐教室，开课时间另行公布。",
+    "expected": {
+      "event": "地图绘制体验课",
+      "time": null,
+      "location": "潮汐教室"
+    }
+  }
+]
