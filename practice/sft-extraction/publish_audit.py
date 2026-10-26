@@ -23,17 +23,23 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal", "resume", "resume-guard"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "resume", "resume-guard", "atomic"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
     output = ROOT / "results" / args.run
-    engineering = args.kind in ("resume", "resume-guard")
+    engineering = args.kind in ("resume", "resume-guard", "atomic")
     review_file = "comparison.json" if engineering else "review.json"
     review = json.loads((output / review_file).read_text(encoding="utf-8"))
     if not engineering:
         assert review["training_steps"] == 0 and review["human_review"] == "pending"
-    if args.kind == "resume-guard":
+    if args.kind == "atomic":
+        assert review["writer_cases_passed"] == 4 and review["invalid_containers_rejected"] == 5
+        assert review["all_invalid_rejected_before_deserialization"] and review["gpu_resume_exact"]
+        assert review["executed_optimizer_steps"] == 2 and not review["real_power_failure_tested"]
+        files = {"atomic-protocol.json", "protocol.json", "manifest.json", "comparison.json", "writer-cases.json",
+                 "corruption-cases.json", "gpu-resume.json", "resume/history.json", "resume/state.json"}
+    elif args.kind == "resume-guard":
         assert review["valid_resume_exact"] and review["all_rejected_before_deserialization"]
         assert review["negative_cases"] == 8 and review["negative_optimizer_updates"] == 0 and review["source_checkpoint_unchanged"]
         files = {"manifest.json", "binding.json", "guard-protocol.json", "protocol.json", "comparison.json", "valid-guard.json"}

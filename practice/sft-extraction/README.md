@@ -4,6 +4,12 @@
 
 ## 当前状态
 
+2026-10-26 再次扩展：新增 [单文件 checkpoint 容器协议](data/atomic-checkpoint-protocol-v1.json) 和 `atomic_experiment.py`。已有 slot 场景下，写入中途/替换前的子进程退出保留旧文件；替换后/正常提交得到完整新文件。5类坏输入均在反序列化前拒绝，容器恢复2步仍与连续参考精确一致。69项本地测试通过。[对照证据](results/2026-10-26-atomic-checkpoint-v1/comparison.json)、[HF文档同步](results/2026-10-26-atomic-checkpoint-v1/hf-audit-upload.json)。
+
+这是单写入者同目录临时写入、刷新后替换的原型，不证明真实断电、目录元数据持久性、多写入者或恶意篡改安全。写入测试old/new仅是提交generation，使用同一step-2 payload。二进制容器/pending/坏文件只存本地，HF仅追加9个工程JSON（commit `ddf7b3f5fda9d0c4dea516e4b8735bc3ba832f4e`），原模型与main不变。
+
+### 当日恢复身份保护
+
 2026-10-26 同日扩展：新增 `guarded_resume.py` 入口和 [恢复身份协议](data/resume-guard-protocol-v1.json)。新前缀2步+受保护恢复2步，8类数据/顺序/版本/tokenizer/模板/配置/字节/缺字段故障全部在 checkpoint 反序列化前拒绝，负例0更新；正常恢复与原连续参考完全一致。共59项本地测试通过。[扩展证据](results/2026-10-26-resume-identity-guard-v1/comparison.json)、[HF同步](results/2026-10-26-resume-identity-guard-v1/hf-audit-upload.json)，仅18个 JSON，模型不变。
 
 身份在前缀训练前采集、结束后核对并绑定本地 checkpoint。故障包含3类临时文件副本变化和5类明确的运行元数据注入，原文件不改；sidecar不提供恶意篡改签名认证或并发/原子写入保证。旧 worker 保留作冻结参考；只有从 guarded 入口进入才启用这些额外检查。
@@ -41,6 +47,8 @@ HF 只追加7个诊断文件（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`
 逐题整条匹配从基座的2/3降为 adapter 的1/3；虽然训练 loss 降低、输出格式紧凑了，但事实抽取有退化，不推广替代基座。证据保存在 [本次运行](results/2026-10-22-lora-smoke-v1/summary.json) 和 [上传验证](results/2026-10-22-lora-smoke-v1/upload.json)。
 
 ## 离线检查
+
+单文件提交实验入口：`atomic_experiment.py --run 新名称`，复用已有可信 step-2 checkpoint。原型限制头部1MiB、payload64MiB，按同一打开句柄校验并交付同一payload字节；为兼容冻结worker仍会导出受控文件，不声称全流程竞态已消除。`publish_audit.py --kind atomic --expected-head 已审查分支头` 只发布 JSON 工程记录。
 
 恢复保护入口为 `guarded_resume.py --run 新名称`，复用原冻结训练 worker；先执行8类拒绝，再验证合法路径。`publish_audit.py --kind resume-guard --expected-head 已审查分支头` 只同步 JSON 工程记录，不上传 checkpoint 或临时副本。
 

@@ -1,0 +1,11 @@
+{
+  "writer_cases_passed": 4,
+  "invalid_containers_rejected": 5,
+  "all_invalid_rejected_before_deserialization": true,
+  "gpu_resume_exact": true,
+  "adapter_max_abs_diff": 0.0,
+  "executed_optimizer_steps": 2,
+  "quality_evaluated": false,
+  "real_power_failure_tested": false,
+  "scope": "Controlled os._exit process termination at prescribed stages on local Windows filesystem, not real power failure, filesystem/media fault, directory-metadata durability proof, multi-writer locking or adversarial authentication. Writer cases reuse the same step-2 payload and change generation labels; they do not claim newer training progress."
+}

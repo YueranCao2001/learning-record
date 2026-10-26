@@ -1,0 +1,34 @@
+[
+  {
+    "case": "mid-payload",
+    "exit_code": 91,
+    "readable": true,
+    "generation": "old-generation",
+    "old_bytes_preserved": true,
+    "pending_file_count": 1
+  },
+  {
+    "case": "before-replace",
+    "exit_code": 92,
+    "readable": true,
+    "generation": "old-generation",
+    "old_bytes_preserved": true,
+    "pending_file_count": 1
+  },
+  {
+    "case": "after-replace",
+    "exit_code": 93,
+    "readable": true,
+    "generation": "new-generation",
+    "old_bytes_preserved": false,
+    "pending_file_count": 0
+  },
+  {
+    "case": "normal",
+    "exit_code": 0,
+    "readable": true,
+    "generation": "new-generation",
+    "old_bytes_preserved": false,
+    "pending_file_count": 0
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "case": "truncated",
+    "deserializer_called": false,
+    "optimizer_updates": 0,
+    "rejected": true,
+    "reason": "payload_size"
+  },
+  {
+    "case": "payload-bitflip",
+    "deserializer_called": false,
+    "optimizer_updates": 0,
+    "rejected": true,
+    "reason": "payload_sha256"
+  },
+  {
+    "case": "malformed-header",
+    "deserializer_called": false,
+    "optimizer_updates": 0,
+    "rejected": true,
+    "reason": "header_json"
+  },
+  {
+    "case": "oversized-header",
+    "deserializer_called": false,
+    "optimizer_updates": 0,
+    "rejected": true,
+    "reason": "header_limit"
+  },
+  {
+    "case": "identity-mismatch",
+    "deserializer_called": false,
+    "optimizer_updates": 0,
+    "rejected": true,
+    "reason": "identity_mismatch:base_revision"
+  }
+]

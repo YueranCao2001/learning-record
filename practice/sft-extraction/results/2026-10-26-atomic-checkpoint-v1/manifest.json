@@ -1,0 +1,12 @@
+{
+  "source_sha256": {
+    "checkpoint_container.py": "7902434bbfc7069a3c0803e5f94eddf6fdfaebc5bd01207ec476409b22400e07",
+    "atomic_experiment.py": "0d80276a3961c3a4968e8cf156a8c477833bee22ca1efcd04dd3d90709eb40df",
+    "data/atomic-checkpoint-protocol-v1.json": "f006919c01ca12db7b5674bb65c655675c8e339410cddc94f9008da2c7260486",
+    "resume_guard.py": "7c35600f1671d75a6cd97221ad55728c324a55534c83f369dad8c462e6f365bf",
+    "guarded_resume.py": "7285fe720d81e81185a4293e1de3b181a5313bb0db5eb5c6e8a1447eaaa4c8b5",
+    "resume_experiment.py": "d2b2d1d6b8b6b92588c0b6429d95975fd670bd8cd73113a13a456e59d081af40"
+  },
+  "source_binding_sha256": "aeed82355a86f5c672cb045172b09a40f6614f98dfffddcb5ae4ace7729f588e",
+  "published_reference_adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}

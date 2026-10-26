@@ -1,0 +1,14 @@
+{
+  "version": "atomic-checkpoint-protocol-v1",
+  "source_run": "2026-10-26-resume-identity-guard-v1",
+  "reference_run": "2026-10-26-exact-resume-v1",
+  "container": "Single file: magic, bounded JSON-header length, header with identity binding/generation/payload length/SHA-256, original trusted torch checkpoint bytes. No separate sidecar needed for this container.",
+  "publication": "Write unique temporary file in the same directory, flush+fsync, close, then os.replace. Single writer only. Do not discover or resume pending temporary files.",
+  "writer_cases": ["mid-payload", "before-replace", "after-replace", "normal"],
+  "expected_exit_codes": {"mid-payload": 91, "before-replace": 92, "after-replace": 93, "normal": 0},
+  "corruption_cases": ["truncated", "payload-bitflip", "malformed-header", "oversized-header", "identity-mismatch"],
+  "acceptance": "Before replacement, old slot byte hash unchanged and readable. After replacement, new generation complete and readable. Five invalid inputs reject before deserializer callback. Valid committed checkpoint resumes two actual GPU steps and exactly matches original continuous reference.",
+  "scope": "Controlled os._exit process termination at prescribed stages on local Windows filesystem, not real power failure, filesystem/media fault, directory-metadata durability proof, multi-writer locking or adversarial authentication. Writer cases reuse the same step-2 payload and change generation labels; they do not claim newer training progress.",
+  "training": "Only two resumed optimizer steps; reuse trusted earlier step-2 payload. No quality evaluation or new production candidate.",
+  "upload": "Engineering JSON only; leave original HF model and main unchanged. Binary containers and failed temporary files stay local."
+}

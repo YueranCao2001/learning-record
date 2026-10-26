@@ -8,6 +8,8 @@
 
 完成首轮后，按用户“今天多做一点”的要求，继续实现恢复前身份保护，并用8类不匹配负例和一次真实受保护恢复验证；扩展内容仍保留在今天这篇笔记中。
 
+随后按用户继续扩展的要求，增加单文件 checkpoint 容器、受控写入进程终止、损坏拒绝和容器恢复验证。以下三轮是不同工程问题的对照，不是累积训练后的质量提升报告。
+
 ## 核心概念
 
 - 推理权重与续训 checkpoint 不同。除 adapter 外，本次还保存优化器、scheduler、完成步数、参数顺序和各类随机状态。[PyTorch checkpoint 教程](https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html)
@@ -119,21 +121,53 @@ HF 工程文档 commit：[12484003](https://huggingface.co/YueranCao2001/qwen3-0
 
 扩展仅同步18个 JSON 工程文件，HF commit 为 [b28bcea7](https://huggingface.co/YueranCao2001/qwen3-0.6b-zh-extraction-lora/tree/b28bcea7e7737451f916f1b9414a2304ae29f0d2/engineering/2026-10-26-resume-identity-guard-v1)。下载哈希通过，原候选权重和 `main` 不变；checkpoint、损坏副本和临时数据副本均留本地。[同步证据](../../../practice/sft-extraction/results/2026-10-26-resume-identity-guard-v1/hf-audit-upload.json) 与首轮分别保存。
 
+### 7. 再次扩展：单文件容器、原子替换与进程中断
+
+上一轮身份信息与 checkpoint 分成两个文件，正常保存时能对齐，写入中断时则可能只更新其中一个。新增 [checkpoint_container.py](../../../practice/sft-extraction/checkpoint_container.py)，将身份 binding 和训练 payload 封装到同一 `.ckpt`：magic、有限长度 JSON 头、payload 长度、SHA-256、generation 标签与原 checkpoint 字节。
+
+原型将头部限制为1MiB、payload限制为64MiB，适用于本次约13.9MB的受控状态，不是任意规模模型的通用格式。生成完整临时文件后先 `flush()`、`os.fsync()`、关闭，再同目录 `os.replace()` 替换正式文件。跨文件系统可能失败；文件内容刷新也不等于已经证明目录元数据和硬件缓存能承受断电。[Python os 文档](https://docs.python.org/3.12/library/os.html#os.replace)、[fsync 说明](https://docs.python.org/3.12/library/os.html#os.fsync)
+
+[atomic-checkpoint-protocol-v1.json](../../../practice/sft-extraction/data/atomic-checkpoint-protocol-v1.json) 在执行前固定写入和损坏场景。[atomic_experiment.py](../../../practice/sft-extraction/atomic_experiment.py) 在每个独立实验目录先放置可用旧正式文件，再启动新写入子进程。old/new 是提交 generation 标签，写入测试复用同一 step-2 payload，以隔离文件发布行为，不声称推进了训练步数。
+
+| 写入场景 | 子进程行为 | 正式文件实际结果 |
+| --- | --- | --- |
+| payload 写到一半 | 主动 `os._exit(91)` | 旧 generation 可读取，旧文件字节哈希不变 |
+| 完整临时文件刷新后、替换前 | 主动 `os._exit(92)` | 旧 generation 可读取，旧文件字节哈希不变 |
+| 替换后 | 主动 `os._exit(93)` | 新 generation 完整、可读取 |
+| 正常提交 | 正常退出 | 新 generation 完整、可读取 |
+
+前两类各遗留一个 `.pending-*` 文件，正式恢复仅使用明确指定的 slot，不扫描或误选临时文件。临时文件保留在被 Git 忽略的本地实验目录；没有清理或改动既有原始 checkpoint。[写入结果](../../../practice/sft-extraction/results/2026-10-26-atomic-checkpoint-v1/writer-cases.json) 保存退出码、generation、完整性和 pending 数量。
+
+继续在诊断副本上测试5类无效输入：文件截断、payload 单字节翻转、JSON 头损坏、头部长度超限，以及运行身份不符。全部在反序列化回调之前被拒绝，未执行 optimizer 更新。[拒绝记录](../../../practice/sft-extraction/results/2026-10-26-atomic-checkpoint-v1/corruption-cases.json) 明确区分格式错误、长度错误、哈希错误和身份错误。
+
+读取器在同一打开句柄中读取并校验完整 payload，再将同一内存字节交给 `weights_only=True` 加载，而不是校验后按路径重读另一份文件。为复用冻结训练 worker，正常路径随后把验证过的 payload 导出到受控本地路径，仍执行原 worker 的哈希与协议检查；这不等于全流程并发文件竞态已被解决。
+
+最后从正常提交的容器恢复真实 GPU 训练第3—4步，adapter、optimizer、scheduler、RNG、history、步数和参数名再次与原连续参考完全一致，参数最大绝对差0。[GPU恢复报告](../../../practice/sft-extraction/results/2026-10-26-atomic-checkpoint-v1/gpu-resume.json) 和 [总对照](../../../practice/sft-extraction/results/2026-10-26-atomic-checkpoint-v1/comparison.json) 已保存。本轮只新增2次 optimizer 更新，未重跑前缀；当天三轮合计16次实际更新，不代表同一个模型训练16步。
+
+```powershell
+# 新 run 会创建新的本地诊断目录，不改原始 checkpoint。
+& 'E:\Evren\Evren_work\.venv-sft\Scripts\python.exe' -X utf8 atomic_experiment.py --run 2026-10-26-atomic-checkpoint-v1
+```
+
+本轮仅同步9个 JSON 工程记录，HF commit：[ddf7b3f5](https://huggingface.co/YueranCao2001/qwen3-0.6b-zh-extraction-lora/tree/ddf7b3f5fda9d0c4dea516e4b8735bc3ba832f4e/engineering/2026-10-26-atomic-checkpoint-v1)。[下载哈希和模型不变证据](../../../practice/sft-extraction/results/2026-10-26-atomic-checkpoint-v1/hf-audit-upload.json) 通过，二进制容器、临时文件及坏文件副本均未上传，原模型与 `main` 保持不变。
+
+这验证的是本机、单写入者、预定边界上的受控进程退出，不是真实断电、随机时点强杀、磁盘/文件系统损坏或多写入者测试；`real_power_failure_tested=false` 已写入报告。单文件容器也没有数字签名，不作为恶意篡改认证机制。
+
 ## 遇到的问题与边界
 
 此前推理加载一致，只能说明权重可用于同样的生成，缺少真实续训证据。今天用四个独立进程、非零 dropout 和优化器重置负对照，补上了固定设置下的工程验收。
 
-范围仍有限：只验证同机同软件、单GPU、batch=1、普通有放回采样、optimizer-step 边界的保存恢复；未验证多 worker、分布式、AMP scaler、累积梯度中途、强制杀进程导致的半写文件或跨平台恢复。可复现设置也不是吞吐性能测量。
+范围仍有限：只验证同机同软件、单GPU、batch=1、普通有放回采样、optimizer-step 边界的保存恢复；未验证多 worker、分布式、AMP scaler、累积梯度中途、随机时点外部强杀或跨平台恢复。后续扩展的指定边界进程退出不替代这些测试，可复现设置也不是吞吐性能测量。
 
 身份保护覆盖的是新的 guarded 入口，历史 worker 保留作冻结参考，直接运行旧入口不会自动获得全部保护。sidecar 是本地可信来源的绑定记录，不是数字签名；未承诺防止攻击者同时篡改 checkpoint 和绑定记录，也没有并发文件锁、检查与使用间竞态或断电原子写入保证。
 
 ## 今日总结
 
-完成真实 GPU 精确续训对照：完整恢复逐项一致，优化器负对照在更新后分离；进一步完成身份保护、8类反序列化前拒绝和真实受保护恢复。微调项目本地测试从首轮50项增至59项，覆盖 checkpoint 容器、RNG 回放、身份拒绝、指纹、正负对照及两轮文档同步证据。
+完成真实 GPU 精确续训、优化器负对照、恢复身份保护、8类身份/文件拒绝，以及单文件容器的4种写入场景、5类损坏拒绝和容器恢复。微调项目本地测试从首轮50项、第一次扩展59项增至69项；checkpoint 和临时副本始终留本地，只同步工程报告。
 
 今天完成的是受控训练工程能力，不是活动抽取质量改善；地点错误、独立人工复核和更广泛能力评估继续保留。
 
 ## 下一步
 
-- 已补齐新的 guarded 入口及8类拒绝。下一步考虑将绑定信息纳入正式 checkpoint 格式，并完善原子写入与中断损坏处理，而不是将此次 sidecar 直接视为生产级安全机制。
+- 已补齐 guarded 入口及单文件提交原型。下一步将这些入口整理为训练工程阶段验收清单，明确哪些路径已保护、哪些仍是冻结参考；多写入者锁、目录持久性、真正断电及分布式恢复仍不宣称完成。
 - 继续区分工程验收和质量验收；补充训练样例前先审查来源分组、标注边界与独立评估计划，不因续训一致就推广当前候选。

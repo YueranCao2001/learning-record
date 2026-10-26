@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "adapter": true,
+    "optimizer": true,
+    "scheduler": true,
+    "rng": true,
+    "history": true,
+    "completed_steps": true,
+    "parameter_names": true
+  },
+  "exact": true,
+  "adapter_max_abs_diff": 0.0,
+  "optimizer_updates": 2,
+  "container_generation": "new-generation",
+  "loaded_verified_payload": true
+}
