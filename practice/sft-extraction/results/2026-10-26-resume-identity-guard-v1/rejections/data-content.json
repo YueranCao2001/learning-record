@@ -1,0 +1,8 @@
+{
+  "fault": "data-content",
+  "checkpoint_deserialized": false,
+  "training_dispatched": false,
+  "optimizer_updates": 0,
+  "rejected": true,
+  "reason": "identity_mismatch:data_sha256,tokenized_training_sha256"
+}

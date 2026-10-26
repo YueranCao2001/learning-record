@@ -1,0 +1,29 @@
+{
+  "version": "resume-guard-protocol-v1",
+  "reference_run": "2026-10-26-exact-resume-v1",
+  "training_protocol": "data/resume-protocol-v1.json",
+  "phases": "New prefix subprocess runs 2 optimizer steps, bind identity before/after prefix, then guarded resume subprocess runs 2 steps. Compare final state/history with original continuous reference.",
+  "negative_cases": [
+    "data-content",
+    "data-order",
+    "base-revision",
+    "tokenizer-files",
+    "chat-template",
+    "training-config",
+    "checkpoint-bytes",
+    "missing-identity-field"
+  ],
+  "fault_types": {
+    "data-content": "modified disposable JSON data copy",
+    "data-order": "reordered disposable JSON data copy",
+    "checkpoint-bytes": "appended bytes to disposable checkpoint copy",
+    "base-revision": "runtime identity metadata injection; no wrong model downloaded",
+    "tokenizer-files": "runtime file-fingerprint metadata injection; original tokenizer untouched",
+    "chat-template": "runtime template-fingerprint metadata injection; original template untouched",
+    "training-config": "runtime LoRA-rank metadata injection; no wrong adapter constructed",
+    "missing-identity-field": "runtime metadata field removal"
+  },
+  "acceptance": "All eight negatives reject before checkpoint deserialization/training dispatch. Valid guarded resume equals continuous reference exactly. Checkpoint SHA unchanged. No model quality claim.",
+  "scope": "New guarded entry point around frozen original worker. Same local environment; sidecar binding protects accidental mismatch/corruption, not hostile modification of sidecar itself. No concurrent-file locking or filesystem transaction/crash safety guarantee.",
+  "publication": "Only JSON engineering records to private HF experiment branch; no checkpoints, raw data copies or debug weights uploaded."
+}

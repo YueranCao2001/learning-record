@@ -4,6 +4,12 @@
 
 ## 当前状态
 
+2026-10-26 同日扩展：新增 `guarded_resume.py` 入口和 [恢复身份协议](data/resume-guard-protocol-v1.json)。新前缀2步+受保护恢复2步，8类数据/顺序/版本/tokenizer/模板/配置/字节/缺字段故障全部在 checkpoint 反序列化前拒绝，负例0更新；正常恢复与原连续参考完全一致。共59项本地测试通过。[扩展证据](results/2026-10-26-resume-identity-guard-v1/comparison.json)、[HF同步](results/2026-10-26-resume-identity-guard-v1/hf-audit-upload.json)，仅18个 JSON，模型不变。
+
+身份在前缀训练前采集、结束后核对并绑定本地 checkpoint。故障包含3类临时文件副本变化和5类明确的运行元数据注入，原文件不改；sidecar不提供恶意篡改签名认证或并发/原子写入保证。旧 worker 保留作冻结参考；只有从 guarded 入口进入才启用这些额外检查。
+
+### 当日首轮续训对照
+
 2026-10-26 完成 [精确续训对照](../../daily/2026/10/2026-10-26-sft-exact-training-resume.md)：四个新进程执行连续4步、前缀2步、完整恢复2步、优化器重置2步（合计10次更新）。非零 LoRA dropout=0.1；完整恢复的历史、adapter/optimizer/scheduler/RNG与步数完全一致，adapter最大差0；优化器重置负对照分离。[比较报告](results/2026-10-26-exact-resume-v1/comparison.json)。50项本地测试通过。
 
 仅验证同机同软件单GPU、batch=1、无累积的 optimizer-step 边界恢复，未作质量评估。checkpoint在被忽略的 `artifacts/2026-10-26-exact-resume-v1/`；HF只同步12个工程 JSON（commit `12484003bb33219209a7520022ba85aea5923bf5`），原权重/main不变。[同步证据](results/2026-10-26-exact-resume-v1/hf-audit-upload.json)。下一项是恢复前身份校验与拒绝不匹配状态，地点错误和人工复核保留。
@@ -35,6 +41,8 @@ HF 只追加7个诊断文件（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`
 逐题整条匹配从基座的2/3降为 adapter 的1/3；虽然训练 loss 降低、输出格式紧凑了，但事实抽取有退化，不推广替代基座。证据保存在 [本次运行](results/2026-10-22-lora-smoke-v1/summary.json) 和 [上传验证](results/2026-10-22-lora-smoke-v1/upload.json)。
 
 ## 离线检查
+
+恢复保护入口为 `guarded_resume.py --run 新名称`，复用原冻结训练 worker；先执行8类拒绝，再验证合法路径。`publish_audit.py --kind resume-guard --expected-head 已审查分支头` 只同步 JSON 工程记录，不上传 checkpoint 或临时副本。
 
 精确续训入口：`resume_experiment.py --run 新名称`，使用 [resume-protocol-v1.json](data/resume-protocol-v1.json)，自动派生四个新子进程。初始配置和协议必须固定；本地受控 checkpoint 使用 `weights_only=True` 加载并核对文件哈希，RNG 在模型/optimizer 重建后恢复。`publish_audit.py --kind resume --expected-head 已审查分支头` 仅同步工程报告，不上传 `.pt` 文件或调试权重。已有候选模型 revision 与本次 fresh-base 工程训练明确区分。
 

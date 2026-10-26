@@ -1,0 +1,8 @@
+{
+  "fault": "training-config",
+  "checkpoint_deserialized": false,
+  "training_dispatched": false,
+  "optimizer_updates": 0,
+  "rejected": true,
+  "reason": "identity_mismatch:training_protocol"
+}

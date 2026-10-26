@@ -1,0 +1,7 @@
+{
+  "fault": null,
+  "checkpoint_deserialized": true,
+  "training_dispatched": true,
+  "optimizer_updates": 2,
+  "rejected": false
+}

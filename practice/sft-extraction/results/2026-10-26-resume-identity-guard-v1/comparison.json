@@ -1,0 +1,20 @@
+{
+  "valid_resume_exact": true,
+  "checks": {
+    "adapter": true,
+    "optimizer": true,
+    "scheduler": true,
+    "rng": true,
+    "history": true,
+    "completed_steps": true,
+    "parameter_names": true
+  },
+  "adapter_max_abs_diff": 0.0,
+  "negative_cases": 8,
+  "all_rejected_before_deserialization": true,
+  "negative_optimizer_updates": 0,
+  "executed_optimizer_steps": 4,
+  "source_checkpoint_unchanged": true,
+  "quality_evaluated": false,
+  "scope": "New guarded entry point around frozen original worker. Same local environment; sidecar binding protects accidental mismatch/corruption, not hostile modification of sidecar itself. No concurrent-file locking or filesystem transaction/crash safety guarantee."
+}

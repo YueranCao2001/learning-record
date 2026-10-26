@@ -6,6 +6,8 @@
 
 今天使用真实 GPU LoRA 训练做工程对照，不处理地点错误、不评估质量增益，也不更换已发布候选。
 
+完成首轮后，按用户“今天多做一点”的要求，继续实现恢复前身份保护，并用8类不匹配负例和一次真实受保护恢复验证；扩展内容仍保留在今天这篇笔记中。
+
 ## 核心概念
 
 - 推理权重与续训 checkpoint 不同。除 adapter 外，本次还保存优化器、scheduler、完成步数、参数顺序和各类随机状态。[PyTorch checkpoint 教程](https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html)
@@ -82,19 +84,56 @@
 
 HF 工程文档 commit：[12484003](https://huggingface.co/YueranCao2001/qwen3-0.6b-zh-extraction-lora/tree/12484003bb33219209a7520022ba85aea5923bf5/engineering/2026-10-26-exact-resume-v1)。12个文件回读哈希一致，原 HF adapter 权重和 `main` 均未改变，仓库保持私有。[同步证据](../../../practice/sft-extraction/results/2026-10-26-exact-resume-v1/hf-audit-upload.json) 将当前工程调试与原候选区分开，不将本次训练称为新质量候选发布。
 
-## 遇到的问题
+### 6. 当日扩展：恢复前身份保护与八类拒绝
+
+首轮 checkpoint 能恢复正确，不代表拿错数据、模板或状态文件时也会安全停止。为此新增 [guarded_resume.py](../../../practice/sft-extraction/guarded_resume.py) 入口，复用冻结的训练 worker，不修改第一轮脚本和证据。[预先固定的扩展协议](../../../practice/sft-extraction/data/resume-guard-protocol-v1.json) 限定新前缀2步、受保护恢复2步，以及8类故障注入；不调整训练预算或标签。
+
+新前缀训练前采集运行身份，结束后再次检查一致，再通过 `binding.json` 绑定新 checkpoint 的 SHA-256 和有序参数名指纹。身份包括：
+
+- 基座 ID/revision、实际 config 和权重文件 SHA-256；
+- 原始数据文件、训练样本顺序、实际 token IDs/labels 指纹；
+- tokenizer 文件、chat template、EOS/PAD；
+- 训练协议、执行代码、Python/依赖版本及 GPU/CUDA 信息。
+
+[resume_guard.py](../../../practice/sft-extraction/resume_guard.py) 先核对 checkpoint 字节哈希和身份，再允许 `weights_only=True` 反序列化；加载后继续核对状态结构、步数、协议和参数顺序，最后才派发训练。正常路径的模型/优化器初始化与 RNG 恢复仍复用原逻辑。
+
+| 负例 | 实际操作 | 结果 |
+| --- | --- | --- |
+| 数据内容变化 | 修改临时数据副本，原文件不变 | 拒绝 data/token 指纹不匹配 |
+| 样本顺序变化 | 交换临时数据副本前两条记录 | 拒绝数据、顺序与 token 指纹不匹配 |
+| 基座 revision 不符 | 运行身份元数据注入，不下载错误模型 | 拒绝 base_revision |
+| tokenizer 文件指纹不符 | 运行身份指纹注入，不改原 tokenizer | 拒绝 tokenizer_files |
+| 模板指纹不符 | 运行身份指纹注入，不改原模板 | 拒绝 chat_template_sha256 |
+| LoRA 配置变化 | 运行身份 rank 注入，不构建错误 adapter | 拒绝 training_protocol |
+| checkpoint 字节变化 | 向临时 checkpoint 副本追加字节 | 拒绝 checkpoint_sha256 |
+| 身份字段缺失 | 从运行身份元数据移除字段 | 拒绝 identity_fields |
+
+8类负例均在 checkpoint 反序列化前被拒绝，`checkpoint_deserialized=false`、`training_dispatched=false`、`optimizer_updates=0`。其中3类使用真实文件副本，5类为明确标注的元数据故障注入；不将后者描述为已经加载过错误模型或真的更换了 tokenizer。[逐类拒绝记录](../../../practice/sft-extraction/results/2026-10-26-resume-identity-guard-v1/rejections/data-order.json) 与 [完整协议中的类型说明](../../../practice/sft-extraction/results/2026-10-26-resume-identity-guard-v1/guard-protocol.json) 可核查。
+
+合法身份随后通过保护，实际继续训练第3—4步。与第一轮连续参考比较，adapter、optimizer、scheduler、RNG、完整 history、步数及参数名仍完全一致，adapter 最大绝对差为0；原 checkpoint 哈希保持不变。[扩展对照摘要](../../../practice/sft-extraction/results/2026-10-26-resume-identity-guard-v1/comparison.json)、[合法放行记录](../../../practice/sft-extraction/results/2026-10-26-resume-identity-guard-v1/valid-guard.json) 已保存。扩展新增4次 optimizer 更新，负例无更新；加上首轮10次，当天两轮合计14次实际更新，不是一个模型连续训练14步。
+
+```powershell
+# 从 practice/sft-extraction 执行。新 run 名会创建新的前缀和受保护恢复。
+& 'E:\Evren\Evren_work\.venv-sft\Scripts\python.exe' -X utf8 guarded_resume.py --run 2026-10-26-resume-identity-guard-v1
+```
+
+扩展仅同步18个 JSON 工程文件，HF commit 为 [b28bcea7](https://huggingface.co/YueranCao2001/qwen3-0.6b-zh-extraction-lora/tree/b28bcea7e7737451f916f1b9414a2304ae29f0d2/engineering/2026-10-26-resume-identity-guard-v1)。下载哈希通过，原候选权重和 `main` 不变；checkpoint、损坏副本和临时数据副本均留本地。[同步证据](../../../practice/sft-extraction/results/2026-10-26-resume-identity-guard-v1/hf-audit-upload.json) 与首轮分别保存。
+
+## 遇到的问题与边界
 
 此前推理加载一致，只能说明权重可用于同样的生成，缺少真实续训证据。今天用四个独立进程、非零 dropout 和优化器重置负对照，补上了固定设置下的工程验收。
 
 范围仍有限：只验证同机同软件、单GPU、batch=1、普通有放回采样、optimizer-step 边界的保存恢复；未验证多 worker、分布式、AMP scaler、累积梯度中途、强制杀进程导致的半写文件或跨平台恢复。可复现设置也不是吞吐性能测量。
 
+身份保护覆盖的是新的 guarded 入口，历史 worker 保留作冻结参考，直接运行旧入口不会自动获得全部保护。sidecar 是本地可信来源的绑定记录，不是数字签名；未承诺防止攻击者同时篡改 checkpoint 和绑定记录，也没有并发文件锁、检查与使用间竞态或断电原子写入保证。
+
 ## 今日总结
 
-完成真实 GPU 精确续训对照：完整恢复逐项一致，负对照在更新后分离。50项微调项目本地测试通过，覆盖 checkpoint 容器、RNG 回放、指纹、正负对照记录及仅文档同步证据。
+完成真实 GPU 精确续训对照：完整恢复逐项一致，优化器负对照在更新后分离；进一步完成身份保护、8类反序列化前拒绝和真实受保护恢复。微调项目本地测试从首轮50项增至59项，覆盖 checkpoint 容器、RNG 回放、身份拒绝、指纹、正负对照及两轮文档同步证据。
 
 今天完成的是受控训练工程能力，不是活动抽取质量改善；地点错误、独立人工复核和更广泛能力评估继续保留。
 
 ## 下一步
 
-- 将 checkpoint 与数据/tokenizer/模板身份校验做成恢复前检查，加入身份不符时拒绝恢复的负例，再考虑扩大训练预算。
+- 已补齐新的 guarded 入口及8类拒绝。下一步考虑将绑定信息纳入正式 checkpoint 格式，并完善原子写入与中断损坏处理，而不是将此次 sidecar 直接视为生产级安全机制。
 - 继续区分工程验收和质量验收；补充训练样例前先审查来源分组、标注边界与独立评估计划，不因续训一致就推广当前候选。

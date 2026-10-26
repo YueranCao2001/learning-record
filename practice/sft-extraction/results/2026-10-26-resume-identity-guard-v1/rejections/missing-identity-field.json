@@ -1,0 +1,8 @@
+{
+  "fault": "missing-identity-field",
+  "checkpoint_deserialized": false,
+  "training_dispatched": false,
+  "optimizer_updates": 0,
+  "rejected": true,
+  "reason": "identity_fields"
+}

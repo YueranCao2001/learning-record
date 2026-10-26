@@ -1,0 +1,8 @@
+{
+  "fault": "tokenizer-files",
+  "checkpoint_deserialized": false,
+  "training_dispatched": false,
+  "optimizer_updates": 0,
+  "rejected": true,
+  "reason": "identity_mismatch:tokenizer_files"
+}

@@ -23,16 +23,24 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal", "resume"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "resume", "resume-guard"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
     output = ROOT / "results" / args.run
-    review_file = "comparison.json" if args.kind == "resume" else "review.json"
+    engineering = args.kind in ("resume", "resume-guard")
+    review_file = "comparison.json" if engineering else "review.json"
     review = json.loads((output / review_file).read_text(encoding="utf-8"))
-    if args.kind != "resume":
+    if not engineering:
         assert review["training_steps"] == 0 and review["human_review"] == "pending"
-    if args.kind == "resume":
+    if args.kind == "resume-guard":
+        assert review["valid_resume_exact"] and review["all_rejected_before_deserialization"]
+        assert review["negative_cases"] == 8 and review["negative_optimizer_updates"] == 0 and review["source_checkpoint_unchanged"]
+        files = {"manifest.json", "binding.json", "guard-protocol.json", "protocol.json", "comparison.json", "valid-guard.json"}
+        files |= {phase + "/" + name for phase in ("prefix", "resume") for name in ("history.json", "state.json")}
+        guard = json.loads((output / "guard-protocol.json").read_text(encoding="utf-8"))
+        files |= {"rejections/" + name + ".json" for name in guard["negative_cases"]}
+    elif args.kind == "resume":
         assert review["full_resume_exact"] and review["optimizer_reset_diverges"] and review["four_distinct_processes"]
         assert review["executed_optimizer_steps"] == 10 and not review["quality_evaluated"]
         files = {"manifest.json", "protocol.json", "environment.json", "comparison.json"}
@@ -53,7 +61,7 @@ def main():
         shutil.copyfile(source, bundle / name)
     assert {p.relative_to(bundle).as_posix() for p in bundle.rglob("*") if p.is_file()} == files
     hashes = {name: digest(bundle / name) for name in sorted(files)}
-    prefix = ("engineering/" if args.kind == "resume" else "evaluations/") + args.run
+    prefix = ("engineering/" if engineering else "evaluations/") + args.run
     print(json.dumps({"branch": BRANCH, "prefix": prefix, "files": sorted(files), "weight_upload": False}), flush=True)
     if not args.execute:
         return
@@ -66,7 +74,7 @@ def main():
                revision=BRANCH, allow_patterns=sorted(files),
                commit_message="Add read-only diagnostic evidence; leave weights unchanged")
     report = {"repo": REPO, "branch": BRANCH, "commit": commit.oid,
-              "tested_adapter_revision": None if args.kind == "resume" else TESTED, "reference_adapter_revision": TESTED,
+              "tested_adapter_revision": None if engineering else TESTED, "reference_adapter_revision": TESTED,
               "path_in_repo": prefix, "files_sha256": hashes, "weight_upload": False,
               "main_before": main_before, "main_after": api.model_info(REPO, revision="main").sha,
               "private": api.model_info(REPO).private, "download_hashes_equal": False,
