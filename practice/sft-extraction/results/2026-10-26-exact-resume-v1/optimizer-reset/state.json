@@ -1,0 +1,16 @@
+{
+  "pid": 45932,
+  "executed_steps": 2,
+  "completed_steps": 4,
+  "initial_adapter_sha256": "884e32c3d1fa58c2e3517eec07c9c400491d751b224b277db6bbb3312b39297b",
+  "base_unchanged": true,
+  "base_sha256": "6e3b95e495f1d3b35720d37b9a36be0598567e1839b72974677745950758886f",
+  "checkpoint_sha256": "ef109bb6008be7eb2ea311b07635f2ca7bb6c6f011396d557ae73b8ee19ba622",
+  "state_sha256": {
+    "adapter": "4182886dd5535dda0461404423fca91fe9b4e4c1c3b853fa9f830db7a902d3df",
+    "optimizer": "3b375868dfb76b4832b0476bf85a28c06f651d890bbd4c72c261ba536fa152f6",
+    "scheduler": "c691779531062a1f8b78fd0106e3a8ab83a97319b3039d3f847ace729fcdf44d",
+    "rng": "50c465fa936882cf1f4df32785c88364535f27e4d2f54503e5d6e19818b812d4",
+    "completed_steps": "19f12f3f0c0be9255f4a6a8864d6f2c96263edbe4b0809ee2917ce3c47f61d85"
+  }
+}

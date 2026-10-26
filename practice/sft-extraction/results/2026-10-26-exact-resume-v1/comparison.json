@@ -1,0 +1,31 @@
+{
+  "full_resume_exact": true,
+  "checks": {
+    "adapter": true,
+    "optimizer": true,
+    "scheduler": true,
+    "rng": true,
+    "completed_steps": true,
+    "history": true,
+    "parameter_names": true
+  },
+  "full_resume_adapter_max_abs_diff": 0.0,
+  "optimizer_reset_diverges": true,
+  "optimizer_reset_adapter_max_abs_diff": 0.0003402730217203498,
+  "four_distinct_processes": true,
+  "pids": [
+    16008,
+    22632,
+    16796,
+    45932
+  ],
+  "executed_optimizer_steps": 10,
+  "steps_per_final_path": 4,
+  "checkpoint_step": 2,
+  "same_initial_adapter": true,
+  "negative_first_resumed_loss_matches": true,
+  "negative_final_loss_matches": false,
+  "quality_evaluated": false,
+  "promote_to_main": false,
+  "published_reference_adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}

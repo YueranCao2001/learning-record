@@ -4,6 +4,7 @@ SFT、DPO、PPO 与 GRPO、Rollout 和奖励评估器。当前记录以概念及
 
 ## 日期笔记
 
+- 2026-10-26 [中文信息抽取微调：训练中断后的精确续训对照](../daily/2026/10/2026-10-26-sft-exact-training-resume.md)
 - 2026-10-25 [中文信息抽取微调：地点遗漏的最小对照](../daily/2026/10/2026-10-25-sft-location-minimal-pairs.md)
 - 2026-10-24 [中文信息抽取微调：冻结标注规则与开放审计](../daily/2026/10/2026-10-24-sft-annotation-rules-open-audit.md)
 - 2026-10-23 [中文信息抽取微调：边界样例的固定预算对照](../daily/2026/10/2026-10-23-sft-boundary-data-comparison.md)
@@ -36,6 +37,10 @@ SFT、DPO、PPO 与 GRPO、Rollout 和奖励评估器。当前记录以概念及
 10月25日完成一个来源组上的六种固定最小对照，共12次 GPU 生成、0步训练。候选原题遗漏被重现；补入明确时间或将“场地设在”改为“地点是”后地点恢复，仅改变时间缺失措辞、分句顺序或缩短开头仍遗漏。不是通用修复或内部机制证明。42项本地测试通过，仅同步 HF 诊断文档（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`），权重/main 不变。
 
 地点问题暂存为已定位、待审和未通用修复；下一工程项是 optimizer-step 边界的精确续训对照，独立人工审查和更广泛质量评估继续保留。
+
+10月26日完成同机单GPU的四进程精确续训对照：连续4步 vs 前缀2步+完整恢复2步，LoRA dropout=0.1、确定性 math SDPA；loss/梯度/样本/LR记录、adapter、optimizer、scheduler、RNG和步数逐项一致，adapter最大差0。仅重置优化器历史的负对照从更新后分离，最终 adapter 最大差约0.000340273。实际共10个优化器步骤，不是质量提升实验。
+
+50项本地测试通过，仅将12个工程 JSON 同步到 HF engineering 目录（commit `12484003bb33219209a7520022ba85aea5923bf5`），原模型和 main 不变。下一工程项为恢复前身份校验及拒绝不匹配状态；多worker/分布式/任意microstep恢复仍未验证，人工审查与质量待办保留。
 
 [评估与实验方法](evaluation-experiments.md) 提供这条实践链路的设计与验收入口。
 

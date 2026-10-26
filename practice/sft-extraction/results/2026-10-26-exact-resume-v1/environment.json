@@ -1,0 +1,11 @@
+{
+  "packages": {
+    "torch": "2.7.1+cu128",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "numpy": "2.5.4",
+    "huggingface_hub": "0.35.3"
+  },
+  "python": "3.12.14",
+  "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+}

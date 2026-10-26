@@ -4,6 +4,12 @@
 
 ## 当前状态
 
+2026-10-26 完成 [精确续训对照](../../daily/2026/10/2026-10-26-sft-exact-training-resume.md)：四个新进程执行连续4步、前缀2步、完整恢复2步、优化器重置2步（合计10次更新）。非零 LoRA dropout=0.1；完整恢复的历史、adapter/optimizer/scheduler/RNG与步数完全一致，adapter最大差0；优化器重置负对照分离。[比较报告](results/2026-10-26-exact-resume-v1/comparison.json)。50项本地测试通过。
+
+仅验证同机同软件单GPU、batch=1、无累积的 optimizer-step 边界恢复，未作质量评估。checkpoint在被忽略的 `artifacts/2026-10-26-exact-resume-v1/`；HF只同步12个工程 JSON（commit `12484003bb33219209a7520022ba85aea5923bf5`），原权重/main不变。[同步证据](results/2026-10-26-exact-resume-v1/hf-audit-upload.json)。下一项是恢复前身份校验与拒绝不匹配状态，地点错误和人工复核保留。
+
+### 前一轮最小对照
+
 2026-10-25 完成 [地点遗漏最小对照](../../daily/2026/10/2026-10-25-sft-location-minimal-pairs.md)：一个来源组上的六种固定输入、基座与候选共12次生成、0步训练。补入明确时间或改用“地点是”时，候选地点恢复；时间缺失措辞、顺序或开头缩短未修复。原题 token 重现昨天结果，不能据此宣称内部原因或通用修复。[逐条件记录](results/2026-10-25-location-minimal-v1/review.json)。42项本地测试通过。
 
 HF 只追加7个诊断文件（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`），下载哈希、权重不变及 main 不变验证通过。[同步证据](results/2026-10-25-location-minimal-v1/hf-audit-upload.json)。下一工程项优先精确续训对照，地点问题和独立复核待办保留。
@@ -29,6 +35,8 @@ HF 只追加7个诊断文件（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`
 逐题整条匹配从基座的2/3降为 adapter 的1/3；虽然训练 loss 降低、输出格式紧凑了，但事实抽取有退化，不推广替代基座。证据保存在 [本次运行](results/2026-10-22-lora-smoke-v1/summary.json) 和 [上传验证](results/2026-10-22-lora-smoke-v1/upload.json)。
 
 ## 离线检查
+
+精确续训入口：`resume_experiment.py --run 新名称`，使用 [resume-protocol-v1.json](data/resume-protocol-v1.json)，自动派生四个新子进程。初始配置和协议必须固定；本地受控 checkpoint 使用 `weights_only=True` 加载并核对文件哈希，RNG 在模型/optimizer 重建后恢复。`publish_audit.py --kind resume --expected-head 已审查分支头` 仅同步工程报告，不上传 `.pt` 文件或调试权重。已有候选模型 revision 与本次 fresh-base 工程训练明确区分。
 
 地点最小对照入口为 `evaluate_location.py --run 新名称`，输入见 [location-minimal-v1.json](data/location-minimal-v1.json)，协议见 [location-minimal-protocol-v1.json](data/location-minimal-protocol-v1.json)。复用既有生成、评分和参数哈希函数，不创建 optimizer。文档发布使用 `publish_audit.py --kind minimal --expected-head 已审查分支头`，不更换被测模型 revision；模型 commit 和仅文档 commit 分开记录。
 

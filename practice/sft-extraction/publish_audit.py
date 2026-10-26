@@ -23,14 +23,22 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "resume"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
     output = ROOT / "results" / args.run
-    review = json.loads((output / "review.json").read_text(encoding="utf-8"))
-    assert review["training_steps"] == 0 and review["human_review"] == "pending"
-    if args.kind == "audit":
+    review_file = "comparison.json" if args.kind == "resume" else "review.json"
+    review = json.loads((output / review_file).read_text(encoding="utf-8"))
+    if args.kind != "resume":
+        assert review["training_steps"] == 0 and review["human_review"] == "pending"
+    if args.kind == "resume":
+        assert review["full_resume_exact"] and review["optimizer_reset_diverges"] and review["four_distinct_processes"]
+        assert review["executed_optimizer_steps"] == 10 and not review["quality_evaluated"]
+        files = {"manifest.json", "protocol.json", "environment.json", "comparison.json"}
+        files |= {phase + "/" + name for phase in ("continuous", "prefix", "resume", "optimizer-reset")
+                  for name in ("history.json", "state.json")}
+    elif args.kind == "audit":
         assert review["old_candidate_tokens_reproduce"] and review["total_generation_calls"] == 52
         files = FILES
     else:
@@ -41,10 +49,11 @@ def main():
     bundle.mkdir(parents=True, exist_ok=True)
     for name in files:
         source = ROOT / name if name.endswith(".md") else output / name
+        (bundle / name).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, bundle / name)
-    assert {p.name for p in bundle.iterdir()} == files
+    assert {p.relative_to(bundle).as_posix() for p in bundle.rglob("*") if p.is_file()} == files
     hashes = {name: digest(bundle / name) for name in sorted(files)}
-    prefix = "evaluations/" + args.run
+    prefix = ("engineering/" if args.kind == "resume" else "evaluations/") + args.run
     print(json.dumps({"branch": BRANCH, "prefix": prefix, "files": sorted(files), "weight_upload": False}), flush=True)
     if not args.execute:
         return
@@ -56,7 +65,8 @@ def main():
     commit = api.upload_folder(repo_id=REPO, folder_path=bundle, path_in_repo=prefix,
                revision=BRANCH, allow_patterns=sorted(files),
                commit_message="Add read-only diagnostic evidence; leave weights unchanged")
-    report = {"repo": REPO, "branch": BRANCH, "commit": commit.oid, "tested_adapter_revision": TESTED,
+    report = {"repo": REPO, "branch": BRANCH, "commit": commit.oid,
+              "tested_adapter_revision": None if args.kind == "resume" else TESTED, "reference_adapter_revision": TESTED,
               "path_in_repo": prefix, "files_sha256": hashes, "weight_upload": False,
               "main_before": main_before, "main_after": api.model_info(REPO, revision="main").sha,
               "private": api.model_info(REPO).private, "download_hashes_equal": False,
@@ -70,7 +80,8 @@ def main():
         assert digest(downloaded) == expected
     adapter = hf_hub_download(REPO, filename="adapter_model.safetensors", revision=commit.oid,
                              cache_dir="E:/Evren/Evren_work/.hf-verify-cache")
-    expected_adapter = json.loads((output / "manifest.json").read_text(encoding="utf-8"))["adapter_sha256"]
+    manifest = json.loads((output / "manifest.json").read_text(encoding="utf-8"))
+    expected_adapter = manifest.get("published_reference_adapter_sha256", manifest.get("adapter_sha256"))
     assert digest(adapter) == expected_adapter
     assert report["main_before"] == report["main_after"] and report["private"] is True
     report.update(download_hashes_equal=True, adapter_weights_unchanged=True, adapter_sha256=expected_adapter)

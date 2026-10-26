@@ -96,6 +96,7 @@
 - [中文信息抽取微调：边界样例的固定预算对照](daily/2026/10/2026-10-23-sft-boundary-data-comparison.md)
 - [中文信息抽取微调：冻结标注规则与开放审计](daily/2026/10/2026-10-24-sft-annotation-rules-open-audit.md)
 - [中文信息抽取微调：地点遗漏的最小对照](daily/2026/10/2026-10-25-sft-location-minimal-pairs.md)
+- [中文信息抽取微调：训练中断后的精确续训对照](daily/2026/10/2026-10-26-sft-exact-training-resume.md)
 
 ## 提交约定
 

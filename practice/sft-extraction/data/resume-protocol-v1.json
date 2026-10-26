@@ -1,0 +1,23 @@
+{
+  "version": "resume-protocol-v1",
+  "base": "Qwen/Qwen3-0.6B",
+  "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "seed": 42,
+  "total_steps": 4,
+  "checkpoint_step": 2,
+  "batch_size": 1,
+  "lr": 0.0002,
+  "weight_decay": 0,
+  "clip_grad_norm": 1,
+  "lora": {"r": 8, "lora_alpha": 16, "lora_dropout": 0.1, "target_modules": ["q_proj", "v_proj"], "bias": "none"},
+  "scheduler": {"type": "StepLR", "step_size": 2, "gamma": 0.5},
+  "sampler": "Python random.randrange over the three frozen pilot training rows; persist random state and consumed optimizer steps",
+  "phases": ["continuous", "prefix", "resume", "optimizer-reset"],
+  "phase_steps": {"continuous": 4, "prefix": 2, "resume": 2, "optimizer-reset": 2},
+  "checkpoint": "Adapter tensors, optimizer, scheduler, ordered parameter names, completed steps, history, Python/NumPy/Torch CPU/all CUDA RNG; local trusted file only, torch.load(weights_only=True).",
+  "negative_control": "Restore adapter, RNG, consumed steps and scheduler/LR, but deliberately reset AdamW moment estimates and step counters. Do not conflate with a quality comparison.",
+  "determinism": "Same Windows/GPU and pinned software, deterministic algorithms, math SDPA, CUBLAS_WORKSPACE_CONFIG=:4096:8, TF32 off, AdamW foreach/fused off.",
+  "acceptance": "Continuous vs full resume: identical per-step histories, adapter tensors, optimizer/scheduler/RNG state and sampler position. Optimizer-reset must diverge. Four phases use fresh subprocesses. No retries chosen for favorable scores.",
+  "scope": "Real GPU LoRA engineering test on three synthetic training notices, not quality training. No padding/packing, batch=1, no gradient accumulation, no AMP scaler, no multi-worker/distributed loader or arbitrary microstep recovery.",
+  "publication": "Keep checkpoints and debug weights local; sync engineering evidence documents only, preserve existing private HF branch weights and main."
+}
