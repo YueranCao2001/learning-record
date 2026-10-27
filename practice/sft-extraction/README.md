@@ -4,6 +4,12 @@
 
 ## 当前状态
 
+2026-10-27 完成 [字段遗漏的提示对照](../../daily/2026/10/2026-10-27-sft-prompt-sensitivity-and-stage-review.md)：20条固定通知（旧12+4组新配对8条）×3提示×2模型，共120次GPU生成、0步训练。候选原提示17/20、调序19/20、追加逐字段规则20/20；调序引入时间遗漏，规则使基座出现格式退化，均不推广为通用修复。[逐题结果](results/2026-10-27-prompt-diagnostic-v1/review.json)、[HF同步证据](results/2026-10-27-prompt-diagnostic-v1/hf-audit-upload.json)。78项本地测试通过。
+
+新增 [工程阶段验收](engineering-acceptance.md)，区分冻结历史入口、受保护入口和独立容器原型；不同模板族和缺失方向确认、独立人工复核仍待完成。HF仅同步13个诊断JSON，权重/main/训练默认提示不变。
+
+### 10月26日单文件提交实验
+
 2026-10-26 再次扩展：新增 [单文件 checkpoint 容器协议](data/atomic-checkpoint-protocol-v1.json) 和 `atomic_experiment.py`。已有 slot 场景下，写入中途/替换前的子进程退出保留旧文件；替换后/正常提交得到完整新文件。5类坏输入均在反序列化前拒绝，容器恢复2步仍与连续参考精确一致。69项本地测试通过。[对照证据](results/2026-10-26-atomic-checkpoint-v1/comparison.json)、[HF文档同步](results/2026-10-26-atomic-checkpoint-v1/hf-audit-upload.json)。
 
 这是单写入者同目录临时写入、刷新后替换的原型，不证明真实断电、目录元数据持久性、多写入者或恶意篡改安全。写入测试old/new仅是提交generation，使用同一step-2 payload。二进制容器/pending/坏文件只存本地，HF仅追加9个工程JSON（commit `ddf7b3f5fda9d0c4dea516e4b8735bc3ba832f4e`），原模型与main不变。
@@ -48,6 +54,8 @@ HF 只追加7个诊断文件（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`
 
 ## 离线检查
 
+提示对照入口：`evaluate_prompt.py --run 新名称`，协议 [prompt-diagnostic-v1.json](data/prompt-diagnostic-v1.json)。`prompt_diagnostic.py` 复用原评分器并重算逐题修复/退化、字段和格式指标，原始键顺序也保留；当前题集不作为独立测试。`publish_audit.py --kind prompt --expected-head 已审查分支头` 仅同步13个JSON诊断报告。
+
 单文件提交实验入口：`atomic_experiment.py --run 新名称`，复用已有可信 step-2 checkpoint。原型限制头部1MiB、payload64MiB，按同一打开句柄校验并交付同一payload字节；为兼容冻结worker仍会导出受控文件，不声称全流程竞态已消除。`publish_audit.py --kind atomic --expected-head 已审查分支头` 只发布 JSON 工程记录。
 
 恢复保护入口为 `guarded_resume.py --run 新名称`，复用原冻结训练 worker；先执行8类拒绝，再验证合法路径。`publish_audit.py --kind resume-guard --expected-head 已审查分支头` 只同步 JSON 工程记录，不上传 checkpoint 或临时副本。
@@ -70,7 +78,7 @@ python -X utf8 -m unittest -v
 
 ## 后续验收顺序
 
-以下为阶段清单：第1—4项的 GPU、模板、六步训练及推理重载已完成，第6项也完成了私有上传及下载加载。10月23日进一步完成了边界样例对照；接下来优先明确标注边界和独立审查评估，不自动增加训练轮数。精确续训仍未验证。
+以下保留最初的阶段顺序，第1—4、6项已完成对应范围验证。10月24日冻结标注规则，10月26日进一步完成受控精确续训及恢复保护，范围见 [工程阶段验收](engineering-acceptance.md)。第5项中的独立审查和更广泛质量验证仍未完成；10月27日提示实验为开放诊断，不自动增加训练轮数或推广候选。
 
 1. 建独立虚拟环境，不修改应用自带 Python；安装兼容 RTX 5070 的训练依赖，执行 GPU 张量及反向传播检查，记录版本。
 2. 固定基座/tokenizer revision，审核非思考模式模板、EOS、assistant 监督 mask 和截断；先 `packing=False`。

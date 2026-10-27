@@ -1,0 +1,270 @@
+[
+  {
+    "id": "audit-01",
+    "group": "notice-16",
+    "category": "complete",
+    "text": "本期项目名称为“木版画入门课”，举办时间：11月12日13:30—15:00；举办地点：枫叶楼201室。",
+    "expected": {
+      "event": "木版画入门课",
+      "time": "11月12日13:30—15:00",
+      "location": "枫叶楼201室"
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "audit-02",
+    "group": "notice-17",
+    "category": "complete",
+    "text": "皮具制作课定于下周二晚上19:00举行，场地为云帆工坊。",
+    "expected": {
+      "event": "皮具制作课",
+      "time": "下周二晚上19:00",
+      "location": "云帆工坊"
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "audit-03",
+    "group": "notice-18",
+    "category": "missing-time",
+    "text": "面向初学者的活动已确定：活动名称为地图绘制体验课。场地设在潮汐教室，开课时间另行公布。",
+    "expected": {
+      "event": "地图绘制体验课",
+      "time": null,
+      "location": "潮汐教室"
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "audit-04",
+    "group": "notice-19",
+    "category": "missing-location",
+    "text": "这次活动是科学摄影讲座，11月14日上午09:30开始。场地还在安排中。",
+    "expected": {
+      "event": "科学摄影讲座",
+      "time": "11月14日上午09:30",
+      "location": null
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "audit-05",
+    "group": "notice-20",
+    "category": "missing-both",
+    "text": "诚邀您参加“篆刻交流会”！开场时间与举办地点均未公布。",
+    "expected": {
+      "event": "篆刻交流会",
+      "time": null,
+      "location": null
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "audit-06",
+    "group": "notice-21",
+    "category": "complete",
+    "text": "地点定在蒲公英展厅；本周五14:00举行城市速写课，欢迎报名。",
+    "expected": {
+      "event": "城市速写课",
+      "time": "本周五14:00",
+      "location": "蒲公英展厅"
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "audit-07",
+    "group": "notice-22",
+    "category": "complete",
+    "text": "花艺设计课｜11月16日15:30｜青禾花房",
+    "expected": {
+      "event": "花艺设计课",
+      "time": "11月16日15:30",
+      "location": "青禾花房"
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "audit-08",
+    "group": "notice-23",
+    "category": "complete",
+    "text": "活动名称：数字绘本分享会。举办形式为线上，时间为周日20:00，地点为萤火线上教室。",
+    "expected": {
+      "event": "数字绘本分享会",
+      "time": "周日20:00",
+      "location": "萤火线上教室"
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "audit-09",
+    "group": "notice-24",
+    "category": "missing-time",
+    "text": "新一期的天文观测活动叫作星图辨认课，地点是天台观测站，举办时间尚未确定。",
+    "expected": {
+      "event": "星图辨认课",
+      "time": null,
+      "location": "天台观测站"
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "audit-10",
+    "group": "notice-25",
+    "category": "missing-location",
+    "text": "“香草种植课”安排在11月18日10:00；通知暂未给出地点。",
+    "expected": {
+      "event": "香草种植课",
+      "time": "11月18日10:00",
+      "location": null
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "audit-11",
+    "group": "notice-26",
+    "category": "missing-both",
+    "text": "活动公告——玻璃彩绘体验课。请留意后续通知，时间待定，场地待定。",
+    "expected": {
+      "event": "玻璃彩绘体验课",
+      "time": null,
+      "location": null
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "audit-12",
+    "group": "notice-27",
+    "category": "complete",
+    "text": "请到澄明讲堂参加诗歌朗读会，开始时间为周六下午14:30。",
+    "expected": {
+      "event": "诗歌朗读会",
+      "time": "周六下午14:30",
+      "location": "澄明讲堂"
+    },
+    "split": "dev",
+    "cohort": "old-audit"
+  },
+  {
+    "id": "pair-01-missing",
+    "group": "notice-28",
+    "pair": "pair-01",
+    "time_state": "missing",
+    "split": "dev",
+    "cohort": "new-pairs",
+    "text": "面向初学者的活动已确定：活动名称为纸雕体验课。场地设在流萤教室，开课时间另行公布。",
+    "expected": {
+      "event": "纸雕体验课",
+      "time": null,
+      "location": "流萤教室"
+    }
+  },
+  {
+    "id": "pair-01-present",
+    "group": "notice-28",
+    "pair": "pair-01",
+    "time_state": "present",
+    "split": "dev",
+    "cohort": "new-pairs",
+    "text": "面向初学者的活动已确定：活动名称为纸雕体验课。场地设在流萤教室，开课时间为11月21日14:00。",
+    "expected": {
+      "event": "纸雕体验课",
+      "time": "11月21日14:00",
+      "location": "流萤教室"
+    }
+  },
+  {
+    "id": "pair-02-missing",
+    "group": "notice-29",
+    "pair": "pair-02",
+    "time_state": "missing",
+    "split": "dev",
+    "cohort": "new-pairs",
+    "text": "植物拓印课接受报名。场地设在溪石工坊，举办时间尚未确定。",
+    "expected": {
+      "event": "植物拓印课",
+      "time": null,
+      "location": "溪石工坊"
+    }
+  },
+  {
+    "id": "pair-02-present",
+    "group": "notice-29",
+    "pair": "pair-02",
+    "time_state": "present",
+    "split": "dev",
+    "cohort": "new-pairs",
+    "text": "植物拓印课接受报名。场地设在溪石工坊，举办时间为11月22日10:00。",
+    "expected": {
+      "event": "植物拓印课",
+      "time": "11月22日10:00",
+      "location": "溪石工坊"
+    }
+  },
+  {
+    "id": "pair-03-missing",
+    "group": "notice-30",
+    "pair": "pair-03",
+    "time_state": "missing",
+    "split": "dev",
+    "cohort": "new-pairs",
+    "text": "活动名称：陶片拼贴课。地点是白鹭展室，时间待定。",
+    "expected": {
+      "event": "陶片拼贴课",
+      "time": null,
+      "location": "白鹭展室"
+    }
+  },
+  {
+    "id": "pair-03-present",
+    "group": "notice-30",
+    "pair": "pair-03",
+    "time_state": "present",
+    "split": "dev",
+    "cohort": "new-pairs",
+    "text": "活动名称：陶片拼贴课。地点是白鹭展室，时间为周六15:00。",
+    "expected": {
+      "event": "陶片拼贴课",
+      "time": "周六15:00",
+      "location": "白鹭展室"
+    }
+  },
+  {
+    "id": "pair-04-missing",
+    "group": "notice-31",
+    "pair": "pair-04",
+    "time_state": "missing",
+    "split": "dev",
+    "cohort": "new-pairs",
+    "text": "欢迎参加风筝制作课。举办地点：晴川活动室，具体时间随后通知。",
+    "expected": {
+      "event": "风筝制作课",
+      "time": null,
+      "location": "晴川活动室"
+    }
+  },
+  {
+    "id": "pair-04-present",
+    "group": "notice-31",
+    "pair": "pair-04",
+    "time_state": "present",
+    "split": "dev",
+    "cohort": "new-pairs",
+    "text": "欢迎参加风筝制作课。举办地点：晴川活动室，具体时间为11月24日上午09:00。",
+    "expected": {
+      "event": "风筝制作课",
+      "time": "11月24日上午09:00",
+      "location": "晴川活动室"
+    }
+  }
+]

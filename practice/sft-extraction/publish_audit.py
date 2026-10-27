@@ -23,7 +23,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal", "resume", "resume-guard", "atomic"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "resume", "resume-guard", "atomic"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
@@ -52,6 +52,13 @@ def main():
         files = {"manifest.json", "protocol.json", "environment.json", "comparison.json"}
         files |= {phase + "/" + name for phase in ("continuous", "prefix", "resume", "optimizer-reset")
                   for name in ("history.json", "state.json")}
+    elif args.kind == "prompt":
+        assert all(review["old_audit_tokens_reproduce"].values()) and review["total_generation_calls"] == 120
+        assert review["new_source_groups"] == 4 and not review["promote_to_main"]
+        files = {"manifest.json", "protocol.json", "prompts.json", "environment.json", "review.json",
+                 "base-weights.json", "candidate-weights.json"}
+        files |= {model + "-" + condition + ".json" for model in ("base", "candidate")
+                  for condition in ("original", "key-order", "field-independence")}
     elif args.kind == "audit":
         assert review["old_candidate_tokens_reproduce"] and review["total_generation_calls"] == 52
         files = FILES

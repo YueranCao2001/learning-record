@@ -1,0 +1,5 @@
+{
+  "original": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "key-order": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、location、time。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "field-independence": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。分别判断三个字段是否在原文中明确给出；一个字段缺失不影响提取其他字段。"
+}

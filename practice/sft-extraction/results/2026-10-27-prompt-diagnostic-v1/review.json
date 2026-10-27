@@ -1,0 +1,3070 @@
+{
+  "training_steps": 0,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "total_generation_calls": 120,
+  "old_audit_tokens_reproduce": {
+    "base": true,
+    "candidate": true
+  },
+  "new_source_groups": 4,
+  "summaries": {
+    "base": {
+      "original": {
+        "old-audit": {
+          "count": 12,
+          "exact": 6,
+          "fields_correct": {
+            "event": 12,
+            "time": 6,
+            "location": 12
+          },
+          "location_omitted_ids": []
+        },
+        "new-pairs": {
+          "count": 8,
+          "exact": 5,
+          "fields_correct": {
+            "event": 8,
+            "time": 5,
+            "location": 8
+          },
+          "location_omitted_ids": []
+        },
+        "json_valid": 20,
+        "schema_valid": 20,
+        "emitted_key_orders": {
+          "event,time,location": 20
+        }
+      },
+      "key-order": {
+        "old-audit": {
+          "count": 12,
+          "exact": 6,
+          "fields_correct": {
+            "event": 12,
+            "time": 6,
+            "location": 12
+          },
+          "location_omitted_ids": []
+        },
+        "new-pairs": {
+          "count": 8,
+          "exact": 7,
+          "fields_correct": {
+            "event": 8,
+            "time": 7,
+            "location": 8
+          },
+          "location_omitted_ids": []
+        },
+        "json_valid": 20,
+        "schema_valid": 20,
+        "emitted_key_orders": {
+          "event,location,time": 20
+        }
+      },
+      "field-independence": {
+        "old-audit": {
+          "count": 12,
+          "exact": 4,
+          "fields_correct": {
+            "event": 9,
+            "time": 4,
+            "location": 9
+          },
+          "location_omitted_ids": []
+        },
+        "new-pairs": {
+          "count": 8,
+          "exact": 6,
+          "fields_correct": {
+            "event": 8,
+            "time": 6,
+            "location": 8
+          },
+          "location_omitted_ids": []
+        },
+        "json_valid": 17,
+        "schema_valid": 17,
+        "emitted_key_orders": {
+          "event,time,location": 17,
+          "invalid": 3
+        }
+      }
+    },
+    "candidate": {
+      "original": {
+        "old-audit": {
+          "count": 12,
+          "exact": 11,
+          "fields_correct": {
+            "event": 12,
+            "time": 12,
+            "location": 11
+          },
+          "location_omitted_ids": [
+            "audit-03"
+          ]
+        },
+        "new-pairs": {
+          "count": 8,
+          "exact": 6,
+          "fields_correct": {
+            "event": 8,
+            "time": 8,
+            "location": 6
+          },
+          "location_omitted_ids": [
+            "pair-01-missing",
+            "pair-02-missing"
+          ]
+        },
+        "json_valid": 20,
+        "schema_valid": 20,
+        "emitted_key_orders": {
+          "event,time,location": 20
+        }
+      },
+      "key-order": {
+        "old-audit": {
+          "count": 12,
+          "exact": 11,
+          "fields_correct": {
+            "event": 12,
+            "time": 11,
+            "location": 12
+          },
+          "location_omitted_ids": []
+        },
+        "new-pairs": {
+          "count": 8,
+          "exact": 8,
+          "fields_correct": {
+            "event": 8,
+            "time": 8,
+            "location": 8
+          },
+          "location_omitted_ids": []
+        },
+        "json_valid": 20,
+        "schema_valid": 20,
+        "emitted_key_orders": {
+          "event,location,time": 20
+        }
+      },
+      "field-independence": {
+        "old-audit": {
+          "count": 12,
+          "exact": 12,
+          "fields_correct": {
+            "event": 12,
+            "time": 12,
+            "location": 12
+          },
+          "location_omitted_ids": []
+        },
+        "new-pairs": {
+          "count": 8,
+          "exact": 8,
+          "fields_correct": {
+            "event": 8,
+            "time": 8,
+            "location": 8
+          },
+          "location_omitted_ids": []
+        },
+        "json_valid": 20,
+        "schema_valid": 20,
+        "emitted_key_orders": {
+          "event,time,location": 20
+        }
+      }
+    }
+  },
+  "transitions_from_original": {
+    "base": {
+      "key-order": {
+        "fixed_ids": [
+          "audit-04",
+          "audit-10",
+          "pair-01-present",
+          "pair-02-present"
+        ],
+        "regressed_ids": [
+          "audit-01",
+          "audit-07"
+        ]
+      },
+      "field-independence": {
+        "fixed_ids": [
+          "pair-01-present"
+        ],
+        "regressed_ids": [
+          "audit-05",
+          "audit-11"
+        ]
+      }
+    },
+    "candidate": {
+      "key-order": {
+        "fixed_ids": [
+          "audit-03",
+          "pair-01-missing",
+          "pair-02-missing"
+        ],
+        "regressed_ids": [
+          "audit-04"
+        ]
+      },
+      "field-independence": {
+        "fixed_ids": [
+          "audit-03",
+          "pair-01-missing",
+          "pair-02-missing"
+        ],
+        "regressed_ids": []
+      }
+    }
+  },
+  "pair_table": [
+    {
+      "model": "base",
+      "condition": "original",
+      "pair": "pair-01",
+      "group": "notice-28",
+      "missing": {
+        "id": "pair-01-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "time": null,
+          "location": "流萤教室"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-01-present",
+        "cohort": "new-pairs",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": false,
+          "location": true
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "time": "11月21日",
+          "location": "流萤教室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "base",
+      "condition": "original",
+      "pair": "pair-02",
+      "group": "notice-29",
+      "missing": {
+        "id": "pair-02-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "time": null,
+          "location": "溪石工坊"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-02-present",
+        "cohort": "new-pairs",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": false,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "time": "11月22日",
+          "location": "溪石工坊"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "base",
+      "condition": "original",
+      "pair": "pair-03",
+      "group": "notice-30",
+      "missing": {
+        "id": "pair-03-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "time": null,
+          "location": "白鹭展室"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-03-present",
+        "cohort": "new-pairs",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": false,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "time": "15:00",
+          "location": "白鹭展室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "base",
+      "condition": "original",
+      "pair": "pair-04",
+      "group": "notice-31",
+      "missing": {
+        "id": "pair-04-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "time": null,
+          "location": "晴川活动室"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-04-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "time": "11月24日上午09:00",
+          "location": "晴川活动室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "base",
+      "condition": "key-order",
+      "pair": "pair-01",
+      "group": "notice-28",
+      "missing": {
+        "id": "pair-01-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "location": "流萤教室",
+          "time": null
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-01-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "location": "流萤教室",
+          "time": "11月21日14:00"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "base",
+      "condition": "key-order",
+      "pair": "pair-02",
+      "group": "notice-29",
+      "missing": {
+        "id": "pair-02-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "location": "溪石工坊",
+          "time": null
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-02-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "location": "溪石工坊",
+          "time": "11月22日10:00"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "base",
+      "condition": "key-order",
+      "pair": "pair-03",
+      "group": "notice-30",
+      "missing": {
+        "id": "pair-03-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "location": "白鹭展室",
+          "time": null
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-03-present",
+        "cohort": "new-pairs",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": false,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "location": "白鹭展室",
+          "time": "15:00"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "base",
+      "condition": "key-order",
+      "pair": "pair-04",
+      "group": "notice-31",
+      "missing": {
+        "id": "pair-04-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "location": "晴川活动室",
+          "time": null
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-04-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "location": "晴川活动室",
+          "time": "11月24日上午09:00"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "base",
+      "condition": "field-independence",
+      "pair": "pair-01",
+      "group": "notice-28",
+      "missing": {
+        "id": "pair-01-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "time": null,
+          "location": "流萤教室"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-01-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "time": "11月21日14:00",
+          "location": "流萤教室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "base",
+      "condition": "field-independence",
+      "pair": "pair-02",
+      "group": "notice-29",
+      "missing": {
+        "id": "pair-02-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "time": null,
+          "location": "溪石工坊"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-02-present",
+        "cohort": "new-pairs",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": false,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "time": "11月22日",
+          "location": "溪石工坊"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "base",
+      "condition": "field-independence",
+      "pair": "pair-03",
+      "group": "notice-30",
+      "missing": {
+        "id": "pair-03-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "time": null,
+          "location": "白鹭展室"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-03-present",
+        "cohort": "new-pairs",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": false,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "time": "15:00",
+          "location": "白鹭展室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "base",
+      "condition": "field-independence",
+      "pair": "pair-04",
+      "group": "notice-31",
+      "missing": {
+        "id": "pair-04-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "time": null,
+          "location": "晴川活动室"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-04-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "time": "11月24日上午09:00",
+          "location": "晴川活动室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "original",
+      "pair": "pair-01",
+      "group": "notice-28",
+      "missing": {
+        "id": "pair-01-missing",
+        "cohort": "new-pairs",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": false
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "time": null,
+          "location": null
+        },
+        "location_omitted": true
+      },
+      "present": {
+        "id": "pair-01-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "time": "11月21日14:00",
+          "location": "流萤教室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "original",
+      "pair": "pair-02",
+      "group": "notice-29",
+      "missing": {
+        "id": "pair-02-missing",
+        "cohort": "new-pairs",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": false
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "time": null,
+          "location": null
+        },
+        "location_omitted": true
+      },
+      "present": {
+        "id": "pair-02-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "time": "11月22日10:00",
+          "location": "溪石工坊"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "original",
+      "pair": "pair-03",
+      "group": "notice-30",
+      "missing": {
+        "id": "pair-03-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "time": null,
+          "location": "白鹭展室"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-03-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "time": "周六15:00",
+          "location": "白鹭展室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "original",
+      "pair": "pair-04",
+      "group": "notice-31",
+      "missing": {
+        "id": "pair-04-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "time": null,
+          "location": "晴川活动室"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-04-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "time": "11月24日上午09:00",
+          "location": "晴川活动室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "key-order",
+      "pair": "pair-01",
+      "group": "notice-28",
+      "missing": {
+        "id": "pair-01-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "location": "流萤教室",
+          "time": null
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-01-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "location": "流萤教室",
+          "time": "11月21日14:00"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "key-order",
+      "pair": "pair-02",
+      "group": "notice-29",
+      "missing": {
+        "id": "pair-02-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "location": "溪石工坊",
+          "time": null
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-02-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "location": "溪石工坊",
+          "time": "11月22日10:00"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "key-order",
+      "pair": "pair-03",
+      "group": "notice-30",
+      "missing": {
+        "id": "pair-03-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "location": "白鹭展室",
+          "time": null
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-03-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "location": "白鹭展室",
+          "time": "周六15:00"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "key-order",
+      "pair": "pair-04",
+      "group": "notice-31",
+      "missing": {
+        "id": "pair-04-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "location": "晴川活动室",
+          "time": null
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-04-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "location": "晴川活动室",
+          "time": "11月24日上午09:00"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "field-independence",
+      "pair": "pair-01",
+      "group": "notice-28",
+      "missing": {
+        "id": "pair-01-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "time": null,
+          "location": "流萤教室"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-01-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "纸雕体验课",
+          "time": "11月21日14:00",
+          "location": "流萤教室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "field-independence",
+      "pair": "pair-02",
+      "group": "notice-29",
+      "missing": {
+        "id": "pair-02-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "time": null,
+          "location": "溪石工坊"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-02-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物拓印课",
+          "time": "11月22日10:00",
+          "location": "溪石工坊"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "field-independence",
+      "pair": "pair-03",
+      "group": "notice-30",
+      "missing": {
+        "id": "pair-03-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "time": null,
+          "location": "白鹭展室"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-03-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "陶片拼贴课",
+          "time": "周六15:00",
+          "location": "白鹭展室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "model": "candidate",
+      "condition": "field-independence",
+      "pair": "pair-04",
+      "group": "notice-31",
+      "missing": {
+        "id": "pair-04-missing",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "time": null,
+          "location": "晴川活动室"
+        },
+        "location_omitted": false
+      },
+      "present": {
+        "id": "pair-04-present",
+        "cohort": "new-pairs",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "风筝制作课",
+          "time": "11月24日上午09:00",
+          "location": "晴川活动室"
+        },
+        "location_omitted": false
+      }
+    }
+  ],
+  "detail": {
+    "base": {
+      "original": [
+        {
+          "id": "audit-01",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木版画入门课",
+            "time": "11月12日13:30—15:00",
+            "location": "枫叶楼201室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-02",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "皮具制作课",
+            "time": "19:00",
+            "location": "云帆工坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-03",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "地图绘制体验课",
+            "time": null,
+            "location": "潮汐教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-04",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "科学摄影讲座",
+            "time": "11月14日",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-05",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "篆刻交流会",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-06",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "城市速写课",
+            "time": "14:00",
+            "location": "蒲公英展厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-07",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "花艺设计课",
+            "time": "11月16日15:30",
+            "location": "青禾花房"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-08",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "数字绘本分享会",
+            "time": "20:00",
+            "location": "萤火线上教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-09",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "星图辨认课",
+            "time": null,
+            "location": "天台观测站"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-10",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "香草种植课",
+            "time": "11月18日",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-11",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "玻璃彩绘体验课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-12",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "诗歌朗读会",
+            "time": "14:30",
+            "location": "澄明讲堂"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-01-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "time": null,
+            "location": "流萤教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-01-present",
+          "cohort": "new-pairs",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "time": "11月21日",
+            "location": "流萤教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-02-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "time": null,
+            "location": "溪石工坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-02-present",
+          "cohort": "new-pairs",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "time": "11月22日",
+            "location": "溪石工坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "time": null,
+            "location": "白鹭展室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-present",
+          "cohort": "new-pairs",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "time": "15:00",
+            "location": "白鹭展室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "time": null,
+            "location": "晴川活动室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "time": "11月24日上午09:00",
+            "location": "晴川活动室"
+          },
+          "location_omitted": false
+        }
+      ],
+      "key-order": [
+        {
+          "id": "audit-01",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "木版画入门课",
+            "location": "枫叶楼201室",
+            "time": "13:30—15:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-02",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "皮具制作课",
+            "location": "云帆工坊",
+            "time": "19:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-03",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "地图绘制体验课",
+            "location": "潮汐教室",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-04",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "科学摄影讲座",
+            "location": null,
+            "time": "11月14日上午09:30"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-05",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "篆刻交流会",
+            "location": null,
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-06",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "城市速写课",
+            "location": "蒲公英展厅",
+            "time": "14:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-07",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "花艺设计课",
+            "location": "青禾花房",
+            "time": "15:30"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-08",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "数字绘本分享会",
+            "location": "萤火线上教室",
+            "time": "20:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-09",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "星图辨认课",
+            "location": "天台观测站",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-10",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "香草种植课",
+            "location": null,
+            "time": "11月18日10:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-11",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "玻璃彩绘体验课",
+            "location": null,
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-12",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "诗歌朗读会",
+            "location": "澄明讲堂",
+            "time": "14:30"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-01-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "location": "流萤教室",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-01-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "location": "流萤教室",
+            "time": "11月21日14:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-02-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "location": "溪石工坊",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-02-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "location": "溪石工坊",
+            "time": "11月22日10:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "location": "白鹭展室",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-present",
+          "cohort": "new-pairs",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "location": "白鹭展室",
+            "time": "15:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "location": "晴川活动室",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "location": "晴川活动室",
+            "time": "11月24日上午09:00"
+          },
+          "location_omitted": false
+        }
+      ],
+      "field-independence": [
+        {
+          "id": "audit-01",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木版画入门课",
+            "time": "11月12日13:30—15:00",
+            "location": "枫叶楼201室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-02",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "皮具制作课",
+            "time": "19:00",
+            "location": "云帆工坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-03",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "地图绘制体验课",
+            "time": null,
+            "location": "潮汐教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-04",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "科学摄影讲座",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-05",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": false,
+            "location": false
+          },
+          "parsed": null,
+          "location_omitted": false
+        },
+        {
+          "id": "audit-06",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "城市速写课",
+            "time": "14:00",
+            "location": "蒲公英展厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-07",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "花艺设计课",
+            "time": "11月16日15:30",
+            "location": "青禾花房"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-08",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "数字绘本分享会",
+            "time": "20:00",
+            "location": "萤火线上教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-09",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "星图辨认课",
+            "time": null,
+            "location": "天台观测站"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-10",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "香草种植课",
+            "time": "10:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-11",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": false,
+            "location": false
+          },
+          "parsed": null,
+          "location_omitted": false
+        },
+        {
+          "id": "audit-12",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": false,
+            "location": false
+          },
+          "parsed": null,
+          "location_omitted": false
+        },
+        {
+          "id": "pair-01-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "time": null,
+            "location": "流萤教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-01-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "time": "11月21日14:00",
+            "location": "流萤教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-02-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "time": null,
+            "location": "溪石工坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-02-present",
+          "cohort": "new-pairs",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "time": "11月22日",
+            "location": "溪石工坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "time": null,
+            "location": "白鹭展室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-present",
+          "cohort": "new-pairs",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "time": "15:00",
+            "location": "白鹭展室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "time": null,
+            "location": "晴川活动室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "time": "11月24日上午09:00",
+            "location": "晴川活动室"
+          },
+          "location_omitted": false
+        }
+      ]
+    },
+    "candidate": {
+      "original": [
+        {
+          "id": "audit-01",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木版画入门课",
+            "time": "11月12日13:30—15:00",
+            "location": "枫叶楼201室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-02",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "皮具制作课",
+            "time": "下周二晚上19:00",
+            "location": "云帆工坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-03",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "地图绘制体验课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "audit-04",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "科学摄影讲座",
+            "time": "11月14日上午09:30",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-05",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "篆刻交流会",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-06",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "城市速写课",
+            "time": "本周五14:00",
+            "location": "蒲公英展厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-07",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "花艺设计课",
+            "time": "11月16日15:30",
+            "location": "青禾花房"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-08",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "数字绘本分享会",
+            "time": "周日20:00",
+            "location": "萤火线上教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-09",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "星图辨认课",
+            "time": null,
+            "location": "天台观测站"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-10",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "香草种植课",
+            "time": "11月18日10:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-11",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "玻璃彩绘体验课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-12",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "诗歌朗读会",
+            "time": "周六下午14:30",
+            "location": "澄明讲堂"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-01-missing",
+          "cohort": "new-pairs",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "pair-01-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "time": "11月21日14:00",
+            "location": "流萤教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-02-missing",
+          "cohort": "new-pairs",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "pair-02-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "time": "11月22日10:00",
+            "location": "溪石工坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "time": null,
+            "location": "白鹭展室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "time": "周六15:00",
+            "location": "白鹭展室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "time": null,
+            "location": "晴川活动室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "time": "11月24日上午09:00",
+            "location": "晴川活动室"
+          },
+          "location_omitted": false
+        }
+      ],
+      "key-order": [
+        {
+          "id": "audit-01",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木版画入门课",
+            "location": "枫叶楼201室",
+            "time": "11月12日13:30—15:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-02",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "皮具制作课",
+            "location": "云帆工坊",
+            "time": "下周二晚上19:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-03",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "地图绘制体验课",
+            "location": "潮汐教室",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-04",
+          "cohort": "old-audit",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "科学摄影讲座",
+            "location": null,
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-05",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "篆刻交流会",
+            "location": null,
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-06",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "城市速写课",
+            "location": "蒲公英展厅",
+            "time": "本周五14:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-07",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "花艺设计课",
+            "location": "青禾花房",
+            "time": "11月16日15:30"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-08",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "数字绘本分享会",
+            "location": "萤火线上教室",
+            "time": "周日20:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-09",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "星图辨认课",
+            "location": "天台观测站",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-10",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "香草种植课",
+            "location": null,
+            "time": "11月18日10:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-11",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "玻璃彩绘体验课",
+            "location": null,
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-12",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "诗歌朗读会",
+            "location": "澄明讲堂",
+            "time": "周六下午14:30"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-01-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "location": "流萤教室",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-01-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "location": "流萤教室",
+            "time": "11月21日14:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-02-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "location": "溪石工坊",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-02-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "location": "溪石工坊",
+            "time": "11月22日10:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "location": "白鹭展室",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "location": "白鹭展室",
+            "time": "周六15:00"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "location": "晴川活动室",
+            "time": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "location": "晴川活动室",
+            "time": "11月24日上午09:00"
+          },
+          "location_omitted": false
+        }
+      ],
+      "field-independence": [
+        {
+          "id": "audit-01",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木版画入门课",
+            "time": "11月12日13:30—15:00",
+            "location": "枫叶楼201室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-02",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "皮具制作课",
+            "time": "下周二晚上19:00",
+            "location": "云帆工坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-03",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "地图绘制体验课",
+            "time": null,
+            "location": "潮汐教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-04",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "科学摄影讲座",
+            "time": "11月14日上午09:30",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-05",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "篆刻交流会",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-06",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "城市速写课",
+            "time": "本周五14:00",
+            "location": "蒲公英展厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-07",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "花艺设计课",
+            "time": "11月16日15:30",
+            "location": "青禾花房"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-08",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "数字绘本分享会",
+            "time": "周日20:00",
+            "location": "萤火线上教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-09",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "星图辨认课",
+            "time": null,
+            "location": "天台观测站"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-10",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "香草种植课",
+            "time": "11月18日10:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-11",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "玻璃彩绘体验课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "audit-12",
+          "cohort": "old-audit",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "诗歌朗读会",
+            "time": "周六下午14:30",
+            "location": "澄明讲堂"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-01-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "time": null,
+            "location": "流萤教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-01-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "纸雕体验课",
+            "time": "11月21日14:00",
+            "location": "流萤教室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-02-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "time": null,
+            "location": "溪石工坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-02-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物拓印课",
+            "time": "11月22日10:00",
+            "location": "溪石工坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "time": null,
+            "location": "白鹭展室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-03-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "陶片拼贴课",
+            "time": "周六15:00",
+            "location": "白鹭展室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-missing",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "time": null,
+            "location": "晴川活动室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "pair-04-present",
+          "cohort": "new-pairs",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "风筝制作课",
+            "time": "11月24日上午09:00",
+            "location": "晴川活动室"
+          },
+          "location_omitted": false
+        }
+      ]
+    }
+  }
+}
