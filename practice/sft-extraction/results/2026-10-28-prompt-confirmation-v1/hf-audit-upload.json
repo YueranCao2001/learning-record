@@ -1,0 +1,28 @@
+{
+  "repo": "YueranCao2001/qwen3-0.6b-zh-extraction-lora",
+  "branch": "boundary-v2-20261023",
+  "commit": "380afe6f82c21100fa8784287a8e429fcefe18f9",
+  "tested_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "reference_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "path_in_repo": "evaluations/2026-10-28-prompt-confirmation-v1",
+  "files_sha256": {
+    "base-field-independence.json": "db6ae0ce081fae99b313511e4384f85f30e77cfd33a927d01c390112731ab2ac",
+    "base-original.json": "8ef6fe4ce62958b7f242b6710e0f64b617ac5b48c692682b3fcd906f4326dd4e",
+    "base-weights.json": "302c0a8daf097a8ad6376dea46bb8cfb4e62377a53aa03079467ec39a07ad39c",
+    "candidate-field-independence.json": "7730df12a7d4afba0cc2ab7e165357df74754e51b84fbca13cd93c821daaeefc",
+    "candidate-original.json": "c40a0c24bf7b6a929dd9c5127032372fe419010cdeb3888997f526939b6e0aac",
+    "candidate-weights.json": "27046014e025b464f9dff374fb138cbe112277b4a062eec04e17485715b23c82",
+    "environment.json": "7f60eff9e0347828823a044fc847cb90439bf0325b7ff345cf3abb2404f60921",
+    "manifest.json": "db8b731cdb71faef5f5c01948feba04067d83ccafb46fd8c50029737226a8d79",
+    "prompts.json": "edf6fd6130e6b0e0b04deb67f5c5743fb216dadeb01c40b1363143831e340b8d",
+    "protocol.json": "e0f5e9c08e2304daf9ad219d3cdd8d0a8c6a4107ec295f4944999dd0d0774fc4",
+    "review.json": "4805ef6c9b4dbf0f644f8e6fce481e92506e1c6d59e3332e6b0619dec3da740d"
+  },
+  "weight_upload": false,
+  "main_before": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "main_after": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "private": true,
+  "download_hashes_equal": true,
+  "adapter_weights_unchanged": true,
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}

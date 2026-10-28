@@ -4,6 +4,12 @@
 
 ## 当前状态
 
+2026-10-28 完成 [新表达的缺失字段确认](../../daily/2026/10/2026-10-28-sft-missing-field-confirmation.md)：四种表达×四种提供状态16新题，另回放4题，两个模型和两个固定提示共80次GPU生成、0步训练。候选两提示均14/16，追加规则一修复一退化，两提示都把未定说明误作地点；不推广规则。基座8/16降至4/16。[逐题报告](results/2026-10-28-prompt-confirmation-v1/review.json)、[HF回读证据](results/2026-10-28-prompt-confirmation-v1/hf-audit-upload.json)。86项本地测试通过。
+
+四条旧题16份输出逐token复现；新题与回放分开计分。仅追加11个HF诊断JSON，原提示和模型权重保持不变。接下来先整理数据修正、训练/诊断来源隔离方案和人工审查待办，不继续对同一可见题集调提示。
+
+### 10月27日提示诊断与工程验收
+
 2026-10-27 完成 [字段遗漏的提示对照](../../daily/2026/10/2026-10-27-sft-prompt-sensitivity-and-stage-review.md)：20条固定通知（旧12+4组新配对8条）×3提示×2模型，共120次GPU生成、0步训练。候选原提示17/20、调序19/20、追加逐字段规则20/20；调序引入时间遗漏，规则使基座出现格式退化，均不推广为通用修复。[逐题结果](results/2026-10-27-prompt-diagnostic-v1/review.json)、[HF同步证据](results/2026-10-27-prompt-diagnostic-v1/hf-audit-upload.json)。78项本地测试通过。
 
 新增 [工程阶段验收](engineering-acceptance.md)，区分冻结历史入口、受保护入口和独立容器原型；不同模板族和缺失方向确认、独立人工复核仍待完成。HF仅同步13个诊断JSON，权重/main/训练默认提示不变。
@@ -53,6 +59,8 @@ HF 只追加7个诊断文件（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`
 逐题整条匹配从基座的2/3降为 adapter 的1/3；虽然训练 loss 降低、输出格式紧凑了，但事实抽取有退化，不推广替代基座。证据保存在 [本次运行](results/2026-10-22-lora-smoke-v1/summary.json) 和 [上传验证](results/2026-10-22-lora-smoke-v1/upload.json)。
 
 ## 离线检查
+
+冻结提示确认入口：`confirm_prompt.py --run 新名称`，协议 [prompt-confirmation-v1.json](data/prompt-confirmation-v1.json)。复用已有生成/评分，分别汇总16新题、4回放及字段错误方向，不改旧证据。`publish_audit.py --kind confirmation --expected-head 已审查分支头` 只同步11个JSON。
 
 提示对照入口：`evaluate_prompt.py --run 新名称`，协议 [prompt-diagnostic-v1.json](data/prompt-diagnostic-v1.json)。`prompt_diagnostic.py` 复用原评分器并重算逐题修复/退化、字段和格式指标，原始键顺序也保留；当前题集不作为独立测试。`publish_audit.py --kind prompt --expected-head 已审查分支头` 仅同步13个JSON诊断报告。
 

@@ -1,0 +1,279 @@
+[
+  {
+    "id": "audit-03",
+    "group": "notice-18",
+    "category": "missing-time",
+    "text": "面向初学者的活动已确定：活动名称为地图绘制体验课。场地设在潮汐教室，开课时间另行公布。",
+    "expected": {
+      "event": "地图绘制体验课",
+      "time": null,
+      "location": "潮汐教室"
+    },
+    "split": "dev",
+    "cohort": "replay"
+  },
+  {
+    "id": "audit-04",
+    "group": "notice-19",
+    "category": "missing-location",
+    "text": "这次活动是科学摄影讲座，11月14日上午09:30开始。场地还在安排中。",
+    "expected": {
+      "event": "科学摄影讲座",
+      "time": "11月14日上午09:30",
+      "location": null
+    },
+    "split": "dev",
+    "cohort": "replay"
+  },
+  {
+    "id": "audit-05",
+    "group": "notice-20",
+    "category": "missing-both",
+    "text": "诚邀您参加“篆刻交流会”！开场时间与举办地点均未公布。",
+    "expected": {
+      "event": "篆刻交流会",
+      "time": null,
+      "location": null
+    },
+    "split": "dev",
+    "cohort": "replay"
+  },
+  {
+    "id": "pair-01-missing",
+    "group": "notice-28",
+    "pair": "pair-01",
+    "time_state": "missing",
+    "split": "dev",
+    "cohort": "replay",
+    "text": "面向初学者的活动已确定：活动名称为纸雕体验课。场地设在流萤教室，开课时间另行公布。",
+    "expected": {
+      "event": "纸雕体验课",
+      "time": null,
+      "location": "流萤教室"
+    }
+  },
+  {
+    "id": "confirm-01-complete",
+    "group": "notice-32",
+    "family": "booking-message",
+    "state": "complete",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "各位预约者：您登记的项目为《蓝晒手作课》。预约开始时刻为11月26日13:30；请前往松露创作间参加。请保存本消息。",
+    "expected": {
+      "event": "蓝晒手作课",
+      "time": "11月26日13:30",
+      "location": "松露创作间"
+    }
+  },
+  {
+    "id": "confirm-01-missing-time",
+    "group": "notice-32",
+    "family": "booking-message",
+    "state": "missing-time",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "各位预约者：您登记的项目为《蓝晒手作课》。预约开始时刻尚未确定；请前往松露创作间参加。请保存本消息。",
+    "expected": {
+      "event": "蓝晒手作课",
+      "time": null,
+      "location": "松露创作间"
+    }
+  },
+  {
+    "id": "confirm-01-missing-location",
+    "group": "notice-32",
+    "family": "booking-message",
+    "state": "missing-location",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "各位预约者：您登记的项目为《蓝晒手作课》。预约开始时刻为11月26日13:30；参加地址尚未确定。请保存本消息。",
+    "expected": {
+      "event": "蓝晒手作课",
+      "time": "11月26日13:30",
+      "location": null
+    }
+  },
+  {
+    "id": "confirm-01-missing-both",
+    "group": "notice-32",
+    "family": "booking-message",
+    "state": "missing-both",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "各位预约者：您登记的项目为《蓝晒手作课》。预约开始时刻尚未确定；参加地址尚未确定。请保存本消息。",
+    "expected": {
+      "event": "蓝晒手作课",
+      "time": null,
+      "location": null
+    }
+  },
+  {
+    "id": "confirm-02-complete",
+    "group": "notice-33",
+    "family": "agenda-list",
+    "state": "complete",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "报名事项：竹编体验班\n一、会址：苔原小厅\n二、日程：周日下午15:00\n三、名额有限。",
+    "expected": {
+      "event": "竹编体验班",
+      "time": "周日下午15:00",
+      "location": "苔原小厅"
+    }
+  },
+  {
+    "id": "confirm-02-missing-time",
+    "group": "notice-33",
+    "family": "agenda-list",
+    "state": "missing-time",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "报名事项：竹编体验班\n一、会址：苔原小厅\n二、日程：后续发布\n三、名额有限。",
+    "expected": {
+      "event": "竹编体验班",
+      "time": null,
+      "location": "苔原小厅"
+    }
+  },
+  {
+    "id": "confirm-02-missing-location",
+    "group": "notice-33",
+    "family": "agenda-list",
+    "state": "missing-location",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "报名事项：竹编体验班\n一、会址：后续发布\n二、日程：周日下午15:00\n三、名额有限。",
+    "expected": {
+      "event": "竹编体验班",
+      "time": "周日下午15:00",
+      "location": null
+    }
+  },
+  {
+    "id": "confirm-02-missing-both",
+    "group": "notice-33",
+    "family": "agenda-list",
+    "state": "missing-both",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "报名事项：竹编体验班\n一、会址：后续发布\n二、日程：后续发布\n三、名额有限。",
+    "expected": {
+      "event": "竹编体验班",
+      "time": null,
+      "location": null
+    }
+  },
+  {
+    "id": "confirm-03-complete",
+    "group": "notice-34",
+    "family": "narrative-invitation",
+    "state": "complete",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "我们为大家准备了声音采集体验课。本次从11月28日09:20—10:40进行，相聚之处为雨燕录音室，欢迎感兴趣的朋友加入。",
+    "expected": {
+      "event": "声音采集体验课",
+      "time": "11月28日09:20—10:40",
+      "location": "雨燕录音室"
+    }
+  },
+  {
+    "id": "confirm-03-missing-time",
+    "group": "notice-34",
+    "family": "narrative-invitation",
+    "state": "missing-time",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "我们为大家准备了声音采集体验课。本次何时进行还没有定下，相聚之处为雨燕录音室，欢迎感兴趣的朋友加入。",
+    "expected": {
+      "event": "声音采集体验课",
+      "time": null,
+      "location": "雨燕录音室"
+    }
+  },
+  {
+    "id": "confirm-03-missing-location",
+    "group": "notice-34",
+    "family": "narrative-invitation",
+    "state": "missing-location",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "我们为大家准备了声音采集体验课。本次从11月28日09:20—10:40进行，相聚之处还没有定下，欢迎感兴趣的朋友加入。",
+    "expected": {
+      "event": "声音采集体验课",
+      "time": "11月28日09:20—10:40",
+      "location": null
+    }
+  },
+  {
+    "id": "confirm-03-missing-both",
+    "group": "notice-34",
+    "family": "narrative-invitation",
+    "state": "missing-both",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "我们为大家准备了声音采集体验课。本次何时进行还没有定下，相聚之处还没有定下，欢迎感兴趣的朋友加入。",
+    "expected": {
+      "event": "声音采集体验课",
+      "time": null,
+      "location": null
+    }
+  },
+  {
+    "id": "confirm-04-complete",
+    "group": "notice-35",
+    "family": "registration-card",
+    "state": "complete",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "【报名卡】\n项目名称＝木偶制作体验班\n开班＝12月1日上午10:15\n上课地址＝榛果工作间\n请勿重复报名。",
+    "expected": {
+      "event": "木偶制作体验班",
+      "time": "12月1日上午10:15",
+      "location": "榛果工作间"
+    }
+  },
+  {
+    "id": "confirm-04-missing-time",
+    "group": "notice-35",
+    "family": "registration-card",
+    "state": "missing-time",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "【报名卡】\n项目名称＝木偶制作体验班\n开班＝另行告知\n上课地址＝榛果工作间\n请勿重复报名。",
+    "expected": {
+      "event": "木偶制作体验班",
+      "time": null,
+      "location": "榛果工作间"
+    }
+  },
+  {
+    "id": "confirm-04-missing-location",
+    "group": "notice-35",
+    "family": "registration-card",
+    "state": "missing-location",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "【报名卡】\n项目名称＝木偶制作体验班\n开班＝12月1日上午10:15\n上课地址＝另行告知\n请勿重复报名。",
+    "expected": {
+      "event": "木偶制作体验班",
+      "time": "12月1日上午10:15",
+      "location": null
+    }
+  },
+  {
+    "id": "confirm-04-missing-both",
+    "group": "notice-35",
+    "family": "registration-card",
+    "state": "missing-both",
+    "cohort": "new-confirmation",
+    "split": "dev",
+    "text": "【报名卡】\n项目名称＝木偶制作体验班\n开班＝另行告知\n上课地址＝另行告知\n请勿重复报名。",
+    "expected": {
+      "event": "木偶制作体验班",
+      "time": null,
+      "location": null
+    }
+  }
+]

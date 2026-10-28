@@ -98,6 +98,7 @@
 - [中文信息抽取微调：地点遗漏的最小对照](daily/2026/10/2026-10-25-sft-location-minimal-pairs.md)
 - [中文信息抽取微调：训练中断后的精确续训对照](daily/2026/10/2026-10-26-sft-exact-training-resume.md)
 - [中文信息抽取微调：字段遗漏的提示对照与阶段验收](daily/2026/10/2026-10-27-sft-prompt-sensitivity-and-stage-review.md)
+- [中文信息抽取微调：新表达上的缺失字段确认](daily/2026/10/2026-10-28-sft-missing-field-confirmation.md)
 
 ## 提交约定
 

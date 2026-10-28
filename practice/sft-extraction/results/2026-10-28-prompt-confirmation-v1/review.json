@@ -1,0 +1,1822 @@
+{
+  "training_steps": 0,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "total_generation_calls": 80,
+  "new_source_groups": 4,
+  "new_cases": 16,
+  "all_replay_tokens_reproduce": true,
+  "summaries_new_only": {
+    "base": {
+      "original": {
+        "count": 16,
+        "exact": 8,
+        "json_valid": 16,
+        "schema_valid": 16,
+        "fields_correct": {
+          "event": 12,
+          "time": 13,
+          "location": 14
+        },
+        "error_counts": {
+          "wrong-span": 6,
+          "value-to-null": 1,
+          "missing-to-value": 2
+        },
+        "by_state": {
+          "complete": {
+            "count": 4,
+            "exact": 2,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 3,
+              "time": 3,
+              "location": 4
+            },
+            "error_counts": {
+              "wrong-span": 2
+            }
+          },
+          "missing-time": {
+            "count": 4,
+            "exact": 3,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 3,
+              "time": 4,
+              "location": 4
+            },
+            "error_counts": {
+              "wrong-span": 1
+            }
+          },
+          "missing-location": {
+            "count": 4,
+            "exact": 0,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 3,
+              "time": 2,
+              "location": 2
+            },
+            "error_counts": {
+              "wrong-span": 2,
+              "value-to-null": 1,
+              "missing-to-value": 2
+            }
+          },
+          "missing-both": {
+            "count": 4,
+            "exact": 3,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 3,
+              "time": 4,
+              "location": 4
+            },
+            "error_counts": {
+              "wrong-span": 1
+            }
+          }
+        },
+        "by_group": {
+          "notice-32": {
+            "count": 4,
+            "exact": 3,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 3,
+              "location": 4
+            },
+            "error_counts": {
+              "wrong-span": 1
+            }
+          },
+          "notice-33": {
+            "count": 4,
+            "exact": 2,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 2,
+              "location": 4
+            },
+            "error_counts": {
+              "wrong-span": 1,
+              "value-to-null": 1
+            }
+          },
+          "notice-34": {
+            "count": 4,
+            "exact": 3,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 3
+            },
+            "error_counts": {
+              "missing-to-value": 1
+            }
+          },
+          "notice-35": {
+            "count": 4,
+            "exact": 0,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 0,
+              "time": 4,
+              "location": 3
+            },
+            "error_counts": {
+              "wrong-span": 4,
+              "missing-to-value": 1
+            }
+          }
+        }
+      },
+      "field-independence": {
+        "count": 16,
+        "exact": 4,
+        "json_valid": 12,
+        "schema_valid": 12,
+        "fields_correct": {
+          "event": 7,
+          "time": 7,
+          "location": 12
+        },
+        "error_counts": {
+          "value-to-null": 5,
+          "wrong-span": 5,
+          "format-or-schema": 4
+        },
+        "by_state": {
+          "complete": {
+            "count": 4,
+            "exact": 1,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 3,
+              "time": 1,
+              "location": 4
+            },
+            "error_counts": {
+              "value-to-null": 3,
+              "wrong-span": 1
+            }
+          },
+          "missing-time": {
+            "count": 4,
+            "exact": 1,
+            "json_valid": 2,
+            "schema_valid": 2,
+            "fields_correct": {
+              "event": 1,
+              "time": 2,
+              "location": 2
+            },
+            "error_counts": {
+              "wrong-span": 1,
+              "format-or-schema": 2
+            }
+          },
+          "missing-location": {
+            "count": 4,
+            "exact": 1,
+            "json_valid": 3,
+            "schema_valid": 3,
+            "fields_correct": {
+              "event": 2,
+              "time": 1,
+              "location": 3
+            },
+            "error_counts": {
+              "value-to-null": 2,
+              "format-or-schema": 1,
+              "wrong-span": 1
+            }
+          },
+          "missing-both": {
+            "count": 4,
+            "exact": 1,
+            "json_valid": 3,
+            "schema_valid": 3,
+            "fields_correct": {
+              "event": 1,
+              "time": 3,
+              "location": 3
+            },
+            "error_counts": {
+              "wrong-span": 2,
+              "format-or-schema": 1
+            }
+          }
+        },
+        "by_group": {
+          "notice-32": {
+            "count": 4,
+            "exact": 0,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 2,
+              "time": 2,
+              "location": 4
+            },
+            "error_counts": {
+              "value-to-null": 2,
+              "wrong-span": 2
+            }
+          },
+          "notice-33": {
+            "count": 4,
+            "exact": 2,
+            "json_valid": 3,
+            "schema_valid": 3,
+            "fields_correct": {
+              "event": 3,
+              "time": 2,
+              "location": 3
+            },
+            "error_counts": {
+              "value-to-null": 1,
+              "format-or-schema": 1
+            }
+          },
+          "notice-34": {
+            "count": 4,
+            "exact": 2,
+            "json_valid": 2,
+            "schema_valid": 2,
+            "fields_correct": {
+              "event": 2,
+              "time": 2,
+              "location": 2
+            },
+            "error_counts": {
+              "format-or-schema": 2
+            }
+          },
+          "notice-35": {
+            "count": 4,
+            "exact": 0,
+            "json_valid": 3,
+            "schema_valid": 3,
+            "fields_correct": {
+              "event": 0,
+              "time": 1,
+              "location": 3
+            },
+            "error_counts": {
+              "wrong-span": 3,
+              "value-to-null": 2,
+              "format-or-schema": 1
+            }
+          }
+        }
+      }
+    },
+    "candidate": {
+      "original": {
+        "count": 16,
+        "exact": 14,
+        "json_valid": 16,
+        "schema_valid": 16,
+        "fields_correct": {
+          "event": 16,
+          "time": 16,
+          "location": 14
+        },
+        "error_counts": {
+          "missing-to-value": 1,
+          "value-to-null": 1
+        },
+        "by_state": {
+          "complete": {
+            "count": 4,
+            "exact": 4,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 4
+            },
+            "error_counts": {}
+          },
+          "missing-time": {
+            "count": 4,
+            "exact": 3,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 3
+            },
+            "error_counts": {
+              "value-to-null": 1
+            }
+          },
+          "missing-location": {
+            "count": 4,
+            "exact": 3,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 3
+            },
+            "error_counts": {
+              "missing-to-value": 1
+            }
+          },
+          "missing-both": {
+            "count": 4,
+            "exact": 4,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 4
+            },
+            "error_counts": {}
+          }
+        },
+        "by_group": {
+          "notice-32": {
+            "count": 4,
+            "exact": 4,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 4
+            },
+            "error_counts": {}
+          },
+          "notice-33": {
+            "count": 4,
+            "exact": 4,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 4
+            },
+            "error_counts": {}
+          },
+          "notice-34": {
+            "count": 4,
+            "exact": 3,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 3
+            },
+            "error_counts": {
+              "missing-to-value": 1
+            }
+          },
+          "notice-35": {
+            "count": 4,
+            "exact": 3,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 3
+            },
+            "error_counts": {
+              "value-to-null": 1
+            }
+          }
+        }
+      },
+      "field-independence": {
+        "count": 16,
+        "exact": 14,
+        "json_valid": 16,
+        "schema_valid": 16,
+        "fields_correct": {
+          "event": 16,
+          "time": 15,
+          "location": 15
+        },
+        "error_counts": {
+          "value-to-null": 1,
+          "missing-to-value": 1
+        },
+        "by_state": {
+          "complete": {
+            "count": 4,
+            "exact": 4,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 4
+            },
+            "error_counts": {}
+          },
+          "missing-time": {
+            "count": 4,
+            "exact": 4,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 4
+            },
+            "error_counts": {}
+          },
+          "missing-location": {
+            "count": 4,
+            "exact": 2,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 3,
+              "location": 3
+            },
+            "error_counts": {
+              "value-to-null": 1,
+              "missing-to-value": 1
+            }
+          },
+          "missing-both": {
+            "count": 4,
+            "exact": 4,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 4
+            },
+            "error_counts": {}
+          }
+        },
+        "by_group": {
+          "notice-32": {
+            "count": 4,
+            "exact": 4,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 4
+            },
+            "error_counts": {}
+          },
+          "notice-33": {
+            "count": 4,
+            "exact": 3,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 3,
+              "location": 4
+            },
+            "error_counts": {
+              "value-to-null": 1
+            }
+          },
+          "notice-34": {
+            "count": 4,
+            "exact": 3,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 3
+            },
+            "error_counts": {
+              "missing-to-value": 1
+            }
+          },
+          "notice-35": {
+            "count": 4,
+            "exact": 4,
+            "json_valid": 4,
+            "schema_valid": 4,
+            "fields_correct": {
+              "event": 4,
+              "time": 4,
+              "location": 4
+            },
+            "error_counts": {}
+          }
+        }
+      }
+    }
+  },
+  "transitions_new_only": {
+    "base": {
+      "fixed_ids": [
+        "confirm-03-missing-location"
+      ],
+      "regressed_ids": [
+        "confirm-01-complete",
+        "confirm-01-missing-time",
+        "confirm-01-missing-both",
+        "confirm-03-missing-time",
+        "confirm-03-missing-both"
+      ]
+    },
+    "candidate": {
+      "fixed_ids": [
+        "confirm-04-missing-time"
+      ],
+      "regressed_ids": [
+        "confirm-02-missing-location"
+      ]
+    }
+  },
+  "replay": {
+    "base": {
+      "original": {
+        "count": 4,
+        "exact": 3,
+        "tokens_equal": {
+          "audit-03": true,
+          "audit-04": true,
+          "audit-05": true,
+          "pair-01-missing": true
+        }
+      },
+      "field-independence": {
+        "count": 4,
+        "exact": 2,
+        "tokens_equal": {
+          "audit-03": true,
+          "audit-04": true,
+          "audit-05": true,
+          "pair-01-missing": true
+        }
+      }
+    },
+    "candidate": {
+      "original": {
+        "count": 4,
+        "exact": 2,
+        "tokens_equal": {
+          "audit-03": true,
+          "audit-04": true,
+          "audit-05": true,
+          "pair-01-missing": true
+        }
+      },
+      "field-independence": {
+        "count": 4,
+        "exact": 4,
+        "tokens_equal": {
+          "audit-03": true,
+          "audit-04": true,
+          "audit-05": true,
+          "pair-01-missing": true
+        }
+      }
+    }
+  },
+  "errors_new_only": {
+    "base": {
+      "original": [
+        {
+          "id": "confirm-01-missing-location",
+          "field": "time",
+          "kind": "wrong-span",
+          "expected": "11月26日13:30",
+          "actual": "11月26日"
+        },
+        {
+          "id": "confirm-02-complete",
+          "field": "time",
+          "kind": "wrong-span",
+          "expected": "周日下午15:00",
+          "actual": "15:00"
+        },
+        {
+          "id": "confirm-02-missing-location",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午15:00",
+          "actual": null
+        },
+        {
+          "id": "confirm-03-missing-location",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "相聚之处"
+        },
+        {
+          "id": "confirm-04-complete",
+          "field": "event",
+          "kind": "wrong-span",
+          "expected": "木偶制作体验班",
+          "actual": "【报名卡】"
+        },
+        {
+          "id": "confirm-04-missing-time",
+          "field": "event",
+          "kind": "wrong-span",
+          "expected": "木偶制作体验班",
+          "actual": "【报名卡】"
+        },
+        {
+          "id": "confirm-04-missing-location",
+          "field": "event",
+          "kind": "wrong-span",
+          "expected": "木偶制作体验班",
+          "actual": "【报名卡】"
+        },
+        {
+          "id": "confirm-04-missing-location",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "另行告知"
+        },
+        {
+          "id": "confirm-04-missing-both",
+          "field": "event",
+          "kind": "wrong-span",
+          "expected": "木偶制作体验班",
+          "actual": "【报名卡】"
+        }
+      ],
+      "field-independence": [
+        {
+          "id": "confirm-01-complete",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "11月26日13:30",
+          "actual": null
+        },
+        {
+          "id": "confirm-01-missing-time",
+          "field": "event",
+          "kind": "wrong-span",
+          "expected": "蓝晒手作课",
+          "actual": "各位预约者："
+        },
+        {
+          "id": "confirm-01-missing-location",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "11月26日13:30",
+          "actual": null
+        },
+        {
+          "id": "confirm-01-missing-both",
+          "field": "event",
+          "kind": "wrong-span",
+          "expected": "蓝晒手作课",
+          "actual": "各位预约者："
+        },
+        {
+          "id": "confirm-02-complete",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午15:00",
+          "actual": null
+        },
+        {
+          "id": "confirm-02-missing-location",
+          "kind": "format-or-schema",
+          "field": null
+        },
+        {
+          "id": "confirm-03-missing-time",
+          "kind": "format-or-schema",
+          "field": null
+        },
+        {
+          "id": "confirm-03-missing-both",
+          "kind": "format-or-schema",
+          "field": null
+        },
+        {
+          "id": "confirm-04-complete",
+          "field": "event",
+          "kind": "wrong-span",
+          "expected": "木偶制作体验班",
+          "actual": "【报名卡】"
+        },
+        {
+          "id": "confirm-04-complete",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "12月1日上午10:15",
+          "actual": null
+        },
+        {
+          "id": "confirm-04-missing-time",
+          "kind": "format-or-schema",
+          "field": null
+        },
+        {
+          "id": "confirm-04-missing-location",
+          "field": "event",
+          "kind": "wrong-span",
+          "expected": "木偶制作体验班",
+          "actual": "【报名卡】"
+        },
+        {
+          "id": "confirm-04-missing-location",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "12月1日上午10:15",
+          "actual": null
+        },
+        {
+          "id": "confirm-04-missing-both",
+          "field": "event",
+          "kind": "wrong-span",
+          "expected": "木偶制作体验班",
+          "actual": "【报名卡】"
+        }
+      ]
+    },
+    "candidate": {
+      "original": [
+        {
+          "id": "confirm-03-missing-location",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "相聚之处还没有定下"
+        },
+        {
+          "id": "confirm-04-missing-time",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "榛果工作间",
+          "actual": null
+        }
+      ],
+      "field-independence": [
+        {
+          "id": "confirm-02-missing-location",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午15:00",
+          "actual": null
+        },
+        {
+          "id": "confirm-03-missing-location",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "相聚之处还没有定下"
+        }
+      ]
+    }
+  },
+  "details_new_only": {
+    "base": {
+      "original": [
+        {
+          "id": "confirm-01-complete",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": "11月26日13:30",
+            "location": "松露创作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-time",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": null,
+            "location": "松露创作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-location",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": "11月26日",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-complete",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "15:00",
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-time",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-location",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-complete",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": "11月28日09:20—10:40",
+            "location": "雨燕录音室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-time",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": null,
+            "location": "雨燕录音室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-location",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": "11月28日09:20—10:40",
+            "location": "相聚之处"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-complete",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "【报名卡】",
+            "time": "12月1日上午10:15",
+            "location": "榛果工作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-missing-time",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "【报名卡】",
+            "time": null,
+            "location": "榛果工作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-missing-location",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "【报名卡】",
+            "time": "12月1日上午10:15",
+            "location": "另行告知"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-missing-both",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "【报名卡】",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        }
+      ],
+      "field-independence": [
+        {
+          "id": "confirm-01-complete",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": null,
+            "location": "松露创作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-time",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "各位预约者：",
+            "time": null,
+            "location": "松露创作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-location",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-both",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "各位预约者：",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-complete",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-time",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-location",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": false,
+            "location": false
+          },
+          "parsed": null,
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-complete",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": "11月28日09:20—10:40",
+            "location": "雨燕录音室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-time",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": false,
+            "location": false
+          },
+          "parsed": null,
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-location",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": "11月28日09:20—10:40",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-both",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": false,
+            "location": false
+          },
+          "parsed": null,
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-complete",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "【报名卡】",
+            "time": null,
+            "location": "榛果工作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-missing-time",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": false,
+            "location": false
+          },
+          "parsed": null,
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-missing-location",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "【报名卡】",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-missing-both",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": false,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "【报名卡】",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        }
+      ]
+    },
+    "candidate": {
+      "original": [
+        {
+          "id": "confirm-01-complete",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": "11月26日13:30",
+            "location": "松露创作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-time",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": null,
+            "location": "松露创作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-location",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": "11月26日13:30",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-complete",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-time",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-location",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-complete",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": "11月28日09:20—10:40",
+            "location": "雨燕录音室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-time",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": null,
+            "location": "雨燕录音室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-location",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": "11月28日09:20—10:40",
+            "location": "相聚之处还没有定下"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-complete",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木偶制作体验班",
+            "time": "12月1日上午10:15",
+            "location": "榛果工作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-missing-time",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "木偶制作体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "confirm-04-missing-location",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木偶制作体验班",
+            "time": "12月1日上午10:15",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木偶制作体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        }
+      ],
+      "field-independence": [
+        {
+          "id": "confirm-01-complete",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": "11月26日13:30",
+            "location": "松露创作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-time",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": null,
+            "location": "松露创作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-location",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": "11月26日13:30",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-01-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒手作课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-complete",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-time",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-location",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-complete",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": "11月28日09:20—10:40",
+            "location": "雨燕录音室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-time",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": null,
+            "location": "雨燕录音室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-location",
+          "cohort": "new-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": "11月28日09:20—10:40",
+            "location": "相聚之处还没有定下"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-03-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "声音采集体验课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-complete",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木偶制作体验班",
+            "time": "12月1日上午10:15",
+            "location": "榛果工作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-missing-time",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木偶制作体验班",
+            "time": null,
+            "location": "榛果工作间"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-missing-location",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木偶制作体验班",
+            "time": "12月1日上午10:15",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-04-missing-both",
+          "cohort": "new-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木偶制作体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        }
+      ]
+    }
+  }
+}

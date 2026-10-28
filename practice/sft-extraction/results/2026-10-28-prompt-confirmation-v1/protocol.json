@@ -1,0 +1,93 @@
+{
+  "version": "prompt-confirmation-v1",
+  "date": "2026-10-28",
+  "provenance": "Assistant-authored fictional source groups after inspecting prior diagnostics. Four deliberately different surface templates crossed with four time/location availability states. New source IDs and exact-text separation do not establish semantic/template independence. Not sealed or independently human-reviewed.",
+  "human_review": "pending",
+  "prior_run": "2026-10-27-prompt-diagnostic-v1",
+  "models": [
+    "base",
+    "candidate"
+  ],
+  "conditions": [
+    "original",
+    "field-independence"
+  ],
+  "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "seed": 42,
+  "training_steps": 0,
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 128
+  },
+  "states": [
+    "complete",
+    "missing-time",
+    "missing-location",
+    "missing-both"
+  ],
+  "replay_ids": [
+    "audit-03",
+    "audit-04",
+    "audit-05",
+    "pair-01-missing"
+  ],
+  "new_count": 16,
+  "expected_rows": 20,
+  "expected_generation_calls": 80,
+  "groups": [
+    {
+      "id": "confirm-01",
+      "group": "notice-32",
+      "template_family": "booking-message",
+      "event": "蓝晒手作课",
+      "time": "11月26日13:30",
+      "location": "松露创作间",
+      "template": "各位预约者：您登记的项目为《{event}》。{time_clause}；{location_clause}。请保存本消息。",
+      "time_present": "预约开始时刻为11月26日13:30",
+      "time_missing": "预约开始时刻尚未确定",
+      "location_present": "请前往松露创作间参加",
+      "location_missing": "参加地址尚未确定"
+    },
+    {
+      "id": "confirm-02",
+      "group": "notice-33",
+      "template_family": "agenda-list",
+      "event": "竹编体验班",
+      "time": "周日下午15:00",
+      "location": "苔原小厅",
+      "template": "报名事项：{event}\n一、{location_clause}\n二、{time_clause}\n三、名额有限。",
+      "time_present": "日程：周日下午15:00",
+      "time_missing": "日程：后续发布",
+      "location_present": "会址：苔原小厅",
+      "location_missing": "会址：后续发布"
+    },
+    {
+      "id": "confirm-03",
+      "group": "notice-34",
+      "template_family": "narrative-invitation",
+      "event": "声音采集体验课",
+      "time": "11月28日09:20—10:40",
+      "location": "雨燕录音室",
+      "template": "我们为大家准备了{event}。{time_clause}，{location_clause}，欢迎感兴趣的朋友加入。",
+      "time_present": "本次从11月28日09:20—10:40进行",
+      "time_missing": "本次何时进行还没有定下",
+      "location_present": "相聚之处为雨燕录音室",
+      "location_missing": "相聚之处还没有定下"
+    },
+    {
+      "id": "confirm-04",
+      "group": "notice-35",
+      "template_family": "registration-card",
+      "event": "木偶制作体验班",
+      "time": "12月1日上午10:15",
+      "location": "榛果工作间",
+      "template": "【报名卡】\n项目名称＝{event}\n{time_clause}\n{location_clause}\n请勿重复报名。",
+      "time_present": "开班＝12月1日上午10:15",
+      "time_missing": "开班＝另行告知",
+      "location_present": "上课地址＝榛果工作间",
+      "location_missing": "上课地址＝另行告知"
+    }
+  ],
+  "interpretation": "Reuse both prompts byte-for-byte from prior saved prompts; never tune after generation. Summarize only the 16 new cases for confirmation, report the four replay cases separately. Compare paired fixed/regressed IDs and errors by availability state and source group. Each family has one source, so family and event identity are confounded. No model/prompt promotion or independent generalization estimate."
+}
