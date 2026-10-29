@@ -23,7 +23,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "resume", "resume-guard", "atomic"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "resume", "resume-guard", "atomic"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
@@ -52,6 +52,12 @@ def main():
         files = {"manifest.json", "protocol.json", "environment.json", "comparison.json"}
         files |= {phase + "/" + name for phase in ("continuous", "prefix", "resume", "optimizer-reset")
                   for name in ("history.json", "state.json")}
+    elif args.kind == "data-preparation":
+        assert review["status"] == "prepared-not-trained" and review["total_generation_calls"] == 57
+        assert review["rejected_faults"] == 7 and review["all_faults_rejected"] and review["source_groups_disjoint"]
+        assert review["all_historical_tokens_reproduce"] and review["weights_unchanged"] and not review["promote_to_main"]
+        files = {"manifest.json", "protocol.json", "split-audit.json", "rejections.json", "token-budget.json",
+                 "environment.json", "baseline.json", "weights.json", "review.json"}
     elif args.kind == "confirmation":
         assert review["all_replay_tokens_reproduce"] and review["total_generation_calls"] == 80
         assert review["new_cases"] == 16 and review["new_source_groups"] == 4 and not review["promote_to_main"]

@@ -1,0 +1,51 @@
+[
+  {
+    "case": "historical-dev-relabel",
+    "rejected": true,
+    "reason": "historical-mutation",
+    "optimizer_updates": 0,
+    "scope": "in-memory fault injection into disposable data/protocol copies"
+  },
+  {
+    "case": "reuse-historical-group",
+    "rejected": true,
+    "reason": "reserved-source-group",
+    "optimizer_updates": 0,
+    "scope": "in-memory fault injection into disposable data/protocol copies"
+  },
+  {
+    "case": "group-leak",
+    "rejected": true,
+    "reason": "group-cross-split",
+    "optimizer_updates": 0,
+    "scope": "in-memory fault injection into disposable data/protocol copies"
+  },
+  {
+    "case": "family-leak",
+    "rejected": true,
+    "reason": "family-cross-split",
+    "optimizer_updates": 0,
+    "scope": "in-memory fault injection into disposable data/protocol copies"
+  },
+  {
+    "case": "duplicate-text",
+    "rejected": true,
+    "reason": "duplicate-text",
+    "optimizer_updates": 0,
+    "scope": "in-memory fault injection into disposable data/protocol copies"
+  },
+  {
+    "case": "nonliteral-label",
+    "rejected": true,
+    "reason": "nonliteral-label",
+    "optimizer_updates": 0,
+    "scope": "in-memory fault injection into disposable data/protocol copies"
+  },
+  {
+    "case": "dev-in-schedule",
+    "rejected": true,
+    "reason": "schedule-non-train",
+    "optimizer_updates": 0,
+    "scope": "in-memory fault injection into disposable data/protocol copies"
+  }
+]

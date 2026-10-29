@@ -1,0 +1,26 @@
+{
+  "repo": "YueranCao2001/qwen3-0.6b-zh-extraction-lora",
+  "branch": "boundary-v2-20261023",
+  "commit": "84e1d80271bc70d18de747bf088059530f7ee11f",
+  "tested_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "reference_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "path_in_repo": "evaluations/2026-10-29-repair-preparation-v1",
+  "files_sha256": {
+    "baseline.json": "c8423bee140d360f4ec831b2d76371d52a4f760da4f65cd4763416da3962606d",
+    "environment.json": "7f60eff9e0347828823a044fc847cb90439bf0325b7ff345cf3abb2404f60921",
+    "manifest.json": "489fca799a96653d2def544dcfaa7a913074ad58e4fe0174008ded8c995af03d",
+    "protocol.json": "9fd608199ba71051a7b697f53545ad0234c0e9338fcf775b6ff00dc6cec55860",
+    "rejections.json": "2da2db9dc78eb4be1d7b1d03a52805d721e817e401bfc8c1ee0cf495769fd90d",
+    "review.json": "607c6becdb8d620110bc78f5bf78d73c5578f5691c82dc6ac597dee835248077",
+    "split-audit.json": "78a8c49416e64b5cde9f3ee7a1b92a128018ed3d3881439721332df23c67eb36",
+    "token-budget.json": "da33abf6ab18a96d33742f0bfb9446db057b351682f5451e79abc9fa2793d254",
+    "weights.json": "858c2cd5b0a40477ff7879fc53a19aa4bc74997e88bf5039dfd13ec0e52249f1"
+  },
+  "weight_upload": false,
+  "main_before": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "main_after": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "private": true,
+  "download_hashes_equal": true,
+  "adapter_weights_unchanged": true,
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}

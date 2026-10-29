@@ -1,0 +1,23 @@
+{
+  "source_sha256": {
+    "repair_data.py": "295c4b5558c5932555b28eaa945a718a4b6da0cd70df286a701632c0063f7fb8",
+    "prepare_repair.py": "071f9cd72867b9f2606cb3345863423a47fe8d748771b8e625e620d37631c613",
+    "contract.py": "2ccbc15d96b7e78bd18abdad06708087b8d0fb828dbc55b21bd3e92e1800213d",
+    "train_smoke.py": "978b0cd842e41b555e3fce1da688a9b86292f2ff2af897e20b8a4cf6ef6f0e3e",
+    "audit_evaluation.py": "144d5707249343c1615cdf431d6b5fdad6f832d15e2657a8e38f61c2be071ccd",
+    "data/repair-data-v1.json": "521770d2b735965f96c3a1d780ae56484db8835a5077f56669e714639c7a40e6",
+    "data/repair-protocol-v1.json": "e198e421db4851777ea61b0a761dfa9e920a5fb9bab89e1c6111f48511e67964",
+    "annotation-rules-v1.md": "67e3c770e053f3d31fb20b4781feaf70ae06924dfcc5cc51fb1837a199723b53",
+    "results/2026-10-23-boundary-v2/data.json": "cdadc1c27167d4476a938961fd127be5278b2fe28d8612be7c120beb9f871008",
+    "results/2026-10-27-prompt-diagnostic-v1/cases.json": "a187605ec79e0839cb58280f5740f46c9d24b3db499461ffbe7650b70ce9de4c",
+    "results/2026-10-28-prompt-confirmation-v1/cases.json": "63e21f2bb95858d050177f31688ee42cc1944e12b7d978c81d6e5ce77e69e68d"
+  },
+  "data_sha256": "1aedc7f80179b0c49db4021b916d86971725c527f672b4517983aff9d6b5ca25",
+  "protocol_sha256": "9fd608199ba71051a7b697f53545ad0234c0e9338fcf775b6ff00dc6cec55860",
+  "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12",
+  "training_steps": 0,
+  "human_review": "pending",
+  "status": "prepared-not-trained"
+}

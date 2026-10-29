@@ -1,0 +1,166 @@
+{
+  "arms": {
+    "control": {
+      "planned_steps": 12,
+      "planned_input_tokens": 1202,
+      "planned_target_tokens": 272,
+      "exposure_counts": {
+        "train-01": 2,
+        "train-02": 2,
+        "train-03": 2,
+        "boundary-train-01": 2,
+        "boundary-train-02": 2,
+        "boundary-train-03": 2
+      },
+      "schedule": [
+        {
+          "step": 1,
+          "id": "train-01",
+          "target_tokens": 29
+        },
+        {
+          "step": 2,
+          "id": "train-02",
+          "target_tokens": 18
+        },
+        {
+          "step": 3,
+          "id": "train-03",
+          "target_tokens": 26
+        },
+        {
+          "step": 4,
+          "id": "boundary-train-01",
+          "target_tokens": 23
+        },
+        {
+          "step": 5,
+          "id": "boundary-train-02",
+          "target_tokens": 16
+        },
+        {
+          "step": 6,
+          "id": "boundary-train-03",
+          "target_tokens": 24
+        },
+        {
+          "step": 7,
+          "id": "train-01",
+          "target_tokens": 29
+        },
+        {
+          "step": 8,
+          "id": "train-02",
+          "target_tokens": 18
+        },
+        {
+          "step": 9,
+          "id": "train-03",
+          "target_tokens": 26
+        },
+        {
+          "step": 10,
+          "id": "boundary-train-01",
+          "target_tokens": 23
+        },
+        {
+          "step": 11,
+          "id": "boundary-train-02",
+          "target_tokens": 16
+        },
+        {
+          "step": 12,
+          "id": "boundary-train-03",
+          "target_tokens": 24
+        }
+      ]
+    },
+    "repair": {
+      "planned_steps": 12,
+      "planned_input_tokens": 1293,
+      "planned_target_tokens": 278,
+      "exposure_counts": {
+        "train-01": 1,
+        "train-02": 1,
+        "train-03": 1,
+        "boundary-train-01": 1,
+        "boundary-train-02": 1,
+        "boundary-train-03": 1,
+        "repair-train-01": 1,
+        "repair-train-02": 1,
+        "repair-train-03": 1,
+        "repair-train-04": 1,
+        "repair-train-05": 1,
+        "repair-train-06": 1
+      },
+      "schedule": [
+        {
+          "step": 1,
+          "id": "train-01",
+          "target_tokens": 29
+        },
+        {
+          "step": 2,
+          "id": "train-02",
+          "target_tokens": 18
+        },
+        {
+          "step": 3,
+          "id": "train-03",
+          "target_tokens": 26
+        },
+        {
+          "step": 4,
+          "id": "boundary-train-01",
+          "target_tokens": 23
+        },
+        {
+          "step": 5,
+          "id": "boundary-train-02",
+          "target_tokens": 16
+        },
+        {
+          "step": 6,
+          "id": "boundary-train-03",
+          "target_tokens": 24
+        },
+        {
+          "step": 7,
+          "id": "repair-train-01",
+          "target_tokens": 21
+        },
+        {
+          "step": 8,
+          "id": "repair-train-02",
+          "target_tokens": 30
+        },
+        {
+          "step": 9,
+          "id": "repair-train-03",
+          "target_tokens": 23
+        },
+        {
+          "step": 10,
+          "id": "repair-train-04",
+          "target_tokens": 17
+        },
+        {
+          "step": 11,
+          "id": "repair-train-05",
+          "target_tokens": 30
+        },
+        {
+          "step": 12,
+          "id": "repair-train-06",
+          "target_tokens": 21
+        }
+      ]
+    }
+  },
+  "steps_matched": true,
+  "target_tokens_matched": false,
+  "training_fixture_count": 12,
+  "max_train_length": 132,
+  "all_assistant_masks_and_eos_verified": true,
+  "executed_optimizer_steps": 0
+}

@@ -1,0 +1,18 @@
+{
+  "version": "repair-data-v1",
+  "provenance": "Assistant-authored fictional notices informed by open diagnostics. Labels visible, independent human review pending. Families are manual design labels, not proof of semantic or template independence.",
+  "human_review": "pending",
+  "train": [
+    {"id": "repair-train-01", "group": "notice-36", "family": "explicit-course-bulletin", "split": "train", "state": "missing-time", "focus": "preserve-explicit-location", "text": "课程公告｜活动名称：草木染入门课。举办场所为鹿鸣工坊，具体开课时刻还没有定下。", "expected": {"event": "草木染入门课", "time": null, "location": "鹿鸣工坊"}},
+    {"id": "repair-train-02", "group": "notice-36", "family": "explicit-course-bulletin", "split": "train", "state": "complete", "focus": "complete-time-span", "text": "课程公告｜活动名称：草木染入门课。举办场所为鹿鸣工坊，具体开课时刻为12月3日下午14:20。", "expected": {"event": "草木染入门课", "time": "12月3日下午14:20", "location": "鹿鸣工坊"}},
+    {"id": "repair-train-03", "group": "notice-37", "family": "negative-arrangement-paragraph", "split": "train", "state": "missing-location", "focus": "undetermined-is-null", "text": "本次开设的是古琴赏析课，定于周日上午09:40举行。在哪里上课还没有决定，报名仍然开放。", "expected": {"event": "古琴赏析课", "time": "周日上午09:40", "location": null}},
+    {"id": "repair-train-04", "group": "notice-37", "family": "negative-arrangement-paragraph", "split": "train", "state": "missing-both", "focus": "undetermined-is-null", "text": "本次开设的是古琴赏析课。何时上课、在哪里上课都还没有决定，报名仍然开放。", "expected": {"event": "古琴赏析课", "time": null, "location": null}},
+    {"id": "repair-train-05", "group": "notice-38", "family": "title-and-course-fields", "split": "train", "state": "complete", "focus": "title-is-not-event", "text": "【报名提醒】\n课程名：版画拓印体验课\n开始时刻：12月5日10:10\n参加地址：雾松教室\n请阅读上述课程信息。", "expected": {"event": "版画拓印体验课", "time": "12月5日10:10", "location": "雾松教室"}},
+    {"id": "repair-train-06", "group": "notice-38", "family": "title-and-course-fields", "split": "train", "state": "missing-time", "focus": "title-and-location-under-missing-time", "text": "【报名提醒】\n课程名：版画拓印体验课\n开始时刻：稍后确定\n参加地址：雾松教室\n请阅读上述课程信息。", "expected": {"event": "版画拓印体验课", "time": null, "location": "雾松教室"}}
+  ],
+  "dev_groups": [
+    {"id": "repair-dev-01", "group": "notice-39", "family": "participant-numbered-message", "event": "香囊缝制课", "time": "12月7日16:30", "location": "栖霞手作室", "template": "致参与者：本期为香囊缝制课。①{time_clause}；②{location_clause}。感谢关注。", "time_present": "请于12月7日16:30到场", "time_missing": "到场时刻等待后续消息", "location_present": "集合处为栖霞手作室", "location_missing": "集合处等待后续消息"},
+    {"id": "repair-dev-02", "group": "notice-40", "family": "catalogue-semicolon-entry", "event": "皮影制作课", "time": "周五晚上18:45", "location": "白帆艺坊", "template": "课程目录第七项——皮影制作课；{location_clause}；{time_clause}。", "time_present": "上课安排在周五晚上18:45", "time_missing": "上课日程仍在商议", "location_present": "教学空间为白帆艺坊", "location_missing": "教学空间仍在商议"},
+    {"id": "repair-dev-03", "group": "notice-41", "family": "quoted-course-summary", "event": "珐琅配色体验课", "time": "12月9日上午08:50", "location": "海棠实验间", "template": "消息摘要：这次只有一门课程，叫“珐琅配色体验课”。{time_clause}。{location_clause}。无需回复。", "time_present": "课程于12月9日上午08:50开始", "time_missing": "课程开始时间之后再定", "location_present": "授课房间选定海棠实验间", "location_missing": "授课房间之后再定"}
+  ]
+}

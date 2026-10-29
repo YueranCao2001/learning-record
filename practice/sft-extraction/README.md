@@ -4,6 +4,12 @@
 
 ## 当前状态
 
+2026-10-29 完成 [修正数据与训练前基线](../../daily/2026/10/2026-10-29-sft-repair-data-and-frozen-baseline.md)：6新拟训练、12新dev与6旧train/45旧回归分开，7类错误注入均拒绝；训练mask/EOS与预算检查通过。两组各计划12步，监督token为272/278，今天0更新。候选57次GPU基线：新dev8/12、历史回归40/45，旧45题逐token复现。[准备汇总](results/2026-10-29-repair-preparation-v1/review.json)、[HF回读](results/2026-10-29-repair-preparation-v1/hf-audit-upload.json)。95项本地测试通过。
+
+协议状态为prepared-not-trained；从相同adapter分别重建优化器不称精确续训。仅同步9个准备JSON到HF，完整合成数据/token记录保留GitHub，原模型和main不变；后续在新run执行双组训练，独立人工审查继续pending。
+
+### 10月28日新表达确认
+
 2026-10-28 完成 [新表达的缺失字段确认](../../daily/2026/10/2026-10-28-sft-missing-field-confirmation.md)：四种表达×四种提供状态16新题，另回放4题，两个模型和两个固定提示共80次GPU生成、0步训练。候选两提示均14/16，追加规则一修复一退化，两提示都把未定说明误作地点；不推广规则。基座8/16降至4/16。[逐题报告](results/2026-10-28-prompt-confirmation-v1/review.json)、[HF回读证据](results/2026-10-28-prompt-confirmation-v1/hf-audit-upload.json)。86项本地测试通过。
 
 四条旧题16份输出逐token复现；新题与回放分开计分。仅追加11个HF诊断JSON，原提示和模型权重保持不变。接下来先整理数据修正、训练/诊断来源隔离方案和人工审查待办，不继续对同一可见题集调提示。
@@ -59,6 +65,8 @@ HF 只追加7个诊断文件（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`
 逐题整条匹配从基座的2/3降为 adapter 的1/3；虽然训练 loss 降低、输出格式紧凑了，但事实抽取有退化，不推广替代基座。证据保存在 [本次运行](results/2026-10-22-lora-smoke-v1/summary.json) 和 [上传验证](results/2026-10-22-lora-smoke-v1/upload.json)。
 
 ## 离线检查
+
+数据准备入口：`prepare_repair.py --run 新名称`，配置见 [repair-data-v1.json](data/repair-data-v1.json) 和 [repair-protocol-v1.json](data/repair-protocol-v1.json)。`repair_data.py` 固定历史角色、禁止dev入采样、检查来源/模板族名称/原文片段；模板名分开不证明语义独立。该入口做token核算与57题只读基线，不训练。`publish_audit.py --kind data-preparation --expected-head 已审查分支头` 只同步9个JSON准备报告。
 
 冻结提示确认入口：`confirm_prompt.py --run 新名称`，协议 [prompt-confirmation-v1.json](data/prompt-confirmation-v1.json)。复用已有生成/评分，分别汇总16新题、4回放及字段错误方向，不改旧证据。`publish_audit.py --kind confirmation --expected-head 已审查分支头` 只同步11个JSON。
 
