@@ -1,0 +1,17 @@
+{
+  "version": "repair-execution-v1",
+  "date": "2026-10-30",
+  "source_preparation": "2026-10-29-repair-preparation-v1",
+  "source_protocol": "data/repair-protocol-v1.json",
+  "arms": ["control", "repair"],
+  "steps_per_arm": 12,
+  "executed_updates_expected": 24,
+  "evaluation_count": 57,
+  "generation_budget": {"baseline": 57, "control_after": 57, "control_reload": 57, "repair_after": 57, "repair_reload": 57, "total": 285},
+  "initialization": "Both arms load the same pinned candidate adapter; set seed 42 before each arm and create a fresh AdamW with empty state. No optimizer/scheduler/RNG recovery from prior training.",
+  "source_configuration": "Use the preparation protocol/data/token fixtures unchanged. New dev and historical diagnostics excluded from training. Keep original prompt and all labels.",
+  "acceptance": ["same initial adapter and base hashes", "fresh optimizer state before each arm", "finite loss/gradients", "base weights unchanged", "adapter changed", "save/reload exact tensors and generation token sequences", "baseline tokens reproduce preparation"],
+  "review": "Recompute strict raw scores; separate new-dev and historical-regression; report fields, availability states, format and paired fixed/regressed IDs against baseline and between arms. Retain all outcomes; no tuning or cherry-picking after results.",
+  "publication": "Append diagnostic documents only to the existing private HF experimental branch. Trained adapters remain local artifacts for this run. Preserve the published root adapter, main and default prompt; do not promote either arm.",
+  "scope": "One seed and open synthetic diagnostic data. Steps matched, target tokens 272 versus 278. Exposure, content and ordered recency change together. Human review pending; not a generalization or capability-retention acceptance."
+}

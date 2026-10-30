@@ -4,6 +4,12 @@
 
 ## 当前状态
 
+2026-10-30 完成 [修正数据双组训练](../../daily/2026/10/2026-10-30-sft-repair-training-comparison.md)：相同候选adapter、分别新建AdamW，各12步，共24更新和285次GPU生成。control为新dev9/12+旧回归41/45，repair为8/12+42/45，均50/57；修正组新dev未超过控制组，不推广。初始权重/前6步一致、冻结基座及两组重载通过。103项本地测试通过。[逐题对照](results/2026-10-30-repair-comparison-v1/review.json)、[HF回读](results/2026-10-30-repair-comparison-v1/hf-audit-upload.json)。
+
+两组新adapter只存本地被忽略的 `artifacts/2026-10-30-repair-comparison-v1/`，HF仅追加16个诊断JSON，原权重/main/默认提示不变。新run中source-protocol是昨天准备状态的快照，实际24更新以execution-protocol、training日志和review为准。下一步做新6条训练样例的只读拟合检查。
+
+### 10月29日数据准备与基线
+
 2026-10-29 完成 [修正数据与训练前基线](../../daily/2026/10/2026-10-29-sft-repair-data-and-frozen-baseline.md)：6新拟训练、12新dev与6旧train/45旧回归分开，7类错误注入均拒绝；训练mask/EOS与预算检查通过。两组各计划12步，监督token为272/278，今天0更新。候选57次GPU基线：新dev8/12、历史回归40/45，旧45题逐token复现。[准备汇总](results/2026-10-29-repair-preparation-v1/review.json)、[HF回读](results/2026-10-29-repair-preparation-v1/hf-audit-upload.json)。95项本地测试通过。
 
 协议状态为prepared-not-trained；从相同adapter分别重建优化器不称精确续训。仅同步9个准备JSON到HF，完整合成数据/token记录保留GitHub，原模型和main不变；后续在新run执行双组训练，独立人工审查继续pending。
@@ -65,6 +71,8 @@ HF 只追加7个诊断文件（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`
 逐题整条匹配从基座的2/3降为 adapter 的1/3；虽然训练 loss 降低、输出格式紧凑了，但事实抽取有退化，不推广替代基座。证据保存在 [本次运行](results/2026-10-22-lora-smoke-v1/summary.json) 和 [上传验证](results/2026-10-22-lora-smoke-v1/upload.json)。
 
 ## 离线检查
+
+双组训练入口：`repair_experiment.py --run 新名称`，复用原数据/模型/生成/重载函数，从同一adapter重新创建两套优化器。执行预算见 [repair-execution-v1.json](data/repair-execution-v1.json)，24更新、285生成；`review_repair.py`重算分组与配对变化。`publish_audit.py --kind repair-training --expected-head 已审查分支头` 只同步16个JSON，新权重不上载。
 
 数据准备入口：`prepare_repair.py --run 新名称`，配置见 [repair-data-v1.json](data/repair-data-v1.json) 和 [repair-protocol-v1.json](data/repair-protocol-v1.json)。`repair_data.py` 固定历史角色、禁止dev入采样、检查来源/模板族名称/原文片段；模板名分开不证明语义独立。该入口做token核算与57题只读基线，不训练。`publish_audit.py --kind data-preparation --expected-head 已审查分支头` 只同步9个JSON准备报告。
 

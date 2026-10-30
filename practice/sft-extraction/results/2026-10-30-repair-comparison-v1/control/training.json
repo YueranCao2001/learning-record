@@ -1,0 +1,98 @@
+[
+  {
+    "step": 1,
+    "id": "train-01",
+    "loss": 0.0004626725858543068,
+    "grad_norm_before_clip": 0.013575980439782143,
+    "lr": 2e-05,
+    "target_tokens": 29
+  },
+  {
+    "step": 2,
+    "id": "train-02",
+    "loss": 0.014472976326942444,
+    "grad_norm_before_clip": 0.4455036222934723,
+    "lr": 2e-05,
+    "target_tokens": 18
+  },
+  {
+    "step": 3,
+    "id": "train-03",
+    "loss": 0.007841423153877258,
+    "grad_norm_before_clip": 0.3442099094390869,
+    "lr": 2e-05,
+    "target_tokens": 26
+  },
+  {
+    "step": 4,
+    "id": "boundary-train-01",
+    "loss": 0.0012910963268950582,
+    "grad_norm_before_clip": 0.046626873314380646,
+    "lr": 2e-05,
+    "target_tokens": 23
+  },
+  {
+    "step": 5,
+    "id": "boundary-train-02",
+    "loss": 0.0285528264939785,
+    "grad_norm_before_clip": 2.529958724975586,
+    "lr": 2e-05,
+    "target_tokens": 16
+  },
+  {
+    "step": 6,
+    "id": "boundary-train-03",
+    "loss": 0.003028915263712406,
+    "grad_norm_before_clip": 0.10816872119903564,
+    "lr": 2e-05,
+    "target_tokens": 24
+  },
+  {
+    "step": 7,
+    "id": "train-01",
+    "loss": 0.0003957051085308194,
+    "grad_norm_before_clip": 0.012052401900291443,
+    "lr": 2e-05,
+    "target_tokens": 29
+  },
+  {
+    "step": 8,
+    "id": "train-02",
+    "loss": 0.007815612480044365,
+    "grad_norm_before_clip": 0.2476428747177124,
+    "lr": 2e-05,
+    "target_tokens": 18
+  },
+  {
+    "step": 9,
+    "id": "train-03",
+    "loss": 0.0032641084399074316,
+    "grad_norm_before_clip": 0.1130203828215599,
+    "lr": 2e-05,
+    "target_tokens": 26
+  },
+  {
+    "step": 10,
+    "id": "boundary-train-01",
+    "loss": 0.0013025134103372693,
+    "grad_norm_before_clip": 0.04521702975034714,
+    "lr": 2e-05,
+    "target_tokens": 23
+  },
+  {
+    "step": 11,
+    "id": "boundary-train-02",
+    "loss": 0.007378107402473688,
+    "grad_norm_before_clip": 0.4152342975139618,
+    "lr": 2e-05,
+    "target_tokens": 16
+  },
+  {
+    "step": 12,
+    "id": "boundary-train-03",
+    "loss": 0.002022424014285207,
+    "grad_norm_before_clip": 0.051546361297369,
+    "lr": 2e-05,
+    "target_tokens": 24
+  }
+]

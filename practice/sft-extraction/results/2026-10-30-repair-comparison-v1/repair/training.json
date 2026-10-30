@@ -1,0 +1,98 @@
+[
+  {
+    "step": 1,
+    "id": "train-01",
+    "loss": 0.0004626725858543068,
+    "grad_norm_before_clip": 0.013575980439782143,
+    "lr": 2e-05,
+    "target_tokens": 29
+  },
+  {
+    "step": 2,
+    "id": "train-02",
+    "loss": 0.014472976326942444,
+    "grad_norm_before_clip": 0.4455036222934723,
+    "lr": 2e-05,
+    "target_tokens": 18
+  },
+  {
+    "step": 3,
+    "id": "train-03",
+    "loss": 0.007841423153877258,
+    "grad_norm_before_clip": 0.3442099094390869,
+    "lr": 2e-05,
+    "target_tokens": 26
+  },
+  {
+    "step": 4,
+    "id": "boundary-train-01",
+    "loss": 0.0012910963268950582,
+    "grad_norm_before_clip": 0.046626873314380646,
+    "lr": 2e-05,
+    "target_tokens": 23
+  },
+  {
+    "step": 5,
+    "id": "boundary-train-02",
+    "loss": 0.0285528264939785,
+    "grad_norm_before_clip": 2.529958724975586,
+    "lr": 2e-05,
+    "target_tokens": 16
+  },
+  {
+    "step": 6,
+    "id": "boundary-train-03",
+    "loss": 0.003028915263712406,
+    "grad_norm_before_clip": 0.10816872119903564,
+    "lr": 2e-05,
+    "target_tokens": 24
+  },
+  {
+    "step": 7,
+    "id": "repair-train-01",
+    "loss": 0.08600758016109467,
+    "grad_norm_before_clip": 6.228912353515625,
+    "lr": 2e-05,
+    "target_tokens": 21
+  },
+  {
+    "step": 8,
+    "id": "repair-train-02",
+    "loss": 0.013040201738476753,
+    "grad_norm_before_clip": 0.5476877093315125,
+    "lr": 2e-05,
+    "target_tokens": 30
+  },
+  {
+    "step": 9,
+    "id": "repair-train-03",
+    "loss": 0.10327183455228806,
+    "grad_norm_before_clip": 3.544733762741089,
+    "lr": 2e-05,
+    "target_tokens": 23
+  },
+  {
+    "step": 10,
+    "id": "repair-train-04",
+    "loss": 0.003910455387085676,
+    "grad_norm_before_clip": 0.11905375123023987,
+    "lr": 2e-05,
+    "target_tokens": 17
+  },
+  {
+    "step": 11,
+    "id": "repair-train-05",
+    "loss": 0.0012575143482536077,
+    "grad_norm_before_clip": 0.07851658016443253,
+    "lr": 2e-05,
+    "target_tokens": 30
+  },
+  {
+    "step": 12,
+    "id": "repair-train-06",
+    "loss": 0.06620769947767258,
+    "grad_norm_before_clip": 3.9165420532226562,
+    "lr": 2e-05,
+    "target_tokens": 21
+  }
+]

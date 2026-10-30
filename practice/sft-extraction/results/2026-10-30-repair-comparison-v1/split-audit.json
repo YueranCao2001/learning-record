@@ -1,0 +1,31 @@
+{
+  "counts": {
+    "old-train": 6,
+    "historical-regression": 45,
+    "new-train": 6,
+    "new-dev": 12
+  },
+  "source_group_count": 41,
+  "new_train_groups": [
+    "notice-36",
+    "notice-37",
+    "notice-38"
+  ],
+  "new_dev_groups": [
+    "notice-39",
+    "notice-40",
+    "notice-41"
+  ],
+  "new_train_states": {
+    "missing-time": 2,
+    "complete": 2,
+    "missing-location": 1,
+    "missing-both": 1
+  },
+  "historical_labels_unchanged": true,
+  "source_groups_disjoint": true,
+  "new_family_names_disjoint": true,
+  "semantic_independence_proven": false,
+  "all_labels_literal": true,
+  "human_review": "pending"
+}

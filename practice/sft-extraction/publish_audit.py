@@ -23,7 +23,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "resume", "resume-guard", "atomic"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "resume", "resume-guard", "atomic"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
@@ -32,7 +32,8 @@ def main():
     review_file = "comparison.json" if engineering else "review.json"
     review = json.loads((output / review_file).read_text(encoding="utf-8"))
     if not engineering:
-        assert review["training_steps"] == 0 and review["human_review"] == "pending"
+        assert review["human_review"] == "pending"
+        assert review["training_steps"] == (24 if args.kind == "repair-training" else 0)
     if args.kind == "atomic":
         assert review["writer_cases_passed"] == 4 and review["invalid_containers_rejected"] == 5
         assert review["all_invalid_rejected_before_deserialization"] and review["gpu_resume_exact"]
@@ -52,6 +53,14 @@ def main():
         files = {"manifest.json", "protocol.json", "environment.json", "comparison.json"}
         files |= {phase + "/" + name for phase in ("continuous", "prefix", "resume", "optimizer-reset")
                   for name in ("history.json", "state.json")}
+    elif args.kind == "repair-training":
+        assert review["total_generation_calls"] == 285 and review["same_initial_adapter"] and review["same_initial_base"]
+        assert review["both_base_unchanged"] and review["both_fresh_optimizers"] and review["both_reload_exact"]
+        assert review["both_reload_tokens_recomputed_equal"] and not review["promote_to_main"] and not review["trained_weights_uploaded"]
+        files = {"manifest.json", "execution-protocol.json", "source-protocol.json", "environment.json", "baseline.json",
+                 "baseline-replay.json", "review.json", "split-audit.json"}
+        files |= {arm + "/" + name for arm in ("control", "repair")
+                  for name in ("training.json", "summary.json", "after.json", "reloaded.json")}
     elif args.kind == "data-preparation":
         assert review["status"] == "prepared-not-trained" and review["total_generation_calls"] == 57
         assert review["rejected_faults"] == 7 and review["all_faults_rejected"] and review["source_groups_disjoint"]
@@ -100,7 +109,7 @@ def main():
                revision=BRANCH, allow_patterns=sorted(files),
                commit_message="Add read-only diagnostic evidence; leave weights unchanged")
     report = {"repo": REPO, "branch": BRANCH, "commit": commit.oid,
-              "tested_adapter_revision": None if engineering else TESTED, "reference_adapter_revision": TESTED,
+              "tested_adapter_revision": None if engineering or args.kind == "repair-training" else TESTED, "reference_adapter_revision": TESTED,
               "path_in_repo": prefix, "files_sha256": hashes, "weight_upload": False,
               "main_before": main_before, "main_after": api.model_info(REPO, revision="main").sha,
               "private": api.model_info(REPO).private, "download_hashes_equal": False,
