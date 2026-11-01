@@ -1,0 +1,27 @@
+{
+  "source_sha256": {
+    "evaluate_fit.py": "54b94443ea61404d6d3a864c8df08d4a621d6f9fbd761681f71cc71eeb204238",
+    "fit_metrics.py": "0ebe03fedd74cb91a304a064768449544eddbc665ed35fa55cb0a3374b295fce",
+    "train_smoke.py": "978b0cd842e41b555e3fce1da688a9b86292f2ff2af897e20b8a4cf6ef6f0e3e",
+    "contract.py": "2ccbc15d96b7e78bd18abdad06708087b8d0fb828dbc55b21bd3e92e1800213d",
+    "audit_evaluation.py": "144d5707249343c1615cdf431d6b5fdad6f832d15e2657a8e38f61c2be071ccd",
+    "review_repair.py": "fce5bf5e4404a29886b385491fbaf05b6c527019254741c33f9f2b5478ff63e5",
+    "confirm_prompt.py": "3712fe71e401879eb5905228a1ec59e06fbf073449239ab19ec15e9d6d6ac215",
+    "prompt_diagnostic.py": "6dfe777aa6465541f0094a593de37170dbdb417f6b58e296d4f41b941801316b",
+    "data/training-fit-protocol-v1.json": "31898dd9cbaf5c74477c828f2a104136a0eee640463ab6003b555cae010cc1b2",
+    "results/2026-10-30-repair-comparison-v1/data.json": "1aedc7f80179b0c49db4021b916d86971725c527f672b4517983aff9d6b5ca25",
+    "results/2026-10-30-repair-comparison-v1/control/summary.json": "ce3b53b1ca774658ac9af42408eb0c78150d32329347282e19a60b56105ef097",
+    "results/2026-10-30-repair-comparison-v1/repair/summary.json": "f8329e06130ee55cde560795ea69c03e8a9bf65e11ee69e99ac1eb4e86046072"
+  },
+  "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "baseline_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "adapter_files_sha256": {
+    "baseline": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12",
+    "control": "019e2a9b8d0767b3328962235ca81d334513c93eae2dca903816bba3a2284cea",
+    "repair": "774d96b147cc874e290e81b2c51cedd366a158ce9aaaa0537c70f0f8fe301737"
+  },
+  "published_reference_adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12",
+  "training_steps": 0,
+  "diagnostic_training_view_only": true,
+  "human_review": "pending"
+}

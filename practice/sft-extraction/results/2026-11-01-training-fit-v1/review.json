@@ -1,0 +1,196 @@
+{
+  "training_steps": 0,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "total_generation_calls": 18,
+  "teacher_forced_forwards": 18,
+  "weights_unchanged": true,
+  "summaries": {
+    "baseline": {
+      "cases": 6,
+      "exact": 3,
+      "failed_ids": [
+        "repair-train-01",
+        "repair-train-03",
+        "repair-train-06"
+      ],
+      "supervised_tokens": 142,
+      "target_nll_sum": 7.575657595484351,
+      "token_weighted_mean_nll": 0.05334970137665036,
+      "example_mean_nll": 0.05738470890320258,
+      "teacher_argmax_correct_tokens": 138,
+      "first_differences": [
+        {
+          "id": "repair-train-01",
+          "index": 14,
+          "serialization_only": false,
+          "gold_token": {
+            "input_position": 102,
+            "target_id": 3252,
+            "target_text": "\":\"",
+            "target_logp": -1.805186152458191,
+            "argmax_id": 788,
+            "argmax_text": "\":",
+            "argmax_logp": -0.1801861673593521
+          },
+          "free_token_id": 788
+        },
+        {
+          "id": "repair-train-03",
+          "index": 10,
+          "serialization_only": false,
+          "gold_token": {
+            "input_position": 98,
+            "target_id": 40542,
+            "target_text": "周",
+            "target_logp": -1.829758882522583,
+            "argmax_id": 15,
+            "argmax_text": "0",
+            "argmax_logp": -0.204758882522583
+          },
+          "free_token_id": 15
+        },
+        {
+          "id": "repair-train-06",
+          "index": 15,
+          "serialization_only": false,
+          "gold_token": {
+            "input_position": 110,
+            "target_id": 3252,
+            "target_text": "\":\"",
+            "target_logp": -2.0179214477539062,
+            "argmax_id": 788,
+            "argmax_text": "\":",
+            "argmax_logp": -0.1429213583469391
+          },
+          "free_token_id": 788
+        }
+      ]
+    },
+    "control": {
+      "cases": 6,
+      "exact": 3,
+      "failed_ids": [
+        "repair-train-01",
+        "repair-train-03",
+        "repair-train-06"
+      ],
+      "supervised_tokens": 142,
+      "target_nll_sum": 6.251009165157292,
+      "token_weighted_mean_nll": 0.044021191303924595,
+      "example_mean_nll": 0.046814267767884256,
+      "teacher_argmax_correct_tokens": 139,
+      "first_differences": [
+        {
+          "id": "repair-train-01",
+          "index": 14,
+          "serialization_only": false,
+          "gold_token": {
+            "input_position": 102,
+            "target_id": 3252,
+            "target_text": "\":\"",
+            "target_logp": -1.3136584758758545,
+            "argmax_id": 788,
+            "argmax_text": "\":",
+            "argmax_logp": -0.31365853548049927
+          },
+          "free_token_id": 788
+        },
+        {
+          "id": "repair-train-03",
+          "index": 10,
+          "serialization_only": false,
+          "gold_token": {
+            "input_position": 98,
+            "target_id": 40542,
+            "target_text": "周",
+            "target_logp": -1.9351074695587158,
+            "argmax_id": 15,
+            "argmax_text": "0",
+            "argmax_logp": -0.1851075142621994
+          },
+          "free_token_id": 15
+        },
+        {
+          "id": "repair-train-06",
+          "index": 15,
+          "serialization_only": false,
+          "gold_token": {
+            "input_position": 110,
+            "target_id": 3252,
+            "target_text": "\":\"",
+            "target_logp": -1.8049618005752563,
+            "argmax_id": 788,
+            "argmax_text": "\":",
+            "argmax_logp": -0.17996184527873993
+          },
+          "free_token_id": 788
+        }
+      ]
+    },
+    "repair": {
+      "cases": 6,
+      "exact": 4,
+      "failed_ids": [
+        "repair-train-03",
+        "repair-train-06"
+      ],
+      "supervised_tokens": 142,
+      "target_nll_sum": 3.936489913212533,
+      "token_weighted_mean_nll": 0.027721759952200938,
+      "example_mean_nll": 0.029216140064670857,
+      "teacher_argmax_correct_tokens": 140,
+      "first_differences": [
+        {
+          "id": "repair-train-03",
+          "index": 10,
+          "serialization_only": false,
+          "gold_token": {
+            "input_position": 98,
+            "target_id": 40542,
+            "target_text": "周",
+            "target_logp": -1.2471892833709717,
+            "argmax_id": 15,
+            "argmax_text": "0",
+            "argmax_logp": -0.3721892833709717
+          },
+          "free_token_id": 15
+        },
+        {
+          "id": "repair-train-06",
+          "index": 15,
+          "serialization_only": false,
+          "gold_token": {
+            "input_position": 110,
+            "target_id": 3252,
+            "target_text": "\":\"",
+            "target_logp": -1.0539741516113281,
+            "argmax_id": 788,
+            "argmax_text": "\":",
+            "argmax_logp": -0.4289741814136505
+          },
+          "free_token_id": 788
+        }
+      ]
+    }
+  },
+  "transitions": {
+    "baseline-to-control": {
+      "fixed_ids": [],
+      "regressed_ids": []
+    },
+    "baseline-to-repair": {
+      "fixed_ids": [
+        "repair-train-01"
+      ],
+      "regressed_ids": []
+    },
+    "control-to-repair": {
+      "fixed_ids": [
+        "repair-train-01"
+      ],
+      "regressed_ids": []
+    }
+  },
+  "scope": "Six assistant-authored visible fictional repair examples. No new dev/capability evaluation or generalization estimate. Human review remains pending."
+}

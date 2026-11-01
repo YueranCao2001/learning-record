@@ -1,0 +1,19 @@
+{
+  "version": "training-fit-v1",
+  "date": "2026-11-01",
+  "source_run": "2026-10-30-repair-comparison-v1",
+  "conditions": ["baseline", "control", "repair"],
+  "case_ids": ["repair-train-01", "repair-train-02", "repair-train-03", "repair-train-04", "repair-train-05", "repair-train-06"],
+  "question": "On the same six repair examples, compare free generation with masked teacher-forced target NLL for the original candidate and both trained arms, before blaming failure entirely on transfer.",
+  "training_steps": 0,
+  "expected_generation_calls": 18,
+  "expected_teacher_forced_forwards": 18,
+  "expected_target_tokens_per_condition": 142,
+  "generation": {"do_sample": false, "max_new_tokens": 128},
+  "teacher_forcing": "eval plus inference_mode, use_cache=False, input contains gold target JSON and EOS, prompt labels -100, next-token shift, FP32 log_softmax on supervised positions. Check reconstructed target mean NLL against model.loss within 0.00001.",
+  "report": "Report strict exact outputs separately from target-token argmax accuracy and token-weighted NLL; do not infer exact generation from low average loss. Inspect the first gold/free token mismatch, mark serialization-only mismatches, and distinguish gold-prefix logits from cache-based generation numerics.",
+  "exposure": "Relative to the source run, each new repair row had 0 optimizer exposure in baseline/control and 1 in repair. All six are training-design data, not independent evaluation.",
+  "stop": "One fixed read-only pass per condition. Do not train, alter prompts/labels, add steps or retry for a better result.",
+  "scope": "Six assistant-authored visible fictional repair examples. No new dev/capability evaluation or generalization estimate. Human review remains pending.",
+  "publication": "Only reports to the existing private HF experimental branch; exclude raw training cases and token fixtures. Keep all weights, main and default prompt unchanged. Local trained arms have no published HF revision."
+}

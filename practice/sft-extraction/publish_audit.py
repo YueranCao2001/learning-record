@@ -23,7 +23,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "resume", "resume-guard", "atomic"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "training-fit", "resume", "resume-guard", "atomic"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
@@ -53,6 +53,13 @@ def main():
         files = {"manifest.json", "protocol.json", "environment.json", "comparison.json"}
         files |= {phase + "/" + name for phase in ("continuous", "prefix", "resume", "optimizer-reset")
                   for name in ("history.json", "state.json")}
+    elif args.kind == "training-fit":
+        assert review["total_generation_calls"] == 18 and review["teacher_forced_forwards"] == 18
+        assert review["weights_unchanged"] and not review["promote_to_main"]
+        assert all(s["supervised_tokens"] == 142 and s["cases"] == 6 for s in review["summaries"].values())
+        files = {"manifest.json", "protocol.json", "environment.json", "review.json"}
+        files |= {condition + "-" + name + ".json" for condition in ("baseline", "control", "repair")
+                  for name in ("generation", "teacher", "weights")}
     elif args.kind == "repair-training":
         assert review["total_generation_calls"] == 285 and review["same_initial_adapter"] and review["same_initial_base"]
         assert review["both_base_unchanged"] and review["both_fresh_optimizers"] and review["both_reload_exact"]
@@ -109,7 +116,7 @@ def main():
                revision=BRANCH, allow_patterns=sorted(files),
                commit_message="Add read-only diagnostic evidence; leave weights unchanged")
     report = {"repo": REPO, "branch": BRANCH, "commit": commit.oid,
-              "tested_adapter_revision": None if engineering or args.kind == "repair-training" else TESTED, "reference_adapter_revision": TESTED,
+              "tested_adapter_revision": None if engineering or args.kind in ("repair-training", "training-fit") else TESTED, "reference_adapter_revision": TESTED,
               "path_in_repo": prefix, "files_sha256": hashes, "weight_upload": False,
               "main_before": main_before, "main_after": api.model_info(REPO, revision="main").sha,
               "private": api.model_info(REPO).private, "download_hashes_equal": False,

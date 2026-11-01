@@ -101,6 +101,7 @@
 - [中文信息抽取微调：新表达上的缺失字段确认](daily/2026/10/2026-10-28-sft-missing-field-confirmation.md)
 - [中文信息抽取微调：修正数据分组与训练前基线](daily/2026/10/2026-10-29-sft-repair-data-and-frozen-baseline.md)
 - [中文信息抽取微调：修正数据的双组训练与逐题回归](daily/2026/10/2026-10-30-sft-repair-training-comparison.md)
+- [中文信息抽取微调：训练样例拟合与逐token诊断](daily/2026/11/2026-11-01-sft-training-fit-diagnostic.md)
 
 ## 提交约定
 
