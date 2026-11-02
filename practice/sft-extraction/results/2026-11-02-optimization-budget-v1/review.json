@@ -1,0 +1,2328 @@
+{
+  "training_steps": 36,
+  "total_generation_calls": 189,
+  "teacher_forced_forwards": 12,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "trained_weights_uploaded": false,
+  "short_tokens_reproduce": true,
+  "initial_adapter_equal": true,
+  "first_twelve_records_equal": true,
+  "extended_base_unchanged": true,
+  "extended_reload_exact": true,
+  "reloaded_tokens_recomputed_equal": true,
+  "optimizer_state_entries_before": 0,
+  "optimizer_final_steps": [
+    36
+  ],
+  "trained_target_tokens": 834,
+  "summaries": {
+    "short": {
+      "new-train": {
+        "count": 6,
+        "exact": 4,
+        "json_valid": 6,
+        "schema_valid": 6,
+        "fields_correct": {
+          "event": 6,
+          "time": 5,
+          "location": 5
+        },
+        "error_counts": {
+          "wrong-span": 1,
+          "value-to-null": 1
+        }
+      },
+      "new-dev": {
+        "count": 12,
+        "exact": 8,
+        "json_valid": 12,
+        "schema_valid": 12,
+        "fields_correct": {
+          "event": 12,
+          "time": 11,
+          "location": 9
+        },
+        "error_counts": {
+          "missing-to-value": 1,
+          "value-to-null": 2,
+          "wrong-span": 1
+        }
+      },
+      "historical-regression": {
+        "count": 45,
+        "exact": 42,
+        "json_valid": 45,
+        "schema_valid": 45,
+        "fields_correct": {
+          "event": 45,
+          "time": 45,
+          "location": 42
+        },
+        "error_counts": {
+          "value-to-null": 2,
+          "missing-to-value": 1
+        }
+      }
+    },
+    "extended": {
+      "new-train": {
+        "count": 6,
+        "exact": 6,
+        "json_valid": 6,
+        "schema_valid": 6,
+        "fields_correct": {
+          "event": 6,
+          "time": 6,
+          "location": 6
+        },
+        "error_counts": {}
+      },
+      "new-dev": {
+        "count": 12,
+        "exact": 11,
+        "json_valid": 12,
+        "schema_valid": 12,
+        "fields_correct": {
+          "event": 12,
+          "time": 12,
+          "location": 11
+        },
+        "error_counts": {
+          "missing-to-value": 1
+        }
+      },
+      "historical-regression": {
+        "count": 45,
+        "exact": 44,
+        "json_valid": 45,
+        "schema_valid": 45,
+        "fields_correct": {
+          "event": 45,
+          "time": 45,
+          "location": 44
+        },
+        "error_counts": {
+          "missing-to-value": 1
+        }
+      }
+    }
+  },
+  "fitting": {
+    "short": {
+      "cases": 6,
+      "exact": 4,
+      "failed_ids": [
+        "repair-train-03",
+        "repair-train-06"
+      ],
+      "supervised_tokens": 142,
+      "target_nll_sum": 3.936489913212533,
+      "token_weighted_mean_nll": 0.027721759952200938,
+      "example_mean_nll": 0.029216140064670857,
+      "teacher_argmax_correct_tokens": 140,
+      "first_differences": [
+        {
+          "id": "repair-train-03",
+          "index": 10,
+          "serialization_only": false,
+          "gold_token": {
+            "input_position": 98,
+            "target_id": 40542,
+            "target_text": "周",
+            "target_logp": -1.2471892833709717,
+            "argmax_id": 15,
+            "argmax_text": "0",
+            "argmax_logp": -0.3721892833709717
+          },
+          "free_token_id": 15
+        },
+        {
+          "id": "repair-train-06",
+          "index": 15,
+          "serialization_only": false,
+          "gold_token": {
+            "input_position": 110,
+            "target_id": 3252,
+            "target_text": "\":\"",
+            "target_logp": -1.0539741516113281,
+            "argmax_id": 788,
+            "argmax_text": "\":",
+            "argmax_logp": -0.4289741814136505
+          },
+          "free_token_id": 788
+        }
+      ]
+    },
+    "extended": {
+      "cases": 6,
+      "exact": 6,
+      "failed_ids": [],
+      "supervised_tokens": 142,
+      "target_nll_sum": 0.7231733685821737,
+      "token_weighted_mean_nll": 0.005092770201282914,
+      "example_mean_nll": 0.005200092921021373,
+      "teacher_argmax_correct_tokens": 142,
+      "first_differences": []
+    }
+  },
+  "short_to_extended": {
+    "new-train": {
+      "fixed_ids": [
+        "repair-train-03",
+        "repair-train-06"
+      ],
+      "regressed_ids": []
+    },
+    "new-dev": {
+      "fixed_ids": [
+        "repair-dev-02-missing-time",
+        "repair-dev-03-missing-time",
+        "repair-dev-03-missing-location"
+      ],
+      "regressed_ids": []
+    },
+    "historical-regression": {
+      "fixed_ids": [
+        "audit-03",
+        "pair-01-missing"
+      ],
+      "regressed_ids": []
+    }
+  },
+  "details": {
+    "short": {
+      "new-train": {
+        "records": [
+          {
+            "id": "repair-train-01",
+            "cohort": "new-train",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "草木染入门课",
+              "time": null,
+              "location": "鹿鸣工坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-train-02",
+            "cohort": "new-train",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "草木染入门课",
+              "time": "12月3日下午14:20",
+              "location": "鹿鸣工坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-train-03",
+            "cohort": "new-train",
+            "exact": false,
+            "fields": {
+              "event": true,
+              "time": false,
+              "location": true
+            },
+            "parsed": {
+              "event": "古琴赏析课",
+              "time": "09:40",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-train-04",
+            "cohort": "new-train",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "古琴赏析课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-train-05",
+            "cohort": "new-train",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "版画拓印体验课",
+              "time": "12月5日10:10",
+              "location": "雾松教室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-train-06",
+            "cohort": "new-train",
+            "exact": false,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": false
+            },
+            "parsed": {
+              "event": "版画拓印体验课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": true
+          }
+        ],
+        "errors": [
+          {
+            "id": "repair-train-03",
+            "field": "time",
+            "kind": "wrong-span",
+            "expected": "周日上午09:40",
+            "actual": "09:40"
+          },
+          {
+            "id": "repair-train-06",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "雾松教室",
+            "actual": null
+          }
+        ]
+      },
+      "new-dev": {
+        "records": [
+          {
+            "id": "repair-dev-01-complete",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "香囊缝制课",
+              "time": "12月7日16:30",
+              "location": "栖霞手作室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-01-missing-time",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "香囊缝制课",
+              "time": null,
+              "location": "栖霞手作室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-01-missing-location",
+            "cohort": "new-dev",
+            "exact": false,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": false
+            },
+            "parsed": {
+              "event": "香囊缝制课",
+              "time": "12月7日16:30",
+              "location": "集合处"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-01-missing-both",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "香囊缝制课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-02-complete",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "皮影制作课",
+              "time": "周五晚上18:45",
+              "location": "白帆艺坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-02-missing-time",
+            "cohort": "new-dev",
+            "exact": false,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": false
+            },
+            "parsed": {
+              "event": "皮影制作课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": true
+          },
+          {
+            "id": "repair-dev-02-missing-location",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "皮影制作课",
+              "time": "周五晚上18:45",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-02-missing-both",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "皮影制作课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-03-complete",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "珐琅配色体验课",
+              "time": "12月9日上午08:50",
+              "location": "海棠实验间"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-03-missing-time",
+            "cohort": "new-dev",
+            "exact": false,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": false
+            },
+            "parsed": {
+              "event": "珐琅配色体验课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": true
+          },
+          {
+            "id": "repair-dev-03-missing-location",
+            "cohort": "new-dev",
+            "exact": false,
+            "fields": {
+              "event": true,
+              "time": false,
+              "location": true
+            },
+            "parsed": {
+              "event": "珐琅配色体验课",
+              "time": "12月9日08:50",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-03-missing-both",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "珐琅配色体验课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          }
+        ],
+        "errors": [
+          {
+            "id": "repair-dev-01-missing-location",
+            "field": "location",
+            "kind": "missing-to-value",
+            "expected": null,
+            "actual": "集合处"
+          },
+          {
+            "id": "repair-dev-02-missing-time",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "白帆艺坊",
+            "actual": null
+          },
+          {
+            "id": "repair-dev-03-missing-time",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "海棠实验间",
+            "actual": null
+          },
+          {
+            "id": "repair-dev-03-missing-location",
+            "field": "time",
+            "kind": "wrong-span",
+            "expected": "12月9日上午08:50",
+            "actual": "12月9日08:50"
+          }
+        ]
+      },
+      "historical-regression": {
+        "records": [
+          {
+            "id": "dev-01",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "天文讲座",
+              "time": "11月2日19:00",
+              "location": "青石展厅"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "dev-02",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "手工沙龙",
+              "time": "周六15:00",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "dev-03",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "写作工坊",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-01",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "陶艺体验课",
+              "time": "周日10:30",
+              "location": "松风礼堂"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-02",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "剪纸交流会",
+              "time": "11月9日16:00",
+              "location": "白桦教室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-03",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "园艺沙龙",
+              "time": "11月10日09:00",
+              "location": "碧泉花房"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-04",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "历史讲座",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-05",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "古籍修复课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-06",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "即兴表演课",
+              "time": "下周三19:30",
+              "location": "回声剧场"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-01",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "木版画入门课",
+              "time": "11月12日13:30—15:00",
+              "location": "枫叶楼201室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-02",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "皮具制作课",
+              "time": "下周二晚上19:00",
+              "location": "云帆工坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-03",
+            "cohort": "historical-regression",
+            "exact": false,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": false
+            },
+            "parsed": {
+              "event": "地图绘制体验课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": true
+          },
+          {
+            "id": "audit-04",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "科学摄影讲座",
+              "time": "11月14日上午09:30",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-05",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "篆刻交流会",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-06",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "城市速写课",
+              "time": "本周五14:00",
+              "location": "蒲公英展厅"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-07",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "花艺设计课",
+              "time": "11月16日15:30",
+              "location": "青禾花房"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-08",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "数字绘本分享会",
+              "time": "周日20:00",
+              "location": "萤火线上教室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-09",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "星图辨认课",
+              "time": null,
+              "location": "天台观测站"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-10",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "香草种植课",
+              "time": "11月18日10:00",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-11",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "玻璃彩绘体验课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-12",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "诗歌朗读会",
+              "time": "周六下午14:30",
+              "location": "澄明讲堂"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-01-missing",
+            "cohort": "historical-regression",
+            "exact": false,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": false
+            },
+            "parsed": {
+              "event": "纸雕体验课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": true
+          },
+          {
+            "id": "pair-01-present",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "纸雕体验课",
+              "time": "11月21日14:00",
+              "location": "流萤教室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-02-missing",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "植物拓印课",
+              "time": null,
+              "location": "溪石工坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-02-present",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "植物拓印课",
+              "time": "11月22日10:00",
+              "location": "溪石工坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-03-missing",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "陶片拼贴课",
+              "time": null,
+              "location": "白鹭展室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-03-present",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "陶片拼贴课",
+              "time": "周六15:00",
+              "location": "白鹭展室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-04-missing",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "风筝制作课",
+              "time": null,
+              "location": "晴川活动室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-04-present",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "风筝制作课",
+              "time": "11月24日上午09:00",
+              "location": "晴川活动室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-01-complete",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "蓝晒手作课",
+              "time": "11月26日13:30",
+              "location": "松露创作间"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-01-missing-time",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "蓝晒手作课",
+              "time": null,
+              "location": "松露创作间"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-01-missing-location",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "蓝晒手作课",
+              "time": "11月26日13:30",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-01-missing-both",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "蓝晒手作课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-02-complete",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "竹编体验班",
+              "time": "周日下午15:00",
+              "location": "苔原小厅"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-02-missing-time",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "竹编体验班",
+              "time": null,
+              "location": "苔原小厅"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-02-missing-location",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "竹编体验班",
+              "time": "周日下午15:00",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-02-missing-both",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "竹编体验班",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-03-complete",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "声音采集体验课",
+              "time": "11月28日09:20—10:40",
+              "location": "雨燕录音室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-03-missing-time",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "声音采集体验课",
+              "time": null,
+              "location": "雨燕录音室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-03-missing-location",
+            "cohort": "historical-regression",
+            "exact": false,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": false
+            },
+            "parsed": {
+              "event": "声音采集体验课",
+              "time": "11月28日09:20—10:40",
+              "location": "相聚之处还没有定下"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-03-missing-both",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "声音采集体验课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-04-complete",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "木偶制作体验班",
+              "time": "12月1日上午10:15",
+              "location": "榛果工作间"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-04-missing-time",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "木偶制作体验班",
+              "time": null,
+              "location": "榛果工作间"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-04-missing-location",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "木偶制作体验班",
+              "time": "12月1日上午10:15",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-04-missing-both",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "木偶制作体验班",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          }
+        ],
+        "errors": [
+          {
+            "id": "audit-03",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "潮汐教室",
+            "actual": null
+          },
+          {
+            "id": "pair-01-missing",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "流萤教室",
+            "actual": null
+          },
+          {
+            "id": "confirm-03-missing-location",
+            "field": "location",
+            "kind": "missing-to-value",
+            "expected": null,
+            "actual": "相聚之处还没有定下"
+          }
+        ]
+      }
+    },
+    "extended": {
+      "new-train": {
+        "records": [
+          {
+            "id": "repair-train-01",
+            "cohort": "new-train",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "草木染入门课",
+              "time": null,
+              "location": "鹿鸣工坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-train-02",
+            "cohort": "new-train",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "草木染入门课",
+              "time": "12月3日下午14:20",
+              "location": "鹿鸣工坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-train-03",
+            "cohort": "new-train",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "古琴赏析课",
+              "time": "周日上午09:40",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-train-04",
+            "cohort": "new-train",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "古琴赏析课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-train-05",
+            "cohort": "new-train",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "版画拓印体验课",
+              "time": "12月5日10:10",
+              "location": "雾松教室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-train-06",
+            "cohort": "new-train",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "版画拓印体验课",
+              "time": null,
+              "location": "雾松教室"
+            },
+            "location_omitted": false
+          }
+        ],
+        "errors": []
+      },
+      "new-dev": {
+        "records": [
+          {
+            "id": "repair-dev-01-complete",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "香囊缝制课",
+              "time": "12月7日16:30",
+              "location": "栖霞手作室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-01-missing-time",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "香囊缝制课",
+              "time": null,
+              "location": "栖霞手作室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-01-missing-location",
+            "cohort": "new-dev",
+            "exact": false,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": false
+            },
+            "parsed": {
+              "event": "香囊缝制课",
+              "time": "12月7日16:30",
+              "location": "集合处"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-01-missing-both",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "香囊缝制课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-02-complete",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "皮影制作课",
+              "time": "周五晚上18:45",
+              "location": "白帆艺坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-02-missing-time",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "皮影制作课",
+              "time": null,
+              "location": "白帆艺坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-02-missing-location",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "皮影制作课",
+              "time": "周五晚上18:45",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-02-missing-both",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "皮影制作课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-03-complete",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "珐琅配色体验课",
+              "time": "12月9日上午08:50",
+              "location": "海棠实验间"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-03-missing-time",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "珐琅配色体验课",
+              "time": null,
+              "location": "海棠实验间"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-03-missing-location",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "珐琅配色体验课",
+              "time": "12月9日上午08:50",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "repair-dev-03-missing-both",
+            "cohort": "new-dev",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "珐琅配色体验课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          }
+        ],
+        "errors": [
+          {
+            "id": "repair-dev-01-missing-location",
+            "field": "location",
+            "kind": "missing-to-value",
+            "expected": null,
+            "actual": "集合处"
+          }
+        ]
+      },
+      "historical-regression": {
+        "records": [
+          {
+            "id": "dev-01",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "天文讲座",
+              "time": "11月2日19:00",
+              "location": "青石展厅"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "dev-02",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "手工沙龙",
+              "time": "周六15:00",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "dev-03",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "写作工坊",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-01",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "陶艺体验课",
+              "time": "周日10:30",
+              "location": "松风礼堂"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-02",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "剪纸交流会",
+              "time": "11月9日16:00",
+              "location": "白桦教室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-03",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "园艺沙龙",
+              "time": "11月10日09:00",
+              "location": "碧泉花房"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-04",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "历史讲座",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-05",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "古籍修复课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "boundary-dev-06",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "即兴表演课",
+              "time": "下周三19:30",
+              "location": "回声剧场"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-01",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "木版画入门课",
+              "time": "11月12日13:30—15:00",
+              "location": "枫叶楼201室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-02",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "皮具制作课",
+              "time": "下周二晚上19:00",
+              "location": "云帆工坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-03",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "地图绘制体验课",
+              "time": null,
+              "location": "潮汐教室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-04",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "科学摄影讲座",
+              "time": "11月14日上午09:30",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-05",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "篆刻交流会",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-06",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "城市速写课",
+              "time": "本周五14:00",
+              "location": "蒲公英展厅"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-07",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "花艺设计课",
+              "time": "11月16日15:30",
+              "location": "青禾花房"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-08",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "数字绘本分享会",
+              "time": "周日20:00",
+              "location": "萤火线上教室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-09",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "星图辨认课",
+              "time": null,
+              "location": "天台观测站"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-10",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "香草种植课",
+              "time": "11月18日10:00",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-11",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "玻璃彩绘体验课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "audit-12",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "诗歌朗读会",
+              "time": "周六下午14:30",
+              "location": "澄明讲堂"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-01-missing",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "纸雕体验课",
+              "time": null,
+              "location": "流萤教室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-01-present",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "纸雕体验课",
+              "time": "11月21日14:00",
+              "location": "流萤教室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-02-missing",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "植物拓印课",
+              "time": null,
+              "location": "溪石工坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-02-present",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "植物拓印课",
+              "time": "11月22日10:00",
+              "location": "溪石工坊"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-03-missing",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "陶片拼贴课",
+              "time": null,
+              "location": "白鹭展室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-03-present",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "陶片拼贴课",
+              "time": "周六15:00",
+              "location": "白鹭展室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-04-missing",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "风筝制作课",
+              "time": null,
+              "location": "晴川活动室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "pair-04-present",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "风筝制作课",
+              "time": "11月24日上午09:00",
+              "location": "晴川活动室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-01-complete",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "蓝晒手作课",
+              "time": "11月26日13:30",
+              "location": "松露创作间"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-01-missing-time",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "蓝晒手作课",
+              "time": null,
+              "location": "松露创作间"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-01-missing-location",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "蓝晒手作课",
+              "time": "11月26日13:30",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-01-missing-both",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "蓝晒手作课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-02-complete",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "竹编体验班",
+              "time": "周日下午15:00",
+              "location": "苔原小厅"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-02-missing-time",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "竹编体验班",
+              "time": null,
+              "location": "苔原小厅"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-02-missing-location",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "竹编体验班",
+              "time": "周日下午15:00",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-02-missing-both",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "竹编体验班",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-03-complete",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "声音采集体验课",
+              "time": "11月28日09:20—10:40",
+              "location": "雨燕录音室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-03-missing-time",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "声音采集体验课",
+              "time": null,
+              "location": "雨燕录音室"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-03-missing-location",
+            "cohort": "historical-regression",
+            "exact": false,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": false
+            },
+            "parsed": {
+              "event": "声音采集体验课",
+              "time": "11月28日09:20—10:40",
+              "location": "相聚之处还没有定下"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-03-missing-both",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "声音采集体验课",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-04-complete",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "木偶制作体验班",
+              "time": "12月1日上午10:15",
+              "location": "榛果工作间"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-04-missing-time",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "木偶制作体验班",
+              "time": null,
+              "location": "榛果工作间"
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-04-missing-location",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "木偶制作体验班",
+              "time": "12月1日上午10:15",
+              "location": null
+            },
+            "location_omitted": false
+          },
+          {
+            "id": "confirm-04-missing-both",
+            "cohort": "historical-regression",
+            "exact": true,
+            "fields": {
+              "event": true,
+              "time": true,
+              "location": true
+            },
+            "parsed": {
+              "event": "木偶制作体验班",
+              "time": null,
+              "location": null
+            },
+            "location_omitted": false
+          }
+        ],
+        "errors": [
+          {
+            "id": "confirm-03-missing-location",
+            "field": "location",
+            "kind": "missing-to-value",
+            "expected": null,
+            "actual": "相聚之处还没有定下"
+          }
+        ]
+      }
+    }
+  },
+  "scope": "Single seed, open synthetic data, deliberately different update/exposure/token budgets. Old and new train examples both repeat three times. This tests total mixed-sequence budget, not new-data exposure alone or a universal optimal step count. Human review pending."
+}

@@ -1,0 +1,290 @@
+[
+  {
+    "step": 1,
+    "id": "train-01",
+    "loss": 0.0004626725858543068,
+    "grad_norm_before_clip": 0.013575980439782143,
+    "lr": 2e-05,
+    "target_tokens": 29
+  },
+  {
+    "step": 2,
+    "id": "train-02",
+    "loss": 0.014472976326942444,
+    "grad_norm_before_clip": 0.4455036222934723,
+    "lr": 2e-05,
+    "target_tokens": 18
+  },
+  {
+    "step": 3,
+    "id": "train-03",
+    "loss": 0.007841423153877258,
+    "grad_norm_before_clip": 0.3442099094390869,
+    "lr": 2e-05,
+    "target_tokens": 26
+  },
+  {
+    "step": 4,
+    "id": "boundary-train-01",
+    "loss": 0.0012910963268950582,
+    "grad_norm_before_clip": 0.046626873314380646,
+    "lr": 2e-05,
+    "target_tokens": 23
+  },
+  {
+    "step": 5,
+    "id": "boundary-train-02",
+    "loss": 0.0285528264939785,
+    "grad_norm_before_clip": 2.529958724975586,
+    "lr": 2e-05,
+    "target_tokens": 16
+  },
+  {
+    "step": 6,
+    "id": "boundary-train-03",
+    "loss": 0.003028915263712406,
+    "grad_norm_before_clip": 0.10816872119903564,
+    "lr": 2e-05,
+    "target_tokens": 24
+  },
+  {
+    "step": 7,
+    "id": "repair-train-01",
+    "loss": 0.08600758016109467,
+    "grad_norm_before_clip": 6.228912353515625,
+    "lr": 2e-05,
+    "target_tokens": 21
+  },
+  {
+    "step": 8,
+    "id": "repair-train-02",
+    "loss": 0.013040201738476753,
+    "grad_norm_before_clip": 0.5476877093315125,
+    "lr": 2e-05,
+    "target_tokens": 30
+  },
+  {
+    "step": 9,
+    "id": "repair-train-03",
+    "loss": 0.10327183455228806,
+    "grad_norm_before_clip": 3.544733762741089,
+    "lr": 2e-05,
+    "target_tokens": 23
+  },
+  {
+    "step": 10,
+    "id": "repair-train-04",
+    "loss": 0.003910455387085676,
+    "grad_norm_before_clip": 0.11905375123023987,
+    "lr": 2e-05,
+    "target_tokens": 17
+  },
+  {
+    "step": 11,
+    "id": "repair-train-05",
+    "loss": 0.0012575143482536077,
+    "grad_norm_before_clip": 0.07851658016443253,
+    "lr": 2e-05,
+    "target_tokens": 30
+  },
+  {
+    "step": 12,
+    "id": "repair-train-06",
+    "loss": 0.06620769947767258,
+    "grad_norm_before_clip": 3.9165420532226562,
+    "lr": 2e-05,
+    "target_tokens": 21
+  },
+  {
+    "step": 13,
+    "id": "train-01",
+    "loss": 0.000405219936510548,
+    "grad_norm_before_clip": 0.012305958196520805,
+    "lr": 2e-05,
+    "target_tokens": 29
+  },
+  {
+    "step": 14,
+    "id": "train-02",
+    "loss": 0.00554691394791007,
+    "grad_norm_before_clip": 0.1489133983850479,
+    "lr": 2e-05,
+    "target_tokens": 18
+  },
+  {
+    "step": 15,
+    "id": "train-03",
+    "loss": 0.002660950180143118,
+    "grad_norm_before_clip": 0.08965189754962921,
+    "lr": 2e-05,
+    "target_tokens": 26
+  },
+  {
+    "step": 16,
+    "id": "boundary-train-01",
+    "loss": 0.001072968589141965,
+    "grad_norm_before_clip": 0.03744581341743469,
+    "lr": 2e-05,
+    "target_tokens": 23
+  },
+  {
+    "step": 17,
+    "id": "boundary-train-02",
+    "loss": 0.005612449254840612,
+    "grad_norm_before_clip": 0.24853594601154327,
+    "lr": 2e-05,
+    "target_tokens": 16
+  },
+  {
+    "step": 18,
+    "id": "boundary-train-03",
+    "loss": 0.00191500096116215,
+    "grad_norm_before_clip": 0.05782732367515564,
+    "lr": 2e-05,
+    "target_tokens": 24
+  },
+  {
+    "step": 19,
+    "id": "repair-train-01",
+    "loss": 0.013101832941174507,
+    "grad_norm_before_clip": 1.0873103141784668,
+    "lr": 2e-05,
+    "target_tokens": 21
+  },
+  {
+    "step": 20,
+    "id": "repair-train-02",
+    "loss": 0.008164016529917717,
+    "grad_norm_before_clip": 0.3535979688167572,
+    "lr": 2e-05,
+    "target_tokens": 30
+  },
+  {
+    "step": 21,
+    "id": "repair-train-03",
+    "loss": 0.053250011056661606,
+    "grad_norm_before_clip": 2.234501361846924,
+    "lr": 2e-05,
+    "target_tokens": 23
+  },
+  {
+    "step": 22,
+    "id": "repair-train-04",
+    "loss": 0.0030604947824031115,
+    "grad_norm_before_clip": 0.09454544633626938,
+    "lr": 2e-05,
+    "target_tokens": 17
+  },
+  {
+    "step": 23,
+    "id": "repair-train-05",
+    "loss": 0.0007503906381316483,
+    "grad_norm_before_clip": 0.04144003242254257,
+    "lr": 2e-05,
+    "target_tokens": 30
+  },
+  {
+    "step": 24,
+    "id": "repair-train-06",
+    "loss": 0.011464943177998066,
+    "grad_norm_before_clip": 0.758109986782074,
+    "lr": 2e-05,
+    "target_tokens": 21
+  },
+  {
+    "step": 25,
+    "id": "train-01",
+    "loss": 0.00030902575235813856,
+    "grad_norm_before_clip": 0.00941011868417263,
+    "lr": 2e-05,
+    "target_tokens": 29
+  },
+  {
+    "step": 26,
+    "id": "train-02",
+    "loss": 0.003531449008733034,
+    "grad_norm_before_clip": 0.09578455984592438,
+    "lr": 2e-05,
+    "target_tokens": 18
+  },
+  {
+    "step": 27,
+    "id": "train-03",
+    "loss": 0.002363780280575156,
+    "grad_norm_before_clip": 0.08320081233978271,
+    "lr": 2e-05,
+    "target_tokens": 26
+  },
+  {
+    "step": 28,
+    "id": "boundary-train-01",
+    "loss": 0.0009475598926655948,
+    "grad_norm_before_clip": 0.035193879157304764,
+    "lr": 2e-05,
+    "target_tokens": 23
+  },
+  {
+    "step": 29,
+    "id": "boundary-train-02",
+    "loss": 0.003943758551031351,
+    "grad_norm_before_clip": 0.1312362253665924,
+    "lr": 2e-05,
+    "target_tokens": 16
+  },
+  {
+    "step": 30,
+    "id": "boundary-train-03",
+    "loss": 0.00167047546710819,
+    "grad_norm_before_clip": 0.051035623997449875,
+    "lr": 2e-05,
+    "target_tokens": 24
+  },
+  {
+    "step": 31,
+    "id": "repair-train-01",
+    "loss": 0.0033834148198366165,
+    "grad_norm_before_clip": 0.09507544338703156,
+    "lr": 2e-05,
+    "target_tokens": 21
+  },
+  {
+    "step": 32,
+    "id": "repair-train-02",
+    "loss": 0.004803732968866825,
+    "grad_norm_before_clip": 0.21627819538116455,
+    "lr": 2e-05,
+    "target_tokens": 30
+  },
+  {
+    "step": 33,
+    "id": "repair-train-03",
+    "loss": 0.026104779914021492,
+    "grad_norm_before_clip": 1.0947768688201904,
+    "lr": 2e-05,
+    "target_tokens": 23
+  },
+  {
+    "step": 34,
+    "id": "repair-train-04",
+    "loss": 0.002372120041400194,
+    "grad_norm_before_clip": 0.06561927497386932,
+    "lr": 2e-05,
+    "target_tokens": 17
+  },
+  {
+    "step": 35,
+    "id": "repair-train-05",
+    "loss": 0.0006609974079765379,
+    "grad_norm_before_clip": 0.03748304769396782,
+    "lr": 2e-05,
+    "target_tokens": 30
+  },
+  {
+    "step": 36,
+    "id": "repair-train-06",
+    "loss": 0.004258973058313131,
+    "grad_norm_before_clip": 0.19214393198490143,
+    "lr": 2e-05,
+    "target_tokens": 21
+  }
+]

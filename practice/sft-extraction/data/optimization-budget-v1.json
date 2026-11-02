@@ -1,0 +1,21 @@
+{
+  "version": "optimization-budget-v1",
+  "date": "2026-11-02",
+  "source_run": "2026-10-30-repair-comparison-v1",
+  "source_arm": "repair",
+  "question": "With the same candidate initialization, LR and 12-row mixed sequence, does repeating that sequence three times improve the unfinished training fit, and what happens to dev/regression?",
+  "reference_steps": 12,
+  "extended_steps": 36,
+  "sequence_repetitions": 3,
+  "executed_updates_today_expected": 36,
+  "conditions": ["short", "extended"],
+  "evaluation_order": ["new-train", "new-dev", "historical-regression"],
+  "counts": {"new-train": 6, "new-dev": 12, "historical-regression": 45},
+  "generation_budget": {"short_replay": 63, "extended_after": 63, "extended_reload": 63, "total": 189},
+  "teacher_forced_forwards_expected": 12,
+  "training": "Reuse frozen repair_experiment.train_arm. One fresh 36-step trajectory starts from pinned e3b24d11; do not resume from the 12-step adapter or reset optimizer at cycle boundaries. Existing 12-step adapter is a read-only reference.",
+  "acceptance": "Verify reference adapter SHA and 63 replay outputs against frozen sources, same initial adapter hash, first 12 training records equal the source run, finite updates, base unchanged, optimizer final step 36, and exact saved/reloaded generations. Matching history is not a direct mid-run parameter equality check.",
+  "stop": "Run the 36-step path once; no score-driven early stopping, extra cycles, prompt/label/LR changes or cherry-picking. Preserve failures and fix only infrastructure faults.",
+  "scope": "Single seed, open synthetic data, deliberately different update/exposure/token budgets. Old and new train examples both repeat three times. This tests total mixed-sequence budget, not new-data exposure alone or a universal optimal step count. Human review pending.",
+  "publication": "Reports only to existing private experimental HF branch; no trained weights or default/main promotion. Preserve all historical evidence."
+}

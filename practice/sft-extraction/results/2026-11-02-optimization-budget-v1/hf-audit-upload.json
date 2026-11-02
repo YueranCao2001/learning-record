@@ -1,0 +1,33 @@
+{
+  "repo": "YueranCao2001/qwen3-0.6b-zh-extraction-lora",
+  "branch": "boundary-v2-20261023",
+  "commit": "a7a2d311bac0163fa5c6cbab629b16599dd93c64",
+  "tested_adapter_revision": null,
+  "reference_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "path_in_repo": "evaluations/2026-11-02-optimization-budget-v1",
+  "files_sha256": {
+    "environment.json": "7f60eff9e0347828823a044fc847cb90439bf0325b7ff345cf3abb2404f60921",
+    "extended/after.json": "2974631c17ba8298ddc3c96ff3c6e226222d3fee59eb6a726d3ec9c6f1fa3419",
+    "extended/reloaded.json": "2974631c17ba8298ddc3c96ff3c6e226222d3fee59eb6a726d3ec9c6f1fa3419",
+    "extended/summary.json": "8363852edd767737cc9dadfc1d1b62e86774b217134d456085886095e6b28be2",
+    "extended/teacher-weights.json": "d712c87d24158cbcee7aea8025430dd8a2ef134d748379d5827e95f351c3058b",
+    "extended/teacher.json": "8fdc473554cf4c2fc08fef58e3b3bc70c4aec09c837e5dd5076a304eda461dc7",
+    "extended/training.json": "ca74e1f2334537d8a0f4665902ef85943d975ef8ee7440311b9c7f697f00521e",
+    "manifest.json": "649bb403751eacbaafc8b7aca65c2e3850d3e11a5534dd99f7fb0fa87a2e9ef4",
+    "prefix-comparison.json": "db43e8395d1a81679757091bd262f95bb11dcccc594e004153abe4f9d9f1e6fc",
+    "protocol.json": "e36dd968688d77da783819b4f6beeac97c471a4c9cbecc1509a3653faca1880a",
+    "review.json": "12336061a8ca2b48ced93f11594e6a6e68ead873e40d49a92d30950fcce85e13",
+    "short/after.json": "78442db22de11775ef09b4cf7592220d28018fed5b70c7886d7bbe193c4f9933",
+    "short/replay.json": "0c06a39074c62b10a60de3f411f8bc17a2f8c15c2271ffd4f9a1c723bb6f8669",
+    "short/teacher.json": "326fea59bea87ba5a88687361bae352a31463145a949d58eb2e636eec2836160",
+    "source-protocol.json": "9fd608199ba71051a7b697f53545ad0234c0e9338fcf775b6ff00dc6cec55860",
+    "training-configuration.json": "55e338ea610d12ebe1b6f720e5cf08541d2f08794b959770f2fd51b9ae02b709"
+  },
+  "weight_upload": false,
+  "main_before": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "main_after": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "private": true,
+  "download_hashes_equal": true,
+  "adapter_weights_unchanged": true,
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}

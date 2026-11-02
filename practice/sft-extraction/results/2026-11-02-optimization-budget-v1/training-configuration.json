@@ -1,0 +1,72 @@
+{
+  "seed": 42,
+  "lora": {
+    "r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.0,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "bias": "none"
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "lr": 2e-05,
+    "weight_decay": 0,
+    "foreach": false,
+    "fused": false,
+    "new_state_each_arm": true
+  },
+  "clip_grad_norm": 1.0,
+  "batch_size": 1,
+  "gradient_accumulation_steps": 1,
+  "scheduler": "constant",
+  "dtype": "bfloat16",
+  "packing": false,
+  "max_length": 512,
+  "enable_thinking": false,
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 128
+  },
+  "planned_steps_per_arm": 36,
+  "repair_order": [
+    "train-01",
+    "train-02",
+    "train-03",
+    "boundary-train-01",
+    "boundary-train-02",
+    "boundary-train-03",
+    "repair-train-01",
+    "repair-train-02",
+    "repair-train-03",
+    "repair-train-04",
+    "repair-train-05",
+    "repair-train-06",
+    "train-01",
+    "train-02",
+    "train-03",
+    "boundary-train-01",
+    "boundary-train-02",
+    "boundary-train-03",
+    "repair-train-01",
+    "repair-train-02",
+    "repair-train-03",
+    "repair-train-04",
+    "repair-train-05",
+    "repair-train-06",
+    "train-01",
+    "train-02",
+    "train-03",
+    "boundary-train-01",
+    "boundary-train-02",
+    "boundary-train-03",
+    "repair-train-01",
+    "repair-train-02",
+    "repair-train-03",
+    "repair-train-04",
+    "repair-train-05",
+    "repair-train-06"
+  ]
+}

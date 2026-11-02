@@ -4,6 +4,12 @@
 
 ## 当前状态
 
+2026-11-02 完成 [12/36步预算对照](../../daily/2026/11/2026-11-02-sft-optimization-budget-comparison.md)：相同数据/序列/LR/初始化，36步重复原混合序列三次，新训练样例4/6→6/6、新dev8/12→11/12、旧回归42/45→44/45，当前无新增退化。今日36更新、189生成、12目标前向；参考63输出复现、前12条日志一致、冻结基座和新adapter重载通过。118项本地测试通过。[对照结果](results/2026-11-02-optimization-budget-v1/review.json)、[HF回读](results/2026-11-02-optimization-budget-v1/hf-audit-upload.json)。
+
+只同步16个HF诊断JSON，新权重留本地，原模型/main/默认提示不变。尚有两条未定说明误作地点，先冻结36步结果，推进语义边界与独立复核，不据单seed开放题集认定最佳预算。
+
+### 11月1日训练拟合诊断
+
 2026-11-01 完成 [训练样例拟合诊断](../../daily/2026/11/2026-11-01-sft-training-fit-diagnostic.md)：新6条在原候选/control/repair上整条为3/6、3/6、4/6，目标token首选138/142、139/142、140/142。repair加权平均NLL0.027722，仍错时间限定与明确地点两题。共18次GPU生成+18次目标前向、0更新，不能把dev问题全部归于迁移。110项本地测试通过。[诊断汇总](results/2026-11-01-training-fit-v1/review.json)、[HF回读](results/2026-11-01-training-fit-v1/hf-audit-upload.json)。
 
 三组参数哈希不变，只同步13个HF诊断JSON，完整训练输入/fixture及模型权重不上载。teacher-forced概率采用正确前缀，与自由生成分开解释；下一步预先固定优化预算与停止条件后再检验，不据低loss推广权重。
@@ -77,6 +83,8 @@ HF 只追加7个诊断文件（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`
 逐题整条匹配从基座的2/3降为 adapter 的1/3；虽然训练 loss 降低、输出格式紧凑了，但事实抽取有退化，不推广替代基座。证据保存在 [本次运行](results/2026-10-22-lora-smoke-v1/summary.json) 和 [上传验证](results/2026-10-22-lora-smoke-v1/upload.json)。
 
 ## 离线检查
+
+预算对照入口：`budget_experiment.py --run 新名称`，协议 [optimization-budget-v1.json](data/optimization-budget-v1.json)。复用冻结的`train_arm()`运行单条完整36步轨迹，不从12步权重重置优化器后续接；12步权重只读。按6训练/12新dev/45旧回归分开评估，`review_budget.py`重算配对变化及NLL。`publish_audit.py --kind optimization-budget --expected-head 已审查分支头` 只同步16个JSON。
 
 训练拟合入口：`evaluate_fit.py --run 新名称`，协议 [training-fit-protocol-v1.json](data/training-fit-protocol-v1.json)。读取原候选及本地两组adapter，对新6条记录自由生成与正确前缀目标NLL。`fit_metrics.py`重算移位/mask、token加权均值和首分歧，0步训练。`publish_audit.py --kind training-fit --expected-head 已审查分支头` 只同步13个JSON。
 

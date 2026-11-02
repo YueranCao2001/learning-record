@@ -1,0 +1,1328 @@
+[
+  {
+    "id": "repair-train-01",
+    "model_loss": 0.0025879223830997944,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 88,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.001718236249871552,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.001718236249871552
+      },
+      {
+        "input_position": 89,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -2.264974000354414e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -2.264974000354414e-06
+      },
+      {
+        "input_position": 90,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.001940036192536354,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.001940036192536354
+      },
+      {
+        "input_position": 91,
+        "target_id": 99808,
+        "target_text": "草",
+        "target_logp": -2.9801878554280847e-05,
+        "argmax_id": 99808,
+        "argmax_text": "草",
+        "argmax_logp": -2.9801878554280847e-05
+      },
+      {
+        "input_position": 92,
+        "target_id": 75405,
+        "target_text": "木",
+        "target_logp": -1.9073468138230965e-06,
+        "argmax_id": 75405,
+        "argmax_text": "木",
+        "argmax_logp": -1.9073468138230965e-06
+      },
+      {
+        "input_position": 93,
+        "target_id": 99702,
+        "target_text": "染",
+        "target_logp": -7.152555099310121e-07,
+        "argmax_id": 99702,
+        "argmax_text": "染",
+        "argmax_logp": -7.152555099310121e-07
+      },
+      {
+        "input_position": 94,
+        "target_id": 110908,
+        "target_text": "入门",
+        "target_logp": 0.0,
+        "argmax_id": 110908,
+        "argmax_text": "入门",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 95,
+        "target_id": 99504,
+        "target_text": "课",
+        "target_logp": -5.602820692729438e-06,
+        "argmax_id": 99504,
+        "argmax_text": "课",
+        "argmax_logp": -5.602820692729438e-06
+      },
+      {
+        "input_position": 96,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.0009030792862176895,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.0009030792862176895
+      },
+      {
+        "input_position": 97,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.0014154425589367747,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.0014154425589367747
+      },
+      {
+        "input_position": 98,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.03333612158894539,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.03333612158894539
+      },
+      {
+        "input_position": 99,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.005120022222399712,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.005120022222399712
+      },
+      {
+        "input_position": 100,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -3.969590397900902e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -3.969590397900902e-05
+      },
+      {
+        "input_position": 101,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 102,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.00978801865130663,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.00978801865130663
+      },
+      {
+        "input_position": 103,
+        "target_id": 104818,
+        "target_text": "鹿",
+        "target_logp": -9.536738616588991e-07,
+        "argmax_id": 104818,
+        "argmax_text": "鹿",
+        "argmax_logp": -9.536738616588991e-07
+      },
+      {
+        "input_position": 104,
+        "target_id": 102326,
+        "target_text": "鸣",
+        "target_logp": -1.2159273865108844e-05,
+        "argmax_id": 102326,
+        "argmax_text": "鸣",
+        "argmax_logp": -1.2159273865108844e-05
+      },
+      {
+        "input_position": 105,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.0728830375228426e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.0728830375228426e-06
+      },
+      {
+        "input_position": 106,
+        "target_id": 100896,
+        "target_text": "坊",
+        "target_logp": 0.0,
+        "argmax_id": 100896,
+        "argmax_text": "坊",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 107,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -2.372236667724792e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -2.372236667724792e-05
+      },
+      {
+        "input_position": 108,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -7.152531907195225e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -7.152531907195225e-06
+      }
+    ]
+  },
+  {
+    "id": "repair-train-02",
+    "model_loss": 0.0036105443723499775,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 96,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.001765955938026309,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.001765955938026309
+      },
+      {
+        "input_position": 97,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -2.264974000354414e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -2.264974000354414e-06
+      },
+      {
+        "input_position": 98,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.001510432455688715,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.001510432455688715
+      },
+      {
+        "input_position": 99,
+        "target_id": 99808,
+        "target_text": "草",
+        "target_logp": -4.660974445869215e-05,
+        "argmax_id": 99808,
+        "argmax_text": "草",
+        "argmax_logp": -4.660974445869215e-05
+      },
+      {
+        "input_position": 100,
+        "target_id": 75405,
+        "target_text": "木",
+        "target_logp": -1.7881377516459906e-06,
+        "argmax_id": 75405,
+        "argmax_text": "木",
+        "argmax_logp": -1.7881377516459906e-06
+      },
+      {
+        "input_position": 101,
+        "target_id": 99702,
+        "target_text": "染",
+        "target_logp": -9.536738616588991e-07,
+        "argmax_id": 99702,
+        "argmax_text": "染",
+        "argmax_logp": -9.536738616588991e-07
+      },
+      {
+        "input_position": 102,
+        "target_id": 110908,
+        "target_text": "入门",
+        "target_logp": 0.0,
+        "argmax_id": 110908,
+        "argmax_text": "入门",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 103,
+        "target_id": 99504,
+        "target_text": "课",
+        "target_logp": -6.794906312279636e-06,
+        "argmax_id": 99504,
+        "argmax_text": "课",
+        "argmax_logp": -6.794906312279636e-06
+      },
+      {
+        "input_position": 104,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.0009862087899819016,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.0009862087899819016
+      },
+      {
+        "input_position": 105,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.0002648479712661356,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.0002648479712661356
+      },
+      {
+        "input_position": 106,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.016114117577672005,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.016114117577672005
+      },
+      {
+        "input_position": 107,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -0.00020037073409184813,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -0.00020037073409184813
+      },
+      {
+        "input_position": 108,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": -1.2516897186287679e-05,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": -1.2516897186287679e-05
+      },
+      {
+        "input_position": 109,
+        "target_id": 9754,
+        "target_text": "月",
+        "target_logp": -5.722029527532868e-06,
+        "argmax_id": 9754,
+        "argmax_text": "月",
+        "argmax_logp": -5.722029527532868e-06
+      },
+      {
+        "input_position": 110,
+        "target_id": 18,
+        "target_text": "3",
+        "target_logp": -3.099393507000059e-05,
+        "argmax_id": 18,
+        "argmax_text": "3",
+        "argmax_logp": -3.099393507000059e-05
+      },
+      {
+        "input_position": 111,
+        "target_id": 105286,
+        "target_text": "日下午",
+        "target_logp": -0.08547808229923248,
+        "argmax_id": 105286,
+        "argmax_text": "日下午",
+        "argmax_logp": -0.08547808229923248
+      },
+      {
+        "input_position": 112,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -3.111314072157256e-05,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -3.111314072157256e-05
+      },
+      {
+        "input_position": 113,
+        "target_id": 19,
+        "target_text": "4",
+        "target_logp": -4.768370445162873e-07,
+        "argmax_id": 19,
+        "argmax_text": "4",
+        "argmax_logp": -4.768370445162873e-07
+      },
+      {
+        "input_position": 114,
+        "target_id": 25,
+        "target_text": ":",
+        "target_logp": -5.960462772236497e-07,
+        "argmax_id": 25,
+        "argmax_text": ":",
+        "argmax_logp": -5.960462772236497e-07
+      },
+      {
+        "input_position": 115,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": -1.0728830375228426e-06,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": -1.0728830375228426e-06
+      },
+      {
+        "input_position": 116,
+        "target_id": 15,
+        "target_text": "0",
+        "target_logp": 0.0,
+        "argmax_id": 15,
+        "argmax_text": "0",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 117,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00023112009512260556,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00023112009512260556
+      },
+      {
+        "input_position": 118,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 119,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0015788720920681953,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0015788720920681953
+      },
+      {
+        "input_position": 120,
+        "target_id": 104818,
+        "target_text": "鹿",
+        "target_logp": -2.264974000354414e-06,
+        "argmax_id": 104818,
+        "argmax_text": "鹿",
+        "argmax_logp": -2.264974000354414e-06
+      },
+      {
+        "input_position": 121,
+        "target_id": 102326,
+        "target_text": "鸣",
+        "target_logp": -1.2636104656849056e-05,
+        "argmax_id": 102326,
+        "argmax_text": "鸣",
+        "argmax_logp": -1.2636104656849056e-05
+      },
+      {
+        "input_position": 122,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.6689286894688848e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.6689286894688848e-06
+      },
+      {
+        "input_position": 123,
+        "target_id": 100896,
+        "target_text": "坊",
+        "target_logp": 0.0,
+        "argmax_id": 100896,
+        "argmax_text": "坊",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 124,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -1.9311717551317997e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -1.9311717551317997e-05
+      },
+      {
+        "input_position": 125,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -9.179073458653875e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -9.179073458653875e-06
+      }
+    ]
+  },
+  {
+    "id": "repair-train-03",
+    "model_loss": 0.018755169585347176,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 88,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0020778034813702106,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0020778034813702106
+      },
+      {
+        "input_position": 89,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -2.50339189733495e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -2.50339189733495e-06
+      },
+      {
+        "input_position": 90,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0017147850012406707,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0017147850012406707
+      },
+      {
+        "input_position": 91,
+        "target_id": 99470,
+        "target_text": "古",
+        "target_logp": -0.00023505308490712196,
+        "argmax_id": 99470,
+        "argmax_text": "古",
+        "argmax_logp": -0.00023505308490712196
+      },
+      {
+        "input_position": 92,
+        "target_id": 102293,
+        "target_text": "琴",
+        "target_logp": -1.6689160474925302e-05,
+        "argmax_id": 102293,
+        "argmax_text": "琴",
+        "argmax_logp": -1.6689160474925302e-05
+      },
+      {
+        "input_position": 93,
+        "target_id": 118394,
+        "target_text": "赏析",
+        "target_logp": -4.303362584323622e-05,
+        "argmax_id": 118394,
+        "argmax_text": "赏析",
+        "argmax_logp": -4.303362584323622e-05
+      },
+      {
+        "input_position": 94,
+        "target_id": 99504,
+        "target_text": "课",
+        "target_logp": -0.0002989322238136083,
+        "argmax_id": 99504,
+        "argmax_text": "课",
+        "argmax_logp": -0.0002989322238136083
+      },
+      {
+        "input_position": 95,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.0003868784988299012,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.0003868784988299012
+      },
+      {
+        "input_position": 96,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.0001081169830285944,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.0001081169830285944
+      },
+      {
+        "input_position": 97,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.02065132185816765,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.02065132185816765
+      },
+      {
+        "input_position": 98,
+        "target_id": 40542,
+        "target_text": "周",
+        "target_logp": -0.10150524228811264,
+        "argmax_id": 40542,
+        "argmax_text": "周",
+        "argmax_logp": -0.10150524228811264
+      },
+      {
+        "input_position": 99,
+        "target_id": 104898,
+        "target_text": "日上午",
+        "target_logp": -0.0358097217977047,
+        "argmax_id": 104898,
+        "argmax_text": "日上午",
+        "argmax_logp": -0.0358097217977047
+      },
+      {
+        "input_position": 100,
+        "target_id": 15,
+        "target_text": "0",
+        "target_logp": -0.0002698534226510674,
+        "argmax_id": 15,
+        "argmax_text": "0",
+        "argmax_logp": -0.0002698534226510674
+      },
+      {
+        "input_position": 101,
+        "target_id": 24,
+        "target_text": "9",
+        "target_logp": -5.960462772236497e-07,
+        "argmax_id": 24,
+        "argmax_text": "9",
+        "argmax_logp": -5.960462772236497e-07
+      },
+      {
+        "input_position": 102,
+        "target_id": 25,
+        "target_text": ":",
+        "target_logp": -7.152555099310121e-07,
+        "argmax_id": 25,
+        "argmax_text": ":",
+        "argmax_logp": -7.152555099310121e-07
+      },
+      {
+        "input_position": 103,
+        "target_id": 19,
+        "target_text": "4",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 19,
+        "argmax_text": "4",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 104,
+        "target_id": 15,
+        "target_text": "0",
+        "target_logp": 0.0,
+        "argmax_id": 15,
+        "argmax_text": "0",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 105,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.000687958556227386,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.000687958556227386
+      },
+      {
+        "input_position": 106,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 107,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.25701799988746643,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.25701799988746643
+      },
+      {
+        "input_position": 108,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.01041194424033165,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.01041194424033165
+      },
+      {
+        "input_position": 109,
+        "target_id": 92,
+        "target_text": "}",
+        "target_logp": -0.00010716341057559475,
+        "argmax_id": 92,
+        "argmax_text": "}",
+        "argmax_logp": -0.00010716341057559475
+      },
+      {
+        "input_position": 110,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -2.1934269170742482e-05,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -2.1934269170742482e-05
+      }
+    ]
+  },
+  {
+    "id": "repair-train-04",
+    "model_loss": 0.0019774227403104305,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 81,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0016624215058982372,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0016624215058982372
+      },
+      {
+        "input_position": 82,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -3.4570634852570947e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -3.4570634852570947e-06
+      },
+      {
+        "input_position": 83,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.002488494385033846,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.002488494385033846
+      },
+      {
+        "input_position": 84,
+        "target_id": 99470,
+        "target_text": "古",
+        "target_logp": -4.994744449504651e-05,
+        "argmax_id": 99470,
+        "argmax_text": "古",
+        "argmax_logp": -4.994744449504651e-05
+      },
+      {
+        "input_position": 85,
+        "target_id": 102293,
+        "target_text": "琴",
+        "target_logp": -1.2516897186287679e-05,
+        "argmax_id": 102293,
+        "argmax_text": "琴",
+        "argmax_logp": -1.2516897186287679e-05
+      },
+      {
+        "input_position": 86,
+        "target_id": 118394,
+        "target_text": "赏析",
+        "target_logp": -2.90866428258596e-05,
+        "argmax_id": 118394,
+        "argmax_text": "赏析",
+        "argmax_logp": -2.90866428258596e-05
+      },
+      {
+        "input_position": 87,
+        "target_id": 99504,
+        "target_text": "课",
+        "target_logp": -0.00018130090029444546,
+        "argmax_id": 99504,
+        "argmax_text": "课",
+        "argmax_logp": -0.00018130090029444546
+      },
+      {
+        "input_position": 88,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00045313104055821896,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00045313104055821896
+      },
+      {
+        "input_position": 89,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.00025602878304198384,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.00025602878304198384
+      },
+      {
+        "input_position": 90,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.023157158866524696,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.023157158866524696
+      },
+      {
+        "input_position": 91,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.004739123396575451,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.004739123396575451
+      },
+      {
+        "input_position": 92,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -3.802703940891661e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -3.802703940891661e-05
+      },
+      {
+        "input_position": 93,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -4.768370445162873e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -4.768370445162873e-07
+      },
+      {
+        "input_position": 94,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.0005088941543363035,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.0005088941543363035
+      },
+      {
+        "input_position": 95,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -5.006777428206988e-06,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -5.006777428206988e-06
+      },
+      {
+        "input_position": 96,
+        "target_id": 92,
+        "target_text": "}",
+        "target_logp": -2.002696055569686e-05,
+        "argmax_id": 92,
+        "argmax_text": "}",
+        "argmax_logp": -2.002696055569686e-05
+      },
+      {
+        "input_position": 97,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -1.1086402082582936e-05,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -1.1086402082582936e-05
+      }
+    ]
+  },
+  {
+    "id": "repair-train-05",
+    "model_loss": 0.0006517909350804985,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 102,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0023310412652790546,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0023310412652790546
+      },
+      {
+        "input_position": 103,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -2.264974000354414e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -2.264974000354414e-06
+      },
+      {
+        "input_position": 104,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0013327058404684067,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0013327058404684067
+      },
+      {
+        "input_position": 105,
+        "target_id": 40301,
+        "target_text": "版",
+        "target_logp": -0.00010275312524754554,
+        "argmax_id": 40301,
+        "argmax_text": "版",
+        "argmax_logp": -0.00010275312524754554
+      },
+      {
+        "input_position": 106,
+        "target_id": 54623,
+        "target_text": "画",
+        "target_logp": -3.4570634852570947e-06,
+        "argmax_id": 54623,
+        "argmax_text": "画",
+        "argmax_logp": -3.4570634852570947e-06
+      },
+      {
+        "input_position": 107,
+        "target_id": 100786,
+        "target_text": "拓",
+        "target_logp": 0.0,
+        "argmax_id": 100786,
+        "argmax_text": "拓",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 108,
+        "target_id": 99540,
+        "target_text": "印",
+        "target_logp": -4.279521817807108e-05,
+        "argmax_id": 99540,
+        "argmax_text": "印",
+        "argmax_logp": -4.279521817807108e-05
+      },
+      {
+        "input_position": 109,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -1.311301275563892e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -1.311301275563892e-06
+      },
+      {
+        "input_position": 110,
+        "target_id": 99504,
+        "target_text": "课",
+        "target_logp": -3.576272320060525e-06,
+        "argmax_id": 99504,
+        "argmax_text": "课",
+        "argmax_logp": -3.576272320060525e-06
+      },
+      {
+        "input_position": 111,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00031585473334416747,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00031585473334416747
+      },
+      {
+        "input_position": 112,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -3.325883881188929e-05,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -3.325883881188929e-05
+      },
+      {
+        "input_position": 113,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.014250184409320354,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.014250184409320354
+      },
+      {
+        "input_position": 114,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -3.123234637314454e-05,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -3.123234637314454e-05
+      },
+      {
+        "input_position": 115,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": -9.65590606938349e-06,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": -9.65590606938349e-06
+      },
+      {
+        "input_position": 116,
+        "target_id": 9754,
+        "target_text": "月",
+        "target_logp": -5.245195097813848e-06,
+        "argmax_id": 9754,
+        "argmax_text": "月",
+        "argmax_logp": -5.245195097813848e-06
+      },
+      {
+        "input_position": 117,
+        "target_id": 20,
+        "target_text": "5",
+        "target_logp": -4.0531076592742465e-06,
+        "argmax_id": 20,
+        "argmax_text": "5",
+        "argmax_logp": -4.0531076592742465e-06
+      },
+      {
+        "input_position": 118,
+        "target_id": 8903,
+        "target_text": "日",
+        "target_logp": -4.172316494077677e-06,
+        "argmax_id": 8903,
+        "argmax_text": "日",
+        "argmax_logp": -4.172316494077677e-06
+      },
+      {
+        "input_position": 119,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -0.0008197046699933708,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -0.0008197046699933708
+      },
+      {
+        "input_position": 120,
+        "target_id": 15,
+        "target_text": "0",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 15,
+        "argmax_text": "0",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 121,
+        "target_id": 25,
+        "target_text": ":",
+        "target_logp": -7.152555099310121e-07,
+        "argmax_id": 25,
+        "argmax_text": ":",
+        "argmax_logp": -7.152555099310121e-07
+      },
+      {
+        "input_position": 122,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -8.344646857949556e-07,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -8.344646857949556e-07
+      },
+      {
+        "input_position": 123,
+        "target_id": 15,
+        "target_text": "0",
+        "target_logp": 0.0,
+        "argmax_id": 15,
+        "argmax_text": "0",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 124,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00010942813969450071,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00010942813969450071
+      },
+      {
+        "input_position": 125,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 126,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.00010299152199877426,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.00010299152199877426
+      },
+      {
+        "input_position": 127,
+        "target_id": 102393,
+        "target_text": "雾",
+        "target_logp": -9.536738616588991e-07,
+        "argmax_id": 102393,
+        "argmax_text": "雾",
+        "argmax_logp": -9.536738616588991e-07
+      },
+      {
+        "input_position": 128,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 129,
+        "target_id": 106323,
+        "target_text": "教室",
+        "target_logp": -5.245195097813848e-06,
+        "argmax_id": 106323,
+        "argmax_text": "教室",
+        "argmax_logp": -5.245195097813848e-06
+      },
+      {
+        "input_position": 130,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -2.753696753643453e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -2.753696753643453e-05
+      },
+      {
+        "input_position": 131,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -1.2278481335670222e-05,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -1.2278481335670222e-05
+      }
+    ]
+  },
+  {
+    "id": "repair-train-06",
+    "model_loss": 0.003617710666731,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 95,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.002579221036285162,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.002579221036285162
+      },
+      {
+        "input_position": 96,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -3.099436753473128e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -3.099436753473128e-06
+      },
+      {
+        "input_position": 97,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0013367536012083292,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0013367536012083292
+      },
+      {
+        "input_position": 98,
+        "target_id": 40301,
+        "target_text": "版",
+        "target_logp": -0.00016711745411157608,
+        "argmax_id": 40301,
+        "argmax_text": "版",
+        "argmax_logp": -0.00016711745411157608
+      },
+      {
+        "input_position": 99,
+        "target_id": 54623,
+        "target_text": "画",
+        "target_logp": -3.6954811548639555e-06,
+        "argmax_id": 54623,
+        "argmax_text": "画",
+        "argmax_logp": -3.6954811548639555e-06
+      },
+      {
+        "input_position": 100,
+        "target_id": 100786,
+        "target_text": "拓",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 100786,
+        "argmax_text": "拓",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 101,
+        "target_id": 99540,
+        "target_text": "印",
+        "target_logp": -4.541770613286644e-05,
+        "argmax_id": 99540,
+        "argmax_text": "印",
+        "argmax_logp": -4.541770613286644e-05
+      },
+      {
+        "input_position": 102,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -1.6689286894688848e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -1.6689286894688848e-06
+      },
+      {
+        "input_position": 103,
+        "target_id": 99504,
+        "target_text": "课",
+        "target_logp": -5.125986263010418e-06,
+        "argmax_id": 99504,
+        "argmax_text": "课",
+        "argmax_logp": -5.125986263010418e-06
+      },
+      {
+        "input_position": 104,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.0003129946126136929,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.0003129946126136929
+      },
+      {
+        "input_position": 105,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -9.214453893946484e-05,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -9.214453893946484e-05
+      },
+      {
+        "input_position": 106,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.03467605635523796,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.03467605635523796
+      },
+      {
+        "input_position": 107,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.002978058299049735,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.002978058299049735
+      },
+      {
+        "input_position": 108,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -4.207999518257566e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -4.207999518257566e-05
+      },
+      {
+        "input_position": 109,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 110,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.03369498997926712,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.03369498997926712
+      },
+      {
+        "input_position": 111,
+        "target_id": 102393,
+        "target_text": "雾",
+        "target_logp": -4.768370445162873e-07,
+        "argmax_id": 102393,
+        "argmax_text": "雾",
+        "argmax_logp": -4.768370445162873e-07
+      },
+      {
+        "input_position": 112,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 113,
+        "target_id": 106323,
+        "target_text": "教室",
+        "target_logp": -5.364403477869928e-06,
+        "argmax_id": 106323,
+        "argmax_text": "教室",
+        "argmax_logp": -5.364403477869928e-06
+      },
+      {
+        "input_position": 114,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -2.1219027985353023e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -2.1219027985353023e-05
+      },
+      {
+        "input_position": 115,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -5.8412379075889476e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -5.8412379075889476e-06
+      }
+    ]
+  }
+]
