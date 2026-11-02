@@ -1,0 +1,11 @@
+{
+  "packages": {
+    "torch": "2.7.1+cu128",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "huggingface_hub": "0.35.3"
+  },
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "cuda": "12.8",
+  "new_dependencies_installed": false
+}

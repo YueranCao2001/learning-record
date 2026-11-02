@@ -1,0 +1,40 @@
+[
+  {
+    "source_id": "repair-dev-01-missing-location",
+    "group": "notice-39",
+    "text": "致参与者：本期为香囊缝制课。①请于12月7日16:30到场；②集合处等待后续消息。感谢关注。",
+    "proposed_expected": {
+      "event": "香囊缝制课",
+      "time": "12月7日16:30",
+      "location": null
+    },
+    "rule_reference": "annotation-rules-v1.md: undetermined information maps to JSON null",
+    "assistant_rationale": "No actual venue is specified by the absence clause. Cue phrase is not a venue name. The same cue with a stated venue is an explicit-value control.",
+    "positive_control_id": "repair-dev-01-complete",
+    "positive_expected": {
+      "event": "香囊缝制课",
+      "time": "12月7日16:30",
+      "location": "栖霞手作室"
+    },
+    "human_review": "pending"
+  },
+  {
+    "source_id": "confirm-03-missing-location",
+    "group": "notice-34",
+    "text": "我们为大家准备了声音采集体验课。本次从11月28日09:20—10:40进行，相聚之处还没有定下，欢迎感兴趣的朋友加入。",
+    "proposed_expected": {
+      "event": "声音采集体验课",
+      "time": "11月28日09:20—10:40",
+      "location": null
+    },
+    "rule_reference": "annotation-rules-v1.md: undetermined information maps to JSON null",
+    "assistant_rationale": "No actual venue is specified by the absence clause. Cue phrase is not a venue name. The same cue with a stated venue is an explicit-value control.",
+    "positive_control_id": "confirm-03-complete",
+    "positive_expected": {
+      "event": "声音采集体验课",
+      "time": "11月28日09:20—10:40",
+      "location": "雨燕录音室"
+    },
+    "human_review": "pending"
+  }
+]

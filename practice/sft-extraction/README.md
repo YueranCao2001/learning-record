@@ -4,9 +4,9 @@
 
 ## 当前状态
 
-2026-11-02 完成 [12/36步预算对照](../../daily/2026/11/2026-11-02-sft-optimization-budget-comparison.md)：相同数据/序列/LR/初始化，36步重复原混合序列三次，新训练样例4/6→6/6、新dev8/12→11/12、旧回归42/45→44/45，当前无新增退化。今日36更新、189生成、12目标前向；参考63输出复现、前12条日志一致、冻结基座和新adapter重载通过。118项本地测试通过。[对照结果](results/2026-11-02-optimization-budget-v1/review.json)、[HF回读](results/2026-11-02-optimization-budget-v1/hf-audit-upload.json)。
+2026-11-02 完成 [12/36步预算对照及同日扩展](../../daily/2026/11/2026-11-02-sft-optimization-budget-comparison.md)：新训练样例4/6→6/6、新dev8/12→11/12、旧回归42/45→44/45。随后固定三模型，对两个剩余错误做六条件交叉诊断，新增36次生成、0更新；两条原错误仍未修复。当天合计36更新、225生成、12目标前向，125项本地测试通过。[预算结果](results/2026-11-02-optimization-budget-v1/review.json)、[扩展矩阵](results/2026-11-02-absence-diagnostic-v1/review.json)。
 
-只同步16个HF诊断JSON，新权重留本地，原模型/main/默认提示不变。尚有两条未定说明误作地点，先冻结36步结果，推进语义边界与独立复核，不据单seed开放题集认定最佳预算。
+首轮16个、扩展12个HF诊断JSON均回读通过；新权重留本地，原模型/main/默认提示不变。扩展显示只换称谓为“地点”可恢复，但只换未定措辞不总有效，六份明确地点正对照全对。[待人工复核队列](results/2026-11-02-absence-diagnostic-v1/label-review.json) 保持pending，下一项先审查组合覆盖与来源隔离。
 
 ### 11月1日训练拟合诊断
 
@@ -83,6 +83,8 @@ HF 只追加7个诊断文件（commit `5f582e5a3da1d7a86c4116bb0512b9613f0d2ead`
 逐题整条匹配从基座的2/3降为 adapter 的1/3；虽然训练 loss 降低、输出格式紧凑了，但事实抽取有退化，不推广替代基座。证据保存在 [本次运行](results/2026-10-22-lora-smoke-v1/summary.json) 和 [上传验证](results/2026-10-22-lora-smoke-v1/upload.json)。
 
 ## 离线检查
+
+剩余错误的表面诊断入口：`absence_diagnostic.py --run 新名称`，协议 [absence-diagnostic-v1.json](data/absence-diagnostic-v1.json)。两来源各六种条件，原候选/12步/36步共36次只读生成；明确场地正对照不能一律填null。`publish_audit.py --kind absence-diagnostic --expected-head 已审查分支头` 只同步12个JSON，人工审查状态不自动改为完成。
 
 预算对照入口：`budget_experiment.py --run 新名称`，协议 [optimization-budget-v1.json](data/optimization-budget-v1.json)。复用冻结的`train_arm()`运行单条完整36步轨迹，不从12步权重重置优化器后续接；12步权重只读。按6训练/12新dev/45旧回归分开评估，`review_budget.py`重算配对变化及NLL。`publish_audit.py --kind optimization-budget --expected-head 已审查分支头` 只同步16个JSON。
 

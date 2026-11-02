@@ -4,7 +4,9 @@
 
 承接 [昨天的拟合诊断](2026-11-01-sft-training-fit-diagnostic.md)，检验较少优化预算是否限制了那两条训练样例的拟合。固定数据、混合顺序、初始adapter和学习率，比较12步与36步两个预算端点，同时检查新6条训练样例、新12条dev和45条旧回归。
 
-今天实际执行36次优化器更新、189次GPU生成、12次目标前向。36步模型的新训练样例从4/6变为6/6，新dev从8/12变为11/12，旧回归从42/45变为44/45；在当前题集未新增退化。结果支持本次预算假设，但不是最佳步数或通用泛化结论。
+首轮实际执行36次优化器更新、189次GPU生成、12次目标前向。36步模型的新训练样例从4/6变为6/6，新dev从8/12变为11/12，旧回归从42/45变为44/45；在当前题集未新增退化。结果支持本次预算假设，但不是最佳步数或通用泛化结论。
+
+同日进一步对剩余两条错误做称谓与未定措辞的交叉诊断，新增36次只读生成。当天合计36次更新、225次生成、12次目标前向；扩展没有继续训练或修改提示。
 
 ## 核心概念
 
@@ -104,7 +106,40 @@
 
 [训练日志](../../../practice/sft-extraction/results/2026-11-02-optimization-budget-v1/extended/training.json)、[前缀比较](../../../practice/sft-extraction/results/2026-11-02-optimization-budget-v1/prefix-comparison.json) 与 [manifest](../../../practice/sft-extraction/results/2026-11-02-optimization-budget-v1/manifest.json) 已保存。118项微调测试、41项原RAG测试通过，覆盖预算重复、历史数据、36步日志、目标token、参考复现、NLL重算和重载输出。
 
-HF仅追加16个JSON报告，commit [a7a2d311](https://huggingface.co/YueranCao2001/qwen3-0.6b-zh-extraction-lora/tree/a7a2d311bac0163fa5c6cbab629b16599dd93c64/evaluations/2026-11-02-optimization-budget-v1) 下载哈希通过。[同步证据](../../../practice/sft-extraction/results/2026-11-02-optimization-budget-v1/hf-audit-upload.json) 确认仓库仍私有、根adapter及main不变。新adapter保存在本地被忽略的 `artifacts/2026-11-02-optimization-budget-v1/extended/`，没有替换已发布模型或默认提示。
+首轮HF仅追加16个JSON报告，commit [a7a2d311](https://huggingface.co/YueranCao2001/qwen3-0.6b-zh-extraction-lora/tree/a7a2d311bac0163fa5c6cbab629b16599dd93c64/evaluations/2026-11-02-optimization-budget-v1) 下载哈希通过。[同步证据](../../../practice/sft-extraction/results/2026-11-02-optimization-budget-v1/hf-audit-upload.json) 确认仓库仍私有、根adapter及main不变。新adapter保存在本地被忽略的 `artifacts/2026-11-02-optimization-budget-v1/extended/`，没有替换已发布模型或默认提示。
+
+### 7. 同日扩展 称谓与未定措辞的交叉诊断
+
+为区分剩余错误的表面条件，新增 [absence-diagnostic-v1协议](../../../practice/sft-extraction/data/absence-diagnostic-v1.json)。每条原失败通知固定活动与时间，将地点部分设计为六种情况：原句、只换称谓、只换未定措辞、两者都换、删除地点分句、明确提供地点。
+
+前四种组成“原称谓/地点”与“原未定措辞/尚未确定”的交叉；删除分句检查完全未提供地点的情况，明确地点则作为正对照。所有缺失条件的location保持null，正对照必须提取真实场地，不允许用“遇到这个称谓就填null”的规则取巧。
+
+原候选、12步、36步三个固定模型各生成12条，共36次，0更新。[absence_diagnostic.py](../../../practice/sft-extraction/absence_diagnostic.py) 复用原生成、参数哈希与严格字段评分；模型前后参数哈希均不变。两条原句及两个已有正对照在三模型中共12份输出逐token重现旧结果。
+
+```powershell
+& 'E:\Evren\Evren_work\.venv-sft\Scripts\python.exe' -X utf8 absence_diagnostic.py --run 2026-11-02-absence-diagnostic-v1
+```
+
+36步模型的location结果如下，未提供场地时预期均为null：
+
+| 改动 | 香囊缝制课来源 | 声音采集体验课来源 |
+| --- | --- | --- |
+| 原句 | 错填“集合处” | 错填“相聚之处还没有定下” |
+| 只把称谓换成“地点” | 正确null | 正确null |
+| 只把未定措辞换成“尚未确定” | 正确null | 错填“相聚之处尚未确定” |
+| 称谓与措辞都换 | 正确null | 正确null |
+| 删除地点分句 | 正确null | 正确null |
+| 同一称谓后明确提供场地 | 正确“栖霞手作室” | 正确“雨燕录音室” |
+
+这组12条中，原候选整条为8/12，12步和36步均为9/12；三模型event/time均12/12、JSON与字段契约均12/12，全部错误发生在location。它与首轮12条新dev不是同一题集，不合并或直接比较分数。
+
+原候选在“删除声音采集体验课的地点分句”时写出字符串“未知”，12步和36步改为正确null；其余解析结果相同。两条来源上只换成“地点”都恢复，但只改变未定措辞的效果不同。三模型的六份明确地点正对照全部正确，因此既不能说模型完全不会提取这些称谓后的场地，也不能据两个来源制定通用预处理规则。
+
+新增的“相聚之处尚未确定”失败表述扩展了错误边界，不是原评估题在模型更新后发生的新退化。本轮没有更新模型。结果只能描述这些字符串干预下的行为，不能证明内部注意力或语义机制。
+
+[逐题矩阵](../../../practice/sft-extraction/results/2026-11-02-absence-diagnostic-v1/review.json) 保存全部输出和字段变化；[标注复核队列](../../../practice/sft-extraction/results/2026-11-02-absence-diagnostic-v1/label-review.json) 将原句、拟定标签、规则理由与明确地点对照并列，真实人工审查状态仍为pending。12条来自两个已知来源组，新增独立来源数为0。
+
+扩展后125项微调测试通过，41项原RAG测试也已通过。扩展仅同步12个诊断JSON，HF commit [3b04d145](https://huggingface.co/YueranCao2001/qwen3-0.6b-zh-extraction-lora/tree/3b04d145a20f66688e023e35a5ce73de699168b1/evaluations/2026-11-02-absence-diagnostic-v1) 回读哈希一致，原权重和main不变。[扩展同步证据](../../../practice/sft-extraction/results/2026-11-02-absence-diagnostic-v1/hf-audit-upload.json) 与首轮分开保存，当天共同步28个JSON报告。
 
 ## 遇到的问题
 
@@ -114,9 +149,9 @@ HF仅追加16个JSON报告，commit [a7a2d311](https://huggingface.co/YueranCao2
 
 ## 今日总结
 
-完成一次预先固定的12/36步预算对照。今天实际36次更新、189次生成及12次目标前向；新训练样例6/6、新dev11/12、旧回归44/45，当前未见新增退化。训练拟合与部分诊断结果改善，但仍有两处未定语义错误，不推广为通用修复或默认模型。
+完成12/36步预算对照及剩余错误的六条件交叉诊断。当天实际36次更新、225次生成及12次目标前向；首轮新训练样例6/6、新dev11/12、旧回归44/45。扩展定位了称谓与未定措辞敏感性、补出一个失败表述，并保留明确地点正对照及待人工复核队列；仍不推广为通用修复或默认模型。
 
 ## 下一步
 
-- 冻结36步结果，不立即继续加步数。围绕两条剩余的缺失语义误抽取，整理标注复核与来源覆盖清单，先确定需要检验的新表达边界，再决定是否改训练内容。
+- 36步结果和扩展矩阵均已冻结，待审队列已建立。接下来将称谓与缺失措辞组合覆盖纳入候选数据设计，并保留同称谓明确场地的正对照；先审查来源隔离，不直接把这12条诊断变体全部放进训练。
 - 阶段复盘中分别报告预算收益、未修复项与独立性限制；推进独立人工复核或不同来源的小型评估，不将当前可见题集重新包装成独立测试。

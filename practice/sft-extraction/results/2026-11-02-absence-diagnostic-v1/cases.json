@@ -1,0 +1,182 @@
+[
+  {
+    "id": "absence-a-anchor",
+    "group": "notice-39",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "anchor",
+    "source_id": "repair-dev-01-missing-location",
+    "text": "致参与者：本期为香囊缝制课。①请于12月7日16:30到场；②集合处等待后续消息。感谢关注。",
+    "expected": {
+      "event": "香囊缝制课",
+      "time": "12月7日16:30",
+      "location": null
+    },
+    "replay_source_id": "repair-dev-01-missing-location"
+  },
+  {
+    "id": "absence-a-cue-only",
+    "group": "notice-39",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "cue-only",
+    "source_id": "repair-dev-01-missing-location",
+    "text": "致参与者：本期为香囊缝制课。①请于12月7日16:30到场；②地点等待后续消息。感谢关注。",
+    "expected": {
+      "event": "香囊缝制课",
+      "time": "12月7日16:30",
+      "location": null
+    },
+    "replay_source_id": null
+  },
+  {
+    "id": "absence-a-status-only",
+    "group": "notice-39",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "status-only",
+    "source_id": "repair-dev-01-missing-location",
+    "text": "致参与者：本期为香囊缝制课。①请于12月7日16:30到场；②集合处尚未确定。感谢关注。",
+    "expected": {
+      "event": "香囊缝制课",
+      "time": "12月7日16:30",
+      "location": null
+    },
+    "replay_source_id": null
+  },
+  {
+    "id": "absence-a-cue-and-status",
+    "group": "notice-39",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "cue-and-status",
+    "source_id": "repair-dev-01-missing-location",
+    "text": "致参与者：本期为香囊缝制课。①请于12月7日16:30到场；②地点尚未确定。感谢关注。",
+    "expected": {
+      "event": "香囊缝制课",
+      "time": "12月7日16:30",
+      "location": null
+    },
+    "replay_source_id": null
+  },
+  {
+    "id": "absence-a-drop-clause",
+    "group": "notice-39",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "drop-clause",
+    "source_id": "repair-dev-01-missing-location",
+    "text": "致参与者：本期为香囊缝制课。①请于12月7日16:30到场。感谢关注。",
+    "expected": {
+      "event": "香囊缝制课",
+      "time": "12月7日16:30",
+      "location": null
+    },
+    "replay_source_id": null
+  },
+  {
+    "id": "absence-a-explicit-value",
+    "group": "notice-39",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "explicit-value",
+    "source_id": "repair-dev-01-missing-location",
+    "text": "致参与者：本期为香囊缝制课。①请于12月7日16:30到场；②集合处为栖霞手作室。感谢关注。",
+    "expected": {
+      "event": "香囊缝制课",
+      "time": "12月7日16:30",
+      "location": "栖霞手作室"
+    },
+    "replay_source_id": "repair-dev-01-complete"
+  },
+  {
+    "id": "absence-b-anchor",
+    "group": "notice-34",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "anchor",
+    "source_id": "confirm-03-missing-location",
+    "text": "我们为大家准备了声音采集体验课。本次从11月28日09:20—10:40进行，相聚之处还没有定下，欢迎感兴趣的朋友加入。",
+    "expected": {
+      "event": "声音采集体验课",
+      "time": "11月28日09:20—10:40",
+      "location": null
+    },
+    "replay_source_id": "confirm-03-missing-location"
+  },
+  {
+    "id": "absence-b-cue-only",
+    "group": "notice-34",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "cue-only",
+    "source_id": "confirm-03-missing-location",
+    "text": "我们为大家准备了声音采集体验课。本次从11月28日09:20—10:40进行，地点还没有定下，欢迎感兴趣的朋友加入。",
+    "expected": {
+      "event": "声音采集体验课",
+      "time": "11月28日09:20—10:40",
+      "location": null
+    },
+    "replay_source_id": null
+  },
+  {
+    "id": "absence-b-status-only",
+    "group": "notice-34",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "status-only",
+    "source_id": "confirm-03-missing-location",
+    "text": "我们为大家准备了声音采集体验课。本次从11月28日09:20—10:40进行，相聚之处尚未确定，欢迎感兴趣的朋友加入。",
+    "expected": {
+      "event": "声音采集体验课",
+      "time": "11月28日09:20—10:40",
+      "location": null
+    },
+    "replay_source_id": null
+  },
+  {
+    "id": "absence-b-cue-and-status",
+    "group": "notice-34",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "cue-and-status",
+    "source_id": "confirm-03-missing-location",
+    "text": "我们为大家准备了声音采集体验课。本次从11月28日09:20—10:40进行，地点尚未确定，欢迎感兴趣的朋友加入。",
+    "expected": {
+      "event": "声音采集体验课",
+      "time": "11月28日09:20—10:40",
+      "location": null
+    },
+    "replay_source_id": null
+  },
+  {
+    "id": "absence-b-drop-clause",
+    "group": "notice-34",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "drop-clause",
+    "source_id": "confirm-03-missing-location",
+    "text": "我们为大家准备了声音采集体验课。本次从11月28日09:20—10:40进行，欢迎感兴趣的朋友加入。",
+    "expected": {
+      "event": "声音采集体验课",
+      "time": "11月28日09:20—10:40",
+      "location": null
+    },
+    "replay_source_id": null
+  },
+  {
+    "id": "absence-b-explicit-value",
+    "group": "notice-34",
+    "cohort": "absence-diagnostic",
+    "split": "dev",
+    "variant": "explicit-value",
+    "source_id": "confirm-03-missing-location",
+    "text": "我们为大家准备了声音采集体验课。本次从11月28日09:20—10:40进行，相聚之处为雨燕录音室，欢迎感兴趣的朋友加入。",
+    "expected": {
+      "event": "声音采集体验课",
+      "time": "11月28日09:20—10:40",
+      "location": "雨燕录音室"
+    },
+    "replay_source_id": "confirm-03-complete"
+  }
+]

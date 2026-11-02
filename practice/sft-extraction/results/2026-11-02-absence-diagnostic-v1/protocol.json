@@ -1,0 +1,52 @@
+{
+  "version": "absence-diagnostic-v1",
+  "date": "2026-11-02",
+  "source_run": "2026-11-02-optimization-budget-v1",
+  "conditions": [
+    "baseline",
+    "short",
+    "extended"
+  ],
+  "variants": [
+    "anchor",
+    "cue-only",
+    "status-only",
+    "cue-and-status",
+    "drop-clause",
+    "explicit-value"
+  ],
+  "canonical_cue": "地点",
+  "canonical_status": "尚未确定",
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 128
+  },
+  "training_steps": 0,
+  "expected_cases": 12,
+  "expected_generation_calls": 36,
+  "anchors": [
+    {
+      "id": "absence-a",
+      "source_id": "repair-dev-01-missing-location",
+      "positive_source_id": "repair-dev-01-complete",
+      "cue": "集合处",
+      "status": "等待后续消息",
+      "remove_span": "；②集合处等待后续消息",
+      "positive_clause": "集合处为栖霞手作室"
+    },
+    {
+      "id": "absence-b",
+      "source_id": "confirm-03-missing-location",
+      "positive_source_id": "confirm-03-complete",
+      "cue": "相聚之处",
+      "status": "还没有定下",
+      "remove_span": "，相聚之处还没有定下",
+      "positive_clause": "相聚之处为雨燕录音室"
+    }
+  ],
+  "design": "Within each existing source, cross cue(original/canonical) and absence wording(original/canonical) in four missing-location cells; add location-clause removal and an existing explicit-place positive control. Keep event/time and prompt fixed. Compare output fields, not only location. Reused anchor and positive control outputs must reproduce prior tokens.",
+  "provenance": "Assistant-designed visible variants of two known fictional failures. Two source groups, zero new independent sources; not sealed or independently reviewed. Each source is one template, so source identity and template remain confounded.",
+  "human_review": "pending",
+  "stop": "One pass at fixed weights; do not alter labels/prompts or add training after seeing outputs. Preserve all failure conditions.",
+  "publication": "Private HF diagnostic reports and review queue only; no model weights/main/default promotion. Human review queue remains pending."
+}

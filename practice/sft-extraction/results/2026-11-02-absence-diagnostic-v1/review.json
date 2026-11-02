@@ -1,0 +1,552 @@
+{
+  "training_steps": 0,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "total_generation_calls": 36,
+  "source_groups": 2,
+  "new_independent_sources": 0,
+  "known_replays": {
+    "baseline": {
+      "absence-a-anchor": true,
+      "absence-a-explicit-value": true,
+      "absence-b-anchor": true,
+      "absence-b-explicit-value": true
+    },
+    "short": {
+      "absence-a-anchor": true,
+      "absence-a-explicit-value": true,
+      "absence-b-anchor": true,
+      "absence-b-explicit-value": true
+    },
+    "extended": {
+      "absence-a-anchor": true,
+      "absence-a-explicit-value": true,
+      "absence-b-anchor": true,
+      "absence-b-explicit-value": true
+    }
+  },
+  "all_known_tokens_reproduce": true,
+  "weights_unchanged": true,
+  "summaries": {
+    "baseline": {
+      "count": 12,
+      "exact": 8,
+      "json_valid": 12,
+      "schema_valid": 12,
+      "fields_correct": {
+        "event": 12,
+        "time": 12,
+        "location": 8
+      },
+      "error_counts": {
+        "missing-to-value": 4
+      },
+      "errors": [
+        {
+          "id": "absence-a-anchor",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "集合处"
+        },
+        {
+          "id": "absence-b-anchor",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "相聚之处还没有定下"
+        },
+        {
+          "id": "absence-b-status-only",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "相聚之处尚未确定"
+        },
+        {
+          "id": "absence-b-drop-clause",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "未知"
+        }
+      ],
+      "location_correct": 8
+    },
+    "short": {
+      "count": 12,
+      "exact": 9,
+      "json_valid": 12,
+      "schema_valid": 12,
+      "fields_correct": {
+        "event": 12,
+        "time": 12,
+        "location": 9
+      },
+      "error_counts": {
+        "missing-to-value": 3
+      },
+      "errors": [
+        {
+          "id": "absence-a-anchor",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "集合处"
+        },
+        {
+          "id": "absence-b-anchor",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "相聚之处还没有定下"
+        },
+        {
+          "id": "absence-b-status-only",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "相聚之处尚未确定"
+        }
+      ],
+      "location_correct": 9
+    },
+    "extended": {
+      "count": 12,
+      "exact": 9,
+      "json_valid": 12,
+      "schema_valid": 12,
+      "fields_correct": {
+        "event": 12,
+        "time": 12,
+        "location": 9
+      },
+      "error_counts": {
+        "missing-to-value": 3
+      },
+      "errors": [
+        {
+          "id": "absence-a-anchor",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "集合处"
+        },
+        {
+          "id": "absence-b-anchor",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "相聚之处还没有定下"
+        },
+        {
+          "id": "absence-b-status-only",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "相聚之处尚未确定"
+        }
+      ],
+      "location_correct": 9
+    }
+  },
+  "matrix": [
+    {
+      "id": "absence-a-anchor",
+      "source_id": "repair-dev-01-missing-location",
+      "variant": "anchor",
+      "expected_location": null,
+      "baseline": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": "集合处"
+        },
+        "exact": false,
+        "location_correct": false
+      },
+      "short": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": "集合处"
+        },
+        "exact": false,
+        "location_correct": false
+      },
+      "extended": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": "集合处"
+        },
+        "exact": false,
+        "location_correct": false
+      }
+    },
+    {
+      "id": "absence-a-cue-only",
+      "source_id": "repair-dev-01-missing-location",
+      "variant": "cue-only",
+      "expected_location": null,
+      "baseline": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "short": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "extended": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      }
+    },
+    {
+      "id": "absence-a-status-only",
+      "source_id": "repair-dev-01-missing-location",
+      "variant": "status-only",
+      "expected_location": null,
+      "baseline": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "short": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "extended": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      }
+    },
+    {
+      "id": "absence-a-cue-and-status",
+      "source_id": "repair-dev-01-missing-location",
+      "variant": "cue-and-status",
+      "expected_location": null,
+      "baseline": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "short": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "extended": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      }
+    },
+    {
+      "id": "absence-a-drop-clause",
+      "source_id": "repair-dev-01-missing-location",
+      "variant": "drop-clause",
+      "expected_location": null,
+      "baseline": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "short": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "extended": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      }
+    },
+    {
+      "id": "absence-a-explicit-value",
+      "source_id": "repair-dev-01-missing-location",
+      "variant": "explicit-value",
+      "expected_location": "栖霞手作室",
+      "baseline": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": "栖霞手作室"
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "short": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": "栖霞手作室"
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "extended": {
+        "parsed": {
+          "event": "香囊缝制课",
+          "time": "12月7日16:30",
+          "location": "栖霞手作室"
+        },
+        "exact": true,
+        "location_correct": true
+      }
+    },
+    {
+      "id": "absence-b-anchor",
+      "source_id": "confirm-03-missing-location",
+      "variant": "anchor",
+      "expected_location": null,
+      "baseline": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": "相聚之处还没有定下"
+        },
+        "exact": false,
+        "location_correct": false
+      },
+      "short": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": "相聚之处还没有定下"
+        },
+        "exact": false,
+        "location_correct": false
+      },
+      "extended": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": "相聚之处还没有定下"
+        },
+        "exact": false,
+        "location_correct": false
+      }
+    },
+    {
+      "id": "absence-b-cue-only",
+      "source_id": "confirm-03-missing-location",
+      "variant": "cue-only",
+      "expected_location": null,
+      "baseline": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "short": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "extended": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      }
+    },
+    {
+      "id": "absence-b-status-only",
+      "source_id": "confirm-03-missing-location",
+      "variant": "status-only",
+      "expected_location": null,
+      "baseline": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": "相聚之处尚未确定"
+        },
+        "exact": false,
+        "location_correct": false
+      },
+      "short": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": "相聚之处尚未确定"
+        },
+        "exact": false,
+        "location_correct": false
+      },
+      "extended": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": "相聚之处尚未确定"
+        },
+        "exact": false,
+        "location_correct": false
+      }
+    },
+    {
+      "id": "absence-b-cue-and-status",
+      "source_id": "confirm-03-missing-location",
+      "variant": "cue-and-status",
+      "expected_location": null,
+      "baseline": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "short": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "extended": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      }
+    },
+    {
+      "id": "absence-b-drop-clause",
+      "source_id": "confirm-03-missing-location",
+      "variant": "drop-clause",
+      "expected_location": null,
+      "baseline": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": "未知"
+        },
+        "exact": false,
+        "location_correct": false
+      },
+      "short": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "extended": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": null
+        },
+        "exact": true,
+        "location_correct": true
+      }
+    },
+    {
+      "id": "absence-b-explicit-value",
+      "source_id": "confirm-03-missing-location",
+      "variant": "explicit-value",
+      "expected_location": "雨燕录音室",
+      "baseline": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": "雨燕录音室"
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "short": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": "雨燕录音室"
+        },
+        "exact": true,
+        "location_correct": true
+      },
+      "extended": {
+        "parsed": {
+          "event": "声音采集体验课",
+          "time": "11月28日09:20—10:40",
+          "location": "雨燕录音室"
+        },
+        "exact": true,
+        "location_correct": true
+      }
+    }
+  ],
+  "scope": "Assistant-designed visible variants of two known fictional failures. Two source groups, zero new independent sources; not sealed or independently reviewed. Each source is one template, so source identity and template remain confounded."
+}
