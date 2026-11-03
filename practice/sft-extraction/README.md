@@ -4,6 +4,10 @@
 
 ## 当前状态
 
+2026-11-03 完成[地点配对数据与边界诊断](../../daily/2026/11/2026-11-03-sft-venue-pair-coverage.md)。8条拟训练样例与12条开发样例按来源划分，36次生成、0次更新。原候选/12步/36步整条正确为4/12、6/12、6/12，明确地点和成对地点均为2/6。130项微调测试通过，[逐题结果](results/2026-11-03-venue-pairs-v1/review.json)与[HF回读](results/2026-11-03-venue-pairs-v1/hf-audit-upload.json)已归档。
+
+### 11月2日优化预算和地点未定诊断
+
 2026-11-02 完成 [12/36步预算对照及同日扩展](../../daily/2026/11/2026-11-02-sft-optimization-budget-comparison.md)：新训练样例4/6→6/6、新dev8/12→11/12、旧回归42/45→44/45。随后固定三模型，对两个剩余错误做六条件交叉诊断，新增36次生成、0更新；两条原错误仍未修复。当天合计36更新、225生成、12目标前向，125项本地测试通过。[预算结果](results/2026-11-02-optimization-budget-v1/review.json)、[扩展矩阵](results/2026-11-02-absence-diagnostic-v1/review.json)。
 
 首轮16个、扩展12个HF诊断JSON均回读通过；新权重留本地，原模型/main/默认提示不变。扩展显示只换称谓为“地点”可恢复，但只换未定措辞不总有效，六份明确地点正对照全对。[待人工复核队列](results/2026-11-02-absence-diagnostic-v1/label-review.json) 保持pending，下一项先审查组合覆盖与来源隔离。

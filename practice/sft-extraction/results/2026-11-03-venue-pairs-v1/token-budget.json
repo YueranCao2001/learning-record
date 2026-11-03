@@ -1,0 +1,50 @@
+[
+  {
+    "id": "vp-train-01-missing",
+    "prefix_tokens": 89,
+    "target_tokens": 28,
+    "sequence_tokens": 117
+  },
+  {
+    "id": "vp-train-01-explicit",
+    "prefix_tokens": 92,
+    "target_tokens": 31,
+    "sequence_tokens": 123
+  },
+  {
+    "id": "vp-train-02-missing",
+    "prefix_tokens": 87,
+    "target_tokens": 24,
+    "sequence_tokens": 111
+  },
+  {
+    "id": "vp-train-02-explicit",
+    "prefix_tokens": 89,
+    "target_tokens": 27,
+    "sequence_tokens": 116
+  },
+  {
+    "id": "vp-train-03-missing",
+    "prefix_tokens": 88,
+    "target_tokens": 28,
+    "sequence_tokens": 116
+  },
+  {
+    "id": "vp-train-03-explicit",
+    "prefix_tokens": 91,
+    "target_tokens": 31,
+    "sequence_tokens": 122
+  },
+  {
+    "id": "vp-train-04-missing",
+    "prefix_tokens": 93,
+    "target_tokens": 24,
+    "sequence_tokens": 117
+  },
+  {
+    "id": "vp-train-04-explicit",
+    "prefix_tokens": 96,
+    "target_tokens": 28,
+    "sequence_tokens": 124
+  }
+]

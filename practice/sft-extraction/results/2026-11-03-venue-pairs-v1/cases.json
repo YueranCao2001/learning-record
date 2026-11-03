@@ -1,0 +1,325 @@
+{
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "rows": [
+    {
+      "id": "vp-train-01-missing",
+      "group": "vp-train-01",
+      "split": "train",
+      "family": "mail-invitation",
+      "cohort": "candidate",
+      "cue": "集合处",
+      "status": "仍在协调",
+      "variant": "missing",
+      "text": "诚邀参加旧物拓印课，课程定在12月14日14:20，集合处仍在协调。",
+      "expected": {
+        "event": "旧物拓印课",
+        "time": "12月14日14:20",
+        "location": null
+      }
+    },
+    {
+      "id": "vp-train-01-explicit",
+      "group": "vp-train-01",
+      "split": "train",
+      "family": "mail-invitation",
+      "cohort": "candidate",
+      "cue": "集合处",
+      "status": "仍在协调",
+      "variant": "explicit",
+      "text": "诚邀参加旧物拓印课，课程定在12月14日14:20，集合处为琥珀创作间。",
+      "expected": {
+        "event": "旧物拓印课",
+        "time": "12月14日14:20",
+        "location": "琥珀创作间"
+      }
+    },
+    {
+      "id": "vp-train-02-missing",
+      "group": "vp-train-02",
+      "split": "train",
+      "family": "membership-brief",
+      "cohort": "candidate",
+      "cue": "集合处",
+      "status": "容后公布",
+      "variant": "missing",
+      "text": "会员简报：棋谱研读会。活动将在周五晚上19:10举行；集合处容后公布。",
+      "expected": {
+        "event": "棋谱研读会",
+        "time": "周五晚上19:10",
+        "location": null
+      }
+    },
+    {
+      "id": "vp-train-02-explicit",
+      "group": "vp-train-02",
+      "split": "train",
+      "family": "membership-brief",
+      "cohort": "candidate",
+      "cue": "集合处",
+      "status": "容后公布",
+      "variant": "explicit",
+      "text": "会员简报：棋谱研读会。活动将在周五晚上19:10举行；集合处为紫藤阅览厅。",
+      "expected": {
+        "event": "棋谱研读会",
+        "time": "周五晚上19:10",
+        "location": "紫藤阅览厅"
+      }
+    },
+    {
+      "id": "vp-train-03-missing",
+      "group": "vp-train-03",
+      "split": "train",
+      "family": "class-message",
+      "cohort": "candidate",
+      "cue": "相聚之处",
+      "status": "仍在协调",
+      "variant": "missing",
+      "text": "给报名学员的消息：相聚之处仍在协调。12月16日上午09:15开设纸鸢扎制课。",
+      "expected": {
+        "event": "纸鸢扎制课",
+        "time": "12月16日上午09:15",
+        "location": null
+      }
+    },
+    {
+      "id": "vp-train-03-explicit",
+      "group": "vp-train-03",
+      "split": "train",
+      "family": "class-message",
+      "cohort": "candidate",
+      "cue": "相聚之处",
+      "status": "仍在协调",
+      "variant": "explicit",
+      "text": "给报名学员的消息：相聚之处为雪松制作屋。12月16日上午09:15开设纸鸢扎制课。",
+      "expected": {
+        "event": "纸鸢扎制课",
+        "time": "12月16日上午09:15",
+        "location": "雪松制作屋"
+      }
+    },
+    {
+      "id": "vp-train-04-missing",
+      "group": "vp-train-04",
+      "split": "train",
+      "family": "workshop-itinerary",
+      "cohort": "candidate",
+      "cue": "相聚之处",
+      "status": "容后公布",
+      "variant": "missing",
+      "text": "这次工作坊的主题是“旧地图装裱体验”。举办时间定为周日下午15:45。关于场地，相聚之处容后公布。",
+      "expected": {
+        "event": "旧地图装裱体验",
+        "time": "周日下午15:45",
+        "location": null
+      }
+    },
+    {
+      "id": "vp-train-04-explicit",
+      "group": "vp-train-04",
+      "split": "train",
+      "family": "workshop-itinerary",
+      "cohort": "candidate",
+      "cue": "相聚之处",
+      "status": "容后公布",
+      "variant": "explicit",
+      "text": "这次工作坊的主题是“旧地图装裱体验”。举办时间定为周日下午15:45。关于场地，相聚之处为乌桕裱画室。",
+      "expected": {
+        "event": "旧地图装裱体验",
+        "time": "周日下午15:45",
+        "location": "乌桕裱画室"
+      }
+    },
+    {
+      "id": "vp-dev-01-missing",
+      "group": "vp-dev-01",
+      "split": "dev",
+      "family": "bulletin-fields",
+      "cohort": "matched",
+      "cue": "集合处",
+      "status": "仍在协调",
+      "variant": "missing",
+      "text": "【事项】木尺刻度体验\n【开始】12月18日10:35\n【场地】集合处仍在协调。",
+      "expected": {
+        "event": "木尺刻度体验",
+        "time": "12月18日10:35",
+        "location": null
+      }
+    },
+    {
+      "id": "vp-dev-01-explicit",
+      "group": "vp-dev-01",
+      "split": "dev",
+      "family": "bulletin-fields",
+      "cohort": "matched",
+      "cue": "集合处",
+      "status": "仍在协调",
+      "variant": "explicit",
+      "text": "【事项】木尺刻度体验\n【开始】12月18日10:35\n【场地】集合处为棠梨工艺角。",
+      "expected": {
+        "event": "木尺刻度体验",
+        "time": "12月18日10:35",
+        "location": "棠梨工艺角"
+      }
+    },
+    {
+      "id": "vp-dev-02-missing",
+      "group": "vp-dev-02",
+      "split": "dev",
+      "family": "reminder-first",
+      "cohort": "matched",
+      "cue": "集合处",
+      "status": "容后公布",
+      "variant": "missing",
+      "text": "集合处容后公布，请关注后续安排。届时将于12月19日下午16:10开展纤维染色课。",
+      "expected": {
+        "event": "纤维染色课",
+        "time": "12月19日下午16:10",
+        "location": null
+      }
+    },
+    {
+      "id": "vp-dev-02-explicit",
+      "group": "vp-dev-02",
+      "split": "dev",
+      "family": "reminder-first",
+      "cohort": "matched",
+      "cue": "集合处",
+      "status": "容后公布",
+      "variant": "explicit",
+      "text": "集合处为槭树染坊，请关注后续安排。届时将于12月19日下午16:10开展纤维染色课。",
+      "expected": {
+        "event": "纤维染色课",
+        "time": "12月19日下午16:10",
+        "location": "槭树染坊"
+      }
+    },
+    {
+      "id": "vp-dev-03-missing",
+      "group": "vp-dev-03",
+      "split": "dev",
+      "family": "calendar-header",
+      "cohort": "matched",
+      "cue": "相聚之处",
+      "status": "仍在协调",
+      "variant": "missing",
+      "text": "12月20日13:50｜昆虫剪影工坊\n场地备注：相聚之处仍在协调。",
+      "expected": {
+        "event": "昆虫剪影工坊",
+        "time": "12月20日13:50",
+        "location": null
+      }
+    },
+    {
+      "id": "vp-dev-03-explicit",
+      "group": "vp-dev-03",
+      "split": "dev",
+      "family": "calendar-header",
+      "cohort": "matched",
+      "cue": "相聚之处",
+      "status": "仍在协调",
+      "variant": "explicit",
+      "text": "12月20日13:50｜昆虫剪影工坊\n场地备注：相聚之处为青榆模型间。",
+      "expected": {
+        "event": "昆虫剪影工坊",
+        "time": "12月20日13:50",
+        "location": "青榆模型间"
+      }
+    },
+    {
+      "id": "vp-dev-04-missing",
+      "group": "vp-dev-04",
+      "split": "dev",
+      "family": "question-answer",
+      "cohort": "matched",
+      "cue": "相聚之处",
+      "status": "容后公布",
+      "variant": "missing",
+      "text": "本期议程是什么？折页排版交流会。几点开始？周二下午17:05。在哪里？相聚之处容后公布。",
+      "expected": {
+        "event": "折页排版交流会",
+        "time": "周二下午17:05",
+        "location": null
+      }
+    },
+    {
+      "id": "vp-dev-04-explicit",
+      "group": "vp-dev-04",
+      "split": "dev",
+      "family": "question-answer",
+      "cohort": "matched",
+      "cue": "相聚之处",
+      "status": "容后公布",
+      "variant": "explicit",
+      "text": "本期议程是什么？折页排版交流会。几点开始？周二下午17:05。在哪里？相聚之处为南星排版室。",
+      "expected": {
+        "event": "折页排版交流会",
+        "time": "周二下午17:05",
+        "location": "南星排版室"
+      }
+    },
+    {
+      "id": "vp-dev-05-missing",
+      "group": "vp-dev-05",
+      "split": "dev",
+      "family": "parenthetical-place",
+      "cohort": "new-cue",
+      "cue": "报到点",
+      "status": "仍在协调",
+      "variant": "missing",
+      "text": "请在周三上午08:45参加陶纹描摹课（报到点仍在协调）。",
+      "expected": {
+        "event": "陶纹描摹课",
+        "time": "周三上午08:45",
+        "location": null
+      }
+    },
+    {
+      "id": "vp-dev-05-explicit",
+      "group": "vp-dev-05",
+      "split": "dev",
+      "family": "parenthetical-place",
+      "cohort": "new-cue",
+      "cue": "报到点",
+      "status": "仍在协调",
+      "variant": "explicit",
+      "text": "请在周三上午08:45参加陶纹描摹课（报到点为白榆陶艺屋）。",
+      "expected": {
+        "event": "陶纹描摹课",
+        "time": "周三上午08:45",
+        "location": "白榆陶艺屋"
+      }
+    },
+    {
+      "id": "vp-dev-06-missing",
+      "group": "vp-dev-06",
+      "split": "dev",
+      "family": "numbered-signup",
+      "cohort": "new-status",
+      "cue": "相聚之处",
+      "status": "还在物色",
+      "variant": "missing",
+      "text": "报名条目 7｜石刻字形讲座；相聚之处还在物色；定于12月23日11:25开讲。",
+      "expected": {
+        "event": "石刻字形讲座",
+        "time": "12月23日11:25",
+        "location": null
+      }
+    },
+    {
+      "id": "vp-dev-06-explicit",
+      "group": "vp-dev-06",
+      "split": "dev",
+      "family": "numbered-signup",
+      "cohort": "new-status",
+      "cue": "相聚之处",
+      "status": "还在物色",
+      "variant": "explicit",
+      "text": "报名条目 7｜石刻字形讲座；相聚之处为桦影讲习间；定于12月23日11:25开讲。",
+      "expected": {
+        "event": "石刻字形讲座",
+        "time": "12月23日11:25",
+        "location": "桦影讲习间"
+      }
+    }
+  ]
+}

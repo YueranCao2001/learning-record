@@ -1,0 +1,29 @@
+{
+  "source_sha256": {
+    "data/venue-pairs-v1.json": "d0aeb62af09af4964b46cc4468de70b61517128a8a6be168a77d0100b2b025f2",
+    "results/2026-11-02-optimization-budget-v1/data.json": "1aedc7f80179b0c49db4021b916d86971725c527f672b4517983aff9d6b5ca25",
+    "results/2026-11-02-absence-diagnostic-v1/cases.json": "d88ac76846413ef6fca38457c42ef4cf82bf5e1ab209df721e1c8ff51b269c25",
+    "results/2026-10-23-boundary-v2/candidate/upload.json": "607e0e279543ba69914f3d8ad039d2be7bf4b78a5412cfaaedf60547257e55df",
+    "results/2026-10-30-repair-comparison-v1/repair/summary.json": "f8329e06130ee55cde560795ea69c03e8a9bf65e11ee69e99ac1eb4e86046072",
+    "results/2026-11-02-optimization-budget-v1/extended/summary.json": "8363852edd767737cc9dadfc1d1b62e86774b217134d456085886095e6b28be2",
+    "venue_pairs.py": "9bec4157fbc14478c2140418f190ca0955d7ec5de0c8537e217da3c04c5b1128",
+    "contract.py": "2ccbc15d96b7e78bd18abdad06708087b8d0fb828dbc55b21bd3e92e1800213d",
+    "confirm_prompt.py": "3712fe71e401879eb5905228a1ec59e06fbf073449239ab19ec15e9d6d6ac215",
+    "prompt_diagnostic.py": "6dfe777aa6465541f0094a593de37170dbdb417f6b58e296d4f41b941801316b",
+    "train_smoke.py": "978b0cd842e41b555e3fce1da688a9b86292f2ff2af897e20b8a4cf6ef6f0e3e",
+    "audit_evaluation.py": "144d5707249343c1615cdf431d6b5fdad6f832d15e2657a8e38f61c2be071ccd",
+    "annotation-rules-v1.md": "67e3c770e053f3d31fb20b4781feaf70ae06924dfcc5cc51fb1837a199723b53"
+  },
+  "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "adapter_files_sha256": {
+    "baseline": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12",
+    "short": "774d96b147cc874e290e81b2c51cedd366a158ce9aaaa0537c70f0f8fe301737",
+    "extended": "a3839cfdd60c8ed381604c6f79daa55697a701fa7d993badc5f96ea0091b7b69"
+  },
+  "published_reference_adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12",
+  "decode": {
+    "do_sample": false,
+    "max_new_tokens": 128,
+    "enable_thinking": false
+  }
+}

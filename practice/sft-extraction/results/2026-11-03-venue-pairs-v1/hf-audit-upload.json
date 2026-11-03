@@ -1,0 +1,26 @@
+{
+  "repo": "YueranCao2001/qwen3-0.6b-zh-extraction-lora",
+  "branch": "boundary-v2-20261023",
+  "commit": "78566ce6d0eb4a6c5adc2f7c9bc476bd74817f60",
+  "tested_adapter_revision": null,
+  "reference_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "path_in_repo": "evaluations/2026-11-03-venue-pairs-v1",
+  "files_sha256": {
+    "baseline-generation.json": "3a02cf1f321392463c3a02b509021b1c81c90aae2ec2b33a746d455fbdf16e5c",
+    "cases.json": "b731363485deb584bf65ba1e260c2d5069c32654e77508c7501ef7bda3d0d129",
+    "environment.json": "54f37d6403675425ba71fe9440be4c2102425780508625cf4a55e942a2dc1153",
+    "extended-generation.json": "8cd0b19e644420ce0e1606c39dd3ab3e2ad8d3dafe584d9c3568b2310645d848",
+    "manifest.json": "2158285f55fd66aa2d985365664f3641e8319a17b201703fa7ace1b2b8c5ec1a",
+    "protocol.json": "b3cf42ba2062bf20db615a3a0770ed98da340e993a7b2e040a77eb5d2ec7160b",
+    "review.json": "f1705c7c1b750936f55377a52f4dbde83e8fc364a1e6afd71ed182eee6df9428",
+    "short-generation.json": "93ebe5d0e79f3350d0d83bb2dfbfb6cd1f1a9fbe880c0e8cd341f6fce12b8f14",
+    "token-budget.json": "12728d81e0b81b19d7a6d84048b995ee7df69ae2078b197e810017a684cce0f3"
+  },
+  "weight_upload": false,
+  "main_before": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "main_after": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "private": true,
+  "download_hashes_equal": true,
+  "adapter_weights_unchanged": true,
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}

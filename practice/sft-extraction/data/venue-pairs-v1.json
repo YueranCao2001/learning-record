@@ -1,0 +1,21 @@
+{
+  "version": "venue-pairs-v1",
+  "date": "2026-11-03",
+  "provenance": "Assistant-authored fictional notices; visible development data. Source and family identifiers are assigned by design. Human review pending.",
+  "human_review": "pending",
+  "conditions": ["baseline", "short", "extended"],
+  "cues": ["集合处", "相聚之处"],
+  "statuses": ["仍在协调", "容后公布"],
+  "sources": [
+    {"id":"vp-train-01","split":"train","cohort":"candidate","family":"mail-invitation","cue":"集合处","status":"仍在协调","event":"旧物拓印课","time":"12月14日14:20","venue":"琥珀创作间","template":"诚邀参加{event}，课程定在{time}，{place}。"},
+    {"id":"vp-train-02","split":"train","cohort":"candidate","family":"membership-brief","cue":"集合处","status":"容后公布","event":"棋谱研读会","time":"周五晚上19:10","venue":"紫藤阅览厅","template":"会员简报：{event}。活动将在{time}举行；{place}。"},
+    {"id":"vp-train-03","split":"train","cohort":"candidate","family":"class-message","cue":"相聚之处","status":"仍在协调","event":"纸鸢扎制课","time":"12月16日上午09:15","venue":"雪松制作屋","template":"给报名学员的消息：{place}。{time}开设{event}。"},
+    {"id":"vp-train-04","split":"train","cohort":"candidate","family":"workshop-itinerary","cue":"相聚之处","status":"容后公布","event":"旧地图装裱体验","time":"周日下午15:45","venue":"乌桕裱画室","template":"这次工作坊的主题是“{event}”。举办时间定为{time}。关于场地，{place}。"},
+    {"id":"vp-dev-01","split":"dev","cohort":"matched","family":"bulletin-fields","cue":"集合处","status":"仍在协调","event":"木尺刻度体验","time":"12月18日10:35","venue":"棠梨工艺角","template":"【事项】{event}\n【开始】{time}\n【场地】{place}。"},
+    {"id":"vp-dev-02","split":"dev","cohort":"matched","family":"reminder-first","cue":"集合处","status":"容后公布","event":"纤维染色课","time":"12月19日下午16:10","venue":"槭树染坊","template":"{place}，请关注后续安排。届时将于{time}开展{event}。"},
+    {"id":"vp-dev-03","split":"dev","cohort":"matched","family":"calendar-header","cue":"相聚之处","status":"仍在协调","event":"昆虫剪影工坊","time":"12月20日13:50","venue":"青榆模型间","template":"{time}｜{event}\n场地备注：{place}。"},
+    {"id":"vp-dev-04","split":"dev","cohort":"matched","family":"question-answer","cue":"相聚之处","status":"容后公布","event":"折页排版交流会","time":"周二下午17:05","venue":"南星排版室","template":"本期议程是什么？{event}。几点开始？{time}。在哪里？{place}。"},
+    {"id":"vp-dev-05","split":"dev","cohort":"new-cue","family":"parenthetical-place","cue":"报到点","status":"仍在协调","event":"陶纹描摹课","time":"周三上午08:45","venue":"白榆陶艺屋","template":"请在{time}参加{event}（{place}）。"},
+    {"id":"vp-dev-06","split":"dev","cohort":"new-status","family":"numbered-signup","cue":"相聚之处","status":"还在物色","event":"石刻字形讲座","time":"12月23日11:25","venue":"桦影讲习间","template":"报名条目 7｜{event}；{place}；定于{time}开讲。"}
+  ]
+}
