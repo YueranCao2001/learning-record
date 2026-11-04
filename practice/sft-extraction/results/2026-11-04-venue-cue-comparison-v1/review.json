@@ -1,0 +1,787 @@
+{
+  "training_steps": 32,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "trained_weights_uploaded": false,
+  "reference_replayed": 57,
+  "new_generation_calls": 228,
+  "identical_supervised_sequences": true,
+  "checks": {
+    "canonical": {
+      "steps": 16,
+      "optimizer_state_entries_before": 0,
+      "optimizer_final_steps": [
+        16
+      ],
+      "initial_adapter_sha256": "01322d74f5553a6bbdd15272bfc7afe57aff2c51b958b2b07002f0988f0a7177",
+      "trained_adapter_sha256": "2fba0e60e692b1a562b281ce25489523bacc128aa72dd65aca948d817cd36409",
+      "changed_adapter_tensors": 112,
+      "trainable_parameters": 1146880,
+      "frozen_base_sha256_before": "6e3b95e495f1d3b35720d37b9a36be0598567e1839b72974677745950758886f",
+      "frozen_base_sha256_after": "6e3b95e495f1d3b35720d37b9a36be0598567e1839b72974677745950758886f",
+      "base_unchanged": true,
+      "trained_target_tokens": 442,
+      "peak_training_allocated_bytes": 1727139840,
+      "dev_count": 57,
+      "after_exact": 51,
+      "adapter_reload_exact": true,
+      "reload_generation_tokens_equal": true,
+      "exact_training_resume_tested": false,
+      "adapter_file_sha256": "a1a26c266fff597742d79895415a1446e8a47f5980a7b20d3a13f87cf68f3f73"
+    },
+    "target": {
+      "steps": 16,
+      "optimizer_state_entries_before": 0,
+      "optimizer_final_steps": [
+        16
+      ],
+      "initial_adapter_sha256": "01322d74f5553a6bbdd15272bfc7afe57aff2c51b958b2b07002f0988f0a7177",
+      "trained_adapter_sha256": "3f5e14629c7c23ba47dee4bb81b9d13e2bba8c948e85e40091aaadcdbf0488da",
+      "changed_adapter_tensors": 112,
+      "trainable_parameters": 1146880,
+      "frozen_base_sha256_before": "6e3b95e495f1d3b35720d37b9a36be0598567e1839b72974677745950758886f",
+      "frozen_base_sha256_after": "6e3b95e495f1d3b35720d37b9a36be0598567e1839b72974677745950758886f",
+      "base_unchanged": true,
+      "trained_target_tokens": 442,
+      "peak_training_allocated_bytes": 1729564672,
+      "dev_count": 57,
+      "after_exact": 52,
+      "adapter_reload_exact": true,
+      "reload_generation_tokens_equal": true,
+      "exact_training_resume_tested": false,
+      "adapter_file_sha256": "4894dad1437b9bcf12b566e08a68d530bd8dafbd642ee6993509644fcfacef57"
+    }
+  },
+  "results": {
+    "warm_start": {
+      "paired_dev": {
+        "summary": {
+          "count": 12,
+          "exact": 6,
+          "json_valid": 12,
+          "schema_valid": 12,
+          "fields_correct": {
+            "event": 12,
+            "time": 12,
+            "location": 6
+          },
+          "error_counts": {
+            "wrong-span": 4,
+            "missing-to-value": 2
+          },
+          "location_by_variant": {
+            "missing": 4,
+            "explicit": 2
+          },
+          "both_location_correct": 2,
+          "both_exact": 2
+        },
+        "pairs": {
+          "vp-dev-01": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-01-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "木尺刻度体验",
+                "time": "12月18日10:35",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-01-explicit",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "木尺刻度体验",
+                "time": "12月18日10:35",
+                "location": "集合处为棠梨工艺角"
+              }
+            }
+          },
+          "vp-dev-02": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-02-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "纤维染色课",
+                "time": "12月19日下午16:10",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-02-explicit",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "纤维染色课",
+                "time": "12月19日下午16:10",
+                "location": "集合处为槭树染坊"
+              }
+            }
+          },
+          "vp-dev-03": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-03-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "昆虫剪影工坊",
+                "time": "12月20日13:50",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-03-explicit",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "昆虫剪影工坊",
+                "time": "12月20日13:50",
+                "location": "青榆模型间"
+              }
+            }
+          },
+          "vp-dev-04": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-04-missing",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "折页排版交流会",
+                "time": "周二下午17:05",
+                "location": "相聚之处容后公布"
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-04-explicit",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "折页排版交流会",
+                "time": "周二下午17:05",
+                "location": "相聚之处为南星排版室"
+              }
+            }
+          },
+          "vp-dev-05": {
+            "cohort": "new-cue",
+            "missing": {
+              "id": "vp-dev-05-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "陶纹描摹课",
+                "time": "周三上午08:45",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-05-explicit",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "陶纹描摹课",
+                "time": "周三上午08:45",
+                "location": "白榆陶艺屋"
+              }
+            }
+          },
+          "vp-dev-06": {
+            "cohort": "new-status",
+            "missing": {
+              "id": "vp-dev-06-missing",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "石刻字形讲座",
+                "time": "12月23日11:25",
+                "location": "相聚之处还在物色"
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-06-explicit",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "石刻字形讲座",
+                "time": "12月23日11:25",
+                "location": "相聚之处为桦影讲习间"
+              }
+            }
+          }
+        },
+        "errors": [
+          {
+            "id": "vp-dev-01-explicit",
+            "field": "location",
+            "kind": "wrong-span",
+            "expected": "棠梨工艺角",
+            "actual": "集合处为棠梨工艺角"
+          },
+          {
+            "id": "vp-dev-02-explicit",
+            "field": "location",
+            "kind": "wrong-span",
+            "expected": "槭树染坊",
+            "actual": "集合处为槭树染坊"
+          },
+          {
+            "id": "vp-dev-04-missing",
+            "field": "location",
+            "kind": "missing-to-value",
+            "expected": null,
+            "actual": "相聚之处容后公布"
+          },
+          {
+            "id": "vp-dev-04-explicit",
+            "field": "location",
+            "kind": "wrong-span",
+            "expected": "南星排版室",
+            "actual": "相聚之处为南星排版室"
+          },
+          {
+            "id": "vp-dev-06-missing",
+            "field": "location",
+            "kind": "missing-to-value",
+            "expected": null,
+            "actual": "相聚之处还在物色"
+          },
+          {
+            "id": "vp-dev-06-explicit",
+            "field": "location",
+            "kind": "wrong-span",
+            "expected": "桦影讲习间",
+            "actual": "相聚之处为桦影讲习间"
+          }
+        ]
+      },
+      "historical": {
+        "summary": {
+          "count": 45,
+          "exact": 44,
+          "json_valid": 45,
+          "schema_valid": 45,
+          "fields_correct": {
+            "event": 45,
+            "time": 45,
+            "location": 44
+          },
+          "error_counts": {
+            "missing-to-value": 1
+          }
+        },
+        "errors": [
+          {
+            "id": "confirm-03-missing-location",
+            "field": "location",
+            "kind": "missing-to-value",
+            "expected": null,
+            "actual": "相聚之处还没有定下"
+          }
+        ]
+      }
+    },
+    "canonical": {
+      "paired_dev": {
+        "summary": {
+          "count": 12,
+          "exact": 7,
+          "json_valid": 12,
+          "schema_valid": 12,
+          "fields_correct": {
+            "event": 12,
+            "time": 12,
+            "location": 7
+          },
+          "error_counts": {
+            "wrong-span": 3,
+            "missing-to-value": 1,
+            "value-to-null": 1
+          },
+          "location_by_variant": {
+            "missing": 5,
+            "explicit": 2
+          },
+          "both_location_correct": 2,
+          "both_exact": 2
+        },
+        "pairs": {
+          "vp-dev-01": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-01-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "木尺刻度体验",
+                "time": "12月18日10:35",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-01-explicit",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "木尺刻度体验",
+                "time": "12月18日10:35",
+                "location": "集合处为棠梨工艺角"
+              }
+            }
+          },
+          "vp-dev-02": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-02-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "纤维染色课",
+                "time": "12月19日下午16:10",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-02-explicit",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "纤维染色课",
+                "time": "12月19日下午16:10",
+                "location": "集合处为槭树染坊"
+              }
+            }
+          },
+          "vp-dev-03": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-03-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "昆虫剪影工坊",
+                "time": "12月20日13:50",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-03-explicit",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "昆虫剪影工坊",
+                "time": "12月20日13:50",
+                "location": "青榆模型间"
+              }
+            }
+          },
+          "vp-dev-04": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-04-missing",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "折页排版交流会",
+                "time": "周二下午17:05",
+                "location": "相聚之处容后公布"
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-04-explicit",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "折页排版交流会",
+                "time": "周二下午17:05",
+                "location": "相聚之处为南星排版室"
+              }
+            }
+          },
+          "vp-dev-05": {
+            "cohort": "new-cue",
+            "missing": {
+              "id": "vp-dev-05-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "陶纹描摹课",
+                "time": "周三上午08:45",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-05-explicit",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "陶纹描摹课",
+                "time": "周三上午08:45",
+                "location": "白榆陶艺屋"
+              }
+            }
+          },
+          "vp-dev-06": {
+            "cohort": "new-status",
+            "missing": {
+              "id": "vp-dev-06-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "石刻字形讲座",
+                "time": "12月23日11:25",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-06-explicit",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "石刻字形讲座",
+                "time": "12月23日11:25",
+                "location": null
+              }
+            }
+          }
+        },
+        "errors": [
+          {
+            "id": "vp-dev-01-explicit",
+            "field": "location",
+            "kind": "wrong-span",
+            "expected": "棠梨工艺角",
+            "actual": "集合处为棠梨工艺角"
+          },
+          {
+            "id": "vp-dev-02-explicit",
+            "field": "location",
+            "kind": "wrong-span",
+            "expected": "槭树染坊",
+            "actual": "集合处为槭树染坊"
+          },
+          {
+            "id": "vp-dev-04-missing",
+            "field": "location",
+            "kind": "missing-to-value",
+            "expected": null,
+            "actual": "相聚之处容后公布"
+          },
+          {
+            "id": "vp-dev-04-explicit",
+            "field": "location",
+            "kind": "wrong-span",
+            "expected": "南星排版室",
+            "actual": "相聚之处为南星排版室"
+          },
+          {
+            "id": "vp-dev-06-explicit",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "桦影讲习间",
+            "actual": null
+          }
+        ]
+      },
+      "historical": {
+        "summary": {
+          "count": 45,
+          "exact": 44,
+          "json_valid": 45,
+          "schema_valid": 45,
+          "fields_correct": {
+            "event": 45,
+            "time": 44,
+            "location": 45
+          },
+          "error_counts": {
+            "value-to-null": 1
+          }
+        },
+        "errors": [
+          {
+            "id": "confirm-02-missing-location",
+            "field": "time",
+            "kind": "value-to-null",
+            "expected": "周日下午15:00",
+            "actual": null
+          }
+        ]
+      }
+    },
+    "target": {
+      "paired_dev": {
+        "summary": {
+          "count": 12,
+          "exact": 8,
+          "json_valid": 12,
+          "schema_valid": 12,
+          "fields_correct": {
+            "event": 12,
+            "time": 12,
+            "location": 8
+          },
+          "error_counts": {
+            "wrong-span": 2,
+            "missing-to-value": 1,
+            "value-to-null": 1
+          },
+          "location_by_variant": {
+            "missing": 5,
+            "explicit": 3
+          },
+          "both_location_correct": 3,
+          "both_exact": 3
+        },
+        "pairs": {
+          "vp-dev-01": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-01-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "木尺刻度体验",
+                "time": "12月18日10:35",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-01-explicit",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "木尺刻度体验",
+                "time": "12月18日10:35",
+                "location": "棠梨工艺角"
+              }
+            }
+          },
+          "vp-dev-02": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-02-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "纤维染色课",
+                "time": "12月19日下午16:10",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-02-explicit",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "纤维染色课",
+                "time": "12月19日下午16:10",
+                "location": "集合处为槭树染坊"
+              }
+            }
+          },
+          "vp-dev-03": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-03-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "昆虫剪影工坊",
+                "time": "12月20日13:50",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-03-explicit",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "昆虫剪影工坊",
+                "time": "12月20日13:50",
+                "location": "青榆模型间"
+              }
+            }
+          },
+          "vp-dev-04": {
+            "cohort": "matched",
+            "missing": {
+              "id": "vp-dev-04-missing",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "折页排版交流会",
+                "time": "周二下午17:05",
+                "location": "相聚之处容后公布"
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-04-explicit",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "折页排版交流会",
+                "time": "周二下午17:05",
+                "location": "相聚之处为南星排版室"
+              }
+            }
+          },
+          "vp-dev-05": {
+            "cohort": "new-cue",
+            "missing": {
+              "id": "vp-dev-05-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "陶纹描摹课",
+                "time": "周三上午08:45",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-05-explicit",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "陶纹描摹课",
+                "time": "周三上午08:45",
+                "location": "白榆陶艺屋"
+              }
+            }
+          },
+          "vp-dev-06": {
+            "cohort": "new-status",
+            "missing": {
+              "id": "vp-dev-06-missing",
+              "location_correct": true,
+              "exact": true,
+              "parsed": {
+                "event": "石刻字形讲座",
+                "time": "12月23日11:25",
+                "location": null
+              }
+            },
+            "explicit": {
+              "id": "vp-dev-06-explicit",
+              "location_correct": false,
+              "exact": false,
+              "parsed": {
+                "event": "石刻字形讲座",
+                "time": "12月23日11:25",
+                "location": null
+              }
+            }
+          }
+        },
+        "errors": [
+          {
+            "id": "vp-dev-02-explicit",
+            "field": "location",
+            "kind": "wrong-span",
+            "expected": "槭树染坊",
+            "actual": "集合处为槭树染坊"
+          },
+          {
+            "id": "vp-dev-04-missing",
+            "field": "location",
+            "kind": "missing-to-value",
+            "expected": null,
+            "actual": "相聚之处容后公布"
+          },
+          {
+            "id": "vp-dev-04-explicit",
+            "field": "location",
+            "kind": "wrong-span",
+            "expected": "南星排版室",
+            "actual": "相聚之处为南星排版室"
+          },
+          {
+            "id": "vp-dev-06-explicit",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "桦影讲习间",
+            "actual": null
+          }
+        ]
+      },
+      "historical": {
+        "summary": {
+          "count": 45,
+          "exact": 44,
+          "json_valid": 45,
+          "schema_valid": 45,
+          "fields_correct": {
+            "event": 45,
+            "time": 44,
+            "location": 45
+          },
+          "error_counts": {
+            "value-to-null": 1
+          }
+        },
+        "errors": [
+          {
+            "id": "confirm-02-missing-location",
+            "field": "time",
+            "kind": "value-to-null",
+            "expected": "周日下午15:00",
+            "actual": null
+          }
+        ]
+      }
+    }
+  },
+  "changes": {
+    "canonical": {
+      "paired_dev": {
+        "fixed_ids": [
+          "vp-dev-06-missing"
+        ],
+        "regressed_ids": []
+      },
+      "historical": {
+        "fixed_ids": [
+          "confirm-03-missing-location"
+        ],
+        "regressed_ids": [
+          "confirm-02-missing-location"
+        ]
+      }
+    },
+    "target": {
+      "paired_dev": {
+        "fixed_ids": [
+          "vp-dev-01-explicit",
+          "vp-dev-06-missing"
+        ],
+        "regressed_ids": []
+      },
+      "historical": {
+        "fixed_ids": [
+          "confirm-03-missing-location"
+        ],
+        "regressed_ids": [
+          "confirm-02-missing-location"
+        ]
+      }
+    },
+    "target_vs_canonical": {
+      "paired_dev": {
+        "fixed_ids": [
+          "vp-dev-01-explicit"
+        ],
+        "regressed_ids": []
+      },
+      "historical": {
+        "fixed_ids": [],
+        "regressed_ids": []
+      }
+    }
+  }
+}

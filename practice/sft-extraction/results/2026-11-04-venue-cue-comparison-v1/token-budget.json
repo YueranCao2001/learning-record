@@ -1,0 +1,10 @@
+{
+  "canonical": {
+    "sequence_tokens": 1876,
+    "target_tokens": 442
+  },
+  "target": {
+    "sequence_tokens": 1892,
+    "target_tokens": 442
+  }
+}

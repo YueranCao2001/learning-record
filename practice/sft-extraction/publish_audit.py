@@ -23,7 +23,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "resume", "resume-guard", "atomic"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "resume", "resume-guard", "atomic"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
@@ -33,7 +33,7 @@ def main():
     review = json.loads((output / review_file).read_text(encoding="utf-8"))
     if not engineering:
         assert review["human_review"] == "pending"
-        assert review["training_steps"] == {"repair-training": 24, "optimization-budget": 36}.get(args.kind, 0)
+        assert review["training_steps"] == {"repair-training": 24, "optimization-budget": 36, "venue-cue-comparison": 32}.get(args.kind, 0)
     if args.kind == "atomic":
         assert review["writer_cases_passed"] == 4 and review["invalid_containers_rejected"] == 5
         assert review["all_invalid_rejected_before_deserialization"] and review["gpu_resume_exact"]
@@ -53,6 +53,17 @@ def main():
         files = {"manifest.json", "protocol.json", "environment.json", "comparison.json"}
         files |= {phase + "/" + name for phase in ("continuous", "prefix", "resume", "optimizer-reset")
                   for name in ("history.json", "state.json")}
+    elif args.kind == "venue-cue-comparison":
+        assert review["new_generation_calls"] == 228 and review["reference_replayed"] == 57
+        assert review["identical_supervised_sequences"] and not review["promote_to_main"] and not review["trained_weights_uploaded"]
+        for arm in ("canonical", "target"):
+            check = review["checks"][arm]
+            assert check["steps"] == 16 and check["trained_target_tokens"] == 442
+            assert check["adapter_reload_exact"] and check["reload_generation_tokens_equal"] and check["base_unchanged"]
+        files = {"protocol.json", "configuration.json", "training-rows.json", "token-budget.json",
+                 "manifest.json", "environment.json", "review.json"}
+        files |= {arm + "/" + name for arm in ("canonical", "target")
+                  for name in ("training.json", "summary.json", "after.json", "reloaded.json")}
     elif args.kind == "venue-pairs":
         assert (review["candidate_rows"], review["dev_rows"]) == (8, 12)
         assert (review["candidate_groups"], review["dev_groups"]) == (4, 6)
@@ -136,7 +147,7 @@ def main():
                revision=BRANCH, allow_patterns=sorted(files),
                commit_message="Add read-only diagnostic evidence; leave weights unchanged")
     report = {"repo": REPO, "branch": BRANCH, "commit": commit.oid,
-              "tested_adapter_revision": None if engineering or args.kind in ("repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs") else TESTED, "reference_adapter_revision": TESTED,
+              "tested_adapter_revision": None if engineering or args.kind in ("repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison") else TESTED, "reference_adapter_revision": TESTED,
               "path_in_repo": prefix, "files_sha256": hashes, "weight_upload": False,
               "main_before": main_before, "main_after": api.model_info(REPO, revision="main").sha,
               "private": api.model_info(REPO).private, "download_hashes_equal": False,

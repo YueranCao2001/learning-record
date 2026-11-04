@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-04",
+  "source": "2026-11-03-venue-pairs-v1",
+  "warm_start": "2026-11-02-optimization-budget-v1",
+  "arms": [
+    "canonical",
+    "target"
+  ],
+  "canonical_cue": "地点",
+  "repetitions": 2,
+  "steps_per_arm": 16,
+  "assistant_label_review": {
+    "vp-train-01": "旧物拓印课; 12月14日14:20; 仍在协调 gives null, 琥珀创作间 excludes the cue and copula.",
+    "vp-train-02": "棋谱研读会; 周五晚上19:10 includes weekday and period; 容后公布 gives null, 紫藤阅览厅 is the explicit venue.",
+    "vp-train-03": "纸鸢扎制课; 12月16日上午09:15 includes the full date and period; 仍在协调 gives null, 雪松制作屋 is the explicit venue.",
+    "vp-train-04": "旧地图装裱体验 excludes quotes; 周日下午15:45 preserves weekday and period; 容后公布 gives null, 乌桕裱画室 is the explicit venue."
+  },
+  "human_review": "pending",
+  "contrast": "Both arms train on paired notices with identical labels and order. Only the location cue is replaced in the canonical arm. Match steps and target token sequences, record any input-length differences.",
+  "evaluation": "Frozen 12 paired development cases plus 45 historical regression cases. The warm-start predictions are replayed from prior reports. Score both arms and preserve per-item transitions. One seed; visible synthetic development and regression sets."
+}

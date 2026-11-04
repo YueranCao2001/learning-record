@@ -1,0 +1,32 @@
+{
+  "repo": "YueranCao2001/qwen3-0.6b-zh-extraction-lora",
+  "branch": "boundary-v2-20261023",
+  "commit": "5ec3fc61e6dcb65a97f08f414d12ded06adcf1f7",
+  "tested_adapter_revision": null,
+  "reference_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "path_in_repo": "evaluations/2026-11-04-venue-cue-comparison-v1",
+  "files_sha256": {
+    "canonical/after.json": "8b66d405a1fa458e51035e14bca0bb538709f8ca61ae8f7da60a30ae2c1871a3",
+    "canonical/reloaded.json": "8b66d405a1fa458e51035e14bca0bb538709f8ca61ae8f7da60a30ae2c1871a3",
+    "canonical/summary.json": "917c485bcb2aab9cfeeeaaa99ab7f7cc7296da98f0abad962eb4e7371f2d3c01",
+    "canonical/training.json": "455e388b4e6aabde9a704ae3384fa7f942b1e1c37239b239916e433b5c5c87a4",
+    "configuration.json": "5f33198d7c57c721530a7dba78a6e9eec3f223f5cc33867ca4a9678ae0f0f456",
+    "environment.json": "54f37d6403675425ba71fe9440be4c2102425780508625cf4a55e942a2dc1153",
+    "manifest.json": "86d6a834977be358a8d38af280bde44b898a1d5307b9de1ce5192aeead7427af",
+    "protocol.json": "1bd00385db71c1e9dcafa34c156bcb2a2adc8e708d8291449f5f235a3eba08d1",
+    "review.json": "68b23a4e8d3e88b961d094d3726882f28de9583b8075b11c0524a8b7d2fe43aa",
+    "target/after.json": "95c29312a26133aafa306a2608e8ca35f23a501abc39fde352a9b23d5d4d7e21",
+    "target/reloaded.json": "95c29312a26133aafa306a2608e8ca35f23a501abc39fde352a9b23d5d4d7e21",
+    "target/summary.json": "f1247b41926ca57ebae027be9c0871e1418759b883488492d3ee3e664483afd4",
+    "target/training.json": "7e9c2aa9d3bb27fc311963db7fc71eaf7a6fa05f6dd22e6843ee5c54ded4e71f",
+    "token-budget.json": "b8946fddc5826db387b32e3f2d729d160932ca21bef058686e04bd8e2bf36812",
+    "training-rows.json": "997e80f29b30a48d25da581334281c9cbe17a45522eacb2bec6da928bb94ab05"
+  },
+  "weight_upload": false,
+  "main_before": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "main_after": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "private": true,
+  "download_hashes_equal": true,
+  "adapter_weights_unchanged": true,
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}

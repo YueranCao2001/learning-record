@@ -104,6 +104,7 @@
 - [中文信息抽取微调：训练样例拟合与逐token诊断](daily/2026/11/2026-11-01-sft-training-fit-diagnostic.md)
 - [中文信息抽取微调：训练预算对照与拟合回归](daily/2026/11/2026-11-02-sft-optimization-budget-comparison.md)
 - [中文信息抽取微调：地点配对数据与边界诊断](daily/2026/11/2026-11-03-sft-venue-pair-coverage.md)
+- [中文信息抽取微调：地点称谓的等步数训练对照](daily/2026/11/2026-11-04-sft-venue-cue-comparison.md)
 
 ## 提交约定
 
