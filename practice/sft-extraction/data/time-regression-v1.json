@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-05",
+  "source_group": "notice-33",
+  "frozen_ids": ["confirm-02-complete", "confirm-02-missing-time", "confirm-02-missing-location", "confirm-02-missing-both"],
+  "anchor_id": "confirm-02-missing-location",
+  "original_cue": "会址",
+  "original_status": "后续发布",
+  "replacement_cue": "地点",
+  "replacement_status": "尚未确定",
+  "conditions": ["warm-start", "canonical", "target"],
+  "provenance": "One known synthetic source, four historical rows and four visible anchor variants. Independent human review pending.",
+  "design": "Replay the historical two-by-two time/location presence grid. With the explicit time fixed, cross two location cues and two absence wordings, then swap the two field lines while retaining positional numbering. No weight updates."
+}

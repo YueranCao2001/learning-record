@@ -1,0 +1,521 @@
+{
+  "training_steps": 0,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "weights_unchanged": true,
+  "known_token_replays": 12,
+  "generation_calls": 24,
+  "source_groups": 1,
+  "results": {
+    "warm-start": {
+      "scores": {
+        "count": 8,
+        "exact": 6,
+        "json_valid": 8,
+        "schema_valid": 8,
+        "fields_correct": {
+          "event": 8,
+          "time": 8,
+          "location": 6
+        },
+        "error_counts": {
+          "missing-to-value": 2
+        }
+      },
+      "details": [
+        {
+          "id": "confirm-02-complete",
+          "cohort": "historical-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-time",
+          "cohort": "historical-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-location",
+          "cohort": "historical-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-both",
+          "cohort": "historical-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-cue-only",
+          "cohort": "time-regression",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": "后续发布"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-status-only",
+          "cohort": "time-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-cue-and-status",
+          "cohort": "time-regression",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": "尚未确定"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-time-first",
+          "cohort": "time-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": null
+          },
+          "location_omitted": false
+        }
+      ],
+      "errors": [
+        {
+          "id": "time-regression-cue-only",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "后续发布"
+        },
+        {
+          "id": "time-regression-cue-and-status",
+          "field": "location",
+          "kind": "missing-to-value",
+          "expected": null,
+          "actual": "尚未确定"
+        }
+      ],
+      "token_replays": {
+        "confirm-02-complete": true,
+        "confirm-02-missing-time": true,
+        "confirm-02-missing-location": true,
+        "confirm-02-missing-both": true
+      },
+      "parameter_sha256_before": "e0aac937ffd73dc2910a51b0ad6029055fe6642fb72f79e360e93e506e2376e2",
+      "parameter_sha256_after": "e0aac937ffd73dc2910a51b0ad6029055fe6642fb72f79e360e93e506e2376e2"
+    },
+    "canonical": {
+      "scores": {
+        "count": 8,
+        "exact": 6,
+        "json_valid": 8,
+        "schema_valid": 8,
+        "fields_correct": {
+          "event": 8,
+          "time": 6,
+          "location": 8
+        },
+        "error_counts": {
+          "value-to-null": 2
+        }
+      },
+      "details": [
+        {
+          "id": "confirm-02-complete",
+          "cohort": "historical-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-time",
+          "cohort": "historical-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-location",
+          "cohort": "historical-regression",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-both",
+          "cohort": "historical-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-cue-only",
+          "cohort": "time-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-status-only",
+          "cohort": "time-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-cue-and-status",
+          "cohort": "time-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-time-first",
+          "cohort": "time-regression",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        }
+      ],
+      "errors": [
+        {
+          "id": "confirm-02-missing-location",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午15:00",
+          "actual": null
+        },
+        {
+          "id": "time-regression-time-first",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午15:00",
+          "actual": null
+        }
+      ],
+      "token_replays": {
+        "confirm-02-complete": true,
+        "confirm-02-missing-time": true,
+        "confirm-02-missing-location": true,
+        "confirm-02-missing-both": true
+      },
+      "parameter_sha256_before": "09427155b022f5b4ac9d94a9722de187d9cb720fb2e335f6496f86e7fe1d89ff",
+      "parameter_sha256_after": "09427155b022f5b4ac9d94a9722de187d9cb720fb2e335f6496f86e7fe1d89ff"
+    },
+    "target": {
+      "scores": {
+        "count": 8,
+        "exact": 6,
+        "json_valid": 8,
+        "schema_valid": 8,
+        "fields_correct": {
+          "event": 8,
+          "time": 6,
+          "location": 8
+        },
+        "error_counts": {
+          "value-to-null": 2
+        }
+      },
+      "details": [
+        {
+          "id": "confirm-02-complete",
+          "cohort": "historical-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-time",
+          "cohort": "historical-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": "苔原小厅"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-location",
+          "cohort": "historical-regression",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "confirm-02-missing-both",
+          "cohort": "historical-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-cue-only",
+          "cohort": "time-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-status-only",
+          "cohort": "time-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-cue-and-status",
+          "cohort": "time-regression",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": "周日下午15:00",
+            "location": null
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-regression-time-first",
+          "cohort": "time-regression",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "竹编体验班",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        }
+      ],
+      "errors": [
+        {
+          "id": "confirm-02-missing-location",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午15:00",
+          "actual": null
+        },
+        {
+          "id": "time-regression-time-first",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午15:00",
+          "actual": null
+        }
+      ],
+      "token_replays": {
+        "confirm-02-complete": true,
+        "confirm-02-missing-time": true,
+        "confirm-02-missing-location": true,
+        "confirm-02-missing-both": true
+      },
+      "parameter_sha256_before": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+      "parameter_sha256_after": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f"
+    }
+  }
+}

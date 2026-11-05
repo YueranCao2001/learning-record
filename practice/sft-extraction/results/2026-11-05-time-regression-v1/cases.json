@@ -1,0 +1,109 @@
+{
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "rows": [
+    {
+      "id": "confirm-02-complete",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、会址：苔原小厅\n二、日程：周日下午15:00\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": "周日下午15:00",
+        "location": "苔原小厅"
+      },
+      "cohort": "historical-regression",
+      "family": null
+    },
+    {
+      "id": "confirm-02-missing-time",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、会址：苔原小厅\n二、日程：后续发布\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": null,
+        "location": "苔原小厅"
+      },
+      "cohort": "historical-regression",
+      "family": null
+    },
+    {
+      "id": "confirm-02-missing-location",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、会址：后续发布\n二、日程：周日下午15:00\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": "周日下午15:00",
+        "location": null
+      },
+      "cohort": "historical-regression",
+      "family": null
+    },
+    {
+      "id": "confirm-02-missing-both",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、会址：后续发布\n二、日程：后续发布\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": null,
+        "location": null
+      },
+      "cohort": "historical-regression",
+      "family": null
+    },
+    {
+      "id": "time-regression-cue-only",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、地点：后续发布\n二、日程：周日下午15:00\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": "周日下午15:00",
+        "location": null
+      },
+      "cohort": "time-regression",
+      "family": null
+    },
+    {
+      "id": "time-regression-status-only",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、会址：尚未确定\n二、日程：周日下午15:00\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": "周日下午15:00",
+        "location": null
+      },
+      "cohort": "time-regression",
+      "family": null
+    },
+    {
+      "id": "time-regression-cue-and-status",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、地点：尚未确定\n二、日程：周日下午15:00\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": "周日下午15:00",
+        "location": null
+      },
+      "cohort": "time-regression",
+      "family": null
+    },
+    {
+      "id": "time-regression-time-first",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、日程：周日下午15:00\n二、会址：后续发布\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": "周日下午15:00",
+        "location": null
+      },
+      "cohort": "time-regression",
+      "family": null
+    }
+  ]
+}
