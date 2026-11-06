@@ -1,0 +1,12 @@
+{
+  "aborted_attempt": {
+    "generation_calls": 26,
+    "stage": "scoring after warm-start generation",
+    "error": "KeyError: cohort",
+    "code_sha256": "e40ca5820c824b36d16b36523cbf44f8d4ad6eedd76b7036362188859185412f",
+    "generation_sha256": "4fec20068c58344a89b825f65b2326c74763e14b1d444441d417d1acb574e9a7"
+  },
+  "completed_attempt_generation_calls": 78,
+  "total_executed_generation_calls": 104,
+  "all_26_repeated_token_sequences_equal": true
+}

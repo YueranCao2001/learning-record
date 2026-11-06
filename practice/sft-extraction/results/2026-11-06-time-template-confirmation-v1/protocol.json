@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-06",
+  "cues": [
+    "会址",
+    "地点"
+  ],
+  "missing_status": "后续发布",
+  "conditions": [
+    "warm-start",
+    "canonical",
+    "target"
+  ],
+  "sources": [
+    {
+      "id": "ttc-01",
+      "event": "金石拓片交流课",
+      "time": "12月27日下午14:35",
+      "venue": "乌桐讲堂",
+      "template": "本周报名清单\n活动：{event}\n• {location_clause}\n• {time_clause}\n请按通知参加。",
+      "time_cue": "日程"
+    },
+    {
+      "id": "ttc-02",
+      "event": "苔藓微景观课",
+      "time": "周六上午09:25",
+      "venue": "桐花培育间",
+      "template": "关于“{event}”的安排，{location_clause}；{time_clause}。欢迎报名。",
+      "time_cue": "开课时间"
+    },
+    {
+      "id": "ttc-03",
+      "event": "旧报纸拼贴体验",
+      "time": "12月29日18:40",
+      "venue": "松萝美工室",
+      "template": "【{event}】\n{time_clause}｜{location_clause}\n本条仅列活动安排。",
+      "time_cue": "时间"
+    }
+  ],
+  "design": "Three new assistant-authored source groups, each crossed with two venue cues and the four time/location presence states. Two unchanged prior failure probes replay the historical behavior. Fixed weights and original prompt.",
+  "human_review": "pending",
+  "provenance": "Visible synthetic development cases inspired by a known failure. Three manually designed templates, not independently collected or reviewed."
+}

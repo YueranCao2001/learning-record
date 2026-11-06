@@ -1,0 +1,367 @@
+{
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "rows": [
+    {
+      "id": "ttc-01-cue0-complete",
+      "group": "ttc-01",
+      "cue": "会址",
+      "state": "complete",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "本周报名清单\n活动：金石拓片交流课\n• 会址：乌桐讲堂\n• 日程：12月27日下午14:35\n请按通知参加。",
+      "expected": {
+        "event": "金石拓片交流课",
+        "time": "12月27日下午14:35",
+        "location": "乌桐讲堂"
+      }
+    },
+    {
+      "id": "ttc-01-cue0-missing-time",
+      "group": "ttc-01",
+      "cue": "会址",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "本周报名清单\n活动：金石拓片交流课\n• 会址：乌桐讲堂\n• 日程：后续发布\n请按通知参加。",
+      "expected": {
+        "event": "金石拓片交流课",
+        "time": null,
+        "location": "乌桐讲堂"
+      }
+    },
+    {
+      "id": "ttc-01-cue0-missing-location",
+      "group": "ttc-01",
+      "cue": "会址",
+      "state": "missing-location",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "本周报名清单\n活动：金石拓片交流课\n• 会址：后续发布\n• 日程：12月27日下午14:35\n请按通知参加。",
+      "expected": {
+        "event": "金石拓片交流课",
+        "time": "12月27日下午14:35",
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-01-cue0-missing-both",
+      "group": "ttc-01",
+      "cue": "会址",
+      "state": "missing-both",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "本周报名清单\n活动：金石拓片交流课\n• 会址：后续发布\n• 日程：后续发布\n请按通知参加。",
+      "expected": {
+        "event": "金石拓片交流课",
+        "time": null,
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-01-cue1-complete",
+      "group": "ttc-01",
+      "cue": "地点",
+      "state": "complete",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "本周报名清单\n活动：金石拓片交流课\n• 地点：乌桐讲堂\n• 日程：12月27日下午14:35\n请按通知参加。",
+      "expected": {
+        "event": "金石拓片交流课",
+        "time": "12月27日下午14:35",
+        "location": "乌桐讲堂"
+      }
+    },
+    {
+      "id": "ttc-01-cue1-missing-time",
+      "group": "ttc-01",
+      "cue": "地点",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "本周报名清单\n活动：金石拓片交流课\n• 地点：乌桐讲堂\n• 日程：后续发布\n请按通知参加。",
+      "expected": {
+        "event": "金石拓片交流课",
+        "time": null,
+        "location": "乌桐讲堂"
+      }
+    },
+    {
+      "id": "ttc-01-cue1-missing-location",
+      "group": "ttc-01",
+      "cue": "地点",
+      "state": "missing-location",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "本周报名清单\n活动：金石拓片交流课\n• 地点：后续发布\n• 日程：12月27日下午14:35\n请按通知参加。",
+      "expected": {
+        "event": "金石拓片交流课",
+        "time": "12月27日下午14:35",
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-01-cue1-missing-both",
+      "group": "ttc-01",
+      "cue": "地点",
+      "state": "missing-both",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "本周报名清单\n活动：金石拓片交流课\n• 地点：后续发布\n• 日程：后续发布\n请按通知参加。",
+      "expected": {
+        "event": "金石拓片交流课",
+        "time": null,
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-02-cue0-complete",
+      "group": "ttc-02",
+      "cue": "会址",
+      "state": "complete",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "关于“苔藓微景观课”的安排，会址：桐花培育间；开课时间：周六上午09:25。欢迎报名。",
+      "expected": {
+        "event": "苔藓微景观课",
+        "time": "周六上午09:25",
+        "location": "桐花培育间"
+      }
+    },
+    {
+      "id": "ttc-02-cue0-missing-time",
+      "group": "ttc-02",
+      "cue": "会址",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "关于“苔藓微景观课”的安排，会址：桐花培育间；开课时间：后续发布。欢迎报名。",
+      "expected": {
+        "event": "苔藓微景观课",
+        "time": null,
+        "location": "桐花培育间"
+      }
+    },
+    {
+      "id": "ttc-02-cue0-missing-location",
+      "group": "ttc-02",
+      "cue": "会址",
+      "state": "missing-location",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "关于“苔藓微景观课”的安排，会址：后续发布；开课时间：周六上午09:25。欢迎报名。",
+      "expected": {
+        "event": "苔藓微景观课",
+        "time": "周六上午09:25",
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-02-cue0-missing-both",
+      "group": "ttc-02",
+      "cue": "会址",
+      "state": "missing-both",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "关于“苔藓微景观课”的安排，会址：后续发布；开课时间：后续发布。欢迎报名。",
+      "expected": {
+        "event": "苔藓微景观课",
+        "time": null,
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-02-cue1-complete",
+      "group": "ttc-02",
+      "cue": "地点",
+      "state": "complete",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "关于“苔藓微景观课”的安排，地点：桐花培育间；开课时间：周六上午09:25。欢迎报名。",
+      "expected": {
+        "event": "苔藓微景观课",
+        "time": "周六上午09:25",
+        "location": "桐花培育间"
+      }
+    },
+    {
+      "id": "ttc-02-cue1-missing-time",
+      "group": "ttc-02",
+      "cue": "地点",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "关于“苔藓微景观课”的安排，地点：桐花培育间；开课时间：后续发布。欢迎报名。",
+      "expected": {
+        "event": "苔藓微景观课",
+        "time": null,
+        "location": "桐花培育间"
+      }
+    },
+    {
+      "id": "ttc-02-cue1-missing-location",
+      "group": "ttc-02",
+      "cue": "地点",
+      "state": "missing-location",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "关于“苔藓微景观课”的安排，地点：后续发布；开课时间：周六上午09:25。欢迎报名。",
+      "expected": {
+        "event": "苔藓微景观课",
+        "time": "周六上午09:25",
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-02-cue1-missing-both",
+      "group": "ttc-02",
+      "cue": "地点",
+      "state": "missing-both",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "关于“苔藓微景观课”的安排，地点：后续发布；开课时间：后续发布。欢迎报名。",
+      "expected": {
+        "event": "苔藓微景观课",
+        "time": null,
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-03-cue0-complete",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "complete",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：12月29日18:40｜会址：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": "12月29日18:40",
+        "location": "松萝美工室"
+      }
+    },
+    {
+      "id": "ttc-03-cue0-missing-time",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：后续发布｜会址：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      }
+    },
+    {
+      "id": "ttc-03-cue0-missing-location",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "missing-location",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：12月29日18:40｜会址：后续发布\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": "12月29日18:40",
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-03-cue0-missing-both",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "missing-both",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：后续发布｜会址：后续发布\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-03-cue1-complete",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "complete",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：12月29日18:40｜地点：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": "12月29日18:40",
+        "location": "松萝美工室"
+      }
+    },
+    {
+      "id": "ttc-03-cue1-missing-time",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：后续发布｜地点：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      }
+    },
+    {
+      "id": "ttc-03-cue1-missing-location",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "missing-location",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：12月29日18:40｜地点：后续发布\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": "12月29日18:40",
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-03-cue1-missing-both",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "missing-both",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：后续发布｜地点：后续发布\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": null
+      }
+    },
+    {
+      "id": "confirm-02-missing-location",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、会址：后续发布\n二、日程：周日下午15:00\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": "周日下午15:00",
+        "location": null
+      },
+      "cohort": "historical-regression",
+      "family": null
+    },
+    {
+      "id": "time-regression-time-first",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、日程：周日下午15:00\n二、会址：后续发布\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": "周日下午15:00",
+        "location": null
+      },
+      "cohort": "time-regression",
+      "family": null
+    }
+  ]
+}

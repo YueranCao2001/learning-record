@@ -4,6 +4,7 @@ SFT、DPO、PPO 与 GRPO、Rollout 和奖励评估器。当前记录以概念及
 
 ## 日期笔记
 
+- 2026-11-06 [中文信息抽取微调：跨模板的时间与地点确认](../daily/2026/11/2026-11-06-sft-time-template-confirmation.md)
 - 2026-11-05 [中文信息抽取微调：时间漏抽的同源诊断](../daily/2026/11/2026-11-05-sft-time-regression-diagnostic.md)
 - 2026-11-04 [中文信息抽取微调：地点称谓的等步数训练对照](../daily/2026/11/2026-11-04-sft-venue-cue-comparison.md)
 - 2026-11-03 [中文信息抽取微调：地点配对数据与边界诊断](../daily/2026/11/2026-11-03-sft-venue-pair-coverage.md)
