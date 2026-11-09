@@ -1,0 +1,3515 @@
+[
+  {
+    "id": "venue-cue0-original-time-first",
+    "model_loss": 0.11382473260164261,
+    "first_difference_index": 14,
+    "free_token_logp_at_first_difference_under_gold_prefix": -0.08917152136564255,
+    "tokens": [
+      {
+        "input_position": 89,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.001852583372965455,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.001852583372965455
+      },
+      {
+        "input_position": 90,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -4.410734163684538e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -4.410734163684538e-06
+      },
+      {
+        "input_position": 91,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.002489326987415552,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.002489326987415552
+      },
+      {
+        "input_position": 92,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.010135255753993988,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.010135255753993988
+      },
+      {
+        "input_position": 93,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -3.814689989667386e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -3.814689989667386e-06
+      },
+      {
+        "input_position": 94,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 95,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -2.634490556374658e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -2.634490556374658e-05
+      },
+      {
+        "input_position": 96,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -3.6954811548639555e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -3.6954811548639555e-06
+      },
+      {
+        "input_position": 97,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.0003406421164982021,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.0003406421164982021
+      },
+      {
+        "input_position": 98,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.00019786784832831472,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.00019786784832831472
+      },
+      {
+        "input_position": 99,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.024186084046959877,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.024186084046959877
+      },
+      {
+        "input_position": 100,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.0006275591440498829,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.0006275591440498829
+      },
+      {
+        "input_position": 101,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -7.045020902296528e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -7.045020902296528e-05
+      },
+      {
+        "input_position": 102,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 103,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -2.4641714096069336,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.08917152136564255
+      },
+      {
+        "input_position": 104,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -4.768370445162873e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -4.768370445162873e-07
+      },
+      {
+        "input_position": 105,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -9.536738616588991e-07,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -9.536738616588991e-07
+      },
+      {
+        "input_position": 106,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 107,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -2.0265558760002023e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -2.0265558760002023e-06
+      },
+      {
+        "input_position": 108,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 109,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -2.4437606043647975e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -2.4437606043647975e-05
+      },
+      {
+        "input_position": 110,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -6.9141146923357155e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -6.9141146923357155e-06
+      }
+    ]
+  },
+  {
+    "id": "venue-cue0-original-venue-first",
+    "model_loss": 0.04554435983300209,
+    "first_difference_index": 14,
+    "free_token_logp_at_first_difference_under_gold_prefix": -0.4751560688018799,
+    "tokens": [
+      {
+        "input_position": 89,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0014602008741348982,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0014602008741348982
+      },
+      {
+        "input_position": 90,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -3.4570634852570947e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -3.4570634852570947e-06
+      },
+      {
+        "input_position": 91,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0028204445261508226,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0028204445261508226
+      },
+      {
+        "input_position": 92,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.011529600247740746,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.011529600247740746
+      },
+      {
+        "input_position": 93,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -3.6954811548639555e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -3.6954811548639555e-06
+      },
+      {
+        "input_position": 94,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 95,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -3.40932747349143e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -3.40932747349143e-05
+      },
+      {
+        "input_position": 96,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -3.3378546504536644e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -3.3378546504536644e-06
+      },
+      {
+        "input_position": 97,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00035386974923312664,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00035386974923312664
+      },
+      {
+        "input_position": 98,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.00039319414645433426,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.00039319414645433426
+      },
+      {
+        "input_position": 99,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.009625098668038845,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.009625098668038845
+      },
+      {
+        "input_position": 100,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.0004707658663392067,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.0004707658663392067
+      },
+      {
+        "input_position": 101,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -4.8636207793606445e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -4.8636207793606445e-05
+      },
+      {
+        "input_position": 102,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 103,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.9751560688018799,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.4751560688018799
+      },
+      {
+        "input_position": 104,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -4.768370445162873e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -4.768370445162873e-07
+      },
+      {
+        "input_position": 105,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -8.344646857949556e-07,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -8.344646857949556e-07
+      },
+      {
+        "input_position": 106,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 107,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.5497195136049413e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.5497195136049413e-06
+      },
+      {
+        "input_position": 108,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 109,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -6.258291978156194e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -6.258291978156194e-05
+      },
+      {
+        "input_position": 110,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -7.510157047363464e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -7.510157047363464e-06
+      }
+    ]
+  },
+  {
+    "id": "venue-cue0-alternate-time-first",
+    "model_loss": 0.07899519056081772,
+    "first_difference_index": 14,
+    "free_token_logp_at_first_difference_under_gold_prefix": -0.20161759853363037,
+    "tokens": [
+      {
+        "input_position": 89,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0012997282901778817,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0012997282901778817
+      },
+      {
+        "input_position": 90,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -3.933898824470816e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -3.933898824470816e-06
+      },
+      {
+        "input_position": 91,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.002824010793119669,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.002824010793119669
+      },
+      {
+        "input_position": 92,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.019560420885682106,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.019560420885682106
+      },
+      {
+        "input_position": 93,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -3.6954811548639555e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -3.6954811548639555e-06
+      },
+      {
+        "input_position": 94,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 95,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -2.8490614567999728e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -2.8490614567999728e-05
+      },
+      {
+        "input_position": 96,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -3.814689989667386e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -3.814689989667386e-06
+      },
+      {
+        "input_position": 97,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.0003586364327929914,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.0003586364327929914
+      },
+      {
+        "input_position": 98,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.00032944019767455757,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.00032944019767455757
+      },
+      {
+        "input_position": 99,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.010865218006074429,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.010865218006074429
+      },
+      {
+        "input_position": 100,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.0009130837861448526,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.0009130837861448526
+      },
+      {
+        "input_position": 101,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -5.2569914259947836e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -5.2569914259947836e-05
+      },
+      {
+        "input_position": 102,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 103,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -1.7016175985336304,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.20161759853363037
+      },
+      {
+        "input_position": 104,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 105,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -9.536738616588991e-07,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -9.536738616588991e-07
+      },
+      {
+        "input_position": 106,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 107,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.5497195136049413e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.5497195136049413e-06
+      },
+      {
+        "input_position": 108,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 109,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -2.3245540432981215e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -2.3245540432981215e-05
+      },
+      {
+        "input_position": 110,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -6.6756979322235566e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -6.6756979322235566e-06
+      }
+    ]
+  },
+  {
+    "id": "venue-cue0-alternate-venue-first",
+    "model_loss": 0.016174832358956337,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 89,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0015349523164331913,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0015349523164331913
+      },
+      {
+        "input_position": 90,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -3.3378546504536644e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -3.3378546504536644e-06
+      },
+      {
+        "input_position": 91,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0031986285466700792,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0031986285466700792
+      },
+      {
+        "input_position": 92,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.02461419813334942,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.02461419813334942
+      },
+      {
+        "input_position": 93,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -3.6954811548639555e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -3.6954811548639555e-06
+      },
+      {
+        "input_position": 94,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 95,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -2.8490614567999728e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -2.8490614567999728e-05
+      },
+      {
+        "input_position": 96,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -2.7418097943154862e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -2.7418097943154862e-06
+      },
+      {
+        "input_position": 97,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00037305548903532326,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00037305548903532326
+      },
+      {
+        "input_position": 98,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.0004518203204497695,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.0004518203204497695
+      },
+      {
+        "input_position": 99,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.011055760085582733,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.011055760085582733
+      },
+      {
+        "input_position": 100,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.000709401210770011,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.000709401210770011
+      },
+      {
+        "input_position": 101,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -3.707340147229843e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -3.707340147229843e-05
+      },
+      {
+        "input_position": 102,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 103,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.3137606978416443,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.3137606978416443
+      },
+      {
+        "input_position": 104,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 105,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -8.344646857949556e-07,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -8.344646857949556e-07
+      },
+      {
+        "input_position": 106,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 107,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.1920922133867862e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.1920922133867862e-06
+      },
+      {
+        "input_position": 108,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 109,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -5.98412734689191e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -5.98412734689191e-05
+      },
+      {
+        "input_position": 110,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -9.775113539944869e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -9.775113539944869e-06
+      }
+    ]
+  },
+  {
+    "id": "venue-cue0-explicit-time-first",
+    "model_loss": 0.0015372860943898559,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 98,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0013690156629309058,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0013690156629309058
+      },
+      {
+        "input_position": 99,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -4.768360213347478e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -4.768360213347478e-06
+      },
+      {
+        "input_position": 100,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0036176491994410753,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0036176491994410753
+      },
+      {
+        "input_position": 101,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.027292504906654358,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.027292504906654358
+      },
+      {
+        "input_position": 102,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -3.4570634852570947e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -3.4570634852570947e-06
+      },
+      {
+        "input_position": 103,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 104,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -1.2874520507466514e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -1.2874520507466514e-05
+      },
+      {
+        "input_position": 105,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -2.50339189733495e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -2.50339189733495e-06
+      },
+      {
+        "input_position": 106,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.0003713871701620519,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.0003713871701620519
+      },
+      {
+        "input_position": 107,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.00019608005823101848,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.00019608005823101848
+      },
+      {
+        "input_position": 108,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.011129326187074184,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.011129326187074184
+      },
+      {
+        "input_position": 109,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -3.886147169396281e-05,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -3.886147169396281e-05
+      },
+      {
+        "input_position": 110,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": -0.0003815161471720785,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": -0.0003815161471720785
+      },
+      {
+        "input_position": 111,
+        "target_id": 9754,
+        "target_text": "月",
+        "target_logp": -2.145764938177308e-06,
+        "argmax_id": 9754,
+        "argmax_text": "月",
+        "argmax_logp": -2.145764938177308e-06
+      },
+      {
+        "input_position": 112,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": 0.0,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 113,
+        "target_id": 24,
+        "target_text": "9",
+        "target_logp": -1.0728830375228426e-06,
+        "argmax_id": 24,
+        "argmax_text": "9",
+        "argmax_logp": -1.0728830375228426e-06
+      },
+      {
+        "input_position": 114,
+        "target_id": 8903,
+        "target_text": "日",
+        "target_logp": -1.2159273865108844e-05,
+        "argmax_id": 8903,
+        "argmax_text": "日",
+        "argmax_logp": -1.2159273865108844e-05
+      },
+      {
+        "input_position": 115,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -0.00020394629973452538,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -0.00020394629973452538
+      },
+      {
+        "input_position": 116,
+        "target_id": 23,
+        "target_text": "8",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 23,
+        "argmax_text": "8",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 117,
+        "target_id": 25,
+        "target_text": ":",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 25,
+        "argmax_text": ":",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 118,
+        "target_id": 19,
+        "target_text": "4",
+        "target_logp": 0.0,
+        "argmax_id": 19,
+        "argmax_text": "4",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 119,
+        "target_id": 15,
+        "target_text": "0",
+        "target_logp": 0.0,
+        "argmax_id": 15,
+        "argmax_text": "0",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 120,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00017987063620239496,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00017987063620239496
+      },
+      {
+        "input_position": 121,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 122,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.004227273631840944,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.004227273631840944
+      },
+      {
+        "input_position": 123,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -0.00010168035078095272,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -0.00010168035078095272
+      },
+      {
+        "input_position": 124,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -1.9073468138230965e-06,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -1.9073468138230965e-06
+      },
+      {
+        "input_position": 125,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 126,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -2.145764938177308e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -2.145764938177308e-06
+      },
+      {
+        "input_position": 127,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 128,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -2.825220326485578e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -2.825220326485578e-05
+      },
+      {
+        "input_position": 129,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -1.2159273865108844e-05,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -1.2159273865108844e-05
+      }
+    ]
+  },
+  {
+    "id": "venue-cue0-explicit-venue-first",
+    "model_loss": 0.0017173257656395435,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 98,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0013546108966693282,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0013546108966693282
+      },
+      {
+        "input_position": 99,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -4.887569048150908e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -4.887569048150908e-06
+      },
+      {
+        "input_position": 100,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0028232974000275135,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0028232974000275135
+      },
+      {
+        "input_position": 101,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.021500365808606148,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.021500365808606148
+      },
+      {
+        "input_position": 102,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -3.814689989667386e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -3.814689989667386e-06
+      },
+      {
+        "input_position": 103,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 104,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -1.7762025890988298e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -1.7762025890988298e-05
+      },
+      {
+        "input_position": 105,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -2.7418097943154862e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -2.7418097943154862e-06
+      },
+      {
+        "input_position": 106,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.0003634030872490257,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.0003634030872490257
+      },
+      {
+        "input_position": 107,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.00027176024741493165,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.00027176024741493165
+      },
+      {
+        "input_position": 108,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.026417484506964684,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.026417484506964684
+      },
+      {
+        "input_position": 109,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -7.915183232398704e-05,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -7.915183232398704e-05
+      },
+      {
+        "input_position": 110,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": -4.291525328881107e-06,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": -4.291525328881107e-06
+      },
+      {
+        "input_position": 111,
+        "target_id": 9754,
+        "target_text": "月",
+        "target_logp": -4.0531076592742465e-06,
+        "argmax_id": 9754,
+        "argmax_text": "月",
+        "argmax_logp": -4.0531076592742465e-06
+      },
+      {
+        "input_position": 112,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 113,
+        "target_id": 24,
+        "target_text": "9",
+        "target_logp": -3.576272320060525e-06,
+        "argmax_id": 24,
+        "argmax_text": "9",
+        "argmax_logp": -3.576272320060525e-06
+      },
+      {
+        "input_position": 114,
+        "target_id": 8903,
+        "target_text": "日",
+        "target_logp": -9.894321920000948e-06,
+        "argmax_id": 8903,
+        "argmax_text": "日",
+        "argmax_logp": -9.894321920000948e-06
+      },
+      {
+        "input_position": 115,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -0.000325388420606032,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -0.000325388420606032
+      },
+      {
+        "input_position": 116,
+        "target_id": 23,
+        "target_text": "8",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 23,
+        "argmax_text": "8",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 117,
+        "target_id": 25,
+        "target_text": ":",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 25,
+        "argmax_text": ":",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 118,
+        "target_id": 19,
+        "target_text": "4",
+        "target_logp": 0.0,
+        "argmax_id": 19,
+        "argmax_text": "4",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 119,
+        "target_id": 15,
+        "target_text": "0",
+        "target_logp": 0.0,
+        "argmax_id": 15,
+        "argmax_text": "0",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 120,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00029488030122593045,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00029488030122593045
+      },
+      {
+        "input_position": 121,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 122,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.001383658149279654,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.001383658149279654
+      },
+      {
+        "input_position": 123,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -8.344646857949556e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -8.344646857949556e-07
+      },
+      {
+        "input_position": 124,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -1.311301275563892e-06,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -1.311301275563892e-06
+      },
+      {
+        "input_position": 125,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 126,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.5497195136049413e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.5497195136049413e-06
+      },
+      {
+        "input_position": 127,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 128,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -6.985420623095706e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -6.985420623095706e-05
+      },
+      {
+        "input_position": 129,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -1.490105023549404e-05,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -1.490105023549404e-05
+      }
+    ]
+  },
+  {
+    "id": "venue-cue0-drop-time",
+    "model_loss": 0.00410762382671237,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 84,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.001341991825029254,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.001341991825029254
+      },
+      {
+        "input_position": 85,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -2.7418097943154862e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -2.7418097943154862e-06
+      },
+      {
+        "input_position": 86,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0024900403805077076,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0024900403805077076
+      },
+      {
+        "input_position": 87,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.010968983173370361,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.010968983173370361
+      },
+      {
+        "input_position": 88,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -3.3378546504536644e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -3.3378546504536644e-06
+      },
+      {
+        "input_position": 89,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 90,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -3.0636318115284666e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -3.0636318115284666e-05
+      },
+      {
+        "input_position": 91,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -3.3378546504536644e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -3.3378546504536644e-06
+      },
+      {
+        "input_position": 92,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00020287363440729678,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00020287363440729678
+      },
+      {
+        "input_position": 93,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.0002774807217065245,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.0002774807217065245
+      },
+      {
+        "input_position": 94,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.01752873696386814,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.01752873696386814
+      },
+      {
+        "input_position": 95,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.0024590035900473595,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.0024590035900473595
+      },
+      {
+        "input_position": 96,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -5.2927523938706145e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -5.2927523938706145e-05
+      },
+      {
+        "input_position": 97,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 98,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.054976072162389755,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.054976072162389755
+      },
+      {
+        "input_position": 99,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 100,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -1.0728830375228426e-06,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -1.0728830375228426e-06
+      },
+      {
+        "input_position": 101,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 102,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -2.264974000354414e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -2.264974000354414e-06
+      },
+      {
+        "input_position": 103,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 104,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -1.7165990357170813e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -1.7165990357170813e-05
+      },
+      {
+        "input_position": 105,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -8.106198947643861e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -8.106198947643861e-06
+      }
+    ]
+  },
+  {
+    "id": "venue-cue1-original-time-first",
+    "model_loss": 0.08942455798387527,
+    "first_difference_index": 14,
+    "free_token_logp_at_first_difference_under_gold_prefix": -0.1604267954826355,
+    "tokens": [
+      {
+        "input_position": 88,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.002149891806766391,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.002149891806766391
+      },
+      {
+        "input_position": 89,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -4.172316494077677e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -4.172316494077677e-06
+      },
+      {
+        "input_position": 90,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0021978288423269987,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0021978288423269987
+      },
+      {
+        "input_position": 91,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.013988192193210125,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.013988192193210125
+      },
+      {
+        "input_position": 92,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -3.3378546504536644e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -3.3378546504536644e-06
+      },
+      {
+        "input_position": 93,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 94,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -3.5523738915799186e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -3.5523738915799186e-05
+      },
+      {
+        "input_position": 95,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -4.291525328881107e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -4.291525328881107e-06
+      },
+      {
+        "input_position": 96,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00031156453769654036,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00031156453769654036
+      },
+      {
+        "input_position": 97,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.00012027494085486978,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.00012027494085486978
+      },
+      {
+        "input_position": 98,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.03737754002213478,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.03737754002213478
+      },
+      {
+        "input_position": 99,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.0006262486567720771,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.0006262486567720771
+      },
+      {
+        "input_position": 100,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -6.472854875028133e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -6.472854875028133e-05
+      },
+      {
+        "input_position": 101,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 102,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -1.9104268550872803,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.1604267954826355
+      },
+      {
+        "input_position": 103,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 104,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -1.4305104514278355e-06,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -1.4305104514278355e-06
+      },
+      {
+        "input_position": 105,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 106,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.9073468138230965e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.9073468138230965e-06
+      },
+      {
+        "input_position": 107,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 108,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -2.0503786799963564e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -2.0503786799963564e-05
+      },
+      {
+        "input_position": 109,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -5.245195097813848e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -5.245195097813848e-06
+      }
+    ]
+  },
+  {
+    "id": "venue-cue1-original-venue-first",
+    "model_loss": 0.021294578909873962,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 88,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0014632957754656672,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0014632957754656672
+      },
+      {
+        "input_position": 89,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -2.622600959512056e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -2.622600959512056e-06
+      },
+      {
+        "input_position": 90,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.00282187107950449,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.00282187107950449
+      },
+      {
+        "input_position": 91,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.01997135765850544,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.01997135765850544
+      },
+      {
+        "input_position": 92,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -3.2186455882765586e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -3.2186455882765586e-06
+      },
+      {
+        "input_position": 93,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 94,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -3.4927710657939315e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -3.4927710657939315e-05
+      },
+      {
+        "input_position": 95,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -3.814689989667386e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -3.814689989667386e-06
+      },
+      {
+        "input_position": 96,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00035851728171110153,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00035851728171110153
+      },
+      {
+        "input_position": 97,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.00039188333903439343,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.00039188333903439343
+      },
+      {
+        "input_position": 98,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.013403075747191906,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.013403075747191906
+      },
+      {
+        "input_position": 99,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.0005355831235647202,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.0005355831235647202
+      },
+      {
+        "input_position": 100,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -4.875540980719961e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -4.875540980719961e-05
+      },
+      {
+        "input_position": 101,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 102,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.42935502529144287,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.42935502529144287
+      },
+      {
+        "input_position": 103,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 104,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -2.0265558760002023e-06,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -2.0265558760002023e-06
+      },
+      {
+        "input_position": 105,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 106,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.1920922133867862e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.1920922133867862e-06
+      },
+      {
+        "input_position": 107,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 108,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -7.30726242181845e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -7.30726242181845e-05
+      },
+      {
+        "input_position": 109,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -9.65590606938349e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -9.65590606938349e-06
+      }
+    ]
+  },
+  {
+    "id": "venue-cue1-alternate-time-first",
+    "model_loss": 0.043146710842847824,
+    "first_difference_index": 14,
+    "free_token_logp_at_first_difference_under_gold_prefix": -0.5233210325241089,
+    "tokens": [
+      {
+        "input_position": 88,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.001459129503928125,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.001459129503928125
+      },
+      {
+        "input_position": 89,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -3.6954811548639555e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -3.6954811548639555e-06
+      },
+      {
+        "input_position": 90,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0036196685396134853,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0036196685396134853
+      },
+      {
+        "input_position": 91,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.032485298812389374,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.032485298812389374
+      },
+      {
+        "input_position": 92,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -2.7418097943154862e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -2.7418097943154862e-06
+      },
+      {
+        "input_position": 93,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 94,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -3.85038583772257e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -3.85038583772257e-05
+      },
+      {
+        "input_position": 95,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -4.887569048150908e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -4.887569048150908e-06
+      },
+      {
+        "input_position": 96,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00033396866638213396,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00033396866638213396
+      },
+      {
+        "input_position": 97,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.000176652567461133,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.000176652567461133
+      },
+      {
+        "input_position": 98,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.012069527991116047,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.012069527991116047
+      },
+      {
+        "input_position": 99,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.0006372089846991003,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.0006372089846991003
+      },
+      {
+        "input_position": 100,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -4.577531944960356e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -4.577531944960356e-05
+      },
+      {
+        "input_position": 101,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 102,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.8983210325241089,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.5233210325241089
+      },
+      {
+        "input_position": 103,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": 0.0,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 104,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -1.0728830375228426e-06,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -1.0728830375228426e-06
+      },
+      {
+        "input_position": 105,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 106,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.9073468138230965e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.9073468138230965e-06
+      },
+      {
+        "input_position": 107,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 108,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -1.7881233361549675e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -1.7881233361549675e-05
+      },
+      {
+        "input_position": 109,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -8.106198947643861e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -8.106198947643861e-06
+      }
+    ]
+  },
+  {
+    "id": "venue-cue1-alternate-venue-first",
+    "model_loss": 0.009235204197466373,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 88,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0015292390016838908,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0015292390016838908
+      },
+      {
+        "input_position": 89,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -3.814689989667386e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -3.814689989667386e-06
+      },
+      {
+        "input_position": 90,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.004101318307220936,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.004101318307220936
+      },
+      {
+        "input_position": 91,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.03986946865916252,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.03986946865916252
+      },
+      {
+        "input_position": 92,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -3.099436753473128e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -3.099436753473128e-06
+      },
+      {
+        "input_position": 93,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 94,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -2.95634672511369e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -2.95634672511369e-05
+      },
+      {
+        "input_position": 95,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -3.933898824470816e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -3.933898824470816e-06
+      },
+      {
+        "input_position": 96,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.000390215078368783,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.000390215078368783
+      },
+      {
+        "input_position": 97,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.0005648924270644784,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.0005648924270644784
+      },
+      {
+        "input_position": 98,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.012808083556592464,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.012808083556592464
+      },
+      {
+        "input_position": 99,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.00082601752365008,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.00082601752365008
+      },
+      {
+        "input_position": 100,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -3.6000557884108275e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -3.6000557884108275e-05
+      },
+      {
+        "input_position": 101,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 102,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.14293541014194489,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.14293541014194489
+      },
+      {
+        "input_position": 103,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 104,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -2.0265558760002023e-06,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -2.0265558760002023e-06
+      },
+      {
+        "input_position": 105,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 106,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.6689286894688848e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.6689286894688848e-06
+      },
+      {
+        "input_position": 107,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 108,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -6.19869097135961e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -6.19869097135961e-05
+      },
+      {
+        "input_position": 109,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -7.033323527139146e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -7.033323527139146e-06
+      }
+    ]
+  },
+  {
+    "id": "venue-cue1-explicit-time-first",
+    "model_loss": 0.0018535249400883913,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 97,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0013254437362775207,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0013254437362775207
+      },
+      {
+        "input_position": 98,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -5.722029527532868e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -5.722029527532868e-06
+      },
+      {
+        "input_position": 99,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.003196133067831397,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.003196133067831397
+      },
+      {
+        "input_position": 100,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.02471049875020981,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.02471049875020981
+      },
+      {
+        "input_position": 101,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -4.0531076592742465e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -4.0531076592742465e-06
+      },
+      {
+        "input_position": 102,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 103,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -1.2397689715726301e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -1.2397689715726301e-05
+      },
+      {
+        "input_position": 104,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -3.933898824470816e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -3.933898824470816e-06
+      },
+      {
+        "input_position": 105,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.0003510097449179739,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.0003510097449179739
+      },
+      {
+        "input_position": 106,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.0001012035645544529,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.0001012035645544529
+      },
+      {
+        "input_position": 107,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.014248069375753403,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.014248069375753403
+      },
+      {
+        "input_position": 108,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -4.911301948595792e-05,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -4.911301948595792e-05
+      },
+      {
+        "input_position": 109,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": -0.000262106885202229,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": -0.000262106885202229
+      },
+      {
+        "input_position": 110,
+        "target_id": 9754,
+        "target_text": "月",
+        "target_logp": -2.145764938177308e-06,
+        "argmax_id": 9754,
+        "argmax_text": "月",
+        "argmax_logp": -2.145764938177308e-06
+      },
+      {
+        "input_position": 111,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": 0.0,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 112,
+        "target_id": 24,
+        "target_text": "9",
+        "target_logp": -1.0728830375228426e-06,
+        "argmax_id": 24,
+        "argmax_text": "9",
+        "argmax_logp": -1.0728830375228426e-06
+      },
+      {
+        "input_position": 113,
+        "target_id": 8903,
+        "target_text": "日",
+        "target_logp": -1.3947389561508317e-05,
+        "argmax_id": 8903,
+        "argmax_text": "日",
+        "argmax_logp": -1.3947389561508317e-05
+      },
+      {
+        "input_position": 114,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -0.00012420836719684303,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -0.00012420836719684303
+      },
+      {
+        "input_position": 115,
+        "target_id": 23,
+        "target_text": "8",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 23,
+        "argmax_text": "8",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 116,
+        "target_id": 25,
+        "target_text": ":",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 25,
+        "argmax_text": ":",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 117,
+        "target_id": 19,
+        "target_text": "4",
+        "target_logp": 0.0,
+        "argmax_id": 19,
+        "argmax_text": "4",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 118,
+        "target_id": 15,
+        "target_text": "0",
+        "target_logp": 0.0,
+        "argmax_id": 15,
+        "argmax_text": "0",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 119,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00015948931104503572,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00015948931104503572
+      },
+      {
+        "input_position": 120,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 121,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.014677757397294044,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.014677757397294044
+      },
+      {
+        "input_position": 122,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -4.768370445162873e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -4.768370445162873e-07
+      },
+      {
+        "input_position": 123,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -1.6689286894688848e-06,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -1.6689286894688848e-06
+      },
+      {
+        "input_position": 124,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 125,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.0728830375228426e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.0728830375228426e-06
+      },
+      {
+        "input_position": 126,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -4.768370445162873e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -4.768370445162873e-07
+      },
+      {
+        "input_position": 127,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -4.7801782784517854e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -4.7801782784517854e-05
+      },
+      {
+        "input_position": 128,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -1.2636104656849056e-05,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -1.2636104656849056e-05
+      }
+    ]
+  },
+  {
+    "id": "venue-cue1-explicit-venue-first",
+    "model_loss": 0.001991871977224946,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 97,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.001358896610327065,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.001358896610327065
+      },
+      {
+        "input_position": 98,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -3.6954811548639555e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -3.6954811548639555e-06
+      },
+      {
+        "input_position": 99,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0036215689033269882,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0036215689033269882
+      },
+      {
+        "input_position": 100,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.03495340421795845,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.03495340421795845
+      },
+      {
+        "input_position": 101,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -3.099436753473128e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -3.099436753473128e-06
+      },
+      {
+        "input_position": 102,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 103,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -1.5139465176616795e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -1.5139465176616795e-05
+      },
+      {
+        "input_position": 104,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -3.099436753473128e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -3.099436753473128e-06
+      },
+      {
+        "input_position": 105,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00032455421751365066,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00032455421751365066
+      },
+      {
+        "input_position": 106,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.0003474347176961601,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.0003474347176961601
+      },
+      {
+        "input_position": 107,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.02062014304101467,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.02062014304101467
+      },
+      {
+        "input_position": 108,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -6.007967749610543e-05,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -6.007967749610543e-05
+      },
+      {
+        "input_position": 109,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": -2.288792165927589e-05,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": -2.288792165927589e-05
+      },
+      {
+        "input_position": 110,
+        "target_id": 9754,
+        "target_text": "月",
+        "target_logp": -2.861018856492592e-06,
+        "argmax_id": 9754,
+        "argmax_text": "月",
+        "argmax_logp": -2.861018856492592e-06
+      },
+      {
+        "input_position": 111,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 112,
+        "target_id": 24,
+        "target_text": "9",
+        "target_logp": -2.7418097943154862e-06,
+        "argmax_id": 24,
+        "argmax_text": "9",
+        "argmax_logp": -2.7418097943154862e-06
+      },
+      {
+        "input_position": 113,
+        "target_id": 8903,
+        "target_text": "日",
+        "target_logp": -1.3232143828645349e-05,
+        "argmax_id": 8903,
+        "argmax_text": "日",
+        "argmax_logp": -1.3232143828645349e-05
+      },
+      {
+        "input_position": 114,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -0.000284154579276219,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -0.000284154579276219
+      },
+      {
+        "input_position": 115,
+        "target_id": 23,
+        "target_text": "8",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 23,
+        "argmax_text": "8",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 116,
+        "target_id": 25,
+        "target_text": ":",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 25,
+        "argmax_text": ":",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 117,
+        "target_id": 19,
+        "target_text": "4",
+        "target_logp": 0.0,
+        "argmax_id": 19,
+        "argmax_text": "4",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 118,
+        "target_id": 15,
+        "target_text": "0",
+        "target_logp": 0.0,
+        "argmax_id": 15,
+        "argmax_text": "0",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 119,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.0002454218047205359,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.0002454218047205359
+      },
+      {
+        "input_position": 120,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 121,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0017797596519812942,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0017797596519812942
+      },
+      {
+        "input_position": 122,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -7.152555099310121e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -7.152555099310121e-07
+      },
+      {
+        "input_position": 123,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -3.3378546504536644e-06,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -3.3378546504536644e-06
+      },
+      {
+        "input_position": 124,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 125,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -1.0728830375228426e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -1.0728830375228426e-06
+      },
+      {
+        "input_position": 126,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 127,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -5.94836674281396e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -5.94836674281396e-05
+      },
+      {
+        "input_position": 128,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -1.2159273865108844e-05,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -1.2159273865108844e-05
+      }
+    ]
+  },
+  {
+    "id": "venue-cue1-drop-time",
+    "model_loss": 0.0024804205168038607,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 83,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0013990148436278105,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0013990148436278105
+      },
+      {
+        "input_position": 84,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -2.50339189733495e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -2.50339189733495e-06
+      },
+      {
+        "input_position": 85,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.002819374669343233,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.002819374669343233
+      },
+      {
+        "input_position": 86,
+        "target_id": 100052,
+        "target_text": "旧",
+        "target_logp": -0.014322340488433838,
+        "argmax_id": 100052,
+        "argmax_text": "旧",
+        "argmax_logp": -0.014322340488433838
+      },
+      {
+        "input_position": 87,
+        "target_id": 107574,
+        "target_text": "报纸",
+        "target_logp": -2.50339189733495e-06,
+        "argmax_id": 107574,
+        "argmax_text": "报纸",
+        "argmax_logp": -2.50339189733495e-06
+      },
+      {
+        "input_position": 88,
+        "target_id": 100278,
+        "target_text": "拼",
+        "target_logp": 0.0,
+        "argmax_id": 100278,
+        "argmax_text": "拼",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 89,
+        "target_id": 99934,
+        "target_text": "贴",
+        "target_logp": -2.8609820219571702e-05,
+        "argmax_id": 99934,
+        "argmax_text": "贴",
+        "argmax_logp": -2.8609820219571702e-05
+      },
+      {
+        "input_position": 90,
+        "target_id": 101904,
+        "target_text": "体验",
+        "target_logp": -3.933898824470816e-06,
+        "argmax_id": 101904,
+        "argmax_text": "体验",
+        "argmax_logp": -3.933898824470816e-06
+      },
+      {
+        "input_position": 91,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00019167017308063805,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00019167017308063805
+      },
+      {
+        "input_position": 92,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -0.00039176418795250356,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -0.00039176418795250356
+      },
+      {
+        "input_position": 93,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.02035818062722683,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.02035818062722683
+      },
+      {
+        "input_position": 94,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.002419165801256895,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.002419165801256895
+      },
+      {
+        "input_position": 95,
+        "target_id": 1335,
+        "target_text": ",\"",
+        "target_logp": -3.9934315282152966e-05,
+        "argmax_id": 1335,
+        "argmax_text": ",\"",
+        "argmax_logp": -3.9934315282152966e-05
+      },
+      {
+        "input_position": 96,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 97,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.012558426707983017,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.012558426707983017
+      },
+      {
+        "input_position": 98,
+        "target_id": 100180,
+        "target_text": "松",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 100180,
+        "argmax_text": "松",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 99,
+        "target_id": 101799,
+        "target_text": "萝",
+        "target_logp": -2.9802276912960224e-06,
+        "argmax_id": 101799,
+        "argmax_text": "萝",
+        "argmax_logp": -2.9802276912960224e-06
+      },
+      {
+        "input_position": 100,
+        "target_id": 57566,
+        "target_text": "美",
+        "target_logp": 0.0,
+        "argmax_id": 57566,
+        "argmax_text": "美",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 101,
+        "target_id": 48692,
+        "target_text": "工",
+        "target_logp": -2.145764938177308e-06,
+        "argmax_id": 48692,
+        "argmax_text": "工",
+        "argmax_logp": -2.145764938177308e-06
+      },
+      {
+        "input_position": 102,
+        "target_id": 99478,
+        "target_text": "室",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 99478,
+        "argmax_text": "室",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 103,
+        "target_id": 9207,
+        "target_text": "\"}",
+        "target_logp": -1.8954096958623268e-05,
+        "argmax_id": 9207,
+        "argmax_text": "\"}",
+        "argmax_logp": -1.8954096958623268e-05
+      },
+      {
+        "input_position": 104,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -6.9141146923357155e-06,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -6.9141146923357155e-06
+      }
+    ]
+  },
+  {
+    "id": "ttc-01-cue0-missing-location",
+    "model_loss": 0.012307710014283657,
+    "first_difference_index": null,
+    "free_token_logp_at_first_difference_under_gold_prefix": null,
+    "tokens": [
+      {
+        "input_position": 102,
+        "target_id": 4913,
+        "target_text": "{\"",
+        "target_logp": -0.0015713736647740006,
+        "argmax_id": 4913,
+        "argmax_text": "{\"",
+        "argmax_logp": -0.0015713736647740006
+      },
+      {
+        "input_position": 103,
+        "target_id": 3087,
+        "target_text": "event",
+        "target_logp": -2.861018856492592e-06,
+        "argmax_id": 3087,
+        "argmax_text": "event",
+        "argmax_logp": -2.861018856492592e-06
+      },
+      {
+        "input_position": 104,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.0028153329622000456,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.0028153329622000456
+      },
+      {
+        "input_position": 105,
+        "target_id": 34230,
+        "target_text": "金",
+        "target_logp": -9.417489309271332e-06,
+        "argmax_id": 34230,
+        "argmax_text": "金",
+        "argmax_logp": -9.417489309271332e-06
+      },
+      {
+        "input_position": 106,
+        "target_id": 99385,
+        "target_text": "石",
+        "target_logp": -1.6689286894688848e-06,
+        "argmax_id": 99385,
+        "argmax_text": "石",
+        "argmax_logp": -1.6689286894688848e-06
+      },
+      {
+        "input_position": 107,
+        "target_id": 100786,
+        "target_text": "拓",
+        "target_logp": 0.0,
+        "argmax_id": 100786,
+        "argmax_text": "拓",
+        "argmax_logp": 0.0
+      },
+      {
+        "input_position": 108,
+        "target_id": 34718,
+        "target_text": "片",
+        "target_logp": -5.9602869441732764e-05,
+        "argmax_id": 34718,
+        "argmax_text": "片",
+        "argmax_logp": -5.9602869441732764e-05
+      },
+      {
+        "input_position": 109,
+        "target_id": 101069,
+        "target_text": "交流",
+        "target_logp": -2.861018856492592e-06,
+        "argmax_id": 101069,
+        "argmax_text": "交流",
+        "argmax_logp": -2.861018856492592e-06
+      },
+      {
+        "input_position": 110,
+        "target_id": 99504,
+        "target_text": "课",
+        "target_logp": -9.536738616588991e-07,
+        "argmax_id": 99504,
+        "argmax_text": "课",
+        "argmax_logp": -9.536738616588991e-07
+      },
+      {
+        "input_position": 111,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.00028796817059628665,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.00028796817059628665
+      },
+      {
+        "input_position": 112,
+        "target_id": 1678,
+        "target_text": "time",
+        "target_logp": -8.40390202938579e-05,
+        "argmax_id": 1678,
+        "argmax_text": "time",
+        "argmax_logp": -8.40390202938579e-05
+      },
+      {
+        "input_position": 113,
+        "target_id": 3252,
+        "target_text": "\":\"",
+        "target_logp": -0.3156234622001648,
+        "argmax_id": 3252,
+        "argmax_text": "\":\"",
+        "argmax_logp": -0.3156234622001648
+      },
+      {
+        "input_position": 114,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -0.00033563701435923576,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -0.00033563701435923576
+      },
+      {
+        "input_position": 115,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": -1.0728830375228426e-06,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": -1.0728830375228426e-06
+      },
+      {
+        "input_position": 116,
+        "target_id": 9754,
+        "target_text": "月",
+        "target_logp": -3.2186455882765586e-06,
+        "argmax_id": 9754,
+        "argmax_text": "月",
+        "argmax_logp": -3.2186455882765586e-06
+      },
+      {
+        "input_position": 117,
+        "target_id": 17,
+        "target_text": "2",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 17,
+        "argmax_text": "2",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 118,
+        "target_id": 22,
+        "target_text": "7",
+        "target_logp": -3.933898824470816e-06,
+        "argmax_id": 22,
+        "argmax_text": "7",
+        "argmax_logp": -3.933898824470816e-06
+      },
+      {
+        "input_position": 119,
+        "target_id": 105286,
+        "target_text": "日下午",
+        "target_logp": -0.026654766872525215,
+        "argmax_id": 105286,
+        "argmax_text": "日下午",
+        "argmax_logp": -0.026654766872525215
+      },
+      {
+        "input_position": 120,
+        "target_id": 16,
+        "target_text": "1",
+        "target_logp": -1.2397689715726301e-05,
+        "argmax_id": 16,
+        "argmax_text": "1",
+        "argmax_logp": -1.2397689715726301e-05
+      },
+      {
+        "input_position": 121,
+        "target_id": 19,
+        "target_text": "4",
+        "target_logp": -4.768370445162873e-07,
+        "argmax_id": 19,
+        "argmax_text": "4",
+        "argmax_logp": -4.768370445162873e-07
+      },
+      {
+        "input_position": 122,
+        "target_id": 25,
+        "target_text": ":",
+        "target_logp": -3.576278118089249e-07,
+        "argmax_id": 25,
+        "argmax_text": ":",
+        "argmax_logp": -3.576278118089249e-07
+      },
+      {
+        "input_position": 123,
+        "target_id": 18,
+        "target_text": "3",
+        "target_logp": -2.3841855067985307e-07,
+        "argmax_id": 18,
+        "argmax_text": "3",
+        "argmax_logp": -2.3841855067985307e-07
+      },
+      {
+        "input_position": 124,
+        "target_id": 20,
+        "target_text": "5",
+        "target_logp": -2.50339189733495e-06,
+        "argmax_id": 20,
+        "argmax_text": "5",
+        "argmax_logp": -2.50339189733495e-06
+      },
+      {
+        "input_position": 125,
+        "target_id": 2198,
+        "target_text": "\",\"",
+        "target_logp": -0.0002015625941567123,
+        "argmax_id": 2198,
+        "argmax_text": "\",\"",
+        "argmax_logp": -0.0002015625941567123
+      },
+      {
+        "input_position": 126,
+        "target_id": 2527,
+        "target_text": "location",
+        "target_logp": -1.1920928244535389e-07,
+        "argmax_id": 2527,
+        "argmax_text": "location",
+        "argmax_logp": -1.1920928244535389e-07
+      },
+      {
+        "input_position": 127,
+        "target_id": 788,
+        "target_text": "\":",
+        "target_logp": -0.007780247833579779,
+        "argmax_id": 788,
+        "argmax_text": "\":",
+        "argmax_logp": -0.007780247833579779
+      },
+      {
+        "input_position": 128,
+        "target_id": 2921,
+        "target_text": "null",
+        "target_logp": -0.001358658540993929,
+        "argmax_id": 2921,
+        "argmax_text": "null",
+        "argmax_logp": -0.001358658540993929
+      },
+      {
+        "input_position": 129,
+        "target_id": 92,
+        "target_text": "}",
+        "target_logp": -8.034383063204587e-05,
+        "argmax_id": 92,
+        "argmax_text": "}",
+        "argmax_logp": -8.034383063204587e-05
+      },
+      {
+        "input_position": 130,
+        "target_id": 151645,
+        "target_text": "<|im_end|>",
+        "target_logp": -2.8132995794294402e-05,
+        "argmax_id": 151645,
+        "argmax_text": "<|im_end|>",
+        "argmax_logp": -2.8132995794294402e-05
+      }
+    ]
+  }
+]

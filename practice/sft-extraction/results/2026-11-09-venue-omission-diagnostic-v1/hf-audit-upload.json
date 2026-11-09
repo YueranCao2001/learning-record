@@ -1,0 +1,29 @@
+{
+  "repo": "YueranCao2001/qwen3-0.6b-zh-extraction-lora",
+  "branch": "boundary-v2-20261023",
+  "commit": "db4321324bc3b7bc4f02a2bda0312d8e29c7d3e2",
+  "tested_adapter_revision": null,
+  "reference_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "path_in_repo": "evaluations/2026-11-09-venue-omission-diagnostic-v1",
+  "files_sha256": {
+    "canonical-generation.json": "fb3f9aa6ec62bebaa72df1645d58613a0a6052747090800dcd857f67e69ed426",
+    "canonical-teacher.json": "ac8d0ff902240da9a3f3695f4f373f70ac4b9945fa2d7261e5a6f15cf8f46c73",
+    "cases.json": "868f3a05e52abe78de4a6e28d83eae404622ab65b795a71397fbad174896127c",
+    "decode-check.json": "c0d6768c7584d83460534fdf79dc2d66d938cd4ea39568d681b206b014bfb124",
+    "environment.json": "54f37d6403675425ba71fe9440be4c2102425780508625cf4a55e942a2dc1153",
+    "manifest.json": "8aa8a2bcbd0864fb4b15590174de3de4417e09b092be40f6575cc5d48cf5a391",
+    "protocol.json": "86be99224ce483b120b5c6a847c057d723333f6397361f0a0855d52efab3acb9",
+    "review.json": "9ef02177873c1a15465f5d73d3553df649c0c42dda707b45cd043802f8d400e6",
+    "target-generation.json": "3e74d3ec0bac80a0f20f415a8b17970d5f0af7881213ae2d94f501645e3845c8",
+    "target-teacher.json": "ca0925eebf08ad28395a5dc071f4d0192bb78849f5306eaf1318b9b987d05274",
+    "warm-start-generation.json": "f8e2c0201c1582bec35a66b0e95241d2ec5dab33e98764b125a9a6f937e334ad",
+    "warm-start-teacher.json": "8c02df469fee261f12e7dae248ad025dc76c1a2b80f4bae7c26e47a3e06fbc00"
+  },
+  "weight_upload": false,
+  "main_before": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "main_after": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "private": true,
+  "download_hashes_equal": true,
+  "adapter_weights_unchanged": true,
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}

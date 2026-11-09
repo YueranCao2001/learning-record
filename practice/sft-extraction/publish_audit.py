@@ -23,7 +23,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "resume", "resume-guard", "atomic"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "resume", "resume-guard", "atomic"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
@@ -53,6 +53,15 @@ def main():
         files = {"manifest.json", "protocol.json", "environment.json", "comparison.json"}
         files |= {phase + "/" + name for phase in ("continuous", "prefix", "resume", "optimizer-reset")
                   for name in ("history.json", "state.json")}
+    elif args.kind == "venue-omission-diagnostic":
+        assert (review["generation_calls"], review["teacher_forced_forwards"], review["known_token_replays"]) == (45, 45, 15)
+        assert review["new_source_groups"] == 0 and review["weights_unchanged"] and not review["promote_to_main"]
+        decode = json.loads((output / "decode-check.json").read_text(encoding="utf-8"))
+        assert decode["generation_calls"] == 6 and len(decode["probes"]) == 3
+        assert decode["parameter_sha256_before"] == decode["parameter_sha256_after"]
+        assert all(p["paths"]["cached"]["replay_equal"] for p in decode["probes"].values())
+        files = {"protocol.json", "cases.json", "manifest.json", "environment.json", "review.json", "decode-check.json"}
+        files |= {f"{c}-{name}.json" for c in ("warm-start", "canonical", "target") for name in ("generation", "teacher")}
     elif args.kind == "time-template-confirmation":
         assert (review["generation_calls"], review["known_token_replays"], review["new_source_groups"]) == (78, 6, 3)
         assert review["new_cases"] == 24 and review["weights_unchanged"] and not review["promote_to_main"]
@@ -159,7 +168,7 @@ def main():
                revision=BRANCH, allow_patterns=sorted(files),
                commit_message="Add read-only diagnostic evidence; leave weights unchanged")
     report = {"repo": REPO, "branch": BRANCH, "commit": commit.oid,
-              "tested_adapter_revision": None if engineering or args.kind in ("repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation") else TESTED, "reference_adapter_revision": TESTED,
+              "tested_adapter_revision": None if engineering or args.kind in ("repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic") else TESTED, "reference_adapter_revision": TESTED,
               "path_in_repo": prefix, "files_sha256": hashes, "weight_upload": False,
               "main_before": main_before, "main_after": api.model_info(REPO, revision="main").sha,
               "private": api.model_info(REPO).private, "download_hashes_equal": False,

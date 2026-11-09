@@ -1,0 +1,260 @@
+{
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "rows": [
+    {
+      "id": "venue-cue0-original-time-first",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：后续发布｜会址：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      },
+      "time_status": "original",
+      "order": "time-first",
+      "replay_id": "ttc-03-cue0-missing-time"
+    },
+    {
+      "id": "venue-cue0-original-venue-first",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n会址：松萝美工室｜时间：后续发布\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      },
+      "time_status": "original",
+      "order": "venue-first",
+      "replay_id": null
+    },
+    {
+      "id": "venue-cue0-alternate-time-first",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：尚未确定｜会址：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      },
+      "time_status": "alternate",
+      "order": "time-first",
+      "replay_id": null
+    },
+    {
+      "id": "venue-cue0-alternate-venue-first",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n会址：松萝美工室｜时间：尚未确定\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      },
+      "time_status": "alternate",
+      "order": "venue-first",
+      "replay_id": null
+    },
+    {
+      "id": "venue-cue0-explicit-time-first",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "complete",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：12月29日18:40｜会址：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": "12月29日18:40",
+        "location": "松萝美工室"
+      },
+      "time_status": "explicit",
+      "order": "time-first",
+      "replay_id": "ttc-03-cue0-complete"
+    },
+    {
+      "id": "venue-cue0-explicit-venue-first",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "complete",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n会址：松萝美工室｜时间：12月29日18:40\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": "12月29日18:40",
+        "location": "松萝美工室"
+      },
+      "time_status": "explicit",
+      "order": "venue-first",
+      "replay_id": null
+    },
+    {
+      "id": "venue-cue0-drop-time",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n会址：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      },
+      "time_status": "removed",
+      "order": "venue-only",
+      "replay_id": null
+    },
+    {
+      "id": "venue-cue1-original-time-first",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：后续发布｜地点：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      },
+      "time_status": "original",
+      "order": "time-first",
+      "replay_id": "ttc-03-cue1-missing-time"
+    },
+    {
+      "id": "venue-cue1-original-venue-first",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n地点：松萝美工室｜时间：后续发布\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      },
+      "time_status": "original",
+      "order": "venue-first",
+      "replay_id": null
+    },
+    {
+      "id": "venue-cue1-alternate-time-first",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：尚未确定｜地点：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      },
+      "time_status": "alternate",
+      "order": "time-first",
+      "replay_id": null
+    },
+    {
+      "id": "venue-cue1-alternate-venue-first",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n地点：松萝美工室｜时间：尚未确定\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      },
+      "time_status": "alternate",
+      "order": "venue-first",
+      "replay_id": null
+    },
+    {
+      "id": "venue-cue1-explicit-time-first",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "complete",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：12月29日18:40｜地点：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": "12月29日18:40",
+        "location": "松萝美工室"
+      },
+      "time_status": "explicit",
+      "order": "time-first",
+      "replay_id": "ttc-03-cue1-complete"
+    },
+    {
+      "id": "venue-cue1-explicit-venue-first",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "complete",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n地点：松萝美工室｜时间：12月29日18:40\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": "12月29日18:40",
+        "location": "松萝美工室"
+      },
+      "time_status": "explicit",
+      "order": "venue-first",
+      "replay_id": null
+    },
+    {
+      "id": "venue-cue1-drop-time",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n地点：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      },
+      "time_status": "removed",
+      "order": "venue-only",
+      "replay_id": null
+    },
+    {
+      "id": "ttc-01-cue0-missing-location",
+      "group": "ttc-01",
+      "cue": "会址",
+      "state": "missing-location",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "本周报名清单\n活动：金石拓片交流课\n• 会址：后续发布\n• 日程：12月27日下午14:35\n请按通知参加。",
+      "expected": {
+        "event": "金石拓片交流课",
+        "time": "12月27日下午14:35",
+        "location": null
+      },
+      "time_status": "reverse-probe",
+      "order": "venue-first",
+      "replay_id": "ttc-01-cue0-missing-location"
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "source_sha256": "b822e81b21d0b234d3f48665505884b231e4260ccc384f4ca1ea0926c405a0de",
+  "inputs_sha256": {
+    "cases.json": "868f3a05e52abe78de4a6e28d83eae404622ab65b795a71397fbad174896127c",
+    "manifest.json": "8aa8a2bcbd0864fb4b15590174de3de4417e09b092be40f6575cc5d48cf5a391",
+    "review.json": "9ef02177873c1a15465f5d73d3553df649c0c42dda707b45cd043802f8d400e6",
+    "target-generation.json": "3e74d3ec0bac80a0f20f415a8b17970d5f0af7881213ae2d94f501645e3845c8",
+    "target-teacher.json": "ca0925eebf08ad28395a5dc071f4d0192bb78849f5306eaf1318b9b987d05274"
+  },
+  "adapter_sha256": "4894dad1437b9bcf12b566e08a68d530bd8dafbd642ee6993509644fcfacef57",
+  "parameter_sha256_before": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+  "parameter_sha256_after": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+  "generation_calls": 6,
+  "probes": {
+    "venue-cue0-original-time-first": {
+      "position_zero_based": 14,
+      "gold_id": 3252,
+      "cached_choice_id": 788,
+      "teacher_argmax_id": 788,
+      "paths": {
+        "cached": {
+          "gold_token_p": 0.029306944459676743,
+          "cached_choice_p": 0.9705125689506531,
+          "chosen_id": 788,
+          "token_ids": [
+            4913,
+            3087,
+            3252,
+            100052,
+            107574,
+            100278,
+            99934,
+            101904,
+            2198,
+            1678,
+            788,
+            2921,
+            1335,
+            2527,
+            788,
+            2921,
+            92,
+            151645
+          ],
+          "replay_equal": true,
+          "raw": "{\"event\":\"旧报纸拼贴体验\",\"time\":null,\"location\":null}"
+        },
+        "uncached": {
+          "gold_token_p": 0.029307125136256218,
+          "cached_choice_p": 0.9705185890197754,
+          "chosen_id": 788,
+          "token_ids": [
+            4913,
+            3087,
+            3252,
+            100052,
+            107574,
+            100278,
+            99934,
+            101904,
+            2198,
+            1678,
+            788,
+            2921,
+            1335,
+            2527,
+            788,
+            2921,
+            92,
+            151645
+          ],
+          "replay_equal": true,
+          "raw": "{\"event\":\"旧报纸拼贴体验\",\"time\":null,\"location\":null}"
+        }
+      }
+    },
+    "venue-cue1-original-venue-first": {
+      "position_zero_based": 14,
+      "gold_id": 3252,
+      "cached_choice_id": 788,
+      "teacher_argmax_id": 3252,
+      "paths": {
+        "cached": {
+          "gold_token_p": 0.4995938241481781,
+          "cached_choice_p": 0.4995938241481781,
+          "chosen_id": 788,
+          "token_ids": [
+            4913,
+            3087,
+            3252,
+            100052,
+            107574,
+            100278,
+            99934,
+            101904,
+            2198,
+            1678,
+            788,
+            2921,
+            1335,
+            2527,
+            788,
+            2921,
+            92,
+            151645
+          ],
+          "replay_equal": true,
+          "raw": "{\"event\":\"旧报纸拼贴体验\",\"time\":null,\"location\":null}"
+        },
+        "uncached": {
+          "gold_token_p": 0.5616956353187561,
+          "cached_choice_p": 0.43744900822639465,
+          "chosen_id": 3252,
+          "token_ids": [
+            4913,
+            3087,
+            3252,
+            100052,
+            107574,
+            100278,
+            99934,
+            101904,
+            2198,
+            1678,
+            788,
+            2921,
+            1335,
+            2527,
+            3252,
+            100180,
+            101799,
+            57566,
+            48692,
+            99478,
+            9207,
+            151645
+          ],
+          "replay_equal": false,
+          "raw": "{\"event\":\"旧报纸拼贴体验\",\"time\":null,\"location\":\"松萝美工室\"}"
+        }
+      }
+    },
+    "ttc-01-cue0-missing-location": {
+      "position_zero_based": 11,
+      "gold_id": 3252,
+      "cached_choice_id": 788,
+      "teacher_argmax_id": 3252,
+      "paths": {
+        "cached": {
+          "gold_token_p": 0.4984220862388611,
+          "cached_choice_p": 0.4984220862388611,
+          "chosen_id": 788,
+          "token_ids": [
+            4913,
+            3087,
+            3252,
+            34230,
+            99385,
+            100786,
+            34718,
+            101069,
+            99504,
+            2198,
+            1678,
+            788,
+            2921,
+            1335,
+            2527,
+            788,
+            2921,
+            92,
+            151645
+          ],
+          "replay_equal": true,
+          "raw": "{\"event\":\"金石拓片交流课\",\"time\":null,\"location\":null}"
+        },
+        "uncached": {
+          "gold_token_p": 0.5293036103248596,
+          "cached_choice_p": 0.4671087861061096,
+          "chosen_id": 3252,
+          "token_ids": [
+            4913,
+            3087,
+            3252,
+            34230,
+            99385,
+            100786,
+            34718,
+            101069,
+            99504,
+            2198,
+            1678,
+            3252,
+            16,
+            17,
+            9754,
+            17,
+            22,
+            105286,
+            16,
+            19,
+            25,
+            18,
+            20,
+            2198,
+            2527,
+            788,
+            2921,
+            92,
+            151645
+          ],
+          "replay_equal": false,
+          "raw": "{\"event\":\"金石拓片交流课\",\"time\":\"12月27日下午14:35\",\"location\":null}"
+        }
+      }
+    }
+  }
+}

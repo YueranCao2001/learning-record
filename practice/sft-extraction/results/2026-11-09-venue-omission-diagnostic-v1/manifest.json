@@ -1,0 +1,33 @@
+{
+  "source_sha256": {
+    "data/venue-omission-diagnostic-v1.json": "44d6053928be57a920f16536e9c801cf03545a52f4f00397ea2d0b54133a4c31",
+    "venue_omission_diagnostic.py": "62062488c2511d93eb621d590d8b034ee9600519ff497be1095d3e3909723a30",
+    "time_regression.py": "363ae7376075649e395837df0b4b1996e2213e3e9321232d767b809bf2dca511",
+    "evaluate_fit.py": "54b94443ea61404d6d3a864c8df08d4a621d6f9fbd761681f71cc71eeb204238",
+    "fit_metrics.py": "0ebe03fedd74cb91a304a064768449544eddbc665ed35fa55cb0a3374b295fce",
+    "train_smoke.py": "978b0cd842e41b555e3fce1da688a9b86292f2ff2af897e20b8a4cf6ef6f0e3e",
+    "contract.py": "2ccbc15d96b7e78bd18abdad06708087b8d0fb828dbc55b21bd3e92e1800213d",
+    "confirm_prompt.py": "3712fe71e401879eb5905228a1ec59e06fbf073449239ab19ec15e9d6d6ac215",
+    "prompt_diagnostic.py": "6dfe777aa6465541f0094a593de37170dbdb417f6b58e296d4f41b941801316b",
+    "audit_evaluation.py": "144d5707249343c1615cdf431d6b5fdad6f832d15e2657a8e38f61c2be071ccd",
+    "annotation-rules-v1.md": "67e3c770e053f3d31fb20b4781feaf70ae06924dfcc5cc51fb1837a199723b53",
+    "results/2026-11-06-time-template-confirmation-v1/manifest.json": "3f5b438355b8f255866821d92974ee97edb91a446929891e3a77c09db6613708",
+    "results/2026-11-06-time-template-confirmation-v1/cases.json": "bd411a92ca62acd4a850db90866336a446aeeb34750282630a5752d584bc4fe3",
+    "results/2026-11-06-time-template-confirmation-v1/review.json": "1f3c4459270e5f6b6e70b3edf55f2e46b3282044b3cdc5f78a6bff154819a0e8",
+    "results/2026-11-06-time-template-confirmation-v1/warm-start-generation.json": "4fec20068c58344a89b825f65b2326c74763e14b1d444441d417d1acb574e9a7",
+    "results/2026-11-06-time-template-confirmation-v1/canonical-generation.json": "9bb799db6f5f5a7b8bf2c7f58df793cc1aec0312ed6d1f863c8dfcc4af3ccf8b",
+    "results/2026-11-06-time-template-confirmation-v1/target-generation.json": "e5e34b30e700d2d11f3eb2d710e8c7447f3cb5b960c359e2e226ac37e8a9b8e8"
+  },
+  "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "adapter_files_sha256": {
+    "warm-start": "a3839cfdd60c8ed381604c6f79daa55697a701fa7d993badc5f96ea0091b7b69",
+    "canonical": "a1a26c266fff597742d79895415a1446e8a47f5980a7b20d3a13f87cf68f3f73",
+    "target": "4894dad1437b9bcf12b566e08a68d530bd8dafbd642ee6993509644fcfacef57"
+  },
+  "published_reference_adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12",
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 128,
+    "enable_thinking": false
+  }
+}

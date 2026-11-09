@@ -1,0 +1,907 @@
+{
+  "training_steps": 0,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "weights_unchanged": true,
+  "generation_calls": 45,
+  "teacher_forced_forwards": 45,
+  "known_token_replays": 15,
+  "new_source_groups": 0,
+  "results": {
+    "warm-start": {
+      "summary": {
+        "count": 15,
+        "exact": 15,
+        "json_valid": 15,
+        "schema_valid": 15,
+        "fields_correct": {
+          "event": 15,
+          "time": 15,
+          "location": 15
+        },
+        "error_counts": {}
+      },
+      "details": [
+        {
+          "id": "venue-cue0-original-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue0-original-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue0-alternate-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue0-alternate-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue0-explicit-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue0-explicit-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue0-drop-time",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-original-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-original-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-alternate-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-alternate-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-explicit-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-explicit-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-drop-time",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "ttc-01-cue0-missing-location",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "金石拓片交流课",
+            "time": "12月27日下午14:35",
+            "location": null
+          },
+          "location_omitted": false
+        }
+      ],
+      "errors": [],
+      "token_replays": {
+        "venue-cue0-original-time-first": true,
+        "venue-cue0-explicit-time-first": true,
+        "venue-cue1-original-time-first": true,
+        "venue-cue1-explicit-time-first": true,
+        "ttc-01-cue0-missing-location": true
+      },
+      "parameters_before": "e0aac937ffd73dc2910a51b0ad6029055fe6642fb72f79e360e93e506e2376e2",
+      "parameters_after": "e0aac937ffd73dc2910a51b0ad6029055fe6642fb72f79e360e93e506e2376e2"
+    },
+    "canonical": {
+      "summary": {
+        "count": 15,
+        "exact": 10,
+        "json_valid": 15,
+        "schema_valid": 15,
+        "fields_correct": {
+          "event": 15,
+          "time": 15,
+          "location": 10
+        },
+        "error_counts": {
+          "value-to-null": 5
+        }
+      },
+      "details": [
+        {
+          "id": "venue-cue0-original-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue0-original-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue0-alternate-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue0-alternate-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue0-explicit-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue0-explicit-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue0-drop-time",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-original-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue1-original-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-alternate-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue1-alternate-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-explicit-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-explicit-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-drop-time",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "ttc-01-cue0-missing-location",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "金石拓片交流课",
+            "time": "12月27日下午14:35",
+            "location": null
+          },
+          "location_omitted": false
+        }
+      ],
+      "errors": [
+        {
+          "id": "venue-cue0-original-time-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "venue-cue0-original-venue-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "venue-cue0-alternate-time-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "venue-cue1-original-time-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "venue-cue1-alternate-time-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        }
+      ],
+      "token_replays": {
+        "venue-cue0-original-time-first": true,
+        "venue-cue0-explicit-time-first": true,
+        "venue-cue1-original-time-first": true,
+        "venue-cue1-explicit-time-first": true,
+        "ttc-01-cue0-missing-location": true
+      },
+      "parameters_before": "09427155b022f5b4ac9d94a9722de187d9cb720fb2e335f6496f86e7fe1d89ff",
+      "parameters_after": "09427155b022f5b4ac9d94a9722de187d9cb720fb2e335f6496f86e7fe1d89ff"
+    },
+    "target": {
+      "summary": {
+        "count": 15,
+        "exact": 7,
+        "json_valid": 15,
+        "schema_valid": 15,
+        "fields_correct": {
+          "event": 15,
+          "time": 14,
+          "location": 8
+        },
+        "error_counts": {
+          "value-to-null": 8
+        }
+      },
+      "details": [
+        {
+          "id": "venue-cue0-original-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue0-original-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue0-alternate-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue0-alternate-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue0-explicit-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue0-explicit-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue0-drop-time",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-original-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue1-original-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue1-alternate-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "venue-cue1-alternate-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-explicit-time-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-explicit-venue-first",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": "12月29日18:40",
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-cue1-drop-time",
+          "cohort": "time-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "旧报纸拼贴体验",
+            "time": null,
+            "location": "松萝美工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "ttc-01-cue0-missing-location",
+          "cohort": "time-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "金石拓片交流课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": false
+        }
+      ],
+      "errors": [
+        {
+          "id": "venue-cue0-original-time-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "venue-cue0-original-venue-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "venue-cue0-alternate-time-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "venue-cue0-alternate-venue-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "venue-cue1-original-time-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "venue-cue1-original-venue-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "venue-cue1-alternate-time-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "ttc-01-cue0-missing-location",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "12月27日下午14:35",
+          "actual": null
+        }
+      ],
+      "token_replays": {
+        "venue-cue0-original-time-first": true,
+        "venue-cue0-explicit-time-first": true,
+        "venue-cue1-original-time-first": true,
+        "venue-cue1-explicit-time-first": true,
+        "ttc-01-cue0-missing-location": true
+      },
+      "parameters_before": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+      "parameters_after": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f"
+    }
+  }
+}

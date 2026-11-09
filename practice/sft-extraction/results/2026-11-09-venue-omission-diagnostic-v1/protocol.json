@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-09",
+  "source_run": "2026-11-06-time-template-confirmation-v1",
+  "conditions": [
+    "warm-start",
+    "canonical",
+    "target"
+  ],
+  "anchor_group": "ttc-03",
+  "reverse_probe_id": "ttc-01-cue0-missing-location",
+  "original_status": "后续发布",
+  "alternate_status": "尚未确定",
+  "design": "With event and venue fixed, cross two venue cues, two clause orders and three time expressions (original missing, alternate missing, explicit). Also remove the time clause under both cues and replay one reverse-direction omission. Run greedy generation and teacher forcing on every case.",
+  "human_review": "pending",
+  "provenance": "Visible synthetic variants of one known template plus one existing probe from another group. Zero new sources."
+}

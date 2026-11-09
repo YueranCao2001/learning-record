@@ -4,6 +4,10 @@
 
 ## 当前状态
 
+2026-11-09 完成[地点漏抽与首个分歧 token](../../daily/2026/11/2026-11-09-sft-venue-omission-diagnostic.md)。三份固定权重共45次生成和45次目标前缀前向，另6次复验解码路径。两个接近持平的探针在关闭 KV cache 后恢复字段，明显偏向空值的对照仍漏抽。[逐题结果](results/2026-11-09-venue-omission-diagnostic-v1/review.json) · [解码复验](results/2026-11-09-venue-omission-diagnostic-v1/decode-check.json)
+
+### 11月6日跨模板确认
+
 2026-11-06 完成[跨模板的时间与地点确认](../../daily/2026/11/2026-11-06-sft-time-template-confirmation.md)。三份权重在24条新样例上整条为19/24、22/24、21/24；保留原称谓组新增一处时间漏抽，两份训练后权重共同遗漏两处明确地点。有效对照78次生成，计入首次评分中止共104次。130项微调测试通过。[逐题结果](results/2026-11-06-time-template-confirmation-v1/review.json)
 
 ### 11月5日时间漏抽同源诊断
