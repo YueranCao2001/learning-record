@@ -1,0 +1,18 @@
+{
+  "question": "Which tested cue replacements restore the known explicit time after changing clause order?",
+  "time_cues": [
+    "日程",
+    "时间"
+  ],
+  "venue_cues": [
+    "会址",
+    "地点"
+  ],
+  "orders": [
+    "time-first",
+    "venue-first"
+  ],
+  "source_groups": 1,
+  "completion": "Replay both frozen orders, score all eight cases on each fixed adapter, and record field-level outcomes.",
+  "human_review": "pending"
+}

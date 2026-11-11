@@ -4,6 +4,8 @@
 
 检查“时间未定时漏掉明确地点”是否会在新的通知里出现。沿用 11 月 9 日的贪心解码设置，在三种通知表达中比较时间是否明确、分句顺序，以及省略时间分句后的输出。[上次诊断](2026-11-09-sft-venue-omission-diagnostic.md)
 
+同日补充聚焦“手工线装体验”的明确时间漏抽。完成条件是复现两个原始顺序，跑完称谓和顺序的八种组合，并逐条确认哪些改动能恢复时间。
+
 ## 核心概念
 
 - 同源配对固定活动和场地，改动时间分句。明确时间与未定时间使用相同顺序，可以比较未定措辞带来的变化。
@@ -57,17 +59,38 @@
 
 原句的地点漏抽在两组中都明显偏向实际选择 token。交换顺序后仍漏抽的样例与线装课漏时间的样例，候选概率更接近。这些概率来自目标前缀前向，本轮贪心生成使用带 cache 的原设置。[统一称谓组前向记录](../../../practice/sft-extraction/results/2026-11-11-venue-omission-confirmation-v1/canonical-teacher.json) · [保留原称谓组前向记录](../../../practice/sft-extraction/results/2026-11-11-venue-omission-confirmation-v1/target-teacher.json)
 
+### 4. 同日补充验证明确时间漏抽
+
+固定“手工线装体验”“周日下午16:25”“芦汀装帧坊”及其标签，交叉两种分句顺序、“会址 / 地点”和“日程 / 时间”。三份权重各跑 8 条，合计 24 次。两条原始输入的 6 份输出逐 token 复现。
+
+| 场地称谓 | 时间称谓 | 保留原称谓组，时间在前 | 保留原称谓组，地点在前 |
+| --- | --- | --- | --- |
+| 会址 | 日程 | 周日下午16:25 | `null` |
+| 地点 | 日程 | 周日下午16:25 | 周日下午16:25 |
+| 会址 | 时间 | 周日下午16:25 | 周日下午16:25 |
+| 地点 | 时间 | 周日下午16:25 | 周日下午16:25 |
+
+36 步起点与统一称谓组各为 8/8，保留原称谓组为 7/8。24 份输出的活动名、地点和 JSON 字段契约均正确。在这个通知里，保留原称谓组只在地点在前且使用“会址”和“日程”时漏抽。固定地点在前，单换任一称谓都恢复完整时间。[八种输入](../../../practice/sft-extraction/results/2026-11-11-time-cue-order-diagnostic-v1/cases.json) · [逐题结果](../../../practice/sft-extraction/results/2026-11-11-time-cue-order-diagnostic-v1/review.json)
+
+```powershell
+# 在 practice/sft-extraction 下执行，复跑时使用新目录名
+& 'E:\Evren\Evren_work\.venv-sft\Scripts\python.exe' -X utf8 time_cue_order_diagnostic.py --run 2026-11-11-time-cue-order-diagnostic-v1
+```
+
 ## 遇到的问题
 
 未定时间的影响在新标题式通知上复现，另外两组的明确地点都保留。每种模板只用了一份虚构通知，模板差异、称谓和活动内容同时变化。样例为开放诊断数据，独立人工复核待完成。
 
+补充对照覆盖“手工线装体验”这一条虚构通知。恢复条件限于本次测试的称谓与顺序。
+
 ## 今日总结
 
-完成 54 次只读生成和 4 次目标前缀前向。三条历史探针在三份权重上的 9 份输出逐 token 复现，模型参数哈希前后一致。新增证据包括一个来源上的未定时间引发场地漏抽，以及明确时间在换序后出现的时间漏抽。130 项微调测试通过。
+当天完成 78 次只读生成和 4 次目标前缀前向，两轮共 15 份历史输出逐 token 复现。首轮在一个新来源上观察到未定时间伴随场地漏抽。补充对照已满足完成条件，定位了这条明确时间漏抽的组合，并验证了单换任一称谓的恢复结果。两轮模型参数哈希前后一致，130 项微调测试通过。
 
 11 份实验报告已同步至私有 Hugging Face 实验分支，并通过下载哈希核验。[HF 报告](https://huggingface.co/YueranCao2001/qwen3-0.6b-zh-extraction-lora/tree/84069a3eefdc7cb6289f71a08c4a915224228cf2/evaluations/2026-11-11-venue-omission-confirmation-v1) · [同步证据](../../../practice/sft-extraction/results/2026-11-11-venue-omission-confirmation-v1/hf-audit-upload.json)
 
+补充对照的 7 份报告也已同步并通过下载哈希核验。[HF 补充报告](https://huggingface.co/YueranCao2001/qwen3-0.6b-zh-extraction-lora/tree/74c310315d2b2dcc46274278ec5fa9b05cc3b553/evaluations/2026-11-11-time-cue-order-diagnostic-v1) · [同步证据](../../../practice/sft-extraction/results/2026-11-11-time-cue-order-diagnostic-v1/hf-audit-upload.json)
+
 ## 下一步
 
-- 固定“手工线装体验”的活动、时间和场地，在相同分句顺序下分别替换“会址”和“日程”，检查哪种改动会恢复时间。
-- 在同一模板中更换活动内容、时间和场地，扩展标题式通知的来源数量，并保留省略时间与显式未定的配对。
+- 下一个问题是标题式通知的地点漏抽是否随活动内容变化而复现。固定模板和称谓，新增两组活动、时间及场地，跑完明确时间、显式未定和省略时间的配对，记录每组的地点输出。

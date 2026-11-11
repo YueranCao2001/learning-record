@@ -6,6 +6,8 @@
 
 2026-11-11 完成[未定时间与地点漏抽的跨来源确认](../../daily/2026/11/2026-11-11-sft-venue-omission-confirmation.md)。15条新样例上三份权重分别为15/15、14/15、12/15，地点漏抽集中于标题式通知。54次生成、4次目标前缀前向，9份历史输出逐 token 复现。[逐题结果](results/2026-11-11-venue-omission-confirmation-v1/review.json)
 
+同日完成“手工线装体验”的称谓与顺序对照，三份权重分别为8/8、8/8、7/8。保留原称谓组只在地点在前且使用“会址”和“日程”时漏抽时间。新增24次生成，6份历史输出逐 token 复现。[补充对照](results/2026-11-11-time-cue-order-diagnostic-v1/review.json)
+
 ### 11月9日地点漏抽与解码复验
 
 2026-11-09 完成[地点漏抽与首个分歧 token](../../daily/2026/11/2026-11-09-sft-venue-omission-diagnostic.md)。三份固定权重共45次生成和45次目标前缀前向，另6次复验解码路径。两个接近持平的探针在关闭 KV cache 后恢复字段，明显偏向空值的对照仍漏抽。[逐题结果](results/2026-11-09-venue-omission-diagnostic-v1/review.json) · [解码复验](results/2026-11-09-venue-omission-diagnostic-v1/decode-check.json)

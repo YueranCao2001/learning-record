@@ -1,0 +1,475 @@
+{
+  "training_steps": 0,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "weights_unchanged": true,
+  "source_groups": 1,
+  "new_source_groups": 0,
+  "generation_calls": 24,
+  "known_token_replays": 6,
+  "results": {
+    "warm-start": {
+      "summary": {
+        "count": 8,
+        "exact": 8,
+        "json_valid": 8,
+        "schema_valid": 8,
+        "fields_correct": {
+          "event": 8,
+          "time": 8,
+          "location": 8
+        },
+        "error_counts": {}
+      },
+      "details": [
+        {
+          "id": "time-first-time0-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-first-time0-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-first-time1-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-first-time1-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time0-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time0-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time1-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time1-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        }
+      ],
+      "errors": [],
+      "token_replays": {
+        "time-first-time0-venue0": true,
+        "venue-first-time0-venue0": true
+      },
+      "parameters_before": "e0aac937ffd73dc2910a51b0ad6029055fe6642fb72f79e360e93e506e2376e2",
+      "parameters_after": "e0aac937ffd73dc2910a51b0ad6029055fe6642fb72f79e360e93e506e2376e2"
+    },
+    "canonical": {
+      "summary": {
+        "count": 8,
+        "exact": 8,
+        "json_valid": 8,
+        "schema_valid": 8,
+        "fields_correct": {
+          "event": 8,
+          "time": 8,
+          "location": 8
+        },
+        "error_counts": {}
+      },
+      "details": [
+        {
+          "id": "time-first-time0-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-first-time0-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-first-time1-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-first-time1-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time0-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time0-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time1-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time1-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        }
+      ],
+      "errors": [],
+      "token_replays": {
+        "time-first-time0-venue0": true,
+        "venue-first-time0-venue0": true
+      },
+      "parameters_before": "09427155b022f5b4ac9d94a9722de187d9cb720fb2e335f6496f86e7fe1d89ff",
+      "parameters_after": "09427155b022f5b4ac9d94a9722de187d9cb720fb2e335f6496f86e7fe1d89ff"
+    },
+    "target": {
+      "summary": {
+        "count": 8,
+        "exact": 7,
+        "json_valid": 8,
+        "schema_valid": 8,
+        "fields_correct": {
+          "event": 8,
+          "time": 7,
+          "location": 8
+        },
+        "error_counts": {
+          "value-to-null": 1
+        }
+      },
+      "details": [
+        {
+          "id": "time-first-time0-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-first-time0-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-first-time1-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "time-first-time1-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time0-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": false,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": null,
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time0-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time1-venue0",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "venue-first-time1-venue1",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "手工线装体验",
+            "time": "周日下午16:25",
+            "location": "芦汀装帧坊"
+          },
+          "location_omitted": false
+        }
+      ],
+      "errors": [
+        {
+          "id": "venue-first-time0-venue0",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午16:25",
+          "actual": null
+        }
+      ],
+      "token_replays": {
+        "time-first-time0-venue0": true,
+        "venue-first-time0-venue0": true
+      },
+      "parameters_before": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+      "parameters_after": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f"
+    }
+  }
+}

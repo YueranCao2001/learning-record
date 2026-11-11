@@ -1,0 +1,141 @@
+{
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "rows": [
+    {
+      "id": "time-first-time0-venue0",
+      "group": "voc-02",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "explicit",
+      "order": "time-first",
+      "text": "关于“手工线装体验”的通知。日程：周日下午16:25；会址：芦汀装帧坊。欢迎报名。",
+      "expected": {
+        "event": "手工线装体验",
+        "time": "周日下午16:25",
+        "location": "芦汀装帧坊"
+      },
+      "time_cue": "日程",
+      "venue_cue": "会址",
+      "replay_id": "voc-02-explicit-time-first"
+    },
+    {
+      "id": "time-first-time0-venue1",
+      "group": "voc-02",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "explicit",
+      "order": "time-first",
+      "text": "关于“手工线装体验”的通知。日程：周日下午16:25；地点：芦汀装帧坊。欢迎报名。",
+      "expected": {
+        "event": "手工线装体验",
+        "time": "周日下午16:25",
+        "location": "芦汀装帧坊"
+      },
+      "time_cue": "日程",
+      "venue_cue": "地点",
+      "replay_id": null
+    },
+    {
+      "id": "time-first-time1-venue0",
+      "group": "voc-02",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "explicit",
+      "order": "time-first",
+      "text": "关于“手工线装体验”的通知。时间：周日下午16:25；会址：芦汀装帧坊。欢迎报名。",
+      "expected": {
+        "event": "手工线装体验",
+        "time": "周日下午16:25",
+        "location": "芦汀装帧坊"
+      },
+      "time_cue": "时间",
+      "venue_cue": "会址",
+      "replay_id": null
+    },
+    {
+      "id": "time-first-time1-venue1",
+      "group": "voc-02",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "explicit",
+      "order": "time-first",
+      "text": "关于“手工线装体验”的通知。时间：周日下午16:25；地点：芦汀装帧坊。欢迎报名。",
+      "expected": {
+        "event": "手工线装体验",
+        "time": "周日下午16:25",
+        "location": "芦汀装帧坊"
+      },
+      "time_cue": "时间",
+      "venue_cue": "地点",
+      "replay_id": null
+    },
+    {
+      "id": "venue-first-time0-venue0",
+      "group": "voc-02",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "explicit",
+      "order": "venue-first",
+      "text": "关于“手工线装体验”的通知。会址：芦汀装帧坊；日程：周日下午16:25。欢迎报名。",
+      "expected": {
+        "event": "手工线装体验",
+        "time": "周日下午16:25",
+        "location": "芦汀装帧坊"
+      },
+      "time_cue": "日程",
+      "venue_cue": "会址",
+      "replay_id": "voc-02-explicit-venue-first"
+    },
+    {
+      "id": "venue-first-time0-venue1",
+      "group": "voc-02",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "explicit",
+      "order": "venue-first",
+      "text": "关于“手工线装体验”的通知。地点：芦汀装帧坊；日程：周日下午16:25。欢迎报名。",
+      "expected": {
+        "event": "手工线装体验",
+        "time": "周日下午16:25",
+        "location": "芦汀装帧坊"
+      },
+      "time_cue": "日程",
+      "venue_cue": "地点",
+      "replay_id": null
+    },
+    {
+      "id": "venue-first-time1-venue0",
+      "group": "voc-02",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "explicit",
+      "order": "venue-first",
+      "text": "关于“手工线装体验”的通知。会址：芦汀装帧坊；时间：周日下午16:25。欢迎报名。",
+      "expected": {
+        "event": "手工线装体验",
+        "time": "周日下午16:25",
+        "location": "芦汀装帧坊"
+      },
+      "time_cue": "时间",
+      "venue_cue": "会址",
+      "replay_id": null
+    },
+    {
+      "id": "venue-first-time1-venue1",
+      "group": "voc-02",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "explicit",
+      "order": "venue-first",
+      "text": "关于“手工线装体验”的通知。地点：芦汀装帧坊；时间：周日下午16:25。欢迎报名。",
+      "expected": {
+        "event": "手工线装体验",
+        "time": "周日下午16:25",
+        "location": "芦汀装帧坊"
+      },
+      "time_cue": "时间",
+      "venue_cue": "地点",
+      "replay_id": null
+    }
+  ]
+}
