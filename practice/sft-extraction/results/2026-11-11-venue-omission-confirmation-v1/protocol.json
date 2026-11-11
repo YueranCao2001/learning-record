@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-11",
+  "source_run": "2026-11-09-venue-omission-diagnostic-v1",
+  "conditions": [
+    "warm-start",
+    "canonical",
+    "target"
+  ],
+  "replay_ids": [
+    "venue-cue0-original-time-first",
+    "venue-cue1-original-venue-first",
+    "ttc-01-cue0-missing-location"
+  ],
+  "missing_status": "后续发布",
+  "sources": [
+    {
+      "id": "voc-01",
+      "event": "蓝晒书签制作课",
+      "time": "12月30日上午10:15",
+      "venue": "白榆印制室",
+      "time_cue": "时间",
+      "venue_cue": "地点",
+      "template": "【{event}】\n{fields}\n请按活动安排参加。",
+      "separator": "｜"
+    },
+    {
+      "id": "voc-02",
+      "event": "手工线装体验",
+      "time": "周日下午16:25",
+      "venue": "芦汀装帧坊",
+      "time_cue": "日程",
+      "venue_cue": "会址",
+      "template": "关于“{event}”的通知。{fields}。欢迎报名。",
+      "separator": "；"
+    },
+    {
+      "id": "voc-03",
+      "event": "木刻藏书票讲座",
+      "time": "12月31日19:10",
+      "venue": "栗林讲习室",
+      "time_cue": "开讲时间",
+      "venue_cue": "场地",
+      "template": "报名清单\n活动：{event}\n• {fields}\n请留意后续通知。",
+      "separator": "\n• "
+    }
+  ],
+  "design": "Within each new group, cross explicit versus undetermined time with two clause orders, then remove the time clause. Keep venue text and labels fixed. Replay three prior probes using the same cached greedy path. Score before inspecting teacher-forced divergence for omissions.",
+  "human_review": "pending",
+  "provenance": "Three new assistant-authored source groups and three known probes. One template per new group. Visible synthetic development data."
+}

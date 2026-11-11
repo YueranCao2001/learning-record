@@ -1,0 +1,35 @@
+{
+  "source_sha256": {
+    "data/venue-omission-confirmation-v1.json": "9b0ba797a9abebb36557a60638b7f02d1a190ab8c2b9c98a4dc6cb9605932d19",
+    "venue_omission_confirmation.py": "d9309e69954c3aec6a81c8a8f23584134da6ffe3055335ce178984e9e4431d5e",
+    "time_regression.py": "363ae7376075649e395837df0b4b1996e2213e3e9321232d767b809bf2dca511",
+    "evaluate_fit.py": "54b94443ea61404d6d3a864c8df08d4a621d6f9fbd761681f71cc71eeb204238",
+    "fit_metrics.py": "0ebe03fedd74cb91a304a064768449544eddbc665ed35fa55cb0a3374b295fce",
+    "train_smoke.py": "978b0cd842e41b555e3fce1da688a9b86292f2ff2af897e20b8a4cf6ef6f0e3e",
+    "contract.py": "2ccbc15d96b7e78bd18abdad06708087b8d0fb828dbc55b21bd3e92e1800213d",
+    "confirm_prompt.py": "3712fe71e401879eb5905228a1ec59e06fbf073449239ab19ec15e9d6d6ac215",
+    "prompt_diagnostic.py": "6dfe777aa6465541f0094a593de37170dbdb417f6b58e296d4f41b941801316b",
+    "audit_evaluation.py": "144d5707249343c1615cdf431d6b5fdad6f832d15e2657a8e38f61c2be071ccd",
+    "annotation-rules-v1.md": "67e3c770e053f3d31fb20b4781feaf70ae06924dfcc5cc51fb1837a199723b53",
+    "results/2026-11-02-optimization-budget-v1/data.json": "1aedc7f80179b0c49db4021b916d86971725c527f672b4517983aff9d6b5ca25",
+    "results/2026-11-09-venue-omission-diagnostic-v1/manifest.json": "8aa8a2bcbd0864fb4b15590174de3de4417e09b092be40f6575cc5d48cf5a391",
+    "results/2026-11-09-venue-omission-diagnostic-v1/cases.json": "868f3a05e52abe78de4a6e28d83eae404622ab65b795a71397fbad174896127c",
+    "results/2026-11-09-venue-omission-diagnostic-v1/review.json": "9ef02177873c1a15465f5d73d3553df649c0c42dda707b45cd043802f8d400e6",
+    "results/2026-11-09-venue-omission-diagnostic-v1/warm-start-generation.json": "f8e2c0201c1582bec35a66b0e95241d2ec5dab33e98764b125a9a6f937e334ad",
+    "results/2026-11-09-venue-omission-diagnostic-v1/canonical-generation.json": "fb3f9aa6ec62bebaa72df1645d58613a0a6052747090800dcd857f67e69ed426",
+    "results/2026-11-09-venue-omission-diagnostic-v1/target-generation.json": "3e74d3ec0bac80a0f20f415a8b17970d5f0af7881213ae2d94f501645e3845c8"
+  },
+  "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "adapter_files_sha256": {
+    "warm-start": "a3839cfdd60c8ed381604c6f79daa55697a701fa7d993badc5f96ea0091b7b69",
+    "canonical": "a1a26c266fff597742d79895415a1446e8a47f5980a7b20d3a13f87cf68f3f73",
+    "target": "4894dad1437b9bcf12b566e08a68d530bd8dafbd642ee6993509644fcfacef57"
+  },
+  "published_reference_adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12",
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 128,
+    "enable_thinking": false,
+    "use_cache": true
+  }
+}

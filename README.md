@@ -108,6 +108,7 @@
 - [中文信息抽取微调：时间漏抽的同源诊断](daily/2026/11/2026-11-05-sft-time-regression-diagnostic.md)
 - [中文信息抽取微调：跨模板的时间与地点确认](daily/2026/11/2026-11-06-sft-time-template-confirmation.md)
 - [中文信息抽取微调：地点漏抽与首个分歧 token](daily/2026/11/2026-11-09-sft-venue-omission-diagnostic.md)
+- [中文信息抽取微调：未定时间与地点漏抽的跨来源确认](daily/2026/11/2026-11-11-sft-venue-omission-confirmation.md)
 
 ## 提交约定
 
