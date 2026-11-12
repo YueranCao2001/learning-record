@@ -4,6 +4,10 @@
 
 ## 当前状态
 
+2026-11-12 完成标题式通知的地点漏抽复验。固定模板更换两组活动，三份权重在六条新样例上分别为5/6、4/6、4/6，错误集中在显式未定版本。共27次生成，9份历史输出逐 token 复现。[日期笔记](../../daily/2026/11/2026-11-12-sft-venue-title-confirmation.md) · [逐题结果](results/2026-11-12-venue-title-confirmation-v1/review.json)
+
+### 11月11日跨来源确认与称谓对照
+
 2026-11-11 完成[未定时间与地点漏抽的跨来源确认](../../daily/2026/11/2026-11-11-sft-venue-omission-confirmation.md)。15条新样例上三份权重分别为15/15、14/15、12/15，地点漏抽集中于标题式通知。54次生成、4次目标前缀前向，9份历史输出逐 token 复现。[逐题结果](results/2026-11-11-venue-omission-confirmation-v1/review.json)
 
 同日完成“手工线装体验”的称谓与顺序对照，三份权重分别为8/8、8/8、7/8。保留原称谓组只在地点在前且使用“会址”和“日程”时漏抽时间。新增24次生成，6份历史输出逐 token 复现。[补充对照](results/2026-11-11-time-cue-order-diagnostic-v1/review.json)

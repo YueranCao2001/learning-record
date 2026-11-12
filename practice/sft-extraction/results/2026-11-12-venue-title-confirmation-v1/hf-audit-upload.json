@@ -1,0 +1,24 @@
+{
+  "repo": "YueranCao2001/qwen3-0.6b-zh-extraction-lora",
+  "branch": "boundary-v2-20261023",
+  "commit": "085e1c008750b84f0c968e8dcc8b96f599987d53",
+  "tested_adapter_revision": null,
+  "reference_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "path_in_repo": "evaluations/2026-11-12-venue-title-confirmation-v1",
+  "files_sha256": {
+    "canonical-generation.json": "5008dae9c2e9e2bb84a6c5b9f13225d9fb66eab1fa9595327f3b812630e76f99",
+    "cases.json": "f9b88f1bdc8d5f0418f417e637aca48a2a8ae81900eaae84fa89d50f5a4bd830",
+    "manifest.json": "f0774ea0450b4d0519e475505d7e67a073ccef772570c13475ce8d40da2fd1ec",
+    "protocol.json": "8dee3a930894941a03f290b38408f3bc6c49f97fce0ac1291420b9ea47b31153",
+    "review.json": "5861c8052c3065f584281de484e92900349739a2ba64c70a31bc3a4b3fb1ea75",
+    "target-generation.json": "5008dae9c2e9e2bb84a6c5b9f13225d9fb66eab1fa9595327f3b812630e76f99",
+    "warm-start-generation.json": "161b10cae044d3d529d8cda6caf56ffc5930e4f1f28077e49cbb1eca80b47dd7"
+  },
+  "weight_upload": false,
+  "main_before": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "main_after": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "private": true,
+  "download_hashes_equal": true,
+  "adapter_weights_unchanged": true,
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}

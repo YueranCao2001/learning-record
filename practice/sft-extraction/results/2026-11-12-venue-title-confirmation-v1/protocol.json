@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-12",
+  "question": "Does the explicit venue omission recur when the activity content changes within the same title template?",
+  "completion": "Score all three time states on two new synthetic sources and replay the three matching original controls on all three adapters.",
+  "anchor_group": "voc-01",
+  "sources": [
+    {
+      "id": "vtc-01",
+      "event": "植物标本装帧课",
+      "time": "1月8日上午10:20",
+      "venue": "雁栖手工室"
+    },
+    {
+      "id": "vtc-02",
+      "event": "木版套色体验",
+      "time": "周日下午15:45",
+      "venue": "青槐版画坊"
+    }
+  ],
+  "human_review": "pending",
+  "provenance": "Two assistant-authored fictional notices rendered using the frozen voc-01 template."
+}

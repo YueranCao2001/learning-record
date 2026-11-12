@@ -1,0 +1,33 @@
+{
+  "source_sha256": {
+    "data/venue-title-confirmation-v1.json": "3000b128e1b601b21f110d7927f2ce8ac431d5d796c311a4adf9e9e107252d01",
+    "data/venue-omission-confirmation-v1.json": "9b0ba797a9abebb36557a60638b7f02d1a190ab8c2b9c98a4dc6cb9605932d19",
+    "venue_title_confirmation.py": "2da24e7ae7dee8b05c77ab19336c83bc5e5746284394fc067cc5fe07ffecaa07",
+    "time_cue_order_diagnostic.py": "29ca5d8bb3761e430525922c334e31266fa39d8bca457a29446117815970c92c",
+    "time_regression.py": "363ae7376075649e395837df0b4b1996e2213e3e9321232d767b809bf2dca511",
+    "train_smoke.py": "978b0cd842e41b555e3fce1da688a9b86292f2ff2af897e20b8a4cf6ef6f0e3e",
+    "contract.py": "2ccbc15d96b7e78bd18abdad06708087b8d0fb828dbc55b21bd3e92e1800213d",
+    "confirm_prompt.py": "3712fe71e401879eb5905228a1ec59e06fbf073449239ab19ec15e9d6d6ac215",
+    "prompt_diagnostic.py": "6dfe777aa6465541f0094a593de37170dbdb417f6b58e296d4f41b941801316b",
+    "audit_evaluation.py": "144d5707249343c1615cdf431d6b5fdad6f832d15e2657a8e38f61c2be071ccd",
+    "results/2026-11-11-venue-omission-confirmation-v1/cases.json": "25aa64e5270815f37f5559516fbf46a5cdd6ca7b4690521b0e4e08aef7c66bec",
+    "results/2026-11-11-venue-omission-confirmation-v1/manifest.json": "a360a159118d8231cbb50e45a7c3c071e10596d992323ac4c3f48fec49cabd46",
+    "results/2026-11-11-venue-omission-confirmation-v1/environment.json": "54f37d6403675425ba71fe9440be4c2102425780508625cf4a55e942a2dc1153",
+    "results/2026-11-11-venue-omission-confirmation-v1/warm-start-generation.json": "9113bad71124da633f9f294f635b02883a02a6bd62b339d05bdb9cd9523b1949",
+    "results/2026-11-11-venue-omission-confirmation-v1/canonical-generation.json": "ce7fa9581f2a31cc2d698586a7bbb60f5c5b23d8522582da70e3421161b0eb13",
+    "results/2026-11-11-venue-omission-confirmation-v1/target-generation.json": "c4ae35280c49bf95d4164b7b6e3f44c481903179317fb7ce32ea2f8f56951cf6"
+  },
+  "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "adapter_files_sha256": {
+    "warm-start": "a3839cfdd60c8ed381604c6f79daa55697a701fa7d993badc5f96ea0091b7b69",
+    "canonical": "a1a26c266fff597742d79895415a1446e8a47f5980a7b20d3a13f87cf68f3f73",
+    "target": "4894dad1437b9bcf12b566e08a68d530bd8dafbd642ee6993509644fcfacef57"
+  },
+  "published_reference_adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12",
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 128,
+    "enable_thinking": false,
+    "use_cache": true
+  }
+}
