@@ -1,0 +1,287 @@
+[
+  {
+    "id": "voc-01-wording-0",
+    "raw": "{\"event\":\"蓝晒书签制作课\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      100400,
+      102488,
+      90286,
+      61755,
+      103963,
+      99504,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "voc-01-wording-1",
+    "raw": "{\"event\":\"蓝晒书签制作课\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      100400,
+      102488,
+      90286,
+      61755,
+      103963,
+      99504,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "voc-01-wording-2",
+    "raw": "{\"event\":\"蓝晒书签制作课\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      100400,
+      102488,
+      90286,
+      61755,
+      103963,
+      99504,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "vtc-01-wording-0",
+    "raw": "{\"event\":\"植物标本装帧课\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      104155,
+      30844,
+      21894,
+      98641,
+      116226,
+      99504,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "vtc-01-wording-1",
+    "raw": "{\"event\":\"植物标本装帧课\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      104155,
+      30844,
+      21894,
+      98641,
+      116226,
+      99504,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "vtc-01-wording-2",
+    "raw": "{\"event\":\"植物标本装帧课\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      104155,
+      30844,
+      21894,
+      98641,
+      116226,
+      99504,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "vtc-02-wording-0",
+    "raw": "{\"event\":\"木版套色体验\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      75405,
+      40301,
+      99619,
+      38035,
+      101904,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "vtc-02-wording-1",
+    "raw": "{\"event\":\"木版套色体验\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      75405,
+      40301,
+      99619,
+      38035,
+      101904,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  },
+  {
+    "id": "vtc-02-wording-2",
+    "raw": "{\"event\":\"木版套色体验\",\"time\":null,\"location\":null}",
+    "token_ids": [
+      4913,
+      3087,
+      3252,
+      75405,
+      40301,
+      99619,
+      38035,
+      101904,
+      2198,
+      1678,
+      788,
+      2921,
+      1335,
+      2527,
+      788,
+      2921,
+      92,
+      151645
+    ],
+    "ended_with_eos": true,
+    "score": {
+      "json_valid": true,
+      "schema_valid": true,
+      "exact": false,
+      "fields_correct": 2
+    }
+  }
+]

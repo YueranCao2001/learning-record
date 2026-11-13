@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-13",
+  "wordings": [
+    "后续发布",
+    "待定",
+    "尚未确定"
+  ],
+  "source_groups": 3,
+  "new_source_groups": 0,
+  "question": "Does replacing the undetermined time phrase restore the explicit venue?",
+  "completion": "Score all nine inputs for each of three adapters and reproduce all nine frozen outputs.",
+  "human_review": "pending"
+}

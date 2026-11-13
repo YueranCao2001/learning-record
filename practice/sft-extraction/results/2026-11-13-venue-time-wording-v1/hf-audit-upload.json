@@ -1,0 +1,24 @@
+{
+  "repo": "YueranCao2001/qwen3-0.6b-zh-extraction-lora",
+  "branch": "boundary-v2-20261023",
+  "commit": "6353c5e72153d7218baa3ffc057432bffa02a05a",
+  "tested_adapter_revision": null,
+  "reference_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "path_in_repo": "evaluations/2026-11-13-venue-time-wording-v1",
+  "files_sha256": {
+    "canonical-generation.json": "e7994eaea9bc8ffa9cd75e59a97b1f310c2185a8b798ba54ab8bc6aa2f1f323e",
+    "cases.json": "a4c96f6a69e4ab1c771e30e9e35bccfb008c5d90558b672b45485f4ab272e8b7",
+    "manifest.json": "ab19e56114f501832e354bb3f279045a60271311a84b0ad660203219b657a18b",
+    "protocol.json": "4dca364cf0151195b021f2241c0253a634504250b965d9f7ff72e95897378745",
+    "review.json": "202256757905c144d8c89a0789d041e2e20680b1ab359a01ff05c4d7ce10ff19",
+    "target-generation.json": "e7994eaea9bc8ffa9cd75e59a97b1f310c2185a8b798ba54ab8bc6aa2f1f323e",
+    "warm-start-generation.json": "ebf5276f59a5b2ba62457c277fd3fbecb83bd2f747165c41cd4d0f9686c7b060"
+  },
+  "weight_upload": false,
+  "main_before": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "main_after": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "private": true,
+  "download_hashes_equal": true,
+  "adapter_weights_unchanged": true,
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}

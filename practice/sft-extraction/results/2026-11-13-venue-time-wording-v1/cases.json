@@ -1,0 +1,149 @@
+{
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "rows": [
+    {
+      "id": "voc-01-wording-0",
+      "group": "voc-01",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "undetermined",
+      "order": "time-first",
+      "text": "【蓝晒书签制作课】\n时间：后续发布｜地点：白榆印制室\n请按活动安排参加。",
+      "expected": {
+        "event": "蓝晒书签制作课",
+        "time": null,
+        "location": "白榆印制室"
+      },
+      "wording": "后续发布",
+      "replay_id": "voc-01-undetermined-time-first"
+    },
+    {
+      "id": "voc-01-wording-1",
+      "group": "voc-01",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "undetermined",
+      "order": "time-first",
+      "text": "【蓝晒书签制作课】\n时间：待定｜地点：白榆印制室\n请按活动安排参加。",
+      "expected": {
+        "event": "蓝晒书签制作课",
+        "time": null,
+        "location": "白榆印制室"
+      },
+      "wording": "待定",
+      "replay_id": null
+    },
+    {
+      "id": "voc-01-wording-2",
+      "group": "voc-01",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "undetermined",
+      "order": "time-first",
+      "text": "【蓝晒书签制作课】\n时间：尚未确定｜地点：白榆印制室\n请按活动安排参加。",
+      "expected": {
+        "event": "蓝晒书签制作课",
+        "time": null,
+        "location": "白榆印制室"
+      },
+      "wording": "尚未确定",
+      "replay_id": null
+    },
+    {
+      "id": "vtc-01-wording-0",
+      "group": "vtc-01",
+      "split": "dev",
+      "cohort": "title-template-confirmation",
+      "time_state": "undetermined",
+      "order": "time-first",
+      "text": "【植物标本装帧课】\n时间：后续发布｜地点：雁栖手工室\n请按活动安排参加。",
+      "expected": {
+        "event": "植物标本装帧课",
+        "time": null,
+        "location": "雁栖手工室"
+      },
+      "wording": "后续发布",
+      "replay_id": "vtc-01-undetermined-time-first"
+    },
+    {
+      "id": "vtc-01-wording-1",
+      "group": "vtc-01",
+      "split": "dev",
+      "cohort": "title-template-confirmation",
+      "time_state": "undetermined",
+      "order": "time-first",
+      "text": "【植物标本装帧课】\n时间：待定｜地点：雁栖手工室\n请按活动安排参加。",
+      "expected": {
+        "event": "植物标本装帧课",
+        "time": null,
+        "location": "雁栖手工室"
+      },
+      "wording": "待定",
+      "replay_id": null
+    },
+    {
+      "id": "vtc-01-wording-2",
+      "group": "vtc-01",
+      "split": "dev",
+      "cohort": "title-template-confirmation",
+      "time_state": "undetermined",
+      "order": "time-first",
+      "text": "【植物标本装帧课】\n时间：尚未确定｜地点：雁栖手工室\n请按活动安排参加。",
+      "expected": {
+        "event": "植物标本装帧课",
+        "time": null,
+        "location": "雁栖手工室"
+      },
+      "wording": "尚未确定",
+      "replay_id": null
+    },
+    {
+      "id": "vtc-02-wording-0",
+      "group": "vtc-02",
+      "split": "dev",
+      "cohort": "title-template-confirmation",
+      "time_state": "undetermined",
+      "order": "time-first",
+      "text": "【木版套色体验】\n时间：后续发布｜地点：青槐版画坊\n请按活动安排参加。",
+      "expected": {
+        "event": "木版套色体验",
+        "time": null,
+        "location": "青槐版画坊"
+      },
+      "wording": "后续发布",
+      "replay_id": "vtc-02-undetermined-time-first"
+    },
+    {
+      "id": "vtc-02-wording-1",
+      "group": "vtc-02",
+      "split": "dev",
+      "cohort": "title-template-confirmation",
+      "time_state": "undetermined",
+      "order": "time-first",
+      "text": "【木版套色体验】\n时间：待定｜地点：青槐版画坊\n请按活动安排参加。",
+      "expected": {
+        "event": "木版套色体验",
+        "time": null,
+        "location": "青槐版画坊"
+      },
+      "wording": "待定",
+      "replay_id": null
+    },
+    {
+      "id": "vtc-02-wording-2",
+      "group": "vtc-02",
+      "split": "dev",
+      "cohort": "title-template-confirmation",
+      "time_state": "undetermined",
+      "order": "time-first",
+      "text": "【木版套色体验】\n时间：尚未确定｜地点：青槐版画坊\n请按活动安排参加。",
+      "expected": {
+        "event": "木版套色体验",
+        "time": null,
+        "location": "青槐版画坊"
+      },
+      "wording": "尚未确定",
+      "replay_id": null
+    }
+  ]
+}

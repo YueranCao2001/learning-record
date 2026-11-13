@@ -110,6 +110,7 @@
 - [中文信息抽取微调：地点漏抽与首个分歧 token](daily/2026/11/2026-11-09-sft-venue-omission-diagnostic.md)
 - [中文信息抽取微调：未定时间与地点漏抽的跨来源确认](daily/2026/11/2026-11-11-sft-venue-omission-confirmation.md)
 - [中文信息抽取微调：标题式通知的地点漏抽复验](daily/2026/11/2026-11-12-sft-venue-title-confirmation.md)
+- [中文信息抽取微调：未定时间措辞与地点漏抽](daily/2026/11/2026-11-13-sft-venue-time-wording.md)
 
 ## 提交约定
 
