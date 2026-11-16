@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-16",
+  "source_run": "2026-11-13-venue-time-wording-v1",
+  "wordings": [
+    "后续发布",
+    "待定",
+    "尚未确定"
+  ],
+  "source_groups": 3,
+  "new_source_groups": 0,
+  "question": "Does placing the venue clause first restore the explicit venue?",
+  "completion": "Score all 27 paired comparisons, verify 27 original token replays and report time and venue changes.",
+  "human_review": "pending"
+}

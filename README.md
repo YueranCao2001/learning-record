@@ -111,6 +111,7 @@
 - [中文信息抽取微调：未定时间与地点漏抽的跨来源确认](daily/2026/11/2026-11-11-sft-venue-omission-confirmation.md)
 - [中文信息抽取微调：标题式通知的地点漏抽复验](daily/2026/11/2026-11-12-sft-venue-title-confirmation.md)
 - [中文信息抽取微调：未定时间措辞与地点漏抽](daily/2026/11/2026-11-13-sft-venue-time-wording.md)
+- [中文信息抽取微调：地点分句换序对照](daily/2026/11/2026-11-16-sft-venue-clause-order.md)
 
 ## 提交约定
 
