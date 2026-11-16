@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-16",
+  "prompts": {
+    "original": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+    "field-independence": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。\n逐个判断字段，只把原文未明确给出的字段填为 null。"
+  },
+  "source_groups": 3,
+  "new_source_groups": 0,
+  "question": "Does appending one field-independence sentence restore the three omitted venues?",
+  "completion": "Score both prompts on all six notices, replay three original outputs, and compare location and time by pair.",
+  "human_review": "pending"
+}

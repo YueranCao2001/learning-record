@@ -1,0 +1,497 @@
+{
+  "training_steps": 0,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "weights_unchanged": true,
+  "parameters_before": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+  "parameters_after": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+  "source_groups": 3,
+  "new_source_groups": 0,
+  "generation_calls": 12,
+  "token_replays": {
+    "voc-01-wording-0-venue-first": true,
+    "vtc-01-wording-0-venue-first": true,
+    "vtc-02-wording-0-venue-first": true
+  },
+  "known_token_replays": 3,
+  "pairs": [
+    {
+      "id": "voc-01-wording-0-venue-first",
+      "time_state": "undetermined",
+      "original": {
+        "id": "voc-01-wording-0-venue-first",
+        "cohort": "new-venue-omission-confirmation",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": false
+        },
+        "parsed": {
+          "event": "蓝晒书签制作课",
+          "time": null,
+          "location": null
+        },
+        "location_omitted": true
+      },
+      "field_independence": {
+        "id": "voc-01-wording-0-venue-first",
+        "cohort": "new-venue-omission-confirmation",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": false
+        },
+        "parsed": {
+          "event": "蓝晒书签制作课",
+          "time": null,
+          "location": null
+        },
+        "location_omitted": true
+      }
+    },
+    {
+      "id": "voc-01-explicit-time-first-venue-first",
+      "time_state": "explicit",
+      "original": {
+        "id": "voc-01-explicit-time-first-venue-first",
+        "cohort": "new-venue-omission-confirmation",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "蓝晒书签制作课",
+          "time": "12月30日上午10:15",
+          "location": "白榆印制室"
+        },
+        "location_omitted": false
+      },
+      "field_independence": {
+        "id": "voc-01-explicit-time-first-venue-first",
+        "cohort": "new-venue-omission-confirmation",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "蓝晒书签制作课",
+          "time": "12月30日上午10:15",
+          "location": "白榆印制室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "id": "vtc-01-wording-0-venue-first",
+      "time_state": "undetermined",
+      "original": {
+        "id": "vtc-01-wording-0-venue-first",
+        "cohort": "title-template-confirmation",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": false
+        },
+        "parsed": {
+          "event": "植物标本装帧课",
+          "time": null,
+          "location": null
+        },
+        "location_omitted": true
+      },
+      "field_independence": {
+        "id": "vtc-01-wording-0-venue-first",
+        "cohort": "title-template-confirmation",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物标本装帧课",
+          "time": null,
+          "location": "雁栖手工室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "id": "vtc-01-explicit-time-first-venue-first",
+      "time_state": "explicit",
+      "original": {
+        "id": "vtc-01-explicit-time-first-venue-first",
+        "cohort": "title-template-confirmation",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物标本装帧课",
+          "time": "1月8日上午10:20",
+          "location": "雁栖手工室"
+        },
+        "location_omitted": false
+      },
+      "field_independence": {
+        "id": "vtc-01-explicit-time-first-venue-first",
+        "cohort": "title-template-confirmation",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "植物标本装帧课",
+          "time": "1月8日上午10:20",
+          "location": "雁栖手工室"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "id": "vtc-02-wording-0-venue-first",
+      "time_state": "undetermined",
+      "original": {
+        "id": "vtc-02-wording-0-venue-first",
+        "cohort": "title-template-confirmation",
+        "exact": false,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": false
+        },
+        "parsed": {
+          "event": "木版套色体验",
+          "time": null,
+          "location": null
+        },
+        "location_omitted": true
+      },
+      "field_independence": {
+        "id": "vtc-02-wording-0-venue-first",
+        "cohort": "title-template-confirmation",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "木版套色体验",
+          "time": null,
+          "location": "青槐版画坊"
+        },
+        "location_omitted": false
+      }
+    },
+    {
+      "id": "vtc-02-explicit-time-first-venue-first",
+      "time_state": "explicit",
+      "original": {
+        "id": "vtc-02-explicit-time-first-venue-first",
+        "cohort": "title-template-confirmation",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "木版套色体验",
+          "time": "周日下午15:45",
+          "location": "青槐版画坊"
+        },
+        "location_omitted": false
+      },
+      "field_independence": {
+        "id": "vtc-02-explicit-time-first-venue-first",
+        "cohort": "title-template-confirmation",
+        "exact": true,
+        "fields": {
+          "event": true,
+          "time": true,
+          "location": true
+        },
+        "parsed": {
+          "event": "木版套色体验",
+          "time": "周日下午15:45",
+          "location": "青槐版画坊"
+        },
+        "location_omitted": false
+      }
+    }
+  ],
+  "results": {
+    "original": {
+      "summary": {
+        "count": 6,
+        "exact": 3,
+        "json_valid": 6,
+        "schema_valid": 6,
+        "fields_correct": {
+          "event": 6,
+          "time": 6,
+          "location": 3
+        },
+        "error_counts": {
+          "value-to-null": 3
+        }
+      },
+      "records": [
+        {
+          "id": "voc-01-wording-0-venue-first",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "蓝晒书签制作课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "voc-01-explicit-time-first-venue-first",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒书签制作课",
+            "time": "12月30日上午10:15",
+            "location": "白榆印制室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "vtc-01-wording-0-venue-first",
+          "cohort": "title-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "植物标本装帧课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "vtc-01-explicit-time-first-venue-first",
+          "cohort": "title-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物标本装帧课",
+            "time": "1月8日上午10:20",
+            "location": "雁栖手工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "vtc-02-wording-0-venue-first",
+          "cohort": "title-template-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "木版套色体验",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "vtc-02-explicit-time-first-venue-first",
+          "cohort": "title-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木版套色体验",
+            "time": "周日下午15:45",
+            "location": "青槐版画坊"
+          },
+          "location_omitted": false
+        }
+      ],
+      "errors": [
+        {
+          "id": "voc-01-wording-0-venue-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "白榆印制室",
+          "actual": null
+        },
+        {
+          "id": "vtc-01-wording-0-venue-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "雁栖手工室",
+          "actual": null
+        },
+        {
+          "id": "vtc-02-wording-0-venue-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "青槐版画坊",
+          "actual": null
+        }
+      ]
+    },
+    "field-independence": {
+      "summary": {
+        "count": 6,
+        "exact": 5,
+        "json_valid": 6,
+        "schema_valid": 6,
+        "fields_correct": {
+          "event": 6,
+          "time": 6,
+          "location": 5
+        },
+        "error_counts": {
+          "value-to-null": 1
+        }
+      },
+      "records": [
+        {
+          "id": "voc-01-wording-0-venue-first",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": false,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": false
+          },
+          "parsed": {
+            "event": "蓝晒书签制作课",
+            "time": null,
+            "location": null
+          },
+          "location_omitted": true
+        },
+        {
+          "id": "voc-01-explicit-time-first-venue-first",
+          "cohort": "new-venue-omission-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "蓝晒书签制作课",
+            "time": "12月30日上午10:15",
+            "location": "白榆印制室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "vtc-01-wording-0-venue-first",
+          "cohort": "title-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物标本装帧课",
+            "time": null,
+            "location": "雁栖手工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "vtc-01-explicit-time-first-venue-first",
+          "cohort": "title-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "植物标本装帧课",
+            "time": "1月8日上午10:20",
+            "location": "雁栖手工室"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "vtc-02-wording-0-venue-first",
+          "cohort": "title-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木版套色体验",
+            "time": null,
+            "location": "青槐版画坊"
+          },
+          "location_omitted": false
+        },
+        {
+          "id": "vtc-02-explicit-time-first-venue-first",
+          "cohort": "title-template-confirmation",
+          "exact": true,
+          "fields": {
+            "event": true,
+            "time": true,
+            "location": true
+          },
+          "parsed": {
+            "event": "木版套色体验",
+            "time": "周日下午15:45",
+            "location": "青槐版画坊"
+          },
+          "location_omitted": false
+        }
+      ],
+      "errors": [
+        {
+          "id": "voc-01-wording-0-venue-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "白榆印制室",
+          "actual": null
+        }
+      ]
+    }
+  }
+}
