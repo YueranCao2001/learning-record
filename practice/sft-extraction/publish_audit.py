@@ -23,7 +23,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace", "resume", "resume-guard", "atomic"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace", "venue-location-cache-check", "resume", "resume-guard", "atomic"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
@@ -53,6 +53,12 @@ def main():
         files = {"manifest.json", "protocol.json", "environment.json", "comparison.json"}
         files |= {phase + "/" + name for phase in ("continuous", "prefix", "resume", "optimizer-reset")
                   for name in ("history.json", "state.json")}
+    elif args.kind == "venue-location-cache-check":
+        assert (review["generation_calls"], review["known_token_replays"], len(review["pairs"])) == (8, 4, 4)
+        assert (review["source_groups"], review["new_source_groups"]) == (1, 0)
+        assert review["weights_unchanged"] and not review["promote_to_main"]
+        assert review["parameters_before"] == review["parameters_after"]
+        files = {"cases.json", "manifest.json", "review.json"}
     elif args.kind == "venue-location-token-trace":
         assert (review["generation_calls"], review["teacher_forced_forwards"], review["known_token_replays"]) == (4, 4, 4)
         assert (review["source_groups"], review["new_source_groups"]) == (1, 0)
@@ -209,7 +215,7 @@ def main():
                revision=BRANCH, allow_patterns=sorted(files),
                commit_message="Add read-only diagnostic evidence; leave weights unchanged")
     report = {"repo": REPO, "branch": BRANCH, "commit": commit.oid,
-              "tested_adapter_revision": None if engineering or args.kind in ("repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace") else TESTED, "reference_adapter_revision": TESTED,
+              "tested_adapter_revision": None if engineering or args.kind in ("repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace", "venue-location-cache-check") else TESTED, "reference_adapter_revision": TESTED,
               "path_in_repo": prefix, "files_sha256": hashes, "weight_upload": False,
               "main_before": main_before, "main_after": api.model_info(REPO, revision="main").sha,
               "private": api.model_info(REPO).private, "download_hashes_equal": False,
