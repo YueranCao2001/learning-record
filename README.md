@@ -112,6 +112,7 @@
 - [中文信息抽取微调：标题式通知的地点漏抽复验](daily/2026/11/2026-11-12-sft-venue-title-confirmation.md)
 - [中文信息抽取微调：未定时间措辞与地点漏抽](daily/2026/11/2026-11-13-sft-venue-time-wording.md)
 - [中文信息抽取微调：地点分句换序对照](daily/2026/11/2026-11-16-sft-venue-clause-order.md)
+- [中文信息抽取微调：白榆印制室漏抽的首个分歧](daily/2026/11/2026-11-17-sft-venue-location-token-trace.md)
 
 ## 提交约定
 

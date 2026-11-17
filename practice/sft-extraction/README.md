@@ -4,6 +4,10 @@
 
 ## 当前状态
 
+2026-11-17 复跑蓝晒课的两种时间状态与两种提示，四份生成逐 token 复现，另做四次正确前缀前向。地点漏抽在第16个输出 token 分歧，追加规则后两种计算路径的候选排序相反。[日期笔记](../../daily/2026/11/2026-11-17-sft-venue-location-token-trace.md) · [逐 token 结果](results/2026-11-17-venue-location-token-trace-v1/review.json)
+
+### 11月16日地点换序与提示对照
+
 2026-11-16 完成地点分句换序对照。共54次生成，27份原序输出逐 token 复现。地点前置后，三份权重分别为9/9、9/9、6/9。保留原称谓组仍遗漏三条“后续发布”通知的地点。[日期笔记](../../daily/2026/11/2026-11-16-sft-venue-clause-order.md) · [逐题结果](results/2026-11-16-venue-clause-order-v1/review.json)
 
 同日增加12次提示对照。对保留原称谓组追加字段判断规则后，找回三条漏抽中的两条，三条明确时间对照在两种提示下均正确。[补充结果](results/2026-11-16-venue-field-prompt-v1/review.json)
