@@ -4,6 +4,10 @@
 
 ## 当前状态
 
+2026-11-18 完成三组通知的缓存开关对照，共24次生成。关闭缓存后原提示从3/6到4/6，追加规则保持5/6，其中一条恢复、一条退化。16份历史输出逐 token 复现。[日期笔记](../../daily/2026/11/2026-11-18-sft-venue-cache-scope.md) · [逐题结果](results/2026-11-18-venue-cache-scope-v1/review.json)
+
+### 11月17日地点 token 与缓存复验
+
 2026-11-17 复跑蓝晒课的两种时间状态与两种提示，四份生成逐 token 复现，另做四次正确前缀前向。地点漏抽在第16个输出 token 分歧，追加规则后两种计算路径的候选排序相反。[日期笔记](../../daily/2026/11/2026-11-17-sft-venue-location-token-trace.md) · [逐 token 结果](results/2026-11-17-venue-location-token-trace-v1/review.json)
 
 同日补充8次缓存开关对照。关闭缓存后，追加规则的未定版本恢复“白榆印制室”，原提示仍漏抽。两个明确时间版本在两种设置下均正确。[缓存复验](results/2026-11-17-venue-location-cache-check-v1/review.json)

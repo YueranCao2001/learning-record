@@ -1,0 +1,1221 @@
+{
+  "date": "2026-11-18",
+  "training_steps": 0,
+  "human_review": "pending",
+  "promote_to_main": false,
+  "weights_unchanged": true,
+  "parameters_before": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+  "parameters_after": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+  "generation_calls": 24,
+  "source_groups": 3,
+  "new_source_groups": 0,
+  "known_cached_replays": 12,
+  "known_uncached_replays": 4,
+  "results": {
+    "original": {
+      "summaries": {
+        "cached": {
+          "count": 6,
+          "exact": 3,
+          "json_valid": 6,
+          "schema_valid": 6,
+          "fields_correct": {
+            "event": 6,
+            "time": 6,
+            "location": 3
+          },
+          "error_counts": {
+            "value-to-null": 3
+          }
+        },
+        "uncached": {
+          "count": 6,
+          "exact": 4,
+          "json_valid": 6,
+          "schema_valid": 6,
+          "fields_correct": {
+            "event": 6,
+            "time": 6,
+            "location": 4
+          },
+          "error_counts": {
+            "value-to-null": 2
+          }
+        }
+      },
+      "errors": {
+        "cached": [
+          {
+            "id": "voc-01-wording-0-venue-first",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "白榆印制室",
+            "actual": null
+          },
+          {
+            "id": "vtc-01-wording-0-venue-first",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "雁栖手工室",
+            "actual": null
+          },
+          {
+            "id": "vtc-02-wording-0-venue-first",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "青槐版画坊",
+            "actual": null
+          }
+        ],
+        "uncached": [
+          {
+            "id": "voc-01-wording-0-venue-first",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "白榆印制室",
+            "actual": null
+          },
+          {
+            "id": "vtc-02-wording-0-venue-first",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "青槐版画坊",
+            "actual": null
+          }
+        ]
+      },
+      "pairs": [
+        {
+          "id": "voc-01-wording-0-venue-first",
+          "group": "voc-01",
+          "time_state": "undetermined",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": true,
+          "cached": {
+            "id": "voc-01-wording-0-venue-first",
+            "raw": "{\"event\":\"蓝晒书签制作课\",\"time\":null,\"location\":null}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              100400,
+              102488,
+              90286,
+              61755,
+              103963,
+              99504,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              788,
+              2921,
+              92,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": false,
+              "fields_correct": 2
+            },
+            "first_gold_difference_zero_based": 15
+          },
+          "uncached": {
+            "id": "voc-01-wording-0-venue-first",
+            "raw": "{\"event\":\"蓝晒书签制作课\",\"time\":null,\"location\":null}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              100400,
+              102488,
+              90286,
+              61755,
+              103963,
+              99504,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              788,
+              2921,
+              92,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": false,
+              "fields_correct": 2
+            },
+            "first_gold_difference_zero_based": 15
+          },
+          "divergence": null
+        },
+        {
+          "id": "voc-01-explicit-time-first-venue-first",
+          "group": "voc-01",
+          "time_state": "explicit",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": true,
+          "cached": {
+            "id": "voc-01-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"蓝晒书签制作课\",\"time\":\"12月30日上午10:15\",\"location\":\"白榆印制室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              100400,
+              102488,
+              90286,
+              61755,
+              103963,
+              99504,
+              2198,
+              1678,
+              3252,
+              16,
+              17,
+              9754,
+              18,
+              15,
+              104898,
+              16,
+              15,
+              25,
+              16,
+              20,
+              2198,
+              2527,
+              3252,
+              99243,
+              103649,
+              99540,
+              43316,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "uncached": {
+            "id": "voc-01-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"蓝晒书签制作课\",\"time\":\"12月30日上午10:15\",\"location\":\"白榆印制室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              100400,
+              102488,
+              90286,
+              61755,
+              103963,
+              99504,
+              2198,
+              1678,
+              3252,
+              16,
+              17,
+              9754,
+              18,
+              15,
+              104898,
+              16,
+              15,
+              25,
+              16,
+              20,
+              2198,
+              2527,
+              3252,
+              99243,
+              103649,
+              99540,
+              43316,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "divergence": null
+        },
+        {
+          "id": "vtc-01-wording-0-venue-first",
+          "group": "vtc-01",
+          "time_state": "undetermined",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": null,
+          "cached": {
+            "id": "vtc-01-wording-0-venue-first",
+            "raw": "{\"event\":\"植物标本装帧课\",\"time\":null,\"location\":null}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              104155,
+              30844,
+              21894,
+              98641,
+              116226,
+              99504,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              788,
+              2921,
+              92,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": false,
+              "fields_correct": 2
+            },
+            "first_gold_difference_zero_based": 15
+          },
+          "uncached": {
+            "id": "vtc-01-wording-0-venue-first",
+            "raw": "{\"event\":\"植物标本装帧课\",\"time\":null,\"location\":\"雁栖手工室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              104155,
+              30844,
+              21894,
+              98641,
+              116226,
+              99504,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              3252,
+              107181,
+              110122,
+              107171,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "divergence": {
+            "index_zero_based": 15,
+            "shared_prefix": "{\"event\":\"植物标本装帧课\",\"time\":null,\"location",
+            "candidate_ids": {
+              "cached_choice": 788,
+              "uncached_choice": 3252
+            },
+            "candidate_text": {
+              "cached_choice": "\":",
+              "uncached_choice": "\":\""
+            },
+            "probabilities": {
+              "cached": {
+                "cached_choice": 0.4991886615753174,
+                "uncached_choice": 0.4991886615753174
+              },
+              "uncached": {
+                "cached_choice": 0.4372222423553467,
+                "uncached_choice": 0.5614044666290283
+              }
+            }
+          }
+        },
+        {
+          "id": "vtc-01-explicit-time-first-venue-first",
+          "group": "vtc-01",
+          "time_state": "explicit",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": null,
+          "cached": {
+            "id": "vtc-01-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"植物标本装帧课\",\"time\":\"1月8日上午10:20\",\"location\":\"雁栖手工室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              104155,
+              30844,
+              21894,
+              98641,
+              116226,
+              99504,
+              2198,
+              1678,
+              3252,
+              16,
+              9754,
+              23,
+              104898,
+              16,
+              15,
+              25,
+              17,
+              15,
+              2198,
+              2527,
+              3252,
+              107181,
+              110122,
+              107171,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "uncached": {
+            "id": "vtc-01-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"植物标本装帧课\",\"time\":\"1月8日上午10:20\",\"location\":\"雁栖手工室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              104155,
+              30844,
+              21894,
+              98641,
+              116226,
+              99504,
+              2198,
+              1678,
+              3252,
+              16,
+              9754,
+              23,
+              104898,
+              16,
+              15,
+              25,
+              17,
+              15,
+              2198,
+              2527,
+              3252,
+              107181,
+              110122,
+              107171,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "divergence": null
+        },
+        {
+          "id": "vtc-02-wording-0-venue-first",
+          "group": "vtc-02",
+          "time_state": "undetermined",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": null,
+          "cached": {
+            "id": "vtc-02-wording-0-venue-first",
+            "raw": "{\"event\":\"木版套色体验\",\"time\":null,\"location\":null}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              75405,
+              40301,
+              99619,
+              38035,
+              101904,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              788,
+              2921,
+              92,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": false,
+              "fields_correct": 2
+            },
+            "first_gold_difference_zero_based": 14
+          },
+          "uncached": {
+            "id": "vtc-02-wording-0-venue-first",
+            "raw": "{\"event\":\"木版套色体验\",\"time\":null,\"location\":null}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              75405,
+              40301,
+              99619,
+              38035,
+              101904,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              788,
+              2921,
+              92,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": false,
+              "fields_correct": 2
+            },
+            "first_gold_difference_zero_based": 14
+          },
+          "divergence": null
+        },
+        {
+          "id": "vtc-02-explicit-time-first-venue-first",
+          "group": "vtc-02",
+          "time_state": "explicit",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": null,
+          "cached": {
+            "id": "vtc-02-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"木版套色体验\",\"time\":\"周日下午15:45\",\"location\":\"青槐版画坊\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              75405,
+              40301,
+              99619,
+              38035,
+              101904,
+              2198,
+              1678,
+              3252,
+              40542,
+              105286,
+              16,
+              20,
+              25,
+              19,
+              20,
+              2198,
+              2527,
+              3252,
+              99467,
+              113745,
+              40301,
+              54623,
+              100896,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "uncached": {
+            "id": "vtc-02-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"木版套色体验\",\"time\":\"周日下午15:45\",\"location\":\"青槐版画坊\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              75405,
+              40301,
+              99619,
+              38035,
+              101904,
+              2198,
+              1678,
+              3252,
+              40542,
+              105286,
+              16,
+              20,
+              25,
+              19,
+              20,
+              2198,
+              2527,
+              3252,
+              99467,
+              113745,
+              40301,
+              54623,
+              100896,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "divergence": null
+        }
+      ]
+    },
+    "field-independence": {
+      "summaries": {
+        "cached": {
+          "count": 6,
+          "exact": 5,
+          "json_valid": 6,
+          "schema_valid": 6,
+          "fields_correct": {
+            "event": 6,
+            "time": 6,
+            "location": 5
+          },
+          "error_counts": {
+            "value-to-null": 1
+          }
+        },
+        "uncached": {
+          "count": 6,
+          "exact": 5,
+          "json_valid": 6,
+          "schema_valid": 6,
+          "fields_correct": {
+            "event": 6,
+            "time": 6,
+            "location": 5
+          },
+          "error_counts": {
+            "value-to-null": 1
+          }
+        }
+      },
+      "errors": {
+        "cached": [
+          {
+            "id": "voc-01-wording-0-venue-first",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "白榆印制室",
+            "actual": null
+          }
+        ],
+        "uncached": [
+          {
+            "id": "vtc-02-wording-0-venue-first",
+            "field": "location",
+            "kind": "value-to-null",
+            "expected": "青槐版画坊",
+            "actual": null
+          }
+        ]
+      },
+      "pairs": [
+        {
+          "id": "voc-01-wording-0-venue-first",
+          "group": "voc-01",
+          "time_state": "undetermined",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": true,
+          "cached": {
+            "id": "voc-01-wording-0-venue-first",
+            "raw": "{\"event\":\"蓝晒书签制作课\",\"time\":null,\"location\":null}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              100400,
+              102488,
+              90286,
+              61755,
+              103963,
+              99504,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              788,
+              2921,
+              92,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": false,
+              "fields_correct": 2
+            },
+            "first_gold_difference_zero_based": 15
+          },
+          "uncached": {
+            "id": "voc-01-wording-0-venue-first",
+            "raw": "{\"event\":\"蓝晒书签制作课\",\"time\":null,\"location\":\"白榆印制室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              100400,
+              102488,
+              90286,
+              61755,
+              103963,
+              99504,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              3252,
+              99243,
+              103649,
+              99540,
+              43316,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "divergence": {
+            "index_zero_based": 15,
+            "shared_prefix": "{\"event\":\"蓝晒书签制作课\",\"time\":null,\"location",
+            "candidate_ids": {
+              "cached_choice": 788,
+              "uncached_choice": 3252
+            },
+            "candidate_text": {
+              "cached_choice": "\":",
+              "uncached_choice": "\":\""
+            },
+            "probabilities": {
+              "cached": {
+                "cached_choice": 0.5306184887886047,
+                "uncached_choice": 0.4682691991329193
+              },
+              "uncached": {
+                "cached_choice": 0.4373242259025574,
+                "uncached_choice": 0.5615354180335999
+              }
+            }
+          }
+        },
+        {
+          "id": "voc-01-explicit-time-first-venue-first",
+          "group": "voc-01",
+          "time_state": "explicit",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": true,
+          "cached": {
+            "id": "voc-01-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"蓝晒书签制作课\",\"time\":\"12月30日上午10:15\",\"location\":\"白榆印制室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              100400,
+              102488,
+              90286,
+              61755,
+              103963,
+              99504,
+              2198,
+              1678,
+              3252,
+              16,
+              17,
+              9754,
+              18,
+              15,
+              104898,
+              16,
+              15,
+              25,
+              16,
+              20,
+              2198,
+              2527,
+              3252,
+              99243,
+              103649,
+              99540,
+              43316,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "uncached": {
+            "id": "voc-01-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"蓝晒书签制作课\",\"time\":\"12月30日上午10:15\",\"location\":\"白榆印制室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              100400,
+              102488,
+              90286,
+              61755,
+              103963,
+              99504,
+              2198,
+              1678,
+              3252,
+              16,
+              17,
+              9754,
+              18,
+              15,
+              104898,
+              16,
+              15,
+              25,
+              16,
+              20,
+              2198,
+              2527,
+              3252,
+              99243,
+              103649,
+              99540,
+              43316,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "divergence": null
+        },
+        {
+          "id": "vtc-01-wording-0-venue-first",
+          "group": "vtc-01",
+          "time_state": "undetermined",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": null,
+          "cached": {
+            "id": "vtc-01-wording-0-venue-first",
+            "raw": "{\"event\":\"植物标本装帧课\",\"time\":null,\"location\":\"雁栖手工室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              104155,
+              30844,
+              21894,
+              98641,
+              116226,
+              99504,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              3252,
+              107181,
+              110122,
+              107171,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "uncached": {
+            "id": "vtc-01-wording-0-venue-first",
+            "raw": "{\"event\":\"植物标本装帧课\",\"time\":null,\"location\":\"雁栖手工室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              104155,
+              30844,
+              21894,
+              98641,
+              116226,
+              99504,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              3252,
+              107181,
+              110122,
+              107171,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "divergence": null
+        },
+        {
+          "id": "vtc-01-explicit-time-first-venue-first",
+          "group": "vtc-01",
+          "time_state": "explicit",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": null,
+          "cached": {
+            "id": "vtc-01-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"植物标本装帧课\",\"time\":\"1月8日上午10:20\",\"location\":\"雁栖手工室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              104155,
+              30844,
+              21894,
+              98641,
+              116226,
+              99504,
+              2198,
+              1678,
+              3252,
+              16,
+              9754,
+              23,
+              104898,
+              16,
+              15,
+              25,
+              17,
+              15,
+              2198,
+              2527,
+              3252,
+              107181,
+              110122,
+              107171,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "uncached": {
+            "id": "vtc-01-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"植物标本装帧课\",\"time\":\"1月8日上午10:20\",\"location\":\"雁栖手工室\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              104155,
+              30844,
+              21894,
+              98641,
+              116226,
+              99504,
+              2198,
+              1678,
+              3252,
+              16,
+              9754,
+              23,
+              104898,
+              16,
+              15,
+              25,
+              17,
+              15,
+              2198,
+              2527,
+              3252,
+              107181,
+              110122,
+              107171,
+              99478,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "divergence": null
+        },
+        {
+          "id": "vtc-02-wording-0-venue-first",
+          "group": "vtc-02",
+          "time_state": "undetermined",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": null,
+          "cached": {
+            "id": "vtc-02-wording-0-venue-first",
+            "raw": "{\"event\":\"木版套色体验\",\"time\":null,\"location\":\"青槐版画坊\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              75405,
+              40301,
+              99619,
+              38035,
+              101904,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              3252,
+              99467,
+              113745,
+              40301,
+              54623,
+              100896,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "uncached": {
+            "id": "vtc-02-wording-0-venue-first",
+            "raw": "{\"event\":\"木版套色体验\",\"time\":null,\"location\":null}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              75405,
+              40301,
+              99619,
+              38035,
+              101904,
+              2198,
+              1678,
+              788,
+              2921,
+              1335,
+              2527,
+              788,
+              2921,
+              92,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": false,
+              "fields_correct": 2
+            },
+            "first_gold_difference_zero_based": 14
+          },
+          "divergence": {
+            "index_zero_based": 14,
+            "shared_prefix": "{\"event\":\"木版套色体验\",\"time\":null,\"location",
+            "candidate_ids": {
+              "cached_choice": 3252,
+              "uncached_choice": 788
+            },
+            "candidate_text": {
+              "cached_choice": "\":\"",
+              "uncached_choice": "\":"
+            },
+            "probabilities": {
+              "cached": {
+                "cached_choice": 0.6219990849494934,
+                "uncached_choice": 0.37726151943206787
+              },
+              "uncached": {
+                "cached_choice": 0.49960798025131226,
+                "uncached_choice": 0.49960798025131226
+              }
+            }
+          }
+        },
+        {
+          "id": "vtc-02-explicit-time-first-venue-first",
+          "group": "vtc-02",
+          "time_state": "explicit",
+          "cached_replay_equal": true,
+          "prior_uncached_replay_equal": null,
+          "cached": {
+            "id": "vtc-02-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"木版套色体验\",\"time\":\"周日下午15:45\",\"location\":\"青槐版画坊\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              75405,
+              40301,
+              99619,
+              38035,
+              101904,
+              2198,
+              1678,
+              3252,
+              40542,
+              105286,
+              16,
+              20,
+              25,
+              19,
+              20,
+              2198,
+              2527,
+              3252,
+              99467,
+              113745,
+              40301,
+              54623,
+              100896,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "uncached": {
+            "id": "vtc-02-explicit-time-first-venue-first",
+            "raw": "{\"event\":\"木版套色体验\",\"time\":\"周日下午15:45\",\"location\":\"青槐版画坊\"}",
+            "token_ids": [
+              4913,
+              3087,
+              3252,
+              75405,
+              40301,
+              99619,
+              38035,
+              101904,
+              2198,
+              1678,
+              3252,
+              40542,
+              105286,
+              16,
+              20,
+              25,
+              19,
+              20,
+              2198,
+              2527,
+              3252,
+              99467,
+              113745,
+              40301,
+              54623,
+              100896,
+              9207,
+              151645
+            ],
+            "score": {
+              "json_valid": true,
+              "schema_valid": true,
+              "exact": true,
+              "fields_correct": 3
+            },
+            "first_gold_difference_zero_based": null
+          },
+          "divergence": null
+        }
+      ]
+    }
+  }
+}
