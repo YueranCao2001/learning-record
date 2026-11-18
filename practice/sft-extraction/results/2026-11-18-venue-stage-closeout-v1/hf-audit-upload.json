@@ -1,0 +1,20 @@
+{
+  "repo": "YueranCao2001/qwen3-0.6b-zh-extraction-lora",
+  "branch": "boundary-v2-20261023",
+  "commit": "616e62be242821f94b1d73267e8b717c0eb3f010",
+  "tested_adapter_revision": null,
+  "reference_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "path_in_repo": "evaluations/2026-11-18-venue-stage-closeout-v1",
+  "files_sha256": {
+    "cases.json": "8da3d9e52dd0b0bb114e3896cba14c009895c9a41a09466d0dec10ea614fff79",
+    "manifest.json": "e5947bab768576502b54c63e24de6293df085d33d6ecf25af80bb371288b3181",
+    "review.json": "ebfa2a88fbab7deb9eaf6269535e21dd5025c376dc705bef1bd9022a77198ab4"
+  },
+  "weight_upload": false,
+  "main_before": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "main_after": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "private": true,
+  "download_hashes_equal": true,
+  "adapter_weights_unchanged": true,
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}
