@@ -4,6 +4,10 @@
 
 ## 当前状态
 
+2026-11-19 开始 DPO 偏好数据实作。六组规则标注的合成偏好对通过字段、来源组、共享提示前缀和 EOS 校验，训练侧与开发侧各三组。[日期笔记](../../daily/2026/11/2026-11-19-dpo-preference-pair-preflight.md) · [分词结果](results/2026-11-19-dpo-preference-pairs-v1/review.json)
+
+### 11月18日缓存复验与阶段收尾
+
 2026-11-18 完成三组通知的缓存开关对照，共24次生成。关闭缓存后原提示从3/6到4/6，追加规则保持5/6，其中一条恢复、一条退化。16份历史输出逐 token 复现。[日期笔记](../../daily/2026/11/2026-11-18-sft-venue-cache-scope.md) · [逐题结果](results/2026-11-18-venue-cache-scope-v1/review.json)
 
 同日完成阶段收尾，新增26次生成。木版套色体验的 FP32 无缓存输出恢复地点。BF16 带缓存的11条开放回归上，追加规则恢复两处地点，六条共同失败已归档。[收尾结果](results/2026-11-18-venue-stage-closeout-v1/review.json)

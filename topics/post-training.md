@@ -4,6 +4,7 @@ SFT、DPO、PPO 与 GRPO、Rollout 和奖励评估器。当前记录以概念及
 
 ## 日期笔记
 
+- 2026-11-19 [DPO 实作：构造并校验第一批偏好对](../daily/2026/11/2026-11-19-dpo-preference-pair-preflight.md)
 - 2026-11-18 [中文信息抽取微调：KV cache 对地点漏抽的影响范围](../daily/2026/11/2026-11-18-sft-venue-cache-scope.md)
 - 2026-11-17 [中文信息抽取微调：白榆印制室漏抽的首个分歧](../daily/2026/11/2026-11-17-sft-venue-location-token-trace.md)
 - 2026-11-16 [中文信息抽取微调：地点分句换序对照](../daily/2026/11/2026-11-16-sft-venue-clause-order.md)

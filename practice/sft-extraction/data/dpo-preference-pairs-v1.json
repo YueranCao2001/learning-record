@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-19",
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "provenance": "Assistant-authored synthetic notices and rule-based preference labels. Independent human review pending.",
+  "rows": [
+    {
+      "id": "dpo-01", "group": "dpo-notice-01", "split": "train",
+      "text": "树叶压花体验将在青梧自然教室举行，开始时间另行通知。",
+      "expected": {"event": "树叶压花体验", "time": null, "location": "青梧自然教室"},
+      "chosen": {"event": "树叶压花体验", "time": null, "location": "青梧自然教室"},
+      "rejected": {"event": "树叶压花体验", "time": null, "location": null},
+      "field": "location", "error": "value-to-null",
+      "reason": "通知明确给出青梧自然教室。时间未定，时间字段仍填 null。"
+    },
+    {
+      "id": "dpo-02", "group": "dpo-notice-02", "split": "dev",
+      "text": "纸伞绘制班定于周三下午16:30开始，场地待定。",
+      "expected": {"event": "纸伞绘制班", "time": "周三下午16:30", "location": null},
+      "chosen": {"event": "纸伞绘制班", "time": "周三下午16:30", "location": null},
+      "rejected": {"event": "纸伞绘制班", "time": "周三下午16:30", "location": "待定"},
+      "field": "location", "error": "missing-to-value",
+      "reason": "待定表示场地尚未确定，地点应填 JSON null。"
+    },
+    {
+      "id": "dpo-03", "group": "dpo-notice-03", "split": "train",
+      "text": "【旧照片修复交流】举办时间为1月22日上午09:45，地点是青檐影像室。",
+      "expected": {"event": "旧照片修复交流", "time": "1月22日上午09:45", "location": "青檐影像室"},
+      "chosen": {"event": "旧照片修复交流", "time": "1月22日上午09:45", "location": "青檐影像室"},
+      "rejected": {"event": "旧照片修复交流", "time": "1月22日上午09:45", "location": "地点是青檐影像室"},
+      "field": "location", "error": "wrong-span",
+      "reason": "场地名称从青檐开始，地点是属于引导词。"
+    },
+    {
+      "id": "dpo-04", "group": "dpo-notice-04", "split": "dev",
+      "text": "欢迎参加灯影搭建课。集合地点尚未确定，开课时间为周日上午10:05。",
+      "expected": {"event": "灯影搭建课", "time": "周日上午10:05", "location": null},
+      "chosen": {"event": "灯影搭建课", "time": "周日上午10:05", "location": null},
+      "rejected": {"event": "灯影搭建课", "time": null, "location": null},
+      "field": "time", "error": "value-to-null",
+      "reason": "地点待定，开课时间已明确给出，应保留完整时间。"
+    },
+    {
+      "id": "dpo-05", "group": "dpo-notice-05", "split": "train",
+      "text": "书脊描金体验安排在澄柳装帧室开展，具体开课时间后续公布。",
+      "expected": {"event": "书脊描金体验", "time": null, "location": "澄柳装帧室"},
+      "chosen": {"event": "书脊描金体验", "time": null, "location": "澄柳装帧室"},
+      "rejected": {"event": "书脊描金体验", "time": "后续公布", "location": "澄柳装帧室"},
+      "field": "time", "error": "missing-to-value",
+      "reason": "后续公布只说明时间未定，地点已经明确，应照原文保留。"
+    },
+    {
+      "id": "dpo-06", "group": "dpo-notice-06", "split": "dev",
+      "text": "“软陶印章工作坊”于2月6日下午14:20在六角工艺室举办。",
+      "expected": {"event": "软陶印章工作坊", "time": "2月6日下午14:20", "location": "六角工艺室"},
+      "chosen": {"event": "软陶印章工作坊", "time": "2月6日下午14:20", "location": "六角工艺室"},
+      "rejected": {"event": "软陶印章工作坊", "time": "14:20", "location": "六角工艺室"},
+      "field": "time", "error": "wrong-span",
+      "reason": "时间原文包含日期和下午，单独抽取时刻丢失了限定信息。"
+    }
+  ]
+}
