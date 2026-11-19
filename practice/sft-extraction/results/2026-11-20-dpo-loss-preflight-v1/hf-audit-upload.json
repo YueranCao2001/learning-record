@@ -1,0 +1,20 @@
+{
+  "repo": "YueranCao2001/qwen3-0.6b-zh-extraction-lora",
+  "branch": "boundary-v2-20261023",
+  "commit": "bda2c5ce2e274ebfcfc293421da65f9d6959c951",
+  "tested_adapter_revision": null,
+  "reference_adapter_revision": "e3b24d1115c21cf69feaa5e6e9cf85a98f502c84",
+  "path_in_repo": "evaluations/2026-11-20-dpo-loss-preflight-v1",
+  "files_sha256": {
+    "manifest.json": "0f1f1bf060ccde7e3abcd437335a1f033d65f9dae4bcde617d39c2a08c49132c",
+    "pair.json": "6a50198b225640c2cdbf76c9e2b086d76faeab8cb59adfabcf09832b6a9eae64",
+    "review.json": "b8082dd91e3d5e9a5720f54af847df301d2f0a996e720b064b77ef3bf78f26e8"
+  },
+  "weight_upload": false,
+  "main_before": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "main_after": "def6e17e1d38ae6d618c72dc55ddaaf961a4fb8f",
+  "private": true,
+  "download_hashes_equal": true,
+  "adapter_weights_unchanged": true,
+  "adapter_sha256": "54e05e6a159e0ec8f04398c7e520fc416c7ef865ed6c5bc138f851cb24f4df12"
+}

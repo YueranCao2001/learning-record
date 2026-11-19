@@ -1,0 +1,28 @@
+{
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "row": {
+    "id": "dpo-01",
+    "group": "dpo-notice-01",
+    "split": "train",
+    "text": "树叶压花体验将在青梧自然教室举行，开始时间另行通知。",
+    "expected": {
+      "event": "树叶压花体验",
+      "time": null,
+      "location": "青梧自然教室"
+    },
+    "chosen": {
+      "event": "树叶压花体验",
+      "time": null,
+      "location": "青梧自然教室"
+    },
+    "rejected": {
+      "event": "树叶压花体验",
+      "time": null,
+      "location": null
+    },
+    "field": "location",
+    "error": "value-to-null",
+    "reason": "通知明确给出青梧自然教室。时间未定，时间字段仍填 null。"
+  },
+  "shared_prefix_tokens": 76
+}

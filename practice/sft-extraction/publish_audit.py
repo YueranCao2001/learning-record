@@ -23,7 +23,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace", "venue-location-cache-check", "venue-cache-scope", "venue-stage-closeout", "dpo-pair-preflight", "resume", "resume-guard", "atomic"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace", "venue-location-cache-check", "venue-cache-scope", "venue-stage-closeout", "dpo-pair-preflight", "dpo-loss-preflight", "resume", "resume-guard", "atomic"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
@@ -53,6 +53,11 @@ def main():
         files = {"manifest.json", "protocol.json", "environment.json", "comparison.json"}
         files |= {phase + "/" + name for phase in ("continuous", "prefix", "resume", "optimizer-reset")
                   for name in ("history.json", "state.json")}
+    elif args.kind == "dpo-loss-preflight":
+        assert (review["forwards"], review["model_generations"], review["pair_id"]) == (4, 0, "dpo-01")
+        assert review["roles"]["policy"] == review["roles"]["reference"]
+        assert review["measured_loss"]["logit"] == 0
+        files = {"pair.json", "manifest.json", "review.json"}
     elif args.kind == "dpo-pair-preflight":
         assert (review["pairs"], review["shared_prefix_pairs"], review["distinct_completion_pairs"]) == (6, 6, 6)
         assert review["model_generations"] == 0 and review["split_counts"] == {"train": 3, "dev": 3}
@@ -230,7 +235,7 @@ def main():
                revision=BRANCH, allow_patterns=sorted(files),
                commit_message="Add read-only diagnostic evidence; leave weights unchanged")
     report = {"repo": REPO, "branch": BRANCH, "commit": commit.oid,
-              "tested_adapter_revision": None if engineering or args.kind in ("repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace", "venue-location-cache-check", "venue-cache-scope", "venue-stage-closeout", "dpo-pair-preflight") else TESTED, "reference_adapter_revision": TESTED,
+              "tested_adapter_revision": None if engineering or args.kind in ("repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace", "venue-location-cache-check", "venue-cache-scope", "venue-stage-closeout", "dpo-pair-preflight", "dpo-loss-preflight") else TESTED, "reference_adapter_revision": TESTED,
               "path_in_repo": prefix, "files_sha256": hashes, "weight_upload": False,
               "main_before": main_before, "main_after": api.model_info(REPO, revision="main").sha,
               "private": api.model_info(REPO).private, "download_hashes_equal": False,

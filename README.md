@@ -115,6 +115,7 @@
 - [中文信息抽取微调：白榆印制室漏抽的首个分歧](daily/2026/11/2026-11-17-sft-venue-location-token-trace.md)
 - [中文信息抽取微调：KV cache 对地点漏抽的影响范围](daily/2026/11/2026-11-18-sft-venue-cache-scope.md)
 - [DPO 实作：构造并校验第一批偏好对](daily/2026/11/2026-11-19-dpo-preference-pair-preflight.md)
+- [DPO 实作：核对四项对数概率与初始损失](daily/2026/11/2026-11-20-dpo-loss-preflight.md)
 
 ## 提交约定
 
