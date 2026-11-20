@@ -116,6 +116,8 @@
 - [中文信息抽取微调：KV cache 对地点漏抽的影响范围](daily/2026/11/2026-11-18-sft-venue-cache-scope.md)
 - [DPO 实作：构造并校验第一批偏好对](daily/2026/11/2026-11-19-dpo-preference-pair-preflight.md)
 - [DPO 实作：核对四项对数概率与初始损失](daily/2026/11/2026-11-20-dpo-loss-preflight.md)
+- [DPO 实作：三步训练与 adapter 重载](daily/2026/11/2026-11-21-dpo-short-training.md)
+- [DPO 实作：开发集与固定回归验收](daily/2026/11/2026-11-22-dpo-fixed-regression.md)
 
 ## 提交约定
 

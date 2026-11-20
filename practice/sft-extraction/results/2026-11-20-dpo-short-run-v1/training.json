@@ -1,0 +1,31 @@
+{
+  "steps": [
+    {
+      "id": "dpo-01",
+      "loss": 0.6931471824645996,
+      "logit": 0.0,
+      "gradient_norm_before_clip": 8.894742965698242
+    },
+    {
+      "id": "dpo-03",
+      "loss": 0.693172037601471,
+      "logit": -4.978180004400201e-05,
+      "gradient_norm_before_clip": 7.021533489227295
+    },
+    {
+      "id": "dpo-05",
+      "loss": 0.6835879683494568,
+      "logit": 0.01921062543988228,
+      "gradient_norm_before_clip": 6.45633602142334
+    }
+  ],
+  "changed_adapter_tensors": 112,
+  "trainable_parameters": 1146880,
+  "initial_policy_sha256": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+  "trained_policy_sha256": "b4d55e3aba7cc81048a8fa93ad064563a476c66dbfad2e8c53ce1d15edf2dbe6",
+  "reference_before": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+  "reference_after": "7e5c9d9959d07a4ec8591cd3ac05824f0a14fa461d80c5c7afca321606c7249f",
+  "base_before": "6e3b95e495f1d3b35720d37b9a36be0598567e1839b72974677745950758886f",
+  "base_after": "6e3b95e495f1d3b35720d37b9a36be0598567e1839b72974677745950758886f",
+  "saved_adapter_sha256": "941b0c0b4cbd2255cbdfade6c05eeeefd07b68fb3749923b284aeda034405d16"
+}

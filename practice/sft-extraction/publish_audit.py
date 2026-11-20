@@ -23,7 +23,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", required=True)
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace", "venue-location-cache-check", "venue-cache-scope", "venue-stage-closeout", "dpo-pair-preflight", "dpo-loss-preflight", "resume", "resume-guard", "atomic"), default="audit")
+    parser.add_argument("--kind", choices=("audit", "minimal", "prompt", "confirmation", "data-preparation", "repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace", "venue-location-cache-check", "venue-cache-scope", "venue-stage-closeout", "dpo-pair-preflight", "dpo-loss-preflight", "dpo-short-run", "resume", "resume-guard", "atomic"), default="audit")
     parser.add_argument("--expected-head", default=TESTED)
     args = parser.parse_args()
     assert Path(args.run).name == args.run
@@ -33,7 +33,7 @@ def main():
     review = json.loads((output / review_file).read_text(encoding="utf-8"))
     if not engineering:
         assert review["human_review"] == "pending"
-        assert review["training_steps"] == {"repair-training": 24, "optimization-budget": 36, "venue-cue-comparison": 32}.get(args.kind, 0)
+        assert review["training_steps"] == {"repair-training": 24, "optimization-budget": 36, "venue-cue-comparison": 32, "dpo-short-run": 3}.get(args.kind, 0)
     if args.kind == "atomic":
         assert review["writer_cases_passed"] == 4 and review["invalid_containers_rejected"] == 5
         assert review["all_invalid_rejected_before_deserialization"] and review["gpu_resume_exact"]
@@ -53,6 +53,12 @@ def main():
         files = {"manifest.json", "protocol.json", "environment.json", "comparison.json"}
         files |= {phase + "/" + name for phase in ("continuous", "prefix", "resume", "optimizer-reset")
                   for name in ("history.json", "state.json")}
+    elif args.kind == "dpo-short-run":
+        assert (review["generation_calls"], review["preference_forwards"], review["history_replayed"]) == (42, 30, 11)
+        assert review["reload_exact"] and review["reference_unchanged"] and review["base_unchanged"]
+        assert not review["train_weights_uploaded"]
+        files = {"manifest.json", "evaluation-inputs.json", "training.json", "reference-scores.json",
+                 "before.json", "after.json", "reloaded.json", "review.json"}
     elif args.kind == "dpo-loss-preflight":
         assert (review["forwards"], review["model_generations"], review["pair_id"]) == (4, 0, "dpo-01")
         assert review["roles"]["policy"] == review["roles"]["reference"]
@@ -235,7 +241,7 @@ def main():
                revision=BRANCH, allow_patterns=sorted(files),
                commit_message="Add read-only diagnostic evidence; leave weights unchanged")
     report = {"repo": REPO, "branch": BRANCH, "commit": commit.oid,
-              "tested_adapter_revision": None if engineering or args.kind in ("repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace", "venue-location-cache-check", "venue-cache-scope", "venue-stage-closeout", "dpo-pair-preflight", "dpo-loss-preflight") else TESTED, "reference_adapter_revision": TESTED,
+              "tested_adapter_revision": None if engineering or args.kind in ("repair-training", "training-fit", "optimization-budget", "absence-diagnostic", "venue-pairs", "venue-cue-comparison", "time-regression", "time-template-confirmation", "venue-omission-diagnostic", "venue-omission-confirmation", "time-cue-order", "venue-title-confirmation", "venue-time-wording", "venue-clause-order", "venue-field-prompt", "venue-location-token-trace", "venue-location-cache-check", "venue-cache-scope", "venue-stage-closeout", "dpo-pair-preflight", "dpo-loss-preflight", "dpo-short-run") else TESTED, "reference_adapter_revision": TESTED,
               "path_in_repo": prefix, "files_sha256": hashes, "weight_upload": False,
               "main_before": main_before, "main_after": api.model_info(REPO, revision="main").sha,
               "private": api.model_info(REPO).private, "download_hashes_equal": False,

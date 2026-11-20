@@ -4,6 +4,8 @@
 
 ## 当前状态
 
+2026-11-20 完成原定11月21日的三步 DPO 训练与22日的评估。重载后参数、开发偏好分数和14条输出一致。历史回归从3/11到8/11，开发生成保持3/3。[训练笔记](../../daily/2026/11/2026-11-21-dpo-short-training.md) · [评估笔记](../../daily/2026/11/2026-11-22-dpo-fixed-regression.md) · [逐题结果](results/2026-11-20-dpo-short-run-v1/review.json)
+
 2026-11-20 计划于11月19日提前执行。单组 DPO 偏好对完成四次只读前向，policy 与 reference 的分差均为约 -0.374962，初始损失为 `ln(2)`。[日期笔记](../../daily/2026/11/2026-11-20-dpo-loss-preflight.md) · [数值结果](results/2026-11-20-dpo-loss-preflight-v1/review.json)
 
 ### 11月19日 DPO 偏好数据实作

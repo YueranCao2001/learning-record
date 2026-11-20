@@ -4,6 +4,8 @@ SFT、DPO、PPO 与 GRPO、Rollout 和奖励评估器。当前记录以概念及
 
 ## 日期笔记
 
+- 2026-11-22 [DPO 实作：开发集与固定回归验收](../daily/2026/11/2026-11-22-dpo-fixed-regression.md)
+- 2026-11-21 [DPO 实作：三步训练与 adapter 重载](../daily/2026/11/2026-11-21-dpo-short-training.md)
 - 2026-11-20 [DPO 实作：核对四项对数概率与初始损失](../daily/2026/11/2026-11-20-dpo-loss-preflight.md)
 - 2026-11-19 [DPO 实作：构造并校验第一批偏好对](../daily/2026/11/2026-11-19-dpo-preference-pair-preflight.md)
 - 2026-11-18 [中文信息抽取微调：KV cache 对地点漏抽的影响范围](../daily/2026/11/2026-11-18-sft-venue-cache-scope.md)

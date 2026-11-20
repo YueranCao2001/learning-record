@@ -46,4 +46,4 @@ L = -\log \sigma\bigl(\beta(r_{\mathrm{policy}} - r_{\mathrm{reference}})\bigr)
 
 ## 下一步
 
-按调整后的安排，11 月 20 日完成原定 11 月 21 日的短训练与重载，以及原定 11 月 22 日的开发集和开放回归，分别记录实际运行日期。
+原定 11 月 21 日和 22 日的实验已于 11 月 20 日执行，分别记录训练与重载、开发集与开放回归。[三步训练](2026-11-21-dpo-short-training.md) · [固定回归](2026-11-22-dpo-fixed-regression.md)

@@ -1,0 +1,207 @@
+{
+  "training_steps": 3,
+  "human_review": "pending",
+  "generation_calls": 42,
+  "preference_forwards": 30,
+  "history_replayed": 11,
+  "reload_exact": true,
+  "reference_unchanged": true,
+  "base_unchanged": true,
+  "preference_deltas": {
+    "dpo-02": {
+      "before_scores": {
+        "chosen": -0.1017451286315918,
+        "rejected": -6.230915069580078
+      },
+      "after_scores": {
+        "chosen": -0.09049142897129059,
+        "rejected": -5.84150505065918
+      },
+      "margin_change": -0.37815631926059723,
+      "before_margin": 6.129169940948486,
+      "after_margin": 5.751013621687889
+    },
+    "dpo-04": {
+      "before_scores": {
+        "chosen": -0.09890276938676834,
+        "rejected": -2.5857791900634766
+      },
+      "after_scores": {
+        "chosen": -0.10151878744363785,
+        "rejected": -2.5850460529327393
+      },
+      "margin_change": -0.0033491551876068115,
+      "before_margin": 2.486876420676708,
+      "after_margin": 2.4835272654891014
+    },
+    "dpo-06": {
+      "before_scores": {
+        "chosen": -0.05267351493239403,
+        "rejected": -12.767083168029785
+      },
+      "after_scores": {
+        "chosen": -0.04844169691205025,
+        "rejected": -12.765145301818848
+      },
+      "margin_change": 0.0022939518094062805,
+      "before_margin": 12.714409653097391,
+      "after_margin": 12.716703604906797
+    }
+  },
+  "cohorts": {
+    "dpo-dev": {
+      "before": {
+        "count": 3,
+        "exact": 3,
+        "json_valid": 3,
+        "schema_valid": 3,
+        "fields_correct": {
+          "event": 3,
+          "time": 3,
+          "location": 3
+        },
+        "error_counts": {}
+      },
+      "after": {
+        "count": 3,
+        "exact": 3,
+        "json_valid": 3,
+        "schema_valid": 3,
+        "fields_correct": {
+          "event": 3,
+          "time": 3,
+          "location": 3
+        },
+        "error_counts": {}
+      },
+      "changes": {
+        "fixed_ids": [],
+        "regressed_ids": []
+      },
+      "before_errors": [],
+      "after_errors": []
+    },
+    "historical-regression": {
+      "before": {
+        "count": 11,
+        "exact": 3,
+        "json_valid": 11,
+        "schema_valid": 11,
+        "fields_correct": {
+          "event": 11,
+          "time": 8,
+          "location": 6
+        },
+        "error_counts": {
+          "value-to-null": 8
+        }
+      },
+      "after": {
+        "count": 11,
+        "exact": 8,
+        "json_valid": 11,
+        "schema_valid": 11,
+        "fields_correct": {
+          "event": 11,
+          "time": 9,
+          "location": 10
+        },
+        "error_counts": {
+          "value-to-null": 3
+        }
+      },
+      "changes": {
+        "fixed_ids": [
+          "voc-01-wording-0-venue-first",
+          "vtc-01-wording-0-venue-first",
+          "vtc-02-wording-0-venue-first",
+          "ttc-01-cue0-missing-location",
+          "ttc-03-cue1-missing-time"
+        ],
+        "regressed_ids": []
+      },
+      "before_errors": [
+        {
+          "id": "voc-01-wording-0-venue-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "白榆印制室",
+          "actual": null
+        },
+        {
+          "id": "vtc-01-wording-0-venue-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "雁栖手工室",
+          "actual": null
+        },
+        {
+          "id": "vtc-02-wording-0-venue-first",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "青槐版画坊",
+          "actual": null
+        },
+        {
+          "id": "ttc-01-cue0-missing-location",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "12月27日下午14:35",
+          "actual": null
+        },
+        {
+          "id": "ttc-03-cue0-missing-time",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "ttc-03-cue1-missing-time",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "confirm-02-missing-location",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午15:00",
+          "actual": null
+        },
+        {
+          "id": "time-regression-time-first",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午15:00",
+          "actual": null
+        }
+      ],
+      "after_errors": [
+        {
+          "id": "ttc-03-cue0-missing-time",
+          "field": "location",
+          "kind": "value-to-null",
+          "expected": "松萝美工室",
+          "actual": null
+        },
+        {
+          "id": "confirm-02-missing-location",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午15:00",
+          "actual": null
+        },
+        {
+          "id": "time-regression-time-first",
+          "field": "time",
+          "kind": "value-to-null",
+          "expected": "周日下午15:00",
+          "actual": null
+        }
+      ]
+    }
+  },
+  "train_weights_uploaded": false
+}

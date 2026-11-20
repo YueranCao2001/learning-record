@@ -1,0 +1,244 @@
+{
+  "instruction": "提取活动名称、时间和地点。只输出 JSON 对象，键为 event、time、location。值必须逐字来自输入；未提供的字段用 null。不要推断日期或补全地点。",
+  "rows": [
+    {
+      "id": "dpo-02",
+      "group": "dpo-notice-02",
+      "split": "dev",
+      "text": "纸伞绘制班定于周三下午16:30开始，场地待定。",
+      "expected": {
+        "event": "纸伞绘制班",
+        "time": "周三下午16:30",
+        "location": null
+      },
+      "chosen": {
+        "event": "纸伞绘制班",
+        "time": "周三下午16:30",
+        "location": null
+      },
+      "rejected": {
+        "event": "纸伞绘制班",
+        "time": "周三下午16:30",
+        "location": "待定"
+      },
+      "field": "location",
+      "error": "missing-to-value",
+      "reason": "待定表示场地尚未确定，地点应填 JSON null。",
+      "cohort": "dpo-dev"
+    },
+    {
+      "id": "dpo-04",
+      "group": "dpo-notice-04",
+      "split": "dev",
+      "text": "欢迎参加灯影搭建课。集合地点尚未确定，开课时间为周日上午10:05。",
+      "expected": {
+        "event": "灯影搭建课",
+        "time": "周日上午10:05",
+        "location": null
+      },
+      "chosen": {
+        "event": "灯影搭建课",
+        "time": "周日上午10:05",
+        "location": null
+      },
+      "rejected": {
+        "event": "灯影搭建课",
+        "time": null,
+        "location": null
+      },
+      "field": "time",
+      "error": "value-to-null",
+      "reason": "地点待定，开课时间已明确给出，应保留完整时间。",
+      "cohort": "dpo-dev"
+    },
+    {
+      "id": "dpo-06",
+      "group": "dpo-notice-06",
+      "split": "dev",
+      "text": "“软陶印章工作坊”于2月6日下午14:20在六角工艺室举办。",
+      "expected": {
+        "event": "软陶印章工作坊",
+        "time": "2月6日下午14:20",
+        "location": "六角工艺室"
+      },
+      "chosen": {
+        "event": "软陶印章工作坊",
+        "time": "2月6日下午14:20",
+        "location": "六角工艺室"
+      },
+      "rejected": {
+        "event": "软陶印章工作坊",
+        "time": "14:20",
+        "location": "六角工艺室"
+      },
+      "field": "time",
+      "error": "wrong-span",
+      "reason": "时间原文包含日期和下午，单独抽取时刻丢失了限定信息。",
+      "cohort": "dpo-dev"
+    },
+    {
+      "id": "voc-01-wording-0-venue-first",
+      "group": "voc-01",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "undetermined",
+      "order": "venue-first",
+      "text": "【蓝晒书签制作课】\n地点：白榆印制室｜时间：后续发布\n请按活动安排参加。",
+      "expected": {
+        "event": "蓝晒书签制作课",
+        "time": null,
+        "location": "白榆印制室"
+      },
+      "wording": "后续发布",
+      "replay_id": null,
+      "paired_control_id": "voc-01-wording-0"
+    },
+    {
+      "id": "voc-01-explicit-time-first-venue-first",
+      "group": "voc-01",
+      "split": "dev",
+      "cohort": "new-venue-omission-confirmation",
+      "time_state": "explicit",
+      "order": "venue-first",
+      "text": "【蓝晒书签制作课】\n地点：白榆印制室｜时间：12月30日上午10:15\n请按活动安排参加。",
+      "expected": {
+        "event": "蓝晒书签制作课",
+        "time": "12月30日上午10:15",
+        "location": "白榆印制室"
+      },
+      "paired_undetermined_id": "voc-01-wording-0-venue-first"
+    },
+    {
+      "id": "vtc-01-wording-0-venue-first",
+      "group": "vtc-01",
+      "split": "dev",
+      "cohort": "title-template-confirmation",
+      "time_state": "undetermined",
+      "order": "venue-first",
+      "text": "【植物标本装帧课】\n地点：雁栖手工室｜时间：后续发布\n请按活动安排参加。",
+      "expected": {
+        "event": "植物标本装帧课",
+        "time": null,
+        "location": "雁栖手工室"
+      },
+      "wording": "后续发布",
+      "replay_id": null,
+      "paired_control_id": "vtc-01-wording-0"
+    },
+    {
+      "id": "vtc-01-explicit-time-first-venue-first",
+      "group": "vtc-01",
+      "split": "dev",
+      "cohort": "title-template-confirmation",
+      "time_state": "explicit",
+      "order": "venue-first",
+      "text": "【植物标本装帧课】\n地点：雁栖手工室｜时间：1月8日上午10:20\n请按活动安排参加。",
+      "expected": {
+        "event": "植物标本装帧课",
+        "time": "1月8日上午10:20",
+        "location": "雁栖手工室"
+      },
+      "paired_undetermined_id": "vtc-01-wording-0-venue-first"
+    },
+    {
+      "id": "vtc-02-wording-0-venue-first",
+      "group": "vtc-02",
+      "split": "dev",
+      "cohort": "title-template-confirmation",
+      "time_state": "undetermined",
+      "order": "venue-first",
+      "text": "【木版套色体验】\n地点：青槐版画坊｜时间：后续发布\n请按活动安排参加。",
+      "expected": {
+        "event": "木版套色体验",
+        "time": null,
+        "location": "青槐版画坊"
+      },
+      "wording": "后续发布",
+      "replay_id": null,
+      "paired_control_id": "vtc-02-wording-0"
+    },
+    {
+      "id": "vtc-02-explicit-time-first-venue-first",
+      "group": "vtc-02",
+      "split": "dev",
+      "cohort": "title-template-confirmation",
+      "time_state": "explicit",
+      "order": "venue-first",
+      "text": "【木版套色体验】\n地点：青槐版画坊｜时间：周日下午15:45\n请按活动安排参加。",
+      "expected": {
+        "event": "木版套色体验",
+        "time": "周日下午15:45",
+        "location": "青槐版画坊"
+      },
+      "paired_undetermined_id": "vtc-02-wording-0-venue-first"
+    },
+    {
+      "id": "ttc-01-cue0-missing-location",
+      "group": "ttc-01",
+      "cue": "会址",
+      "state": "missing-location",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "本周报名清单\n活动：金石拓片交流课\n• 会址：后续发布\n• 日程：12月27日下午14:35\n请按通知参加。",
+      "expected": {
+        "event": "金石拓片交流课",
+        "time": "12月27日下午14:35",
+        "location": null
+      }
+    },
+    {
+      "id": "ttc-03-cue0-missing-time",
+      "group": "ttc-03",
+      "cue": "会址",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：后续发布｜会址：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      }
+    },
+    {
+      "id": "ttc-03-cue1-missing-time",
+      "group": "ttc-03",
+      "cue": "地点",
+      "state": "missing-time",
+      "split": "dev",
+      "cohort": "time-template-confirmation",
+      "text": "【旧报纸拼贴体验】\n时间：后续发布｜地点：松萝美工室\n本条仅列活动安排。",
+      "expected": {
+        "event": "旧报纸拼贴体验",
+        "time": null,
+        "location": "松萝美工室"
+      }
+    },
+    {
+      "id": "confirm-02-missing-location",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、会址：后续发布\n二、日程：周日下午15:00\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": "周日下午15:00",
+        "location": null
+      },
+      "cohort": "historical-regression",
+      "family": null
+    },
+    {
+      "id": "time-regression-time-first",
+      "group": "notice-33",
+      "split": "dev",
+      "text": "报名事项：竹编体验班\n一、日程：周日下午15:00\n二、会址：后续发布\n三、名额有限。",
+      "expected": {
+        "event": "竹编体验班",
+        "time": "周日下午15:00",
+        "location": null
+      },
+      "cohort": "time-regression",
+      "family": null
+    }
+  ]
+}
