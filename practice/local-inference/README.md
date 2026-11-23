@@ -143,3 +143,11 @@ python .\pre_first_cancel_probe.py --cache-pair --output .\cancel-cache-result.j
 ```
 
 [缓存对照逐次结果](results/2026-11-23-cancel-cache.json)
+
+用 `--cache-sweep` 可以比较五档前缀命中。每次都使用新的 1570-token 候选提示。部分缓存条件先读完一条只在第 8、16 或 24 行换一个词的提示，再发送候选。无预热和完整预热作为两端对照。脚本记录实际缓存 token 数、未复用 token 数和槽释放时间。
+
+```powershell
+python .\pre_first_cancel_probe.py --cache-sweep --output .\cancel-partial-cache-result.json
+```
+
+[部分缓存逐次结果](results/2026-11-23-cancel-partial-cache.json)

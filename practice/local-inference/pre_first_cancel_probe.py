@@ -23,6 +23,7 @@ from stream_probe import EXPECTED, MODEL, probe, read_stream, validate_reply
 MODES = ("queued_disconnect", "active_disconnect", "queued_complete")
 QUEUE_OBSERVATION_SECONDS = 0.08
 SWEEP_PADDING_LINES = (2, 8, 16, 32)
+CACHE_SWEEP_LEVELS = (("new_prefix", None), ("line_8", 8), ("line_16", 16), ("line_24", 24), ("full_repeat", 0))
 
 
 def candidate_payload(label, padding_lines):
@@ -152,15 +153,16 @@ def run_trial(port, log, origin, repetition, mode, offset, padding_lines=32, fol
     return result
 
 
-def summarize_sweep(trials):
+def summarize_trials(trials, group_key, groups):
     summary = {}
-    for lines in SWEEP_PADDING_LINES:
-        rows = [row for row in trials if row["padding_lines"] == lines]
+    for group in groups:
+        rows = [row for row in trials if row[group_key] == group]
         prompt_tokens, = {row["candidate_prompt_tokens"] for row in rows}
         release_ms = [row["disconnect_to_slot_release_log_ms"] for row in rows]
-        summary[lines] = {
+        summary[group] = {
             "trials": len(rows), "prompt_tokens": prompt_tokens,
             "initial_cached_tokens": sorted({row["initial_cached_tokens"] for row in rows}),
+            "uncached_prompt_tokens": sorted({prompt_tokens - row["initial_cached_tokens"] for row in rows}),
             "median_slot_start_log_to_disconnect_ms": statistics.median(row["slot_start_log_to_disconnect_ms"] for row in rows),
             "median_disconnect_to_cancel_log_ms": statistics.median(row["disconnect_to_cancel_log_ms"] for row in rows),
             "median_disconnect_to_slot_release_log_ms": statistics.median(release_ms),
@@ -170,6 +172,18 @@ def summarize_sweep(trials):
     return summary
 
 
+def prime_candidate(opener, url, log, payload):
+    before_primer = len(log.events)
+    primer = probe(opener, url, payload, stream=True, expected=LONG_REPLY)
+    return {
+        "prompt_tokens": primer["server"]["prompt_eval_count"],
+        "generated_tokens": primer["server"]["eval_count"],
+        "reply_validated": True,
+        "prompt_sha256": hashlib.sha256(payload["messages"][0]["content"].encode("utf-8")).hexdigest(),
+        "server_log_events": log.after_releases(before_primer, 1),
+    }
+
+
 def run_cache_pairs(port, log, origin):
     opener = local_opener()
     url = f"http://127.0.0.1:{port}/api/chat"
@@ -177,42 +191,48 @@ def run_cache_pairs(port, log, origin):
     for pair in range(1, 9):
         offset = 800 + (pair - 1) * 4
         cold = run_trial(port, log, origin, pair, "active_disconnect", offset)
-        before_primer = len(log.events)
-        payload = candidate_payload(f"{offset + 1:03d}", 32)
-        primer = probe(opener, url, payload, stream=True, expected=LONG_REPLY)
-        primer_events = log.after_releases(before_primer, 1)
+        primer = prime_candidate(opener, url, log, candidate_payload(f"{offset + 1:03d}", 32))
         warm = run_trial(port, log, origin, pair, "active_disconnect", offset, follow_label=f"{offset + 3:03d}")
         if (cold["candidate_prompt_tokens"] != 1570 or warm["candidate_prompt_tokens"] != 1570
                 or cold["candidate_prompt_sha256"] != warm["candidate_prompt_sha256"]
                 or cold["initial_cached_tokens"] > 16 or warm["initial_cached_tokens"] < 0.9 * 1570
-                or primer["server"]["prompt_eval_count"] != 1570):
+                or primer["prompt_tokens"] != 1570):
             raise ValueError(f"Pair {pair} did not match the expected prompt lengths or cache conditions")
         trials.extend([
             {"cache_condition": "new_prefix", **cold},
-            {"cache_condition": "primed_repeat", "primer": {
-                "prompt_tokens": primer["server"]["prompt_eval_count"],
-                "generated_tokens": primer["server"]["eval_count"],
-                "reply_validated": True, "server_log_events": primer_events,
-            }, **warm},
+            {"cache_condition": "primed_repeat", "primer": primer, **warm},
         ])
     return trials
 
 
-def summarize_cache_pairs(trials):
-    summary = {}
-    for condition in ("new_prefix", "primed_repeat"):
-        rows = [row for row in trials if row["cache_condition"] == condition]
-        releases = [row["disconnect_to_slot_release_log_ms"] for row in rows]
-        summary[condition] = {
-            "trials": len(rows), "prompt_tokens": 1570,
-            "initial_cached_tokens": sorted({row["initial_cached_tokens"] for row in rows}),
-            "median_slot_start_log_to_disconnect_ms": statistics.median(row["slot_start_log_to_disconnect_ms"] for row in rows),
-            "median_disconnect_to_cancel_log_ms": statistics.median(row["disconnect_to_cancel_log_ms"] for row in rows),
-            "median_disconnect_to_slot_release_log_ms": statistics.median(releases),
-            "release_log_range_ms": [min(releases), max(releases)],
-            "follow_replies_validated": sum(row["follow_reply_validated"] for row in rows),
-        }
-    return summary
+def run_cache_sweep(port, log, origin):
+    opener = local_opener()
+    url = f"http://127.0.0.1:{port}/api/chat"
+    trials = []
+    for repetition in range(len(CACHE_SWEEP_LEVELS)):
+        for condition, edit_line in CACHE_SWEEP_LEVELS[repetition:] + CACHE_SWEEP_LEVELS[:repetition]:
+            offset = 300 + len(trials) * 3
+            primer = None
+            if edit_line is not None:
+                payload = candidate_payload(f"{offset + 1:03d}", 32)
+                if edit_line:
+                    message = payload["messages"][0]
+                    lines = message["content"].split("\n")
+                    background = [idx for idx, line in enumerate(lines) if "A field notebook records the weather" in line]
+                    idx = background[edit_line - 1]
+                    lines[idx] = lines[idx].replace("the weather", "the climate", 1)
+                    message["content"] = "\n".join(lines)
+                primer = prime_candidate(opener, url, log, payload)
+            row = run_trial(port, log, origin, repetition + 1, "active_disconnect", offset)
+            if row["candidate_prompt_tokens"] != 1570 or (primer is not None and primer["prompt_tokens"] != 1570):
+                raise ValueError(f"Expected equal 1570-token prompts for {condition}: {row}")
+            if (primer is None and row["initial_cached_tokens"] > 16
+                    or edit_line == 0 and row["initial_cached_tokens"] != 1569
+                    or edit_line and not 200 < row["initial_cached_tokens"] < 1450):
+                raise ValueError(f"Unexpected cache coverage for {condition}: {row['initial_cached_tokens']}")
+            trials.append({"cache_condition": condition, "primer_changed_background_line": edit_line,
+                           "primer": primer, **row})
+    return trials
 
 
 def main():
@@ -224,12 +244,16 @@ def main():
                              help="Disconnect an active candidate before first text at four prompt lengths.")
     experiments.add_argument("--cache-pair", action="store_true",
                              help="Compare new prefixes and primed repeats of the same 1570-token prompts.")
+    experiments.add_argument("--cache-sweep", action="store_true",
+                             help="Compare five levels of prefix reuse with fixed 1570-token candidates.")
     args = parser.parse_args()
 
     with dedicated_ollama(args.port, 1) as (log, origin, version, digest, configuration):
         trials = []
         if args.cache_pair:
             trials = run_cache_pairs(args.port, log, origin)
+        elif args.cache_sweep:
+            trials = run_cache_sweep(args.port, log, origin)
         elif args.length_sweep:
             for repetition in range(8):
                 rotation = repetition % len(SWEEP_PADDING_LINES)
@@ -242,9 +266,11 @@ def main():
                     trials.append(run_trial(args.port, log, origin, repetition + 1, mode, 500 + len(trials) * 3))
 
     if args.cache_pair:
-        summary = summarize_cache_pairs(trials)
+        summary = summarize_trials(trials, "cache_condition", ("new_prefix", "primed_repeat"))
+    elif args.cache_sweep:
+        summary = summarize_trials(trials, "cache_condition", (condition for condition, _ in CACHE_SWEEP_LEVELS))
     elif args.length_sweep:
-        summary = summarize_sweep(trials)
+        summary = summarize_trials(trials, "padding_lines", SWEEP_PADDING_LINES)
     else:
         summary = {mode: {
             "trials": sum(r["mode"] == mode for r in trials),
@@ -262,11 +288,15 @@ def main():
     }
     if args.cache_pair:
         report["cache_pair_order"] = ["new_prefix", "completed_primer", "primed_repeat"]
+    elif args.cache_sweep:
+        report["primer_change"] = {"original": "the weather", "replacement": "the climate",
+                                   "line_zero_means": "identical primer"}
     elif args.length_sweep:
         report["padding_lines"] = SWEEP_PADDING_LINES
     else:
         report["queue_observation_ms"] = QUEUE_OBSERVATION_SECONDS * 1000
-    args.output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    result_format = {"separators": (",", ":")} if args.cache_sweep else {"indent": 2}
+    args.output.write_text(json.dumps(report, **result_format) + "\n", encoding="utf-8")
     print(json.dumps(summary, indent=2))
 
 
