@@ -86,37 +86,77 @@ def open_chat(port, payload, posted=None):
         raise
 
 
-def run_trial(port, log, origin, pair, cancel, offset):
+def match_trial_events(events, dual_slot, cancel):
+    starts = [e for e in events if e["kind"] == "start"]
+    releases = {e["task"]: e for e in events if e["kind"] == "release"}
+    cancellations = [e for e in events if e["kind"] == "cancel"]
+    expected_starts = [190, 889] if dual_slot else [889]
+    if (sorted(e["tokens"] for e in starts[:-1]) != expected_starts or starts[-1]["tokens"] != 190
+            or len(starts) != len(releases) or {e["task"] for e in starts} != releases.keys()
+            or any(e["slot"] != releases[e["task"]]["slot"] for e in starts)):
+        raise ValueError(f"Trial prompts and releases were not uniquely matched: {events}")
+    target = next(e for e in starts[:-1] if e["tokens"] == (190 if dual_slot else 889))
+    follow = starts[-1]
+    previous = next((e for e in starts[:-1] if e["slot"] == follow["slot"]), None)
+    if (previous is None or releases[previous["task"]]["observed_ms"] > follow["observed_ms"]
+            or [e["task"] for e in cancellations] != ([target["task"]] if cancel else [])):
+        raise ValueError(f"Follow-up and cancellation events did not match: {events}")
+
+    sibling = next((e for e in starts[:-1] if e["task"] != target["task"]), None)
+    if sibling is not None and sibling["slot"] == target["slot"]:
+        raise ValueError(f"The two initial streams did not use distinct slots: {events}")
+    return target, follow, sibling, releases, cancellations
+
+
+def run_trial(port, log, origin, pair, cancel, offset, dual_slot=False):
     begin = len(log.events)
     times = {}
-    posted = Event()
+    follow_posted = Event()
+    sibling_posted = Event()
+    sibling_first_text = Event()
 
     def mark(name):
         times[name] = (perf_counter() - origin) * 1000
 
-    def follow():
+    def consume(role, payload, expected, posted, first_text=None):
         def on_posted():
-            mark("follow_posted")
+            mark(f"{role}_posted")
             posted.set()
 
-        connection, response = open_chat(port, payload_for("short", f"{offset + 1:03d}", output_length="short"), on_posted)
-        with closing(connection), response:
-            final, text, *_ = read_stream(response, perf_counter(), lambda: mark("follow_first_text"))
-            validate_reply(final, text, MODEL, EXPECTED)
-        mark("follow_completed")
+        def on_first_text():
+            mark(f"{role}_first_text")
+            if first_text is not None:
+                first_text.set()
 
-    with ThreadPoolExecutor(max_workers=1) as executor:
-        target, response = open_chat(port, LONG_OUTPUT_PAYLOAD("long", f"{offset:03d}"))
+        connection, response = open_chat(port, payload, on_posted)
+        with closing(connection), response:
+            final, text, *_ = read_stream(response, perf_counter(), on_first_text)
+            validate_reply(final, text, MODEL, expected)
+        mark(f"{role}_completed")
+
+    def wait_for_signal(signal, future, message):
+        if not signal.wait(timeout=3):
+            if future.done():
+                future.result()
+            raise TimeoutError(message)
+
+    with ThreadPoolExecutor(max_workers=2 if dual_slot else 1) as executor:
+        sibling_future = None
+        if dual_slot:
+            sibling_future = executor.submit(consume, "sibling", LONG_OUTPUT_PAYLOAD("long", f"{offset + 2:03d}"),
+                                            LONG_REPLY, sibling_posted, sibling_first_text)
+            wait_for_signal(sibling_posted, sibling_future, "The second stream did not post")
+        target, response = open_chat(port, LONG_OUTPUT_PAYLOAD("short" if dual_slot else "long", f"{offset:03d}"))
         follower = None
         with closing(target), response:
             def on_first_text():
                 nonlocal follower
                 mark("target_first_text")
-                follower = executor.submit(follow)
-                if not posted.wait(timeout=3):
-                    if follower.done():
-                        follower.result()
-                    raise TimeoutError("Follow-up request did not post while the target was active")
+                if sibling_future is not None:
+                    wait_for_signal(sibling_first_text, sibling_future, "The second stream did not return first text")
+                follow_payload = payload_for("short", f"{offset + 1:03d}", output_length="short")
+                follower = executor.submit(consume, "follow", follow_payload, EXPECTED, follow_posted)
+                wait_for_signal(follow_posted, follower, "Follow-up request did not post while the target was active")
                 if cancel:
                     mark("target_disconnect_started")
                     target.sock.shutdown(socket.SHUT_RDWR)
@@ -132,30 +172,29 @@ def run_trial(port, log, origin, pair, cancel, offset):
             except ClosedAfterFirstText:
                 pass
         follower.result()
+        if sibling_future is not None:
+            sibling_future.result()
 
-    events = log.after_releases(begin, 2)
-    starts = [e for e in events if e["kind"] == "start"]
-    releases = [e for e in events if e["kind"] == "release"]
-    if [e["tokens"] for e in starts] != [889, 190] or len(releases) != 2:
-        raise ValueError(f"Target and follow-up prompts were not uniquely matched: {events}")
-    target_start, follow_start = starts
-    target_release, follow_release = releases
-    cancellations = [e for e in events if e["kind"] == "cancel"]
-    if ([e["task"] for e in starts] != [e["task"] for e in releases]
-            or any(e["slot"] != target_start["slot"] for e in starts + releases)
-            or [e["task"] for e in cancellations] != ([target_start["task"]] if cancel else [])
-            or not target_start["observed_ms"] <= target_release["observed_ms"] <= follow_start["observed_ms"]
-            or follow_release["task"] != follow_start["task"]):
-        raise ValueError(f"Target and follow-up slot events did not match: {events}")
+    events = log.after_releases(begin, 3 if dual_slot else 2)
+    target_start, follow_start, sibling, releases, cancellations = match_trial_events(events, dual_slot, cancel)
+    target_release = releases[target_start["task"]]
 
     measurements = {"follow_posted_to_slot_ms": follow_start["observed_ms"] - times["follow_posted"],
                     "follow_posted_to_first_text_ms": times["follow_first_text"] - times["follow_posted"]}
     if cancel:
         measurements["disconnect_to_cancel_log_ms"] = cancellations[0]["observed_ms"] - times["target_disconnect_started"]
         measurements["disconnect_to_release_log_ms"] = target_release["observed_ms"] - times["target_disconnect_started"]
+    if sibling is not None:
+        measurements["sibling_first_text_to_complete_ms"] = times["sibling_completed"] - times["sibling_first_text"]
+        if cancel and (follow_start["slot"] != target_start["slot"]
+                       or releases[sibling["task"]]["observed_ms"] <= follow_start["observed_ms"]):
+            raise ValueError(f"Follow-up did not reuse the cancelled slot while the sibling was active: {events}")
     print(f"Pair {pair}, {'disconnect' if cancel else 'complete'}: follow-up validated", flush=True)
     return {"pair": pair, "target_cancelled": cancel, "client_ms": times, "server_log_events": events,
-            "measurements": measurements, "follow_reply_validated": True}
+            "task_roles": {"target": target_start["task"], "follow": follow_start["task"],
+                           **({"sibling": sibling["task"]} if sibling is not None else {})},
+            "measurements": measurements, "follow_reply_validated": True,
+            **({"sibling_reply_validated": True} if sibling is not None else {})}
 
 
 def wait_ready(server, opener, base_url):
@@ -173,12 +212,14 @@ def main():
     parser = argparse.ArgumentParser(description="Observe Ollama slot release after a streamed HTTP disconnect.")
     parser.add_argument("--port", type=int, choices=range(1024, 65536), metavar="PORT", default=11435)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--dual-slot", action="store_true", help="Keep a second stream active during the test.")
     args = parser.parse_args()
+    slots = 2 if args.dual_slot else 1
 
     with socket.socket() as port_check:
         port_check.bind(("127.0.0.1", args.port))
     base_url = f"http://127.0.0.1:{args.port}"
-    env = {**os.environ, "OLLAMA_HOST": f"127.0.0.1:{args.port}", "OLLAMA_NUM_PARALLEL": "1"}
+    env = {**os.environ, "OLLAMA_HOST": f"127.0.0.1:{args.port}", "OLLAMA_NUM_PARALLEL": str(slots)}
     origin = perf_counter()
     with subprocess.Popen(["ollama", "serve"], env=env, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE,
                           text=True, encoding="utf-8", errors="replace",
@@ -192,12 +233,12 @@ def main():
             probe(opener, f"{base_url}/api/chat", LONG_OUTPUT_PAYLOAD("long", "900"), stream=True, expected=LONG_REPLY)
             warmup_events = log.after_releases(0, 1)
             configuration, = [event for event in warmup_events if event["kind"] == "configuration"]
-            if configuration["slots"] != 1 or configuration["context_per_slot"] != 2048:
-                raise ValueError(f"Expected one 2048-token slot: {configuration}")
+            if configuration["slots"] != slots or configuration["context_per_slot"] != 2048:
+                raise ValueError(f"Expected {slots} slots with 2048 tokens each: {configuration}")
             rows = []
             for pair in range(1, 7):
                 for cancel in ((True, False) if pair % 2 else (False, True)):
-                    rows.append(run_trial(args.port, log, origin, pair, cancel, 600 + len(rows) * 2))
+                    rows.append(run_trial(args.port, log, origin, pair, cancel, 600 + len(rows) * 3, args.dual_slot))
         finally:
             server.terminate()
             try:

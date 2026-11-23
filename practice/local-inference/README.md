@@ -109,3 +109,11 @@ python .\cancellation_probe.py --output .\cancellation-result.json
 ```
 
 输出保留筛选后的 runner 事件，并用同一单调时钟记录客户端事件和 stderr 日志的接收时间。日志接收有传输和调度开销。[逐次结果](results/2026-11-23-cancellation.json)
+
+加 `--dual-slot` 可对照两个槽同时忙碌的情况。脚本等待两条流都出现首段正文，再提交后续请求。取消时只关闭目标连接，另一条流继续读完；同时按任务号核对后续请求是否复用目标槽。
+
+```powershell
+python .\cancellation_probe.py --dual-slot --output .\dual-cancellation-result.json
+```
+
+[双槽时间线](results/2026-11-23-dual-cancellation.json)
