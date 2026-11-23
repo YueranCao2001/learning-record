@@ -4,7 +4,7 @@
 
 ## 本地大模型推理服务与压测
 
-2026 年 11 月 23 日完成本地 HTTP、流式客户端、并发基线、等待拆分和首段超时实验。1570-token 提示的五档缓存对照表明，未复用 token 从约 1566 降至 1 个时，断开到槽释放日志的中位数从 323.77 降至 19.36 ms，三档部分命中的观测值位于两端之间。[阶段报告](../practice/local-inference/stage-report.md) · [日期笔记](../daily/2026/11/2026-11-23-local-inference-http-smoke.md)
+2026 年 11 月 23 日完成本地 HTTP、流式客户端、并发基线、等待拆分和首段超时实验。五档缓存对照后，进一步配平未缓存后缀。未复用 347 和 691 token 时，总长 1570 token 相对 882 token 的槽释放日志中位配对差分别为 1.72 和 5.73 ms。[阶段报告](../practice/local-inference/stage-report.md) · [日期笔记](../daily/2026/11/2026-11-23-local-inference-http-smoke.md)
 
 ## 日期笔记
 

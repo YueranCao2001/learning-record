@@ -151,3 +151,11 @@ python .\pre_first_cancel_probe.py --cache-sweep --output .\cancel-partial-cache
 ```
 
 [部分缓存逐次结果](results/2026-11-23-cancel-partial-cache.json)
+
+用 `--matched-suffix` 可以让 882-token 和 1570-token 提示在两种条件下分别留下 347 或 691 个未复用 token。两条提示在相同的段内位置与各自预热提示分叉，分叉后的候选文本相同。程序核对 runner 实际记录的 token 数，每种条件测 8 次，并按轮次配对计算长提示减短提示的释放时间差。
+
+```powershell
+python .\pre_first_cancel_probe.py --matched-suffix --output .\cancel-matched-suffix-result.json
+```
+
+[等量未缓存逐次结果](results/2026-11-23-cancel-matched-suffix.json)

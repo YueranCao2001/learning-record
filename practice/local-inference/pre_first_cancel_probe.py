@@ -24,6 +24,12 @@ MODES = ("queued_disconnect", "active_disconnect", "queued_complete")
 QUEUE_OBSERVATION_SECONDS = 0.08
 SWEEP_PADDING_LINES = (2, 8, 16, 32)
 CACHE_SWEEP_LEVELS = (("new_prefix", None), ("line_8", 8), ("line_16", 16), ("line_24", 24), ("full_repeat", 0))
+MATCHED_SUFFIX_LEVELS = (
+    ("347_short", 16, 13, 882, 347),
+    ("347_long", 32, 29, 1570, 347),
+    ("691_short", 16, 5, 882, 691),
+    ("691_long", 32, 21, 1570, 691),
+)
 
 
 def candidate_payload(label, padding_lines):
@@ -184,6 +190,18 @@ def prime_candidate(opener, url, log, payload):
     }
 
 
+def primer_payload(label, padding_lines, edit_line):
+    payload = candidate_payload(label, padding_lines)
+    if edit_line:
+        message = payload["messages"][0]
+        lines = message["content"].split("\n")
+        background = [idx for idx, line in enumerate(lines) if "A field notebook records the weather" in line]
+        idx = background[edit_line - 1]
+        lines[idx] = lines[idx].replace("the weather", "the climate", 1)
+        message["content"] = "\n".join(lines)
+    return payload
+
+
 def run_cache_pairs(port, log, origin):
     opener = local_opener()
     url = f"http://127.0.0.1:{port}/api/chat"
@@ -214,15 +232,7 @@ def run_cache_sweep(port, log, origin):
             offset = 300 + len(trials) * 3
             primer = None
             if edit_line is not None:
-                payload = candidate_payload(f"{offset + 1:03d}", 32)
-                if edit_line:
-                    message = payload["messages"][0]
-                    lines = message["content"].split("\n")
-                    background = [idx for idx, line in enumerate(lines) if "A field notebook records the weather" in line]
-                    idx = background[edit_line - 1]
-                    lines[idx] = lines[idx].replace("the weather", "the climate", 1)
-                    message["content"] = "\n".join(lines)
-                primer = prime_candidate(opener, url, log, payload)
+                primer = prime_candidate(opener, url, log, primer_payload(f"{offset + 1:03d}", 32, edit_line))
             row = run_trial(port, log, origin, repetition + 1, "active_disconnect", offset)
             if row["candidate_prompt_tokens"] != 1570 or (primer is not None and primer["prompt_tokens"] != 1570):
                 raise ValueError(f"Expected equal 1570-token prompts for {condition}: {row}")
@@ -233,6 +243,38 @@ def run_cache_sweep(port, log, origin):
             trials.append({"cache_condition": condition, "primer_changed_background_line": edit_line,
                            "primer": primer, **row})
     return trials
+
+
+def run_matched_suffix(port, log, origin):
+    opener = local_opener()
+    url = f"http://127.0.0.1:{port}/api/chat"
+    trials = []
+    for repetition in range(8):
+        rotation = repetition % len(MATCHED_SUFFIX_LEVELS)
+        for condition, lines, edit_line, prompt_tokens, expected_uncached in (
+                MATCHED_SUFFIX_LEVELS[rotation:] + MATCHED_SUFFIX_LEVELS[:rotation]):
+            offset = 100 + len(trials) * 3
+            primer = prime_candidate(opener, url, log, primer_payload(f"{offset + 1:03d}", lines, edit_line))
+            row = run_trial(port, log, origin, repetition + 1, "active_disconnect", offset, padding_lines=lines)
+            uncached = row["candidate_prompt_tokens"] - row["initial_cached_tokens"]
+            if (row["candidate_prompt_tokens"] != prompt_tokens or primer["prompt_tokens"] != prompt_tokens
+                    or uncached != expected_uncached):
+                raise ValueError(f"Unmatched token counts for {condition}: {row['candidate_prompt_tokens']} total, {uncached} uncached")
+            trials.append({"condition": condition, "primer_changed_background_line": edit_line, "primer": primer, **row})
+    return trials
+
+
+def matched_differences(trials):
+    differences = {}
+    for uncached in (347, 691):
+        by_round = {}
+        for row in trials:
+            if row["candidate_prompt_tokens"] - row["initial_cached_tokens"] == uncached:
+                by_round.setdefault(row["repetition"], {})[row["candidate_prompt_tokens"]] = row["disconnect_to_slot_release_log_ms"]
+        deltas = [round_results[1570] - round_results[882] for round_results in by_round.values()]
+        differences[uncached] = {"median_long_minus_short_ms": statistics.median(deltas),
+                                 "range_ms": [min(deltas), max(deltas)]}
+    return differences
 
 
 def main():
@@ -246,6 +288,8 @@ def main():
                              help="Compare new prefixes and primed repeats of the same 1570-token prompts.")
     experiments.add_argument("--cache-sweep", action="store_true",
                              help="Compare five levels of prefix reuse with fixed 1570-token candidates.")
+    experiments.add_argument("--matched-suffix", action="store_true",
+                             help="Vary total prompt length while matching the number of uncached tokens.")
     args = parser.parse_args()
 
     with dedicated_ollama(args.port, 1) as (log, origin, version, digest, configuration):
@@ -254,6 +298,8 @@ def main():
             trials = run_cache_pairs(args.port, log, origin)
         elif args.cache_sweep:
             trials = run_cache_sweep(args.port, log, origin)
+        elif args.matched_suffix:
+            trials = run_matched_suffix(args.port, log, origin)
         elif args.length_sweep:
             for repetition in range(8):
                 rotation = repetition % len(SWEEP_PADDING_LINES)
@@ -269,6 +315,8 @@ def main():
         summary = summarize_trials(trials, "cache_condition", ("new_prefix", "primed_repeat"))
     elif args.cache_sweep:
         summary = summarize_trials(trials, "cache_condition", (condition for condition, _ in CACHE_SWEEP_LEVELS))
+    elif args.matched_suffix:
+        summary = summarize_trials(trials, "condition", (level[0] for level in MATCHED_SUFFIX_LEVELS))
     elif args.length_sweep:
         summary = summarize_trials(trials, "padding_lines", SWEEP_PADDING_LINES)
     else:
@@ -288,14 +336,16 @@ def main():
     }
     if args.cache_pair:
         report["cache_pair_order"] = ["new_prefix", "completed_primer", "primed_repeat"]
-    elif args.cache_sweep:
+    elif args.cache_sweep or args.matched_suffix:
         report["primer_change"] = {"original": "the weather", "replacement": "the climate",
                                    "line_zero_means": "identical primer"}
+        if args.matched_suffix:
+            report["paired_release_differences_ms"] = matched_differences(trials)
     elif args.length_sweep:
         report["padding_lines"] = SWEEP_PADDING_LINES
     else:
         report["queue_observation_ms"] = QUEUE_OBSERVATION_SECONDS * 1000
-    result_format = {"separators": (",", ":")} if args.cache_sweep else {"indent": 2}
+    result_format = {"separators": (",", ":")} if args.cache_sweep or args.matched_suffix else {"indent": 2}
     args.output.write_text(json.dumps(report, **result_format) + "\n", encoding="utf-8")
     print(json.dumps(summary, indent=2))
 
