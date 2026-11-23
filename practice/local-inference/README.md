@@ -39,3 +39,13 @@ python .\baseline_probe.py --output .\baseline-result.json
 ```
 
 脚本按服务端计数验收缓存条件。首次请求的缓存比例须不超过 25%，重复请求须至少达到 90%。每条回复还要通过 HTTP、正文和结束标记校验。生成吞吐按服务端 `eval_count / eval_duration` 换算为 token/s。逐次文件保留原始计数、提示模板和四组中位数。[基线结果](results/2026-11-23-baseline.json)
+
+## 复现并发 1 与 2 对照
+
+用相同的回环地址启动新服务，将 `$env:OLLAMA_NUM_PARALLEL` 改为 `'2'`。两个客户端条件共用这一个服务实例。脚本先预热，再交替运行 4 组配对试验。每个条件每轮发送 2 个短提示和 2 个长提示，各用不同的三位数字开头。并发上限指客户端同时在途的请求数。
+
+```powershell
+python .\concurrency_probe.py --output .\concurrency-result.json
+```
+
+逐次文件记录每轮峰值在途数、失败数、请求墙钟时间和服务端缓存计数。请求与生成 token 的整轮吞吐以墙钟时间为分母，预热单独保存。[并发结果](results/2026-11-23-concurrency.json)
