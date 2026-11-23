@@ -180,3 +180,13 @@ foreach ($trial in 1, 2) {
 ```
 
 [复验 1](results/matched-suffix-recheck/trial-01.json) · [复验 2](results/matched-suffix-recheck/trial-02.json)
+
+## 固定到达速率测试
+
+第二阶段使用独立的两槽回环服务，客户端最多两条请求在途。每轮按固定时间表提交 10 条请求，交替使用短、长输入，输出验收保持不变。分别测试每秒 1 条和 2 条，交替先后顺序，各跑两轮。下一条请求的提交时刻由时间表确定。
+
+```powershell
+python .\arrival_probe.py --output .\arrival-result.json
+```
+
+输出区分计划提交、实际提交、开始 HTTP 和回复完成四个时点。客户端排队从实际提交算到开始 HTTP。停止提交后继续等待剩余回复，记录队列排空耗时。[逐次结果](results/2026-11-23-arrival.json)

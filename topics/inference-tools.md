@@ -6,6 +6,8 @@
 
 2026 年 11 月 23 日本地推理服务第一阶段收尾。正常流式、放行前超时、排队断开、入槽后断开和排队完成五条路径，在两个独立服务实例均通过回归验收。并发、前缀缓存与取消对照均已归档。[一键验收](../practice/local-inference/README.md#一键回归验收) · [阶段报告](../practice/local-inference/stage-report.md) · [日期笔记](../daily/2026/11/2026-11-23-local-inference-http-smoke.md)
 
+第二阶段开始测固定到达速率下的积压。双槽、两条在途条件下，每秒到达 1 条和 2 条各跑 20 条，客户端排队 P90 分别为 8.12 ms 和 1700.89 ms。[第二阶段复现命令](../practice/local-inference/README.md#固定到达速率测试)
+
 ## 日期笔记
 
 - 2026-09-20 [推理部署验收：延迟、吞吐、显存与失败率](../daily/2026/09/2026-09-20-inference-serving-acceptance.md)
