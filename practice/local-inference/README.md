@@ -117,3 +117,13 @@ python .\cancellation_probe.py --dual-slot --output .\dual-cancellation-result.j
 ```
 
 [双槽时间线](results/2026-11-23-dual-cancellation.json)
+
+### 核对首段正文之前取消
+
+新脚本会启动单槽实例，轮换测试三种情况：持有槽的请求仍在生成时取消排队请求；观察到候选请求进入槽后立即断开；保留排队请求直到它正常完成。取消前检查候选连接是否有可读响应字节，按 runner 任务日志区分是否进入过槽。
+
+```powershell
+python .\pre_first_cancel_probe.py --output .\pre-first-cancel-result.json
+```
+
+每次都再发送一条后续请求验收槽仍可用。逐次 JSON 保存客户端时点和对应的任务及槽事件。[首段前取消时间线](results/2026-11-23-pre-first-cancel.json)

@@ -1,0 +1,1140 @@
+{
+  "recorded_at_utc": "2026-11-23T03:11:07.548438+00:00",
+  "url": "http://127.0.0.1:11435/api/chat",
+  "ollama_version": "0.40.17",
+  "model": "qwen3:8b",
+  "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "server_configuration": {
+    "kind": "configuration",
+    "observed_ms": 3600.800799999888,
+    "line": "srv    load_model: initializing, n_slots = 1, n_ctx_slot = 2048, kv_unified = 'false'",
+    "slots": 1,
+    "context_per_slot": 2048
+  },
+  "server_event_clock": "stderr line observation on the client monotonic clock",
+  "queue_observation_ms": 80.0,
+  "trials": [
+    {
+      "repetition": 1,
+      "mode": "queued_disconnect",
+      "client_ms": {
+        "holder_posted": 5171.004799999537,
+        "holder_first_text": 5365.353799999866,
+        "candidate_posted": 5365.824800000155,
+        "candidate_socket_checked": 5458.274300000085,
+        "candidate_disconnect_started": 5458.278099999916,
+        "candidate_disconnect_finished": 5458.374799999547,
+        "follow_posted": 5474.275200000193,
+        "holder_completed": 6440.5847999996695,
+        "follow_first_text": 6503.624199999649,
+        "follow_completed": 6675.588600000083
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 5196.41589999992,
+          "line": "slot   operator(): id  0 | task 119 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 119,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 6440.471899999466,
+          "line": "slot      release: id  0 | task 119 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 119,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 6461.929699999928,
+          "line": "slot   operator(): id  0 | task 238 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 238,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 6675.366599999506,
+          "line": "slot      release: id  0 | task 238 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 238,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": false,
+      "candidate_reply_validated": false,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 1,
+      "mode": "active_disconnect",
+      "client_ms": {
+        "candidate_posted": 6676.302599999872,
+        "candidate_socket_checked": 6693.219099999624,
+        "candidate_disconnect_started": 6693.220199999814,
+        "candidate_disconnect_finished": 6693.283099999462,
+        "follow_posted": 6693.892599999344,
+        "follow_first_text": 7092.320400000062,
+        "follow_completed": 7263.861899999938
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 6693.150899999637,
+          "line": "slot   operator(): id  0 | task 259 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 259,
+          "tokens": 1570
+        },
+        {
+          "kind": "cancel",
+          "observed_ms": 7010.943499999485,
+          "line": "srv          stop: cancel task, id_task = 259",
+          "task": 259
+        },
+        {
+          "kind": "release",
+          "observed_ms": 7021.932199999355,
+          "line": "slot      release: id  0 | task 259 | stop processing: n_tokens = 1571, truncated = 0",
+          "slot": 0,
+          "task": 259,
+          "tokens": 1571
+        },
+        {
+          "kind": "start",
+          "observed_ms": 7050.945500000125,
+          "line": "slot   operator(): id  0 | task 261 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 261,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 7263.6304999996355,
+          "line": "slot      release: id  0 | task 261 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 261,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": false,
+      "disconnect_to_slot_release_log_ms": 328.71199999954115
+    },
+    {
+      "repetition": 1,
+      "mode": "queued_complete",
+      "client_ms": {
+        "holder_posted": 7278.097899999921,
+        "holder_first_text": 7460.607600000003,
+        "candidate_posted": 7460.9700000000885,
+        "candidate_socket_checked": 7545.19689999961,
+        "follow_posted": 7546.148399999765,
+        "holder_completed": 8533.415400000194,
+        "candidate_first_text": 8864.073599999756,
+        "candidate_completed": 9956.235300000117,
+        "follow_first_text": 10029.366400000072,
+        "follow_completed": 10200.520700000197
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 7290.63159999987,
+          "line": "slot   operator(): id  0 | task 287 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 287,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 8533.167399999911,
+          "line": "slot      release: id  0 | task 287 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 287,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 8559.073200000057,
+          "line": "slot   operator(): id  0 | task 406 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 406,
+          "tokens": 1570
+        },
+        {
+          "kind": "release",
+          "observed_ms": 9956.095699999423,
+          "line": "slot      release: id  0 | task 406 | stop processing: n_tokens = 1686, truncated = 0",
+          "slot": 0,
+          "task": 406,
+          "tokens": 1686
+        },
+        {
+          "kind": "start",
+          "observed_ms": 9987.980799999605,
+          "line": "slot   operator(): id  0 | task 527 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 527,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 10200.383999999758,
+          "line": "slot      release: id  0 | task 527 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 527,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": true,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 2,
+      "mode": "active_disconnect",
+      "client_ms": {
+        "candidate_posted": 10221.4699999995,
+        "candidate_socket_checked": 10236.445300000014,
+        "candidate_disconnect_started": 10236.446299999443,
+        "candidate_disconnect_finished": 10236.479000000145,
+        "follow_posted": 10251.932600000146,
+        "follow_first_text": 10625.234499999351,
+        "follow_completed": 10796.959499999502
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 10236.390799999754,
+          "line": "slot   operator(): id  0 | task 548 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 548,
+          "tokens": 1570
+        },
+        {
+          "kind": "cancel",
+          "observed_ms": 10541.779199999837,
+          "line": "srv          stop: cancel task, id_task = 548",
+          "task": 548
+        },
+        {
+          "kind": "release",
+          "observed_ms": 10552.736799999366,
+          "line": "slot      release: id  0 | task 548 | stop processing: n_tokens = 1571, truncated = 0",
+          "slot": 0,
+          "task": 548,
+          "tokens": 1571
+        },
+        {
+          "kind": "start",
+          "observed_ms": 10583.291199999621,
+          "line": "slot   operator(): id  0 | task 551 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 551,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 10796.637699999337,
+          "line": "slot      release: id  0 | task 551 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 551,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": false,
+      "disconnect_to_slot_release_log_ms": 316.29049999992276
+    },
+    {
+      "repetition": 2,
+      "mode": "queued_complete",
+      "client_ms": {
+        "holder_posted": 10797.840499999438,
+        "holder_first_text": 10979.322299999694,
+        "candidate_posted": 10999.7671000001,
+        "candidate_socket_checked": 11094.839399999728,
+        "follow_posted": 11111.071399999673,
+        "holder_completed": 12043.474299999616,
+        "candidate_first_text": 12375.171900000169,
+        "candidate_completed": 13461.041800000203,
+        "follow_first_text": 13534.495699999752,
+        "follow_completed": 13706.034899999395
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 10811.780699999872,
+          "line": "slot   operator(): id  0 | task 576 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 576,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 12043.214599999374,
+          "line": "slot      release: id  0 | task 576 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 576,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 12069.478200000049,
+          "line": "slot   operator(): id  0 | task 695 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 695,
+          "tokens": 1570
+        },
+        {
+          "kind": "release",
+          "observed_ms": 13460.817399999542,
+          "line": "slot      release: id  0 | task 695 | stop processing: n_tokens = 1686, truncated = 0",
+          "slot": 0,
+          "task": 695,
+          "tokens": 1686
+        },
+        {
+          "kind": "start",
+          "observed_ms": 13493.309299999964,
+          "line": "slot   operator(): id  0 | task 816 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 816,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 13705.71899999959,
+          "line": "slot      release: id  0 | task 816 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 816,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": true,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 2,
+      "mode": "queued_disconnect",
+      "client_ms": {
+        "holder_posted": 13706.972599999972,
+        "holder_first_text": 13887.563799999953,
+        "candidate_posted": 13904.872000000069,
+        "candidate_socket_checked": 13997.97419999959,
+        "candidate_disconnect_started": 13997.976999999992,
+        "candidate_disconnect_finished": 13998.06819999958,
+        "follow_posted": 14014.178299999912,
+        "holder_completed": 14947.420800000145,
+        "follow_first_text": 15010.627199999362,
+        "follow_completed": 15184.406700000181
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 13720.605800000158,
+          "line": "slot   operator(): id  0 | task 837 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 837,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 14946.921300000213,
+          "line": "slot      release: id  0 | task 837 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 837,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 14968.721999999616,
+          "line": "slot   operator(): id  0 | task 956 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 956,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 15184.14759999996,
+          "line": "slot      release: id  0 | task 956 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 956,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": false,
+      "candidate_reply_validated": false,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 3,
+      "mode": "queued_complete",
+      "client_ms": {
+        "holder_posted": 15185.599899999943,
+        "holder_first_text": 15364.740399999391,
+        "candidate_posted": 15389.12639999944,
+        "candidate_socket_checked": 15481.18329999943,
+        "follow_posted": 15496.41369999972,
+        "holder_completed": 16439.627599999767,
+        "candidate_first_text": 16770.07599999979,
+        "candidate_completed": 17855.36719999982,
+        "follow_first_text": 17930.964799999856,
+        "follow_completed": 18104.04070000004
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 15198.926899999606,
+          "line": "slot   operator(): id  0 | task 977 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 977,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 16439.35799999963,
+          "line": "slot      release: id  0 | task 977 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 977,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 16466.05819999968,
+          "line": "slot   operator(): id  0 | task 1096 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 1096,
+          "tokens": 1570
+        },
+        {
+          "kind": "release",
+          "observed_ms": 17855.182700000114,
+          "line": "slot      release: id  0 | task 1096 | stop processing: n_tokens = 1686, truncated = 0",
+          "slot": 0,
+          "task": 1096,
+          "tokens": 1686
+        },
+        {
+          "kind": "start",
+          "observed_ms": 17888.934900000095,
+          "line": "slot   operator(): id  0 | task 1217 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 1217,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 18103.820799999994,
+          "line": "slot      release: id  0 | task 1217 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 1217,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": true,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 3,
+      "mode": "queued_disconnect",
+      "client_ms": {
+        "holder_posted": 18105.1209999996,
+        "holder_first_text": 18284.803900000043,
+        "candidate_posted": 18285.382999999456,
+        "candidate_socket_checked": 18376.400199999807,
+        "candidate_disconnect_started": 18376.401099999384,
+        "candidate_disconnect_finished": 18376.44420000015,
+        "follow_posted": 18391.77860000018,
+        "holder_completed": 19352.95009999936,
+        "follow_first_text": 19418.768999999884,
+        "follow_completed": 19590.42049999971
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 18117.904400000043,
+          "line": "slot   operator(): id  0 | task 1238 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 1238,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 19352.667199999814,
+          "line": "slot      release: id  0 | task 1238 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 1238,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 19376.79070000013,
+          "line": "slot   operator(): id  0 | task 1357 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 1357,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 19590.263899999627,
+          "line": "slot      release: id  0 | task 1357 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 1357,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": false,
+      "candidate_reply_validated": false,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 3,
+      "mode": "active_disconnect",
+      "client_ms": {
+        "candidate_posted": 19591.0887,
+        "candidate_socket_checked": 19607.668300000114,
+        "candidate_disconnect_started": 19607.66909999984,
+        "candidate_disconnect_finished": 19607.737700000143,
+        "follow_posted": 19608.32759999994,
+        "follow_first_text": 19996.139400000175,
+        "follow_completed": 20170.26629999964
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 19607.59109999981,
+          "line": "slot   operator(): id  0 | task 1378 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 1378,
+          "tokens": 1570
+        },
+        {
+          "kind": "cancel",
+          "observed_ms": 19913.791599999968,
+          "line": "srv          stop: cancel task, id_task = 1378",
+          "task": 1378
+        },
+        {
+          "kind": "release",
+          "observed_ms": 19924.73329999939,
+          "line": "slot      release: id  0 | task 1378 | stop processing: n_tokens = 1571, truncated = 0",
+          "slot": 0,
+          "task": 1378,
+          "tokens": 1571
+        },
+        {
+          "kind": "start",
+          "observed_ms": 19954.218099999707,
+          "line": "slot   operator(): id  0 | task 1381 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 1381,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 20170.119700000214,
+          "line": "slot      release: id  0 | task 1381 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 1381,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": false,
+      "disconnect_to_slot_release_log_ms": 317.0641999995496
+    },
+    {
+      "repetition": 4,
+      "mode": "queued_disconnect",
+      "client_ms": {
+        "holder_posted": 20171.24629999944,
+        "holder_first_text": 20355.767000000014,
+        "candidate_posted": 20376.656299999922,
+        "candidate_socket_checked": 20470.439099999567,
+        "candidate_disconnect_started": 20470.44089999963,
+        "candidate_disconnect_finished": 20470.5299999996,
+        "follow_posted": 20471.1884999997,
+        "holder_completed": 21411.397799999577,
+        "follow_first_text": 21476.120100000117,
+        "follow_completed": 21647.992899999736
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 20186.152799999945,
+          "line": "slot   operator(): id  0 | task 1406 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 1406,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 21411.24579999996,
+          "line": "slot      release: id  0 | task 1406 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 1406,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 21433.281200000238,
+          "line": "slot   operator(): id  0 | task 1525 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 1525,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 21647.834200000034,
+          "line": "slot      release: id  0 | task 1525 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 1525,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": false,
+      "candidate_reply_validated": false,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 4,
+      "mode": "active_disconnect",
+      "client_ms": {
+        "candidate_posted": 21671.232799999416,
+        "candidate_socket_checked": 21686.357900000075,
+        "candidate_disconnect_started": 21686.358899999505,
+        "candidate_disconnect_finished": 21686.403300000165,
+        "follow_posted": 21702.577899999596,
+        "follow_first_text": 22074.476799999502,
+        "follow_completed": 22245.410999999876
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 21686.29939999937,
+          "line": "slot   operator(): id  0 | task 1546 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 1546,
+          "tokens": 1570
+        },
+        {
+          "kind": "cancel",
+          "observed_ms": 21991.71380000007,
+          "line": "srv          stop: cancel task, id_task = 1546",
+          "task": 1546
+        },
+        {
+          "kind": "release",
+          "observed_ms": 22002.66499999998,
+          "line": "slot      release: id  0 | task 1546 | stop processing: n_tokens = 1571, truncated = 0",
+          "slot": 0,
+          "task": 1546,
+          "tokens": 1571
+        },
+        {
+          "kind": "start",
+          "observed_ms": 22033.164399999805,
+          "line": "slot   operator(): id  0 | task 1549 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 1549,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 22245.281800000157,
+          "line": "slot      release: id  0 | task 1549 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 1549,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": false,
+      "disconnect_to_slot_release_log_ms": 316.30610000047454
+    },
+    {
+      "repetition": 4,
+      "mode": "queued_complete",
+      "client_ms": {
+        "holder_posted": 22246.400099999846,
+        "holder_first_text": 22427.821000000222,
+        "candidate_posted": 22447.390399999676,
+        "candidate_socket_checked": 22541.80709999946,
+        "follow_posted": 22542.848899999626,
+        "holder_completed": 23492.230400000153,
+        "candidate_first_text": 23825.268099999448,
+        "candidate_completed": 24914.15749999942,
+        "follow_first_text": 24989.164499999788,
+        "follow_completed": 25161.658399999396
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 22260.707100000218,
+          "line": "slot   operator(): id  0 | task 1574 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 1574,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 23491.93070000001,
+          "line": "slot      release: id  0 | task 1574 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 1574,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 23517.72019999953,
+          "line": "slot   operator(): id  0 | task 1693 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 1693,
+          "tokens": 1570
+        },
+        {
+          "kind": "release",
+          "observed_ms": 24914.026299999932,
+          "line": "slot      release: id  0 | task 1693 | stop processing: n_tokens = 1686, truncated = 0",
+          "slot": 0,
+          "task": 1693,
+          "tokens": 1686
+        },
+        {
+          "kind": "start",
+          "observed_ms": 24947.6537999999,
+          "line": "slot   operator(): id  0 | task 1814 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 1814,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 25161.53039999972,
+          "line": "slot      release: id  0 | task 1814 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 1814,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": true,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 5,
+      "mode": "active_disconnect",
+      "client_ms": {
+        "candidate_posted": 25162.567899999885,
+        "candidate_socket_checked": 25178.977300000042,
+        "candidate_disconnect_started": 25178.97869999979,
+        "candidate_disconnect_finished": 25179.02959999992,
+        "follow_posted": 25190.235799999755,
+        "follow_first_text": 25568.197300000065,
+        "follow_completed": 25738.9862
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 25178.91039999995,
+          "line": "slot   operator(): id  0 | task 1835 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 1835,
+          "tokens": 1570
+        },
+        {
+          "kind": "cancel",
+          "observed_ms": 25486.269699999866,
+          "line": "srv          stop: cancel task, id_task = 1835",
+          "task": 1835
+        },
+        {
+          "kind": "release",
+          "observed_ms": 25497.113399999762,
+          "line": "slot      release: id  0 | task 1835 | stop processing: n_tokens = 1571, truncated = 0",
+          "slot": 0,
+          "task": 1835,
+          "tokens": 1571
+        },
+        {
+          "kind": "start",
+          "observed_ms": 25526.771299999382,
+          "line": "slot   operator(): id  0 | task 1838 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 1838,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 25738.90709999978,
+          "line": "slot      release: id  0 | task 1838 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 1838,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": false,
+      "disconnect_to_slot_release_log_ms": 318.13469999997324
+    },
+    {
+      "repetition": 5,
+      "mode": "queued_complete",
+      "client_ms": {
+        "holder_posted": 25750.613999999587,
+        "holder_first_text": 25931.99319999985,
+        "candidate_posted": 25952.3750999997,
+        "candidate_socket_checked": 26044.577699999536,
+        "follow_posted": 26060.77819999973,
+        "holder_completed": 26996.850699999413,
+        "candidate_first_text": 27337.432700000136,
+        "candidate_completed": 28445.13360000019,
+        "follow_first_text": 28522.882799999934,
+        "follow_completed": 28696.6711999994
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 25764.57709999977,
+          "line": "slot   operator(): id  0 | task 1863 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 1863,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 26996.613299999808,
+          "line": "slot      release: id  0 | task 1863 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 1863,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 27022.672799999782,
+          "line": "slot   operator(): id  0 | task 1982 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 1982,
+          "tokens": 1570
+        },
+        {
+          "kind": "release",
+          "observed_ms": 28445.00699999935,
+          "line": "slot      release: id  0 | task 1982 | stop processing: n_tokens = 1686, truncated = 0",
+          "slot": 0,
+          "task": 1982,
+          "tokens": 1686
+        },
+        {
+          "kind": "start",
+          "observed_ms": 28479.980799999794,
+          "line": "slot   operator(): id  0 | task 2103 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 2103,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 28696.57129999996,
+          "line": "slot      release: id  0 | task 2103 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 2103,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": true,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 5,
+      "mode": "queued_disconnect",
+      "client_ms": {
+        "holder_posted": 28697.838799999772,
+        "holder_first_text": 28885.766200000035,
+        "candidate_posted": 28908.722999999554,
+        "candidate_socket_checked": 29000.46569999995,
+        "candidate_disconnect_started": 29000.46629999997,
+        "candidate_disconnect_finished": 29000.509200000124,
+        "follow_posted": 29001.262300000235,
+        "holder_completed": 29969.219599999633,
+        "follow_first_text": 30034.36839999995,
+        "follow_completed": 30209.10619999995
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 28711.66499999981,
+          "line": "slot   operator(): id  0 | task 2124 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 2124,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 29969.26220000023,
+          "line": "slot      release: id  0 | task 2124 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 2124,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 29993.09660000017,
+          "line": "slot   operator(): id  0 | task 2243 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 2243,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 30208.915100000013,
+          "line": "slot      release: id  0 | task 2243 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 2243,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": false,
+      "candidate_reply_validated": false,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 6,
+      "mode": "queued_complete",
+      "client_ms": {
+        "holder_posted": 30227.118299999347,
+        "holder_first_text": 30409.308499999497,
+        "candidate_posted": 30430.078800000047,
+        "candidate_socket_checked": 30523.39269999993,
+        "follow_posted": 30539.20569999991,
+        "holder_completed": 31488.826699999663,
+        "candidate_first_text": 31819.441599999664,
+        "candidate_completed": 32911.23679999964,
+        "follow_first_text": 32987.65579999963,
+        "follow_completed": 33162.685399999646
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 30241.75279999963,
+          "line": "slot   operator(): id  0 | task 2264 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 2264,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 31488.76139999993,
+          "line": "slot      release: id  0 | task 2264 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 2264,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 31514.250999999604,
+          "line": "slot   operator(): id  0 | task 2383 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 2383,
+          "tokens": 1570
+        },
+        {
+          "kind": "release",
+          "observed_ms": 32911.09719999986,
+          "line": "slot      release: id  0 | task 2383 | stop processing: n_tokens = 1686, truncated = 0",
+          "slot": 0,
+          "task": 2383,
+          "tokens": 1686
+        },
+        {
+          "kind": "start",
+          "observed_ms": 32945.6154999998,
+          "line": "slot   operator(): id  0 | task 2504 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 2504,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 33162.308299999495,
+          "line": "slot      release: id  0 | task 2504 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 2504,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": true,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 6,
+      "mode": "queued_disconnect",
+      "client_ms": {
+        "holder_posted": 33180.41429999994,
+        "holder_first_text": 33363.9062000002,
+        "candidate_posted": 33364.429199999904,
+        "candidate_socket_checked": 33445.37539999965,
+        "candidate_disconnect_started": 33445.37649999984,
+        "candidate_disconnect_finished": 33445.42269999965,
+        "follow_posted": 33461.219799999526,
+        "holder_completed": 34438.31450000016,
+        "follow_first_text": 34503.09539999944,
+        "follow_completed": 34680.969600000026
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 33195.55179999952,
+          "line": "slot   operator(): id  0 | task 2525 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 889",
+          "slot": 0,
+          "task": 2525,
+          "tokens": 889
+        },
+        {
+          "kind": "release",
+          "observed_ms": 34438.10359999952,
+          "line": "slot      release: id  0 | task 2525 | stop processing: n_tokens = 1005, truncated = 0",
+          "slot": 0,
+          "task": 2525,
+          "tokens": 1005
+        },
+        {
+          "kind": "start",
+          "observed_ms": 34460.739099999955,
+          "line": "slot   operator(): id  0 | task 2644 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 2644,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 34680.766599999515,
+          "line": "slot      release: id  0 | task 2644 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 2644,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": false,
+      "candidate_reply_validated": false,
+      "holder_reply_validated": true
+    },
+    {
+      "repetition": 6,
+      "mode": "active_disconnect",
+      "client_ms": {
+        "candidate_posted": 34699.400599999535,
+        "candidate_socket_checked": 34715.20629999941,
+        "candidate_disconnect_started": 34715.20799999962,
+        "candidate_disconnect_finished": 34715.2587999999,
+        "follow_posted": 34730.411900000036,
+        "follow_first_text": 35109.90760000004,
+        "follow_completed": 35280.85959999953
+      },
+      "server_log_events": [
+        {
+          "kind": "start",
+          "observed_ms": 34715.13700000014,
+          "line": "slot   operator(): id  0 | task 2665 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 1570",
+          "slot": 0,
+          "task": 2665,
+          "tokens": 1570
+        },
+        {
+          "kind": "cancel",
+          "observed_ms": 35027.358399999684,
+          "line": "srv          stop: cancel task, id_task = 2665",
+          "task": 2665
+        },
+        {
+          "kind": "release",
+          "observed_ms": 35038.48620000008,
+          "line": "slot      release: id  0 | task 2665 | stop processing: n_tokens = 1571, truncated = 0",
+          "slot": 0,
+          "task": 2665,
+          "tokens": 1571
+        },
+        {
+          "kind": "start",
+          "observed_ms": 35068.57239999954,
+          "line": "slot   operator(): id  0 | task 2668 | new prompt, n_ctx_slot = 2048, n_keep = 4, task.n_tokens = 190",
+          "slot": 0,
+          "task": 2668,
+          "tokens": 190
+        },
+        {
+          "kind": "release",
+          "observed_ms": 35280.74089999973,
+          "line": "slot      release: id  0 | task 2668 | stop processing: n_tokens = 209, truncated = 0",
+          "slot": 0,
+          "task": 2668,
+          "tokens": 209
+        }
+      ],
+      "candidate_response_readable_at_check": false,
+      "follow_reply_validated": true,
+      "candidate_entered_slot": true,
+      "candidate_reply_validated": false,
+      "disconnect_to_slot_release_log_ms": 323.27820000045904
+    }
+  ],
+  "summary": {
+    "queued_disconnect": {
+      "trials": 6,
+      "candidate_entered_slot": 0,
+      "follow_replies_validated": 6
+    },
+    "active_disconnect": {
+      "trials": 6,
+      "candidate_entered_slot": 6,
+      "follow_replies_validated": 6,
+      "median_disconnect_to_slot_release_log_ms": 317.5994499997614
+    },
+    "queued_complete": {
+      "trials": 6,
+      "candidate_entered_slot": 6,
+      "follow_replies_validated": 6
+    }
+  }
+}

@@ -7,7 +7,7 @@ import socket
 import statistics
 import subprocess
 from concurrent.futures import ThreadPoolExecutor
-from contextlib import closing
+from contextlib import closing, contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 from threading import Condition, Event, Thread
@@ -54,15 +54,19 @@ class SlotLog:
                         self.condition.notify_all()
                     break
 
-    def after_releases(self, index, count):
+    def wait_for(self, index, predicate, description):
         with self.condition:
             ready = self.condition.wait_for(
-                lambda: sum(e["kind"] == "release" for e in self.events[index:]) >= count,
+                lambda: predicate(self.events[index:]),
                 timeout=10,
             )
             if not ready:
-                raise RuntimeError(f"Missing slot release evidence: {self.events[index:]}")
+                raise RuntimeError(f"Missing {description}: {self.events[index:]}")
             return self.events[index:].copy()
+
+    def after_releases(self, index, count):
+        return self.wait_for(index, lambda events: sum(e["kind"] == "release" for e in events) >= count,
+                             "slot release evidence")
 
 
 class ClosedAfterFirstText(Exception):
@@ -208,18 +212,12 @@ def wait_ready(server, opener, base_url):
     raise RuntimeError("Dedicated Ollama process did not become ready")
 
 
-def main():
-    parser = argparse.ArgumentParser(description="Observe Ollama slot release after a streamed HTTP disconnect.")
-    parser.add_argument("--port", type=int, choices=range(1024, 65536), metavar="PORT", default=11435)
-    parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--dual-slot", action="store_true", help="Keep a second stream active during the test.")
-    args = parser.parse_args()
-    slots = 2 if args.dual_slot else 1
-
+@contextmanager
+def dedicated_ollama(port, slots):
     with socket.socket() as port_check:
-        port_check.bind(("127.0.0.1", args.port))
-    base_url = f"http://127.0.0.1:{args.port}"
-    env = {**os.environ, "OLLAMA_HOST": f"127.0.0.1:{args.port}", "OLLAMA_NUM_PARALLEL": str(slots)}
+        port_check.bind(("127.0.0.1", port))
+    base_url = f"http://127.0.0.1:{port}"
+    env = {**os.environ, "OLLAMA_HOST": f"127.0.0.1:{port}", "OLLAMA_NUM_PARALLEL": str(slots)}
     origin = perf_counter()
     with subprocess.Popen(["ollama", "serve"], env=env, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE,
                           text=True, encoding="utf-8", errors="replace",
@@ -235,10 +233,7 @@ def main():
             configuration, = [event for event in warmup_events if event["kind"] == "configuration"]
             if configuration["slots"] != slots or configuration["context_per_slot"] != 2048:
                 raise ValueError(f"Expected {slots} slots with 2048 tokens each: {configuration}")
-            rows = []
-            for pair in range(1, 7):
-                for cancel in ((True, False) if pair % 2 else (False, True)):
-                    rows.append(run_trial(args.port, log, origin, pair, cancel, 600 + len(rows) * 3, args.dual_slot))
+            yield log, origin, version, model["digest"], configuration
         finally:
             server.terminate()
             try:
@@ -248,14 +243,29 @@ def main():
                 server.wait(timeout=5)
             log.reader.join(timeout=5)
 
+
+def main():
+    parser = argparse.ArgumentParser(description="Observe Ollama slot release after a streamed HTTP disconnect.")
+    parser.add_argument("--port", type=int, choices=range(1024, 65536), metavar="PORT", default=11435)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--dual-slot", action="store_true", help="Keep a second stream active during the test.")
+    args = parser.parse_args()
+    slots = 2 if args.dual_slot else 1
+
+    with dedicated_ollama(args.port, slots) as (log, origin, version, digest, configuration):
+        rows = []
+        for pair in range(1, 7):
+            for cancel in ((True, False) if pair % 2 else (False, True)):
+                rows.append(run_trial(args.port, log, origin, pair, cancel, 600 + len(rows) * 3, args.dual_slot))
+
     summary = {}
     for label, cancel in (("disconnect", True), ("complete", False)):
         selected = [row for row in rows if row["target_cancelled"] == cancel]
         summary[label] = {name: statistics.median(row["measurements"][name] for row in selected)
                           for name in selected[0]["measurements"]}
     report = {
-        "recorded_at_utc": datetime.now(timezone.utc).isoformat(), "url": f"{base_url}/api/chat",
-        "ollama_version": version, "model": MODEL, "model_digest": model["digest"],
+        "recorded_at_utc": datetime.now(timezone.utc).isoformat(), "url": f"http://127.0.0.1:{args.port}/api/chat",
+        "ollama_version": version, "model": MODEL, "model_digest": digest,
         "server_configuration": configuration,
         "server_event_clock": "stderr line observation on the client monotonic clock",
         "trials": rows, "summary_median_ms": summary,
