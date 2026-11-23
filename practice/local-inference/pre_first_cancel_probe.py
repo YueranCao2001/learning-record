@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 import http.client
 import json
 import select
@@ -13,9 +14,10 @@ from time import perf_counter
 
 from baseline_probe import PADDING
 from cancellation_probe import dedicated_ollama, open_chat
+from concurrency_probe import local_opener
 from output_length_probe import LONG_REPLY, payload_for
 from queue_probe import LONG_OUTPUT_PAYLOAD
-from stream_probe import EXPECTED, MODEL, read_stream, validate_reply
+from stream_probe import EXPECTED, MODEL, probe, read_stream, validate_reply
 
 
 MODES = ("queued_disconnect", "active_disconnect", "queued_complete")
@@ -32,7 +34,7 @@ def candidate_payload(label, padding_lines):
     return payload
 
 
-def run_trial(port, log, origin, repetition, mode, offset, padding_lines=32):
+def run_trial(port, log, origin, repetition, mode, offset, padding_lines=32, follow_label=None):
     begin = len(log.events)
     times = {}
     holder_first = Event()
@@ -95,7 +97,7 @@ def run_trial(port, log, origin, repetition, mode, offset, padding_lines=32):
                 mark("candidate_disconnect_finished")
             else:
                 candidate = executor.submit(finish_candidate, connection)
-            follow_payload = payload_for("short", f"{offset + 2:03d}", output_length="short")
+            follow_payload = payload_for("short", follow_label or f"{offset + 2:03d}", output_length="short")
             follower = executor.submit(request, "follow", follow_payload, EXPECTED)
             if candidate is not None:
                 candidate.result()
@@ -135,6 +137,7 @@ def run_trial(port, log, origin, repetition, mode, offset, padding_lines=32):
               "candidate_response_readable_at_check": False, "follow_reply_validated": True,
               "candidate_entered_slot": bool(candidate_starts), "candidate_reply_validated": not disconnect}
     if mode == "active_disconnect":
+        result["candidate_prompt_sha256"] = hashlib.sha256(payload["messages"][0]["content"].encode("utf-8")).hexdigest()
         result["disconnect_to_slot_release_log_ms"] = release["observed_ms"] - times["candidate_disconnect_started"]
         result["slot_start_log_to_disconnect_ms"] = times["candidate_disconnect_started"] - target["observed_ms"]
         result["disconnect_to_cancel_log_ms"] = cancellations[0]["observed_ms"] - times["candidate_disconnect_started"]
@@ -167,17 +170,67 @@ def summarize_sweep(trials):
     return summary
 
 
+def run_cache_pairs(port, log, origin):
+    opener = local_opener()
+    url = f"http://127.0.0.1:{port}/api/chat"
+    trials = []
+    for pair in range(1, 9):
+        offset = 800 + (pair - 1) * 4
+        cold = run_trial(port, log, origin, pair, "active_disconnect", offset)
+        before_primer = len(log.events)
+        payload = candidate_payload(f"{offset + 1:03d}", 32)
+        primer = probe(opener, url, payload, stream=True, expected=LONG_REPLY)
+        primer_events = log.after_releases(before_primer, 1)
+        warm = run_trial(port, log, origin, pair, "active_disconnect", offset, follow_label=f"{offset + 3:03d}")
+        if (cold["candidate_prompt_tokens"] != 1570 or warm["candidate_prompt_tokens"] != 1570
+                or cold["candidate_prompt_sha256"] != warm["candidate_prompt_sha256"]
+                or cold["initial_cached_tokens"] > 16 or warm["initial_cached_tokens"] < 0.9 * 1570
+                or primer["server"]["prompt_eval_count"] != 1570):
+            raise ValueError(f"Pair {pair} did not match the expected prompt lengths or cache conditions")
+        trials.extend([
+            {"cache_condition": "new_prefix", **cold},
+            {"cache_condition": "primed_repeat", "primer": {
+                "prompt_tokens": primer["server"]["prompt_eval_count"],
+                "generated_tokens": primer["server"]["eval_count"],
+                "reply_validated": True, "server_log_events": primer_events,
+            }, **warm},
+        ])
+    return trials
+
+
+def summarize_cache_pairs(trials):
+    summary = {}
+    for condition in ("new_prefix", "primed_repeat"):
+        rows = [row for row in trials if row["cache_condition"] == condition]
+        releases = [row["disconnect_to_slot_release_log_ms"] for row in rows]
+        summary[condition] = {
+            "trials": len(rows), "prompt_tokens": 1570,
+            "initial_cached_tokens": sorted({row["initial_cached_tokens"] for row in rows}),
+            "median_slot_start_log_to_disconnect_ms": statistics.median(row["slot_start_log_to_disconnect_ms"] for row in rows),
+            "median_disconnect_to_cancel_log_ms": statistics.median(row["disconnect_to_cancel_log_ms"] for row in rows),
+            "median_disconnect_to_slot_release_log_ms": statistics.median(releases),
+            "release_log_range_ms": [min(releases), max(releases)],
+            "follow_replies_validated": sum(row["follow_reply_validated"] for row in rows),
+        }
+    return summary
+
+
 def main():
     parser = argparse.ArgumentParser(description="Compare queued and active disconnects before first text.")
     parser.add_argument("--port", type=int, choices=range(1024, 65536), metavar="PORT", default=11435)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--length-sweep", action="store_true",
-                        help="Disconnect an active candidate before first text at four prompt lengths.")
+    experiments = parser.add_mutually_exclusive_group()
+    experiments.add_argument("--length-sweep", action="store_true",
+                             help="Disconnect an active candidate before first text at four prompt lengths.")
+    experiments.add_argument("--cache-pair", action="store_true",
+                             help="Compare new prefixes and primed repeats of the same 1570-token prompts.")
     args = parser.parse_args()
 
     with dedicated_ollama(args.port, 1) as (log, origin, version, digest, configuration):
         trials = []
-        if args.length_sweep:
+        if args.cache_pair:
+            trials = run_cache_pairs(args.port, log, origin)
+        elif args.length_sweep:
             for repetition in range(8):
                 rotation = repetition % len(SWEEP_PADDING_LINES)
                 for lines in SWEEP_PADDING_LINES[rotation:] + SWEEP_PADDING_LINES[:rotation]:
@@ -188,7 +241,9 @@ def main():
                 for mode in MODES[repetition % len(MODES):] + MODES[:repetition % len(MODES)]:
                     trials.append(run_trial(args.port, log, origin, repetition + 1, mode, 500 + len(trials) * 3))
 
-    if args.length_sweep:
+    if args.cache_pair:
+        summary = summarize_cache_pairs(trials)
+    elif args.length_sweep:
         summary = summarize_sweep(trials)
     else:
         summary = {mode: {
@@ -205,7 +260,9 @@ def main():
         "server_event_clock": "stderr line observation on the client monotonic clock",
         "trials": trials, "summary": summary,
     }
-    if args.length_sweep:
+    if args.cache_pair:
+        report["cache_pair_order"] = ["new_prefix", "completed_primer", "primed_repeat"]
+    elif args.length_sweep:
         report["padding_lines"] = SWEEP_PADDING_LINES
     else:
         report["queue_observation_ms"] = QUEUE_OBSERVATION_SECONDS * 1000

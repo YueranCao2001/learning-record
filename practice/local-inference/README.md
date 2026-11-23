@@ -135,3 +135,11 @@ python .\pre_first_cancel_probe.py --length-sweep --output .\cancel-length-resul
 ```
 
 [四档提示逐次结果](results/2026-11-23-cancel-length.json)
+
+用 `--cache-pair` 可固定 1570-token 提示，配对比较低缓存的新开头与预热后原样重发。脚本每对先测新开头，再读完一次同一提示以填充缓存，随即原样重发。两次都在看到入槽日志后、候选响应仍不可读时断开。每对用提示摘要和 runner 首次缓存位置核对两种条件。
+
+```powershell
+python .\pre_first_cancel_probe.py --cache-pair --output .\cancel-cache-result.json
+```
+
+[缓存对照逐次结果](results/2026-11-23-cancel-cache.json)
