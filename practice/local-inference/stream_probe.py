@@ -41,7 +41,7 @@ def read_stream(response, started):
     raise ValueError("Stream ended before done:true")
 
 
-def probe(opener, url, payload, stream):
+def probe(opener, url, payload, stream, expected=EXPECTED):
     request = urllib.request.Request(
         url, data=json.dumps({**payload, "stream": stream}).encode("utf-8"),
         headers={"Content-Type": "application/json"},
@@ -62,7 +62,7 @@ def probe(opener, url, payload, stream):
             text = final.get("message", {}).get("content", "")
             first_ms, events, text_chunks = None, None, None
     if (final.get("model") != payload["model"] or final.get("done") is not True
-            or final.get("done_reason") != "stop" or text.strip() != EXPECTED):
+            or final.get("done_reason") != "stop" or text.strip() != expected):
         raise ValueError(f"Unexpected reply {text!r}, done reason {final.get('done_reason')!r}")
     return {
         "stream": stream, "http_status": 200, "reply": text, "done_reason": final["done_reason"],

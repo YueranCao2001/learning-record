@@ -59,3 +59,13 @@ python .\concurrency_probe.py --output .\concurrency-result.json
 ```
 
 若 `python` 指向 Windows 商店别名，把 `-Python` 值换成实际解释器路径。[阶段报告](stage-report.md)
+
+## 复现短输出与长输出对照
+
+从新实例启动 Ollama，保持回环地址和两个槽。测试提示同时包含两个待复制的文本，末尾选择 `short` 或 `long`。输入仍使用短、长两种背景长度，每个条件每轮各发送两条，按轮次轮换四个条件的执行次序。
+
+```powershell
+python .\output_length_probe.py --output .\output-length-result.json
+```
+
+脚本验证每条回复与目标文本逐字一致且正常结束。JSON 用 SHA-256 引用去重后的实际正文，并保留 prompt token、生成 token、缓存计数、单条延迟和整轮吞吐。[逐次结果](results/2026-11-23-output-length.json)

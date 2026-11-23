@@ -19,12 +19,12 @@ def local_opener():
     return urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
 
-def run_request(url, length, label, start):
+def run_request(url, length, label, start, build_payload, expected):
     opener = local_opener()
-    payload = payload_for(length, label)
+    payload = build_payload(length, label)
     sent = perf_counter()
     try:
-        result = probe(opener, url, payload, stream=True)
+        result = probe(opener, url, payload, stream=True, expected=expected)
     except (OSError, ValueError) as error:
         result = {"error": f"{type(error).__name__}: {error}"}
     ended = perf_counter()
@@ -41,10 +41,10 @@ def peak_in_flight(rows):
     return peak
 
 
-def run_round(url, number, workers, offset):
+def run_round(url, number, workers, offset, *, build_payload=payload_for, expected=EXPECTED):
     with ThreadPoolExecutor(max_workers=workers) as executor:
         started = perf_counter()
-        tasks = [executor.submit(run_request, url, length, f"{offset + i:03d}", started)
+        tasks = [executor.submit(run_request, url, length, f"{offset + i:03d}", started, build_payload, expected)
                  for i, length in enumerate(LENGTHS)]
         rows = [task.result() for task in tasks]
         wall_seconds = perf_counter() - started
