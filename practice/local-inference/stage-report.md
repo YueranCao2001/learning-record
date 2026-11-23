@@ -46,4 +46,6 @@
 
 总长度 882 和 1570 token 的配对试验中，固定相同未缓存后缀。未复用 347 和 691 token 时，长提示相对短提示的释放日志中位配对差分别为 1.72 和 5.73 ms，32 条后续回复均通过。[等量未缓存逐次结果](results/2026-11-23-cancel-matched-suffix.json)
 
+顺序重启两个新实例并重复相同输入后，三个实例的中位配对差在 347-token 后缀下为 1.72–1.99 ms，在 691-token 后缀下为 5.59–6.22 ms。48 对均为长提示的槽释放日志更晚，96 条后续回复全部通过。[复验 1](results/matched-suffix-recheck/trial-01.json) · [复验 2](results/matched-suffix-recheck/trial-02.json)
+
 [复现命令](README.md#从新服务实例复跑) · [日期笔记](../../daily/2026/11/2026-11-23-local-inference-http-smoke.md)

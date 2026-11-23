@@ -159,3 +159,14 @@ python .\pre_first_cancel_probe.py --matched-suffix --output .\cancel-matched-su
 ```
 
 [等量未缓存逐次结果](results/2026-11-23-cancel-matched-suffix.json)
+
+跨实例复验可连续调用同一命令并换两个输出路径。脚本每次都启动并关闭独立的 Ollama 实例，顺序运行可以避免两个实例争用同一张 GPU。
+
+```powershell
+foreach ($trial in 1, 2) {
+    python .\pre_first_cancel_probe.py --matched-suffix --output ".\matched-suffix-recheck-$trial.json"
+    if ($LASTEXITCODE) { break }
+}
+```
+
+[复验 1](results/matched-suffix-recheck/trial-01.json) · [复验 2](results/matched-suffix-recheck/trial-02.json)
