@@ -79,3 +79,13 @@ python .\queue_probe.py --output .\queue-result.json
 ```
 
 P90 取各条件有效请求排好序后第 `ceil(0.90 × N)` 个值。首段正文和完整回复都从客户端发出请求开始计时，因此包含客户端观察到的等待。[逐次结果](results/2026-11-23-queue.json)
+
+### 对照客户端放行上限
+
+添加 `--batch-arrival` 后，每批以同一时钟点提交 4 条请求，比较客户端最多放行 2 条与全部放行。两种方式始终使用同一个有两个槽的服务实例。
+
+```powershell
+python .\queue_probe.py --batch-arrival --output .\admission-result.json
+```
+
+`start_ms` 是从整批提交到开始 HTTP 调用的时间，`first_text_ms` 是 HTTP 调用至首段正文的时间，`end_ms` 是从整批提交到该条回复完成的时间。从同一批次起点计算首段正文 P90，可以把发送前的等待也算进去。[逐次结果](results/2026-11-23-admission.json)
