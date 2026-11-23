@@ -23,6 +23,7 @@ from stream_probe import EXPECTED, MODEL, probe, read_stream, validate_reply
 EVENT_PATTERNS = {
     "configuration": re.compile(r"initializing, n_slots = (\d+), n_ctx_slot = (\d+)"),
     "start": re.compile(r"id\s+(\d+)\s+\| task (\d+) \| new prompt, .*task\.n_tokens = (\d+)"),
+    "prompt_position": re.compile(r"id\s+(\d+)\s+\| task (\d+) \| cached n_tokens = (\d+), memory_seq_rm"),
     "cancel": re.compile(r"cancel task, id_task = (\d+)"),
     "release": re.compile(r"id\s+(\d+)\s+\| task (\d+) \| stop processing: n_tokens = (\d+)"),
 }

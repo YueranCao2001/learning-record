@@ -127,3 +127,11 @@ python .\pre_first_cancel_probe.py --output .\pre-first-cancel-result.json
 ```
 
 每次都再发送一条后续请求验收槽仍可用。逐次 JSON 保存客户端时点和对应的任务及槽事件。[首段前取消时间线](results/2026-11-23-pre-first-cancel.json)
+
+加 `--length-sweep` 可以固定在 runner 记录候选入槽后断开，只改变提示背景的长度。四档提示每档 8 次，轮换顺序。逐次记录第一次报告的缓存位置，后续分段处理记录仍保留在事件列表中。
+
+```powershell
+python .\pre_first_cancel_probe.py --length-sweep --output .\cancel-length-result.json
+```
+
+[四档提示逐次结果](results/2026-11-23-cancel-length.json)
