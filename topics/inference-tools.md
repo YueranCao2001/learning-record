@@ -2,6 +2,10 @@
 
 服务验收、调度、KV 块管理、量化、投机解码、结构化输出及可靠工具调用。区分算法性质、系统正确性与实测性能。
 
+## 本地大模型推理服务与压测
+
+2026 年 11 月 23 日启动独立练习，从回环地址上的第一条 HTTP 回复开始，随后验证流式读取、建立固定基线，再比较不同并发。[练习入口](../practice/local-inference/README.md)
+
 ## 日期笔记
 
 - 2026-09-20 [推理部署验收：延迟、吞吐、显存与失败率](../daily/2026/09/2026-09-20-inference-serving-acceptance.md)
@@ -11,5 +15,6 @@
 - 2026-09-24 [投机解码：草稿、目标验证与拒绝采样](../daily/2026/09/2026-09-24-speculative-decoding-rejection-sampling.md)
 - 2026-09-25 [结构化输出与约束解码：Schema、语法状态和 Token Mask](../daily/2026/09/2026-09-25-structured-output-constrained-decoding.md)
 - 2026-09-26 [工具调用的可靠执行：权限、幂等键、重试与结果回传](../daily/2026/09/2026-09-26-reliable-tool-execution-idempotency.md)
+- 2026-11-23 [本地推理实作：跑通第一条 HTTP 回复](../daily/2026/11/2026-11-23-local-inference-http-smoke.md)
 
 [返回主题索引](README.md)
