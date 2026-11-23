@@ -1,0 +1,39 @@
+{
+  "parallel_slots": 2,
+  "warmup_requests_per_trial": 4,
+  "trials": [
+    {
+      "result": "trial-01.json",
+      "ollama_version": "0.40.17",
+      "model": "qwen3:8b",
+      "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+      "quantization": "Q4_K_M",
+      "slots": 2,
+      "context_per_slot": 2048,
+      "model_size_bytes": 5584495574,
+      "model_vram_bytes": 5584495574
+    },
+    {
+      "result": "trial-02.json",
+      "ollama_version": "0.40.17",
+      "model": "qwen3:8b",
+      "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+      "quantization": "Q4_K_M",
+      "slots": 2,
+      "context_per_slot": 2048,
+      "model_size_bytes": 5584495574,
+      "model_vram_bytes": 5584495574
+    },
+    {
+      "result": "trial-03.json",
+      "ollama_version": "0.40.17",
+      "model": "qwen3:8b",
+      "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+      "quantization": "Q4_K_M",
+      "slots": 2,
+      "context_per_slot": 2048,
+      "model_size_bytes": 5584495574,
+      "model_vram_bytes": 5584495574
+    }
+  ]
+}

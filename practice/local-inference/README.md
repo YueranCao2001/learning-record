@@ -49,3 +49,13 @@ python .\concurrency_probe.py --output .\concurrency-result.json
 ```
 
 逐次文件记录每轮峰值在途数、失败数、请求墙钟时间和服务端缓存计数。请求与生成 token 的整轮吞吐以墙钟时间为分母，预热单独保存。[并发结果](results/2026-11-23-concurrency.json)
+
+### 从新服务实例复跑
+
+关闭手动启动的 `11435` 服务，运行下面的 PowerShell 命令。脚本每次独立启动并关闭一个 Ollama 实例，采集模型摘要、槽配置和模型显存，再重复同一套并发对照。`manifest.json` 与逐次 JSON 可用于复核，服务日志留在指定的本地输出目录。
+
+```powershell
+.\reproduce_concurrency.ps1 -Python python -OutputDirectory .\concurrency-recheck -Trials 3
+```
+
+若 `python` 指向 Windows 商店别名，把 `-Python` 值换成实际解释器路径。[阶段报告](stage-report.md)
