@@ -35,6 +35,18 @@ def payload_for(length, label, *, output_length):
             "messages": [{"role": "user", "content": prompt}]}
 
 
+def deduplicate_replies(rounds):
+    replies = {}
+    for run in rounds:
+        for row in run["requests"]:
+            if "reply" in row:
+                reply = row.pop("reply")
+                digest = hashlib.sha256(reply.encode("utf-8")).hexdigest()
+                replies[digest] = reply
+                row["reply_sha256"] = digest
+    return replies
+
+
 def main():
     parser = argparse.ArgumentParser(description="Compare output length and concurrency on one Ollama instance.")
     parser.add_argument("--port", type=int, choices=range(1, 65536), metavar="PORT", default=11435)
@@ -64,15 +76,6 @@ def main():
                 print(f"Round {number + 1}, {output_length} output, concurrency {workers}: "
                       f"{run['successes']}/{len(LENGTHS)} passed", flush=True)
 
-    actual_replies = {}
-    for run in [warmup, *rounds]:
-        for row in run["requests"]:
-            if "reply" in row:
-                reply = row.pop("reply")
-                digest = hashlib.sha256(reply.encode("utf-8")).hexdigest()
-                actual_replies[digest] = reply
-                row["reply_sha256"] = digest
-
     summary = {
         output_length: {
             workers: summarize([run for run in rounds if run["output_length"] == output_length
@@ -84,7 +87,8 @@ def main():
     report = {
         "recorded_at_utc": datetime.now(timezone.utc).isoformat(), "url": url,
         "ollama_version": version, "model": MODEL, "model_digest": model["digest"],
-        "options": GENERATION_OPTIONS, "expected_replies": REPLIES, "actual_replies": actual_replies,
+        "options": GENERATION_OPTIONS, "expected_replies": REPLIES,
+        "actual_replies": deduplicate_replies([warmup, *rounds]),
         "prompt_templates": {length: payload_for(length, "{label}", output_length="{selected}")["messages"][0]["content"]
                              for length in ("short", "long")},
         "warmup": warmup, "rounds": rounds, "summary": summary,

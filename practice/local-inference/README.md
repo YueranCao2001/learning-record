@@ -69,3 +69,13 @@ python .\output_length_probe.py --output .\output-length-result.json
 ```
 
 脚本验证每条回复与目标文本逐字一致且正常结束。JSON 用 SHA-256 引用去重后的实际正文，并保留 prompt token、生成 token、缓存计数、单条延迟和整轮吞吐。[逐次结果](results/2026-11-23-output-length.json)
+
+## 复现并发超过服务槽数
+
+保持 `OLLAMA_NUM_PARALLEL=2`，使用上一节的长输出任务。客户端在途上限分别设为 2 和 4，交替运行 6 组配对，每轮 4 条短输入和 4 条长输入。
+
+```powershell
+python .\queue_probe.py --output .\queue-result.json
+```
+
+P90 取各条件有效请求排好序后第 `ceil(0.90 × N)` 个值。首段正文和完整回复都从客户端发出请求开始计时，因此包含客户端观察到的等待。[逐次结果](results/2026-11-23-queue.json)

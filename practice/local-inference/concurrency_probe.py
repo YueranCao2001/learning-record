@@ -41,11 +41,11 @@ def peak_in_flight(rows):
     return peak
 
 
-def run_round(url, number, workers, offset, *, build_payload=payload_for, expected=EXPECTED):
+def run_round(url, number, workers, offset, *, build_payload=payload_for, expected=EXPECTED, lengths=LENGTHS):
     with ThreadPoolExecutor(max_workers=workers) as executor:
         started = perf_counter()
         tasks = [executor.submit(run_request, url, length, f"{offset + i:03d}", started, build_payload, expected)
-                 for i, length in enumerate(LENGTHS)]
+                 for i, length in enumerate(lengths)]
         rows = [task.result() for task in tasks]
         wall_seconds = perf_counter() - started
     good = [row for row in rows if "error" not in row]
