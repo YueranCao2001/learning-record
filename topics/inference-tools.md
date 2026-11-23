@@ -4,7 +4,7 @@
 
 ## 本地大模型推理服务与压测
 
-2026 年 11 月 23 日完成本地 HTTP、流式客户端、单并发基线及并发对照。批量提交实测显示，客户端把在途上限从 4 降到 2 后，HTTP 阶段至首段正文的 P90 缩短约 1.42 秒，从批次提交起算的首段 P90 只相差约 12 ms。下一步验证包含等待放行时间的超时预算。[阶段报告](../practice/local-inference/stage-report.md) · [日期笔记](../daily/2026/11/2026-11-23-local-inference-http-smoke.md)
+2026 年 11 月 23 日完成本地 HTTP、流式客户端、单并发基线、并发和等待拆分。48 条首段正文预算实验观察到放行前超时和 HTTP 调用期间超时，后续宽预算批次全部通过。下一步核对客户端断开后的服务端槽释放。[阶段报告](../practice/local-inference/stage-report.md) · [日期笔记](../daily/2026/11/2026-11-23-local-inference-http-smoke.md)
 
 ## 日期笔记
 

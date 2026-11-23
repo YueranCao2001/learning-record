@@ -89,3 +89,13 @@ python .\queue_probe.py --batch-arrival --output .\admission-result.json
 ```
 
 `start_ms` 是从整批提交到开始 HTTP 调用的时间，`first_text_ms` 是 HTTP 调用至首段正文的时间，`end_ms` 是从整批提交到该条回复完成的时间。从同一批次起点计算首段正文 P90，可以把发送前的等待也算进去。[逐次结果](results/2026-11-23-admission.json)
+
+### 复现首段正文超时
+
+维持两个服务槽和客户端最多两条在途。每轮按 40、600、4000 ms 顺序提交三个批次，每批 4 条请求。截止时间从整批提交起算，覆盖等待放行、HTTP 连接和读取首段正文。到期而未放行的请求直接返回，已开始 HTTP 的请求关闭连接。通过首段验收后，客户端继续读取并验证完整正文。
+
+```powershell
+python .\deadline_probe.py --output .\deadline-result.json
+```
+
+输出记录每条请求是否开始 HTTP、是否收到状态码、退出时间和结果类别。首段正文到达后的流式读操作使用独立的 30 秒空闲超时。[逐次结果](results/2026-11-23-deadline.json)

@@ -17,7 +17,7 @@ COUNTERS = (
 )
 
 
-def read_stream(response, started):
+def read_stream(response, started, on_first_text=None):
     chunks = []
     first_text_ms = None
     events = 0
@@ -33,12 +33,20 @@ def read_stream(response, started):
         if content:
             chunks.append(content)
             if first_text_ms is None and content.strip():
+                if on_first_text is not None:
+                    on_first_text()
                 first_text_ms = arrived_ms
         if event.get("done") is True:
             if first_text_ms is None:
                 raise ValueError("Stream ended without visible reply text")
             return event, "".join(chunks), first_text_ms, arrived_ms, events, len(chunks)
     raise ValueError("Stream ended before done:true")
+
+
+def validate_reply(final, text, model, expected):
+    if (final.get("model") != model or final.get("done") is not True
+            or final.get("done_reason") != "stop" or text.strip() != expected):
+        raise ValueError(f"Unexpected reply {text!r}, done reason {final.get('done_reason')!r}")
 
 
 def probe(opener, url, payload, stream, expected=EXPECTED):
@@ -61,9 +69,7 @@ def probe(opener, url, payload, stream, expected=EXPECTED):
             final = json.loads(body)
             text = final.get("message", {}).get("content", "")
             first_ms, events, text_chunks = None, None, None
-    if (final.get("model") != payload["model"] or final.get("done") is not True
-            or final.get("done_reason") != "stop" or text.strip() != expected):
-        raise ValueError(f"Unexpected reply {text!r}, done reason {final.get('done_reason')!r}")
+    validate_reply(final, text, payload["model"], expected)
     return {
         "stream": stream, "http_status": 200, "reply": text, "done_reason": final["done_reason"],
         "first_text_ms": round(first_ms, 3) if first_ms is not None else None,

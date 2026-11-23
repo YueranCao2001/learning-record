@@ -1,0 +1,908 @@
+{
+  "recorded_at_utc": "2026-11-23T02:36:04.569248+00:00",
+  "url": "http://127.0.0.1:11435/api/chat",
+  "ollama_version": "0.40.17",
+  "model": "qwen3:8b",
+  "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "options": {
+    "temperature": 0,
+    "num_predict": 256,
+    "num_ctx": 2048
+  },
+  "expected_reply": "At sunrise, the station keeper opened the north gate and wrote the date in a blue notebook. A small ferry waited beside the landing while two crew members checked the ropes and counted the life jackets. Across the river, a gardener watered the rows of beans and placed a basket under the old pear tree. The baker brought six loaves to the counter and left a handwritten note beside the bread. By noon, the air was warmer and the wind had turned toward the hills. The last passenger folded a paper map, thanked the crew, and followed the stone path into town.",
+  "after_first_idle_timeout_seconds": 30,
+  "actual_replies": {
+    "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9": "At sunrise, the station keeper opened the north gate and wrote the date in a blue notebook. A small ferry waited beside the landing while two crew members checked the ropes and counted the life jackets. Across the river, a gardener watered the rows of beans and placed a basket under the old pear tree. The baker brought six loaves to the counter and left a handwritten note beside the bread. By noon, the air was warmer and the wind had turned toward the hills. The last passenger folded a paper map, thanked the crew, and followed the stone path into town."
+  },
+  "prompt_templates": {
+    "short": "{label}\n\nCopy only the selected text exactly, including punctuation. Do not include the tag, quotes or any explanation.\n<short>alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima</short>\n<long>At sunrise, the station keeper opened the north gate and wrote the date in a blue notebook. A small ferry waited beside the landing while two crew members checked the ropes and counted the life jackets. Across the river, a gardener watered the rows of beans and placed a basket under the old pear tree. The baker brought six loaves to the counter and left a handwritten note beside the bread. By noon, the air was warmer and the wind had turned toward the hills. The last passenger folded a paper map, thanked the crew, and followed the stone path into town.</long>\nSelected text: long",
+    "long": "{label}\n\nIgnore this background passage:\n<background>\n01. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n02. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n03. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n04. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n05. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n06. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n07. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n08. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n09. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n10. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n11. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n12. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n13. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n14. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n15. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n16. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n</background>\n\nCopy only the selected text exactly, including punctuation. Do not include the tag, quotes or any explanation.\n<short>alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima</short>\n<long>At sunrise, the station keeper opened the north gate and wrote the date in a blue notebook. A small ferry waited beside the landing while two crew members checked the ropes and counted the life jackets. Across the river, a gardener watered the rows of beans and placed a basket under the old pear tree. The baker brought six loaves to the counter and left a handwritten note beside the bread. By noon, the air was warmer and the wind had turned toward the hills. The last passenger folded a paper map, thanked the crew, and followed the stone path into town.</long>\nSelected text: long"
+  },
+  "warmup": {
+    "round": 0,
+    "concurrency": 2,
+    "peak_in_flight": 2,
+    "wall_ms": 4377.344499999708,
+    "successes": 4,
+    "failures": 0,
+    "requests_per_second": 0.9137960240507154,
+    "output_tokens_per_second": 106.9141348139337,
+    "requests": [
+      {
+        "length": "short",
+        "label": "900",
+        "start_ms": 10.469300000295334,
+        "end_ms": 2900.536000000102,
+        "stream": true,
+        "http_status": 200,
+        "done_reason": "stop",
+        "first_text_ms": 1578.35,
+        "complete_ms": 2889.927,
+        "events": 117,
+        "text_chunks": 116,
+        "server": {
+          "total_duration": 2888957600,
+          "load_duration": 1463104700,
+          "prompt_eval_count": 190,
+          "prompt_eval_cached_count": 0,
+          "prompt_eval_duration": 111028000,
+          "eval_count": 117,
+          "eval_duration": 1311834000
+        },
+        "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+      },
+      {
+        "length": "long",
+        "label": "901",
+        "start_ms": 10.64920000044367,
+        "end_ms": 2994.4236000001183,
+        "stream": true,
+        "http_status": 200,
+        "done_reason": "stop",
+        "first_text_ms": 1769.65,
+        "complete_ms": 2983.644,
+        "events": 117,
+        "text_chunks": 116,
+        "server": {
+          "total_duration": 2969894100,
+          "load_duration": 1450684500,
+          "prompt_eval_count": 889,
+          "prompt_eval_cached_count": 0,
+          "prompt_eval_duration": 191666000,
+          "eval_count": 117,
+          "eval_duration": 1213841000
+        },
+        "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+      },
+      {
+        "length": "short",
+        "label": "902",
+        "start_ms": 2905.8670000003985,
+        "end_ms": 4337.714999999662,
+        "stream": true,
+        "http_status": 200,
+        "done_reason": "stop",
+        "first_text_ms": 88.354,
+        "complete_ms": 1431.671,
+        "events": 117,
+        "text_chunks": 116,
+        "server": {
+          "total_duration": 1420317600,
+          "load_duration": 2343600,
+          "prompt_eval_count": 190,
+          "prompt_eval_cached_count": 5,
+          "prompt_eval_duration": 50594000,
+          "eval_count": 117,
+          "eval_duration": 1343506000
+        },
+        "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+      },
+      {
+        "length": "long",
+        "label": "903",
+        "start_ms": 3002.09679999989,
+        "end_ms": 4377.313699999831,
+        "stream": true,
+        "http_status": 200,
+        "done_reason": "stop",
+        "first_text_ms": 221.756,
+        "complete_ms": 1375.087,
+        "events": 117,
+        "text_chunks": 116,
+        "server": {
+          "total_duration": 1374908100,
+          "load_duration": 2123500,
+          "prompt_eval_count": 889,
+          "prompt_eval_cached_count": 5,
+          "prompt_eval_duration": 189999000,
+          "eval_count": 117,
+          "eval_duration": 1153293000
+        },
+        "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+      }
+    ]
+  },
+  "batches": [
+    {
+      "round": 1,
+      "budget_ms": 40,
+      "requests": [
+        {
+          "length": "short",
+          "label": "600",
+          "http_start_ms": 0.22559999979421264,
+          "http_status": null,
+          "outcome": "deadline_after_http_start",
+          "detail": "timed out",
+          "elapsed_ms": 47.85900000024412
+        },
+        {
+          "length": "long",
+          "label": "601",
+          "http_start_ms": 0.46300000030896626,
+          "http_status": null,
+          "outcome": "deadline_after_http_start",
+          "detail": "timed out",
+          "elapsed_ms": 47.66070000005129
+        },
+        {
+          "length": "short",
+          "label": "602",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 47.62420000042766
+        },
+        {
+          "length": "long",
+          "label": "603",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached",
+          "elapsed_ms": 47.813700000006065
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "budget_ms": 600,
+      "requests": [
+        {
+          "length": "short",
+          "label": "604",
+          "http_start_ms": 0.19239999983255984,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 281.2982999994347,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1628167000,
+            "load_duration": 3184100,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 73443000,
+            "eval_count": 117,
+            "eval_duration": 1347842000
+          },
+          "elapsed_ms": 1629.0938000001915,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "605",
+          "http_start_ms": 0.3879999994751415,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 502.2109999999884,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1658737800,
+            "load_duration": 4232100,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 190781000,
+            "eval_count": 117,
+            "eval_duration": 1157402000
+          },
+          "elapsed_ms": 1659.6510999997918,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "short",
+          "label": "606",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 622.0705999994607
+        },
+        {
+          "length": "long",
+          "label": "607",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 622.0068000002357
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "budget_ms": 4000,
+      "requests": [
+        {
+          "length": "short",
+          "label": "608",
+          "http_start_ms": 0.252800000453135,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 138.4665000005043,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1397913500,
+            "load_duration": 3268500,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 105587000,
+            "eval_count": 117,
+            "eval_duration": 1260105000
+          },
+          "elapsed_ms": 1398.660099999688,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "609",
+          "http_start_ms": 0.5320000000210712,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 276.10569999978907,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1467809000,
+            "load_duration": 3854900,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 243172000,
+            "eval_count": 117,
+            "eval_duration": 1192811000
+          },
+          "elapsed_ms": 1469.2132999998648,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "short",
+          "label": "610",
+          "http_start_ms": 1398.7216000004992,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 1469.0049999999246,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1422663300,
+            "load_duration": 2684700,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 4,
+            "prompt_eval_duration": 50611000,
+            "eval_count": 117,
+            "eval_duration": 1353459000
+          },
+          "elapsed_ms": 2822.524600000179,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "611",
+          "http_start_ms": 1469.3026000004465,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 1709.0681999998196,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1389526400,
+            "load_duration": 2321500,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 4,
+            "prompt_eval_duration": 191651000,
+            "eval_count": 117,
+            "eval_duration": 1162608000
+          },
+          "elapsed_ms": 2871.9264999999723,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "budget_ms": 40,
+      "requests": [
+        {
+          "length": "short",
+          "label": "612",
+          "http_start_ms": 0.22809999973105732,
+          "http_status": null,
+          "outcome": "deadline_after_http_start",
+          "detail": "timed out",
+          "elapsed_ms": 44.24670000025799
+        },
+        {
+          "length": "long",
+          "label": "613",
+          "http_start_ms": 0.3994999997303239,
+          "http_status": null,
+          "outcome": "deadline_after_http_start",
+          "detail": "timed out",
+          "elapsed_ms": 44.28699999971286
+        },
+        {
+          "length": "short",
+          "label": "614",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 44.082999999773165
+        },
+        {
+          "length": "long",
+          "label": "615",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 44.20339999978751
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "budget_ms": 600,
+      "requests": [
+        {
+          "length": "short",
+          "label": "616",
+          "http_start_ms": 0.3329999999550637,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 271.49439999993774,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1619474100,
+            "load_duration": 3148700,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 62724000,
+            "eval_count": 117,
+            "eval_duration": 1349483000
+          },
+          "elapsed_ms": 1620.975300000282,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "617",
+          "http_start_ms": 0.5725999999413034,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 493.1864999998652,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1650135600,
+            "load_duration": 2601600,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 189635000,
+            "eval_count": 117,
+            "eval_duration": 1157996000
+          },
+          "elapsed_ms": 1651.2958000002982,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "short",
+          "label": "618",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 622.0493000000715
+        },
+        {
+          "length": "long",
+          "label": "619",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 621.9847000002119
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "budget_ms": 4000,
+      "requests": [
+        {
+          "length": "short",
+          "label": "620",
+          "http_start_ms": 0.1953999999386724,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 142.36649999929796,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1408291100,
+            "load_duration": 3648600,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 4,
+            "prompt_eval_duration": 106187000,
+            "eval_count": 117,
+            "eval_duration": 1266740000
+          },
+          "elapsed_ms": 1409.106599999177,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "621",
+          "http_start_ms": 0.47699999959149864,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 279.50719999989815,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1429390400,
+            "load_duration": 3674700,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 4,
+            "prompt_eval_duration": 243320000,
+            "eval_count": 117,
+            "eval_duration": 1151525000
+          },
+          "elapsed_ms": 1431.0461999994004,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "short",
+          "label": "622",
+          "http_start_ms": 1409.22319999936,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 1566.8566999993345,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1403020100,
+            "load_duration": 2792400,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 105439000,
+            "eval_count": 117,
+            "eval_duration": 1267067000
+          },
+          "elapsed_ms": 2833.9856999991753,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "623",
+          "http_start_ms": 1431.1179999995147,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 1704.2898999998215,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1424358100,
+            "load_duration": 3153400,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 242909000,
+            "eval_count": 117,
+            "eval_duration": 1151348000
+          },
+          "elapsed_ms": 2855.7077999994362,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "budget_ms": 40,
+      "requests": [
+        {
+          "length": "short",
+          "label": "624",
+          "http_start_ms": 0.24469999971188372,
+          "http_status": null,
+          "outcome": "deadline_after_http_start",
+          "detail": "timed out",
+          "elapsed_ms": 45.7101000001785
+        },
+        {
+          "length": "long",
+          "label": "625",
+          "http_start_ms": 0.46939999992900994,
+          "http_status": null,
+          "outcome": "deadline_after_http_start",
+          "detail": "timed out",
+          "elapsed_ms": 45.776300000397896
+        },
+        {
+          "length": "short",
+          "label": "626",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 45.59239999980491
+        },
+        {
+          "length": "long",
+          "label": "627",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 45.640800000001036
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "budget_ms": 600,
+      "requests": [
+        {
+          "length": "short",
+          "label": "628",
+          "http_start_ms": 0.20450000010896474,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 357.2963999995409,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1620381100,
+            "load_duration": 4165200,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 106074000,
+            "eval_count": 117,
+            "eval_duration": 1264253000
+          },
+          "elapsed_ms": 1621.5603999999075,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "629",
+          "http_start_ms": 0.38080000012996607,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 494.4925999998304,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1642207100,
+            "load_duration": 2605000,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 243290000,
+            "eval_count": 117,
+            "eval_duration": 1148448000
+          },
+          "elapsed_ms": 1643.066099999487,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "short",
+          "label": "630",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 606.2218999995821
+        },
+        {
+          "length": "long",
+          "label": "631",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 606.2734999995882
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "budget_ms": 4000,
+      "requests": [
+        {
+          "length": "short",
+          "label": "632",
+          "http_start_ms": 0.20479999966482865,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 273.83819999977277,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1411719300,
+            "load_duration": 2169100,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 4,
+            "prompt_eval_duration": 226089000,
+            "eval_count": 117,
+            "eval_duration": 1159959000
+          },
+          "elapsed_ms": 1434.0533000004143,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "633",
+          "http_start_ms": 0.4498999996940256,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 244.33550000048854,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1420953700,
+            "load_duration": 2105400,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 4,
+            "prompt_eval_duration": 204923000,
+            "eval_count": 117,
+            "eval_duration": 1178035000
+          },
+          "elapsed_ms": 1422.4380000005112,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "short",
+          "label": "634",
+          "http_start_ms": 1422.52389999976,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 1708.4311999997226,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1416000300,
+            "load_duration": 2213700,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 226116000,
+            "eval_count": 117,
+            "eval_duration": 1149052000
+          },
+          "elapsed_ms": 2857.676900000115,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "635",
+          "http_start_ms": 1434.1700000004494,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 1678.9393999997628,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1411360900,
+            "load_duration": 2584300,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 204857000,
+            "eval_count": 117,
+            "eval_duration": 1167179000
+          },
+          "elapsed_ms": 2846.0918999999194,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "budget_ms": 40,
+      "requests": [
+        {
+          "length": "short",
+          "label": "636",
+          "http_start_ms": 0.20320000021456508,
+          "http_status": null,
+          "outcome": "deadline_after_http_start",
+          "detail": "timed out",
+          "elapsed_ms": 48.78400000052352
+        },
+        {
+          "length": "long",
+          "label": "637",
+          "http_start_ms": 0.3711000008479459,
+          "http_status": null,
+          "outcome": "deadline_after_http_start",
+          "detail": "timed out",
+          "elapsed_ms": 48.514000000068336
+        },
+        {
+          "length": "short",
+          "label": "638",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached",
+          "elapsed_ms": 48.74930000005406
+        },
+        {
+          "length": "long",
+          "label": "639",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached",
+          "elapsed_ms": 48.624300000483345
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "budget_ms": 600,
+      "requests": [
+        {
+          "length": "short",
+          "label": "640",
+          "http_start_ms": 0.1818999999159132,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 268.06909999959316,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1608525700,
+            "load_duration": 2864700,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 4,
+            "prompt_eval_duration": 61806000,
+            "eval_count": 117,
+            "eval_duration": 1341484000
+          },
+          "elapsed_ms": 1609.559999999874,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "641",
+          "http_start_ms": 0.41369999962626025,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 489.0265999993062,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1639499500,
+            "load_duration": 3913200,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 4,
+            "prompt_eval_duration": 190277000,
+            "eval_count": 117,
+            "eval_duration": 1151194000
+          },
+          "elapsed_ms": 1640.3442000000723,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "short",
+          "label": "642",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 603.4026999996058
+        },
+        {
+          "length": "long",
+          "label": "643",
+          "http_start_ms": null,
+          "http_status": null,
+          "outcome": "deadline_before_http",
+          "detail": "First-text deadline reached while waiting for admission",
+          "elapsed_ms": 603.4675000000789
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "budget_ms": 4000,
+      "requests": [
+        {
+          "length": "short",
+          "label": "644",
+          "http_start_ms": 0.27260000024398323,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 140.62469999953464,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1413949100,
+            "load_duration": 2775000,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 106881000,
+            "eval_count": 117,
+            "eval_duration": 1274652000
+          },
+          "elapsed_ms": 1415.3378999999404,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "645",
+          "http_start_ms": 0.49789999957283726,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 278.3665999995719,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1435835300,
+            "load_duration": 3393800,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 244644000,
+            "eval_count": 117,
+            "eval_duration": 1158383000
+          },
+          "elapsed_ms": 1436.8046999998114,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "short",
+          "label": "646",
+          "http_start_ms": 1415.411099999801,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 1576.5019000000393,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1403157800,
+            "load_duration": 3204200,
+            "prompt_eval_count": 190,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 105958000,
+            "eval_count": 117,
+            "eval_duration": 1264667000
+          },
+          "elapsed_ms": 2841.073399999914,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        },
+        {
+          "length": "long",
+          "label": "647",
+          "http_start_ms": 1436.8782000001374,
+          "http_status": 200,
+          "outcome": "completed",
+          "first_text_ms": 1713.664400000198,
+          "done_reason": "stop",
+          "server": {
+            "total_duration": 1425271800,
+            "load_duration": 3217600,
+            "prompt_eval_count": 889,
+            "prompt_eval_cached_count": 5,
+            "prompt_eval_duration": 243261000,
+            "eval_count": 117,
+            "eval_duration": 1148880000
+          },
+          "elapsed_ms": 2862.662999999884,
+          "reply_sha256": "919413d6b254603b4ebd90e013cafdd5c4dfa8a3e84350de384c7226ddc24eb9"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "40": {
+      "deadline_after_http_start": 8,
+      "deadline_before_http": 8
+    },
+    "600": {
+      "completed": 8,
+      "deadline_before_http": 8
+    },
+    "4000": {
+      "completed": 16
+    }
+  }
+}
