@@ -1,5 +1,15 @@
 # 本地大模型推理服务与压测
 
+## 一键回归验收
+
+从本目录打开 PowerShell。需要能运行的 Python 3、本机 Ollama 和已缓存的 `qwen3:8b`。默认回环端口 `11435` 需要空闲，也可用 `--port` 指定一个空闲端口。脚本自行启动、预热并关闭一个单槽服务。
+
+```powershell
+python .\acceptance_probe.py --output .\acceptance-result.json
+```
+
+本机可用 `..\..\..\.venv-sft\Scripts\python.exe` 替换 `python`。五项通过时退出码为 `0`。出现失败时写入已完成项与首个失败项，并以 `1` 退出。结果 JSON 可用于核对流式正文、超时阶段、任务号和槽释放。[阶段收尾报告](stage-report.md#第一阶段回归验收)
+
 ## 复现首条 HTTP 回复
 
 从本目录打开 PowerShell。需要本机 Ollama 和已缓存的 `qwen3:8b`。实测版本为 `0.40.17`。用 `ollama list` 检查模型，实测时的模型 ID 为 `500a1f067a9f`。若电脑尚无此模型，可以运行 `ollama pull qwen3:8b` 下载。[Ollama 模型页](https://ollama.com/library/qwen3:8b)
