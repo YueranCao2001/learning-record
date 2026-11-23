@@ -1,0 +1,684 @@
+{
+  "recorded_at_utc": "2026-11-23T01:15:54.662950+00:00",
+  "url": "http://127.0.0.1:11435/api/chat",
+  "ollama_version": "0.40.17",
+  "model": "qwen3:8b",
+  "options": {
+    "temperature": 0,
+    "num_predict": 64,
+    "num_ctx": 2048
+  },
+  "expected_reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+  "labels": {
+    "short": [
+      "Amber",
+      "Cedar",
+      "Dawn",
+      "Fern",
+      "Harbor",
+      "Ivory"
+    ],
+    "long": [
+      "Jade",
+      "Lemon",
+      "Maple",
+      "North",
+      "Opal",
+      "Pebble"
+    ]
+  },
+  "prompt_templates": {
+    "short": "{label}\n\nCopy the following line exactly, with no explanation or formatting:\nalpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+    "long": "{label}\n\nIgnore this background passage:\n<background>\n01. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n02. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n03. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n04. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n05. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n06. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n07. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n08. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n09. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n10. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n11. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n12. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n13. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n14. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n15. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n16. A field notebook records the weather, the route, the time of departure, and the condition of each trail. Each entry separates observed facts from estimates. A second reader checks the directions before using them.\n</background>\n\nCopy the following line exactly, with no explanation or formatting:\nalpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima"
+  },
+  "warmup": {
+    "request": {
+      "model": "qwen3:8b",
+      "think": false,
+      "options": {
+        "temperature": 0,
+        "num_predict": 64,
+        "num_ctx": 2048
+      },
+      "messages": [
+        {
+          "role": "user",
+          "content": "Warmup\n\nCopy the following line exactly, with no explanation or formatting:\nalpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima"
+        }
+      ]
+    },
+    "stream": true,
+    "http_status": 200,
+    "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+    "done_reason": "stop",
+    "first_text_ms": 1564.283,
+    "complete_ms": 1762.08,
+    "events": 20,
+    "text_chunks": 19,
+    "server": {
+      "total_duration": 1761622500,
+      "load_duration": 1461268500,
+      "prompt_eval_count": 50,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 99479000,
+      "eval_count": 20,
+      "eval_duration": 198135000
+    }
+  },
+  "requests": [
+    {
+      "length": "short",
+      "label": "Amber",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 25.963,
+      "complete_ms": 198.105,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 197692900,
+        "load_duration": 2631000,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 18009000,
+        "eval_count": 20,
+        "eval_duration": 172204000
+      },
+      "cached_fraction": 0.06,
+      "decode_tokens_per_second": 116.141
+    },
+    {
+      "length": "short",
+      "label": "Amber",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 14.041,
+      "complete_ms": 184.566,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 184178600,
+        "load_duration": 2197600,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 49,
+        "prompt_eval_duration": 9610000,
+        "eval_count": 20,
+        "eval_duration": 170519000
+      },
+      "cached_fraction": 0.98,
+      "decode_tokens_per_second": 117.289
+    },
+    {
+      "length": "long",
+      "label": "Jade",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 157.554,
+      "complete_ms": 331.699,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 331348900,
+        "load_duration": 2101900,
+        "prompt_eval_count": 749,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 147826000,
+        "eval_count": 20,
+        "eval_duration": 174230000
+      },
+      "cached_fraction": 0.004005,
+      "decode_tokens_per_second": 114.791
+    },
+    {
+      "length": "long",
+      "label": "Jade",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 31.492,
+      "complete_ms": 205.669,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 190312500,
+        "load_duration": 2308700,
+        "prompt_eval_count": 749,
+        "prompt_eval_cached_count": 748,
+        "prompt_eval_duration": 9436000,
+        "eval_count": 20,
+        "eval_duration": 174103000
+      },
+      "cached_fraction": 0.998665,
+      "decode_tokens_per_second": 114.875
+    },
+    {
+      "length": "long",
+      "label": "Lemon",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 185.03,
+      "complete_ms": 364.579,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 351400100,
+        "load_duration": 2300100,
+        "prompt_eval_count": 749,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 149571000,
+        "eval_count": 20,
+        "eval_duration": 179774000
+      },
+      "cached_fraction": 0.004005,
+      "decode_tokens_per_second": 111.251
+    },
+    {
+      "length": "long",
+      "label": "Lemon",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 16.975,
+      "complete_ms": 190.488,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 190137300,
+        "load_duration": 2092700,
+        "prompt_eval_count": 749,
+        "prompt_eval_cached_count": 748,
+        "prompt_eval_duration": 9406000,
+        "eval_count": 20,
+        "eval_duration": 173475000
+      },
+      "cached_fraction": 0.998665,
+      "decode_tokens_per_second": 115.29
+    },
+    {
+      "length": "short",
+      "label": "Cedar",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 50.539,
+      "complete_ms": 222.604,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 209555200,
+        "load_duration": 2765800,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 17711000,
+        "eval_count": 20,
+        "eval_duration": 172119000
+      },
+      "cached_fraction": 0.06,
+      "decode_tokens_per_second": 116.199
+    },
+    {
+      "length": "short",
+      "label": "Cedar",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 14.18,
+      "complete_ms": 184.349,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 183919800,
+        "load_duration": 2123700,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 49,
+        "prompt_eval_duration": 9548000,
+        "eval_count": 20,
+        "eval_duration": 170124000
+      },
+      "cached_fraction": 0.98,
+      "decode_tokens_per_second": 117.561
+    },
+    {
+      "length": "short",
+      "label": "Dawn",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 49.684,
+      "complete_ms": 221.969,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 197717300,
+        "load_duration": 2789100,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 17849000,
+        "eval_count": 20,
+        "eval_duration": 172365000
+      },
+      "cached_fraction": 0.06,
+      "decode_tokens_per_second": 116.033
+    },
+    {
+      "length": "short",
+      "label": "Dawn",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 14.05,
+      "complete_ms": 184.234,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 183370400,
+        "load_duration": 2068100,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 49,
+        "prompt_eval_duration": 9164000,
+        "eval_count": 20,
+        "eval_duration": 170146000
+      },
+      "cached_fraction": 0.98,
+      "decode_tokens_per_second": 117.546
+    },
+    {
+      "length": "long",
+      "label": "Maple",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 155.262,
+      "complete_ms": 331.056,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 330445600,
+        "load_duration": 2099600,
+        "prompt_eval_count": 749,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 145085000,
+        "eval_count": 20,
+        "eval_duration": 175879000
+      },
+      "cached_fraction": 0.004005,
+      "decode_tokens_per_second": 113.715
+    },
+    {
+      "length": "long",
+      "label": "Maple",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 32.493,
+      "complete_ms": 210.857,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 194985700,
+        "load_duration": 2866600,
+        "prompt_eval_count": 749,
+        "prompt_eval_cached_count": 748,
+        "prompt_eval_duration": 9293000,
+        "eval_count": 20,
+        "eval_duration": 178341000
+      },
+      "cached_fraction": 0.998665,
+      "decode_tokens_per_second": 112.145
+    },
+    {
+      "length": "long",
+      "label": "North",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 191.453,
+      "complete_ms": 368.576,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 345257700,
+        "load_duration": 2190400,
+        "prompt_eval_count": 748,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 145743000,
+        "eval_count": 20,
+        "eval_duration": 177184000
+      },
+      "cached_fraction": 0.004011,
+      "decode_tokens_per_second": 112.877
+    },
+    {
+      "length": "long",
+      "label": "North",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 18.146,
+      "complete_ms": 191.944,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 191544200,
+        "load_duration": 3628600,
+        "prompt_eval_count": 748,
+        "prompt_eval_cached_count": 747,
+        "prompt_eval_duration": 9313000,
+        "eval_count": 20,
+        "eval_duration": 173746000
+      },
+      "cached_fraction": 0.998663,
+      "decode_tokens_per_second": 115.111
+    },
+    {
+      "length": "short",
+      "label": "Fern",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 39.856,
+      "complete_ms": 214.916,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 214247900,
+        "load_duration": 2609700,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 18794000,
+        "eval_count": 20,
+        "eval_duration": 175142000
+      },
+      "cached_fraction": 0.06,
+      "decode_tokens_per_second": 114.193
+    },
+    {
+      "length": "short",
+      "label": "Fern",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 14.549,
+      "complete_ms": 187.153,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 186925200,
+        "load_duration": 2659900,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 49,
+        "prompt_eval_duration": 9293000,
+        "eval_count": 20,
+        "eval_duration": 172605000
+      },
+      "cached_fraction": 0.98,
+      "decode_tokens_per_second": 115.871
+    },
+    {
+      "length": "short",
+      "label": "Harbor",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 26.102,
+      "complete_ms": 200.173,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 199805100,
+        "load_duration": 3226700,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 17814000,
+        "eval_count": 20,
+        "eval_duration": 174145000
+      },
+      "cached_fraction": 0.06,
+      "decode_tokens_per_second": 114.847
+    },
+    {
+      "length": "short",
+      "label": "Harbor",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 13.43,
+      "complete_ms": 184.824,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 184430300,
+        "load_duration": 2086300,
+        "prompt_eval_count": 50,
+        "prompt_eval_cached_count": 49,
+        "prompt_eval_duration": 9081000,
+        "eval_count": 20,
+        "eval_duration": 171398000
+      },
+      "cached_fraction": 0.98,
+      "decode_tokens_per_second": 116.687
+    },
+    {
+      "length": "long",
+      "label": "Opal",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 155.473,
+      "complete_ms": 332.988,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 332743200,
+        "load_duration": 2104900,
+        "prompt_eval_count": 749,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 146057000,
+        "eval_count": 20,
+        "eval_duration": 177611000
+      },
+      "cached_fraction": 0.004005,
+      "decode_tokens_per_second": 112.606
+    },
+    {
+      "length": "long",
+      "label": "Opal",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 18.219,
+      "complete_ms": 192.117,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 191358700,
+        "load_duration": 2632300,
+        "prompt_eval_count": 749,
+        "prompt_eval_cached_count": 748,
+        "prompt_eval_duration": 10153000,
+        "eval_count": 20,
+        "eval_duration": 173921000
+      },
+      "cached_fraction": 0.998665,
+      "decode_tokens_per_second": 114.995
+    },
+    {
+      "length": "long",
+      "label": "Pebble",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 191.121,
+      "complete_ms": 372.634,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 347747500,
+        "load_duration": 2182800,
+        "prompt_eval_count": 750,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 144871000,
+        "eval_count": 20,
+        "eval_duration": 181545000
+      },
+      "cached_fraction": 0.004,
+      "decode_tokens_per_second": 110.166
+    },
+    {
+      "length": "long",
+      "label": "Pebble",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 19.333,
+      "complete_ms": 196.52,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 196194400,
+        "load_duration": 2620400,
+        "prompt_eval_count": 750,
+        "prompt_eval_cached_count": 749,
+        "prompt_eval_duration": 11794000,
+        "eval_count": 20,
+        "eval_duration": 177147000
+      },
+      "cached_fraction": 0.998667,
+      "decode_tokens_per_second": 112.901
+    },
+    {
+      "length": "short",
+      "label": "Ivory",
+      "condition": "changed_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 54.09,
+      "complete_ms": 228.004,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 212169000,
+        "load_duration": 2792400,
+        "prompt_eval_count": 51,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 17856000,
+        "eval_count": 20,
+        "eval_duration": 174014000
+      },
+      "cached_fraction": 0.058824,
+      "decode_tokens_per_second": 114.933
+    },
+    {
+      "length": "short",
+      "label": "Ivory",
+      "condition": "repeated_prefix",
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 14.085,
+      "complete_ms": 185.205,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 184483700,
+        "load_duration": 2065900,
+        "prompt_eval_count": 51,
+        "prompt_eval_cached_count": 50,
+        "prompt_eval_duration": 9256000,
+        "eval_count": 20,
+        "eval_duration": 171152000
+      },
+      "cached_fraction": 0.980392,
+      "decode_tokens_per_second": 116.855
+    }
+  ],
+  "summary": {
+    "short": {
+      "changed_prefix": {
+        "count": 6,
+        "first_text_median_ms": 44.77,
+        "complete_median_ms": 218.442,
+        "cached_fraction_median": 0.06,
+        "prompt_eval_median_ms": 17.852,
+        "decode_median_tokens_per_second": 115.483
+      },
+      "repeated_prefix": {
+        "count": 6,
+        "first_text_median_ms": 14.068,
+        "complete_median_ms": 184.695,
+        "cached_fraction_median": 0.98,
+        "prompt_eval_median_ms": 9.274,
+        "decode_median_tokens_per_second": 117.072
+      }
+    },
+    "long": {
+      "changed_prefix": {
+        "count": 6,
+        "first_text_median_ms": 171.292,
+        "complete_median_ms": 348.784,
+        "cached_fraction_median": 0.004,
+        "prompt_eval_median_ms": 145.9,
+        "decode_median_tokens_per_second": 112.742
+      },
+      "repeated_prefix": {
+        "count": 6,
+        "first_text_median_ms": 18.776,
+        "complete_median_ms": 194.319,
+        "cached_fraction_median": 0.999,
+        "prompt_eval_median_ms": 9.421,
+        "decode_median_tokens_per_second": 114.935
+      }
+    }
+  }
+}

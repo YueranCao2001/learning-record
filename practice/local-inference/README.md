@@ -29,3 +29,13 @@ python .\stream_probe.py --pairs 5 --output .\stream-result.json
 ```
 
 本机可用 `..\..\..\.venv-sft\Scripts\python.exe` 替换 `python`。输出包含逐次首段时间、完整时间、服务端测试计数和中位数。客户端首段时间取第一条含非空白正文的 NDJSON 事件，普通响应只记录完整时间。模型和固定提示均用于预热，回答耗时受本次前缀缓存影响。[实测结果](results/2026-11-23-stream.json) · [日期笔记](../../daily/2026/11/2026-11-23-local-inference-http-smoke.md) · [Ollama Chat API](https://docs.ollama.com/api/chat)
+
+## 复现单并发基线
+
+用相同环境启动一个新服务实例，保持 `OLLAMA_NUM_PARALLEL=1`。脚本先发一条独立的模型预热请求，再执行短提示与长提示各 6 对。每对先发送带新开头的提示，随后立即原样重发。短、长提示的组间顺序轮换，模型在整轮中常驻。
+
+```powershell
+python .\baseline_probe.py --output .\baseline-result.json
+```
+
+脚本按服务端计数验收缓存条件。首次请求的缓存比例须不超过 25%，重复请求须至少达到 90%。每条回复还要通过 HTTP、正文和结束标记校验。生成吞吐按服务端 `eval_count / eval_duration` 换算为 token/s。逐次文件保留原始计数、提示模板和四组中位数。[基线结果](results/2026-11-23-baseline.json)
