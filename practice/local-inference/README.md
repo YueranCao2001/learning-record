@@ -99,3 +99,13 @@ python .\deadline_probe.py --output .\deadline-result.json
 ```
 
 输出记录每条请求是否开始 HTTP、是否收到状态码、退出时间和结果类别。首段正文到达后的流式读操作使用独立的 30 秒空闲超时。[逐次结果](results/2026-11-23-deadline.json)
+
+### 核对断开后的服务槽释放
+
+关闭该端口上的手动服务，然后运行脚本。它会启动独立的单槽 Ollama 实例，让目标请求占用槽，在收到首段正文时提交后续请求，再对照主动断开目标连接和读完目标回复两种情况。单槽让后续请求只能复用同一个槽，便于核对 runner 的任务号和槽号。
+
+```powershell
+python .\cancellation_probe.py --output .\cancellation-result.json
+```
+
+输出保留筛选后的 runner 事件，并用同一单调时钟记录客户端事件和 stderr 日志的接收时间。日志接收有传输和调度开销。[逐次结果](results/2026-11-23-cancellation.json)

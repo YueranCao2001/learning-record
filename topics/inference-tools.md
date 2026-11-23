@@ -4,7 +4,7 @@
 
 ## 本地大模型推理服务与压测
 
-2026 年 11 月 23 日完成本地 HTTP、流式客户端、单并发基线、并发和等待拆分。48 条首段正文预算实验观察到放行前超时和 HTTP 调用期间超时，后续宽预算批次全部通过。下一步核对客户端断开后的服务端槽释放。[阶段报告](../practice/local-inference/stage-report.md) · [日期笔记](../daily/2026/11/2026-11-23-local-inference-http-smoke.md)
+2026 年 11 月 23 日完成本地 HTTP、流式客户端、并发基线、等待拆分和首段超时实验。单槽取消对照核对了目标断开、任务取消、槽释放及下一条请求复用的顺序。下一步在双槽并行时检查取消是否影响另一条流。[阶段报告](../practice/local-inference/stage-report.md) · [日期笔记](../daily/2026/11/2026-11-23-local-inference-http-smoke.md)
 
 ## 日期笔记
 
