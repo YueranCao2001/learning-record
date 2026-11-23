@@ -20,4 +20,12 @@ ollama serve
 
 用 `.\smoke.ps1 -OutputPath .\smoke-result.json` 将一次请求和原始响应另存为 UTF-8 JSON。返回成功后可在服务窗口按 `Ctrl+C` 退出。
 
-当天检查的是一次非流式请求的功能链路。流式消费、首个可见文本片段的时延和重复压测在后续步骤推进。[日期笔记](../../daily/2026/11/2026-11-23-local-inference-http-smoke.md) · [Ollama Chat API](https://docs.ollama.com/api/chat)
+## 复现流式对照
+
+启动同一服务，从本目录使用可运行的 Python 3 执行以下命令。脚本仅依赖标准库。它先做一次预热，随后串行运行 5 对流式和普通请求，交替先后顺序，并验证每条完整回复。
+
+```powershell
+python .\stream_probe.py --pairs 5 --output .\stream-result.json
+```
+
+本机可用 `..\..\..\.venv-sft\Scripts\python.exe` 替换 `python`。输出包含逐次首段时间、完整时间、服务端测试计数和中位数。客户端首段时间取第一条含非空白正文的 NDJSON 事件，普通响应只记录完整时间。模型和固定提示均用于预热，回答耗时受本次前缀缓存影响。[实测结果](results/2026-11-23-stream.json) · [日期笔记](../../daily/2026/11/2026-11-23-local-inference-http-smoke.md) · [Ollama Chat API](https://docs.ollama.com/api/chat)

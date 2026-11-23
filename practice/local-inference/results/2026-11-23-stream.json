@@ -1,0 +1,247 @@
+{
+  "recorded_at_utc": "2026-11-23T01:12:00.883073+00:00",
+  "url": "http://127.0.0.1:11435/api/chat",
+  "ollama_version": "0.40.17",
+  "request_common": {
+    "model": "qwen3:8b",
+    "think": false,
+    "options": {
+      "temperature": 0,
+      "num_predict": 64,
+      "num_ctx": 2048
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "Copy the following line exactly, with no explanation or formatting:\nalpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima"
+      }
+    ]
+  },
+  "expected_reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+  "warmup": {
+    "stream": false,
+    "http_status": 200,
+    "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+    "done_reason": "stop",
+    "first_text_ms": null,
+    "complete_ms": 3993.578,
+    "events": null,
+    "text_chunks": null,
+    "server": {
+      "total_duration": 3989832700,
+      "load_duration": 3671391900,
+      "prompt_eval_count": 47,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 110540000,
+      "eval_count": 20,
+      "eval_duration": 205963000
+    }
+  },
+  "pairs": [
+    {
+      "pair": 1,
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 26.857,
+      "complete_ms": 196.164,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 182738200,
+        "load_duration": 2233600,
+        "prompt_eval_count": 47,
+        "prompt_eval_cached_count": 46,
+        "prompt_eval_duration": 9169000,
+        "eval_count": 20,
+        "eval_duration": 169298000
+      }
+    },
+    {
+      "pair": 1,
+      "stream": false,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": null,
+      "complete_ms": 204.516,
+      "events": null,
+      "text_chunks": null,
+      "server": {
+        "total_duration": 181676100,
+        "load_duration": 2791000,
+        "prompt_eval_count": 47,
+        "prompt_eval_cached_count": 46,
+        "prompt_eval_duration": 9229000,
+        "eval_count": 20,
+        "eval_duration": 168370000
+      }
+    },
+    {
+      "pair": 2,
+      "stream": false,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": null,
+      "complete_ms": 184.482,
+      "events": null,
+      "text_chunks": null,
+      "server": {
+        "total_duration": 183745900,
+        "load_duration": 2082200,
+        "prompt_eval_count": 47,
+        "prompt_eval_cached_count": 46,
+        "prompt_eval_duration": 9870000,
+        "eval_count": 20,
+        "eval_duration": 169924000
+      }
+    },
+    {
+      "pair": 2,
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 32.15,
+      "complete_ms": 201.088,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 182305700,
+        "load_duration": 2217900,
+        "prompt_eval_count": 47,
+        "prompt_eval_cached_count": 46,
+        "prompt_eval_duration": 9241000,
+        "eval_count": 20,
+        "eval_duration": 168882000
+      }
+    },
+    {
+      "pair": 3,
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 14.885,
+      "complete_ms": 184.785,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 183976100,
+        "load_duration": 2612800,
+        "prompt_eval_count": 47,
+        "prompt_eval_cached_count": 46,
+        "prompt_eval_duration": 9188000,
+        "eval_count": 20,
+        "eval_duration": 169992000
+      }
+    },
+    {
+      "pair": 3,
+      "stream": false,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": null,
+      "complete_ms": 183.901,
+      "events": null,
+      "text_chunks": null,
+      "server": {
+        "total_duration": 183313500,
+        "load_duration": 2057000,
+        "prompt_eval_count": 47,
+        "prompt_eval_cached_count": 46,
+        "prompt_eval_duration": 9115000,
+        "eval_count": 20,
+        "eval_duration": 170022000
+      }
+    },
+    {
+      "pair": 4,
+      "stream": false,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": null,
+      "complete_ms": 198.012,
+      "events": null,
+      "text_chunks": null,
+      "server": {
+        "total_duration": 196553600,
+        "load_duration": 2049300,
+        "prompt_eval_count": 47,
+        "prompt_eval_cached_count": 46,
+        "prompt_eval_duration": 9436000,
+        "eval_count": 20,
+        "eval_duration": 183076000
+      }
+    },
+    {
+      "pair": 4,
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 26.023,
+      "complete_ms": 204.369,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 193562200,
+        "load_duration": 3312800,
+        "prompt_eval_count": 47,
+        "prompt_eval_cached_count": 46,
+        "prompt_eval_duration": 10098000,
+        "eval_count": 20,
+        "eval_duration": 178454000
+      }
+    },
+    {
+      "pair": 5,
+      "stream": true,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": 13.177,
+      "complete_ms": 183.009,
+      "events": 20,
+      "text_chunks": 19,
+      "server": {
+        "total_duration": 182471300,
+        "load_duration": 1621200,
+        "prompt_eval_count": 47,
+        "prompt_eval_cached_count": 46,
+        "prompt_eval_duration": 9170000,
+        "eval_count": 20,
+        "eval_duration": 169892000
+      }
+    },
+    {
+      "pair": 5,
+      "stream": false,
+      "http_status": 200,
+      "reply": "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima",
+      "done_reason": "stop",
+      "first_text_ms": null,
+      "complete_ms": 209.216,
+      "events": null,
+      "text_chunks": null,
+      "server": {
+        "total_duration": 182869000,
+        "load_duration": 2700000,
+        "prompt_eval_count": 47,
+        "prompt_eval_cached_count": 46,
+        "prompt_eval_duration": 9185000,
+        "eval_count": 20,
+        "eval_duration": 168958000
+      }
+    }
+  ],
+  "summary": {
+    "stream_first_text_median_ms": 26.023,
+    "stream_complete_median_ms": 196.164,
+    "nonstream_complete_median_ms": 198.012
+  }
+}
