@@ -222,3 +222,22 @@ python .\arrival_probe.py --arrival-shape --output .\arrival-shape-result.json
 ```
 
 比较平均到达速率和完成量时使用固定 32 秒窗口。`actual_arrivals_per_second` 仍按第一条和最后一条实际提交的间隔计算，适用于核对提交间隔。成批到达时另外使用 `arrivals_per_second_in_window` 做两组对照。[到达形态逐次结果](results/2026-11-24-arrival-shape.json)
+
+### 复核等待预算
+
+在本目录按原始记录的 `client_wait_ms` 统计达到各档阈值的请求。该表用于选择下一次过载测试的参数。
+
+```powershell
+$report = Get-Content -Raw -Encoding UTF8 .\results\2026-11-24-arrival-shape.json | ConvertFrom-Json
+foreach ($shape in 'paced', 'burst') {
+    $requests = ($report.rounds | Where-Object arrival_shape -eq $shape).requests
+    foreach ($budget in 250, 500, 1000, 1500) {
+        [PSCustomObject]@{
+            Shape = $shape
+            BudgetMs = $budget
+            Reached = @($requests | Where-Object client_wait_ms -ge $budget).Count
+            Total = $requests.Count
+        }
+    }
+}
+```
