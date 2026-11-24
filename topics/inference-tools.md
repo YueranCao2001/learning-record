@@ -8,6 +8,8 @@
 
 第二阶段开始测固定到达速率下的积压。双槽、两条在途条件下，每秒到达 1 条和 2 条各跑 20 条，客户端排队 P90 分别为 8.12 ms 和 1700.89 ms。[第二阶段复现命令](../practice/local-inference/README.md#固定到达速率测试)
 
+11 月 24 日延长到达窗口，实测 1.25 条/s 两轮均未积压，1.50 条/s 两轮的后半程排队 P90 均超过 1.8 秒。[容量对照](../daily/2026/11/2026-11-24-local-inference-capacity.md)
+
 ## 日期笔记
 
 - 2026-09-20 [推理部署验收：延迟、吞吐、显存与失败率](../daily/2026/09/2026-09-20-inference-serving-acceptance.md)
@@ -18,5 +20,6 @@
 - 2026-09-25 [结构化输出与约束解码：Schema、语法状态和 Token Mask](../daily/2026/09/2026-09-25-structured-output-constrained-decoding.md)
 - 2026-09-26 [工具调用的可靠执行：权限、幂等键、重试与结果回传](../daily/2026/09/2026-09-26-reliable-tool-execution-idempotency.md)
 - 2026-11-23 [本地推理实作：跑通第一条 HTTP 回复](../daily/2026/11/2026-11-23-local-inference-http-smoke.md)
+- 2026-11-24 [本地推理实作：缩小可持续到达速率范围](../daily/2026/11/2026-11-24-local-inference-capacity.md)
 
 [返回主题索引](README.md)

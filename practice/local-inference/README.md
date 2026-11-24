@@ -190,3 +190,11 @@ python .\arrival_probe.py --output .\arrival-result.json
 ```
 
 输出区分计划提交、实际提交、开始 HTTP 和回复完成四个时点。客户端排队从实际提交算到开始 HTTP。停止提交后继续等待剩余回复，记录队列排空耗时。[逐次结果](results/2026-11-23-arrival.json)
+
+加 `--capacity` 后，每秒 1.25 和 1.5 条各跑两轮，每轮 32 条。结果另存每轮前后半程的排队中位数、P90 和最大已有排队条数。
+
+```powershell
+python .\arrival_probe.py --capacity --output .\capacity-result.json
+```
+
+[容量实测逐次结果](results/2026-11-24-capacity.json)

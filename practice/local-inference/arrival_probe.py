@@ -15,14 +15,16 @@ from stream_probe import MODEL
 
 RATES = (1.0, 2.0)
 REQUESTS_PER_ROUND = 10
+CAPACITY_RATES = (1.25, 1.5)
+CAPACITY_REQUESTS_PER_ROUND = 32
 WORKERS = 2
 
 
-def run_round(url, repetition, rate, label_offset):
+def run_round(url, repetition, rate, label_offset, request_count=REQUESTS_PER_ROUND):
     submissions = []
     with ThreadPoolExecutor(max_workers=WORKERS) as executor:
         origin = perf_counter()
-        for index in range(REQUESTS_PER_ROUND):
+        for index in range(request_count):
             planned = index / rate
             sleep(max(0, origin + planned - perf_counter()))
             submitted_ms = (perf_counter() - origin) * 1000
@@ -69,26 +71,43 @@ def summarize(rounds):
     }
 
 
+def summarize_halves(rows):
+    midpoint = len(rows) // 2
+    result = {}
+    for name, half in (("first", rows[:midpoint]), ("second", rows[midpoint:])):
+        result[name] = {
+            "client_wait_median_ms": statistics.median(row["client_wait_ms"] for row in half),
+            "client_wait_p90_ms": nearest_rank((row["client_wait_ms"] for row in half), 0.9),
+            "max_already_waiting_at_arrival": max(row["already_waiting_at_arrival"] for row in half),
+        }
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description="Replay bounded open-loop arrivals on a loopback Ollama server.")
     parser.add_argument("--port", type=int, choices=range(1024, 65536), metavar="PORT", default=11435)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--capacity", action="store_true", help="Run longer windows at 1.25 and 1.5 arrivals per second.")
     args = parser.parse_args()
+    rates = CAPACITY_RATES if args.capacity else RATES
+    request_count = CAPACITY_REQUESTS_PER_ROUND if args.capacity else REQUESTS_PER_ROUND
     url = f"http://127.0.0.1:{args.port}/api/chat"
 
     with dedicated_ollama(args.port, WORKERS) as (_, _, version, digest, configuration):
         rounds = []
-        for repetition, rates in enumerate((RATES, RATES[::-1]), start=1):
-            for rate in rates:
-                run = run_round(url, repetition, rate, 300 + len(rounds) * REQUESTS_PER_ROUND)
+        for repetition, rate_order in enumerate((rates, rates[::-1]), start=1):
+            for rate in rate_order:
+                run = run_round(url, repetition, rate, 300 + len(rounds) * request_count, request_count)
+                if args.capacity:
+                    run["halves"] = summarize_halves(run["requests"])
                 rounds.append(run)
-                print(f"Repetition {repetition}, {rate:g} arrivals/s: {run['successes']}/{REQUESTS_PER_ROUND} passed", flush=True)
+                print(f"Repetition {repetition}, {rate:g} arrivals/s: {run['successes']}/{request_count} passed", flush=True)
 
-    summary = {rate: summarize([run for run in rounds if run["target_arrivals_per_second"] == rate]) for rate in RATES}
+    summary = {rate: summarize([run for run in rounds if run["target_arrivals_per_second"] == rate]) for rate in rates}
     report = {
         "recorded_at_utc": datetime.now(timezone.utc).isoformat(), "url": url,
         "ollama_version": version, "model": MODEL, "model_digest": digest, "server_configuration": configuration,
-        "client_in_flight_limit": WORKERS, "requests_per_round": REQUESTS_PER_ROUND, "options": GENERATION_OPTIONS,
+        "client_in_flight_limit": WORKERS, "requests_per_round": request_count, "options": GENERATION_OPTIONS,
         "expected_reply": LONG_REPLY, "actual_replies": deduplicate_replies(rounds),
         "rounds": rounds, "summary": summary,
     }
