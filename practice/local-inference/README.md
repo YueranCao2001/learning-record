@@ -214,3 +214,11 @@ python .\arrival_probe.py --capacity-equal-window --output .\capacity-equal-wind
 ```
 
 [等时长对照逐次结果](results/2026-11-24-capacity-equal-window.json)
+
+用 `--arrival-shape` 对照均匀提交和成批到达。两组都计划在 32 秒内提交 40 条。均匀组每 0.8 秒发一条，批量组每 3.2 秒发四条。输入交替、两个服务槽和两条在途上限保持相同，第二轮反转测试顺序。
+
+```powershell
+python .\arrival_probe.py --arrival-shape --output .\arrival-shape-result.json
+```
+
+比较平均到达速率和完成量时使用固定 32 秒窗口。`actual_arrivals_per_second` 仍按第一条和最后一条实际提交的间隔计算，适用于核对提交间隔。成批到达时另外使用 `arrivals_per_second_in_window` 做两组对照。[到达形态逐次结果](results/2026-11-24-arrival-shape.json)
