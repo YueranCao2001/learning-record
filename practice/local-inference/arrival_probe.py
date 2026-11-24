@@ -19,6 +19,8 @@ CAPACITY_RATES = (1.25, 1.5)
 CAPACITY_REQUESTS_PER_ROUND = 32
 MIDPOINT_RATE = 1.375
 MIDPOINT_REQUESTS_PER_ROUND = 48
+EQUAL_WINDOW_SECONDS = 32
+EQUAL_WINDOW_RATES = (1.25, MIDPOINT_RATE)
 WORKERS = 2
 
 
@@ -92,32 +94,44 @@ def main():
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--capacity", action="store_true", help="Run longer windows at 1.25 and 1.5 arrivals per second.")
     mode.add_argument("--capacity-midpoint", action="store_true", help="Run two 48-request windows at 1.375 arrivals per second.")
+    mode.add_argument("--capacity-equal-window", action="store_true", help="Compare 1.25 and 1.375 arrivals per second over equal 32-second windows.")
     args = parser.parse_args()
     rates, request_count = RATES, REQUESTS_PER_ROUND
     if args.capacity:
         rates, request_count = CAPACITY_RATES, CAPACITY_REQUESTS_PER_ROUND
     elif args.capacity_midpoint:
         rates, request_count = (MIDPOINT_RATE,), MIDPOINT_REQUESTS_PER_ROUND
+    elif args.capacity_equal_window:
+        rates = EQUAL_WINDOW_RATES
     url = f"http://127.0.0.1:{args.port}/api/chat"
 
+    counts = {rate: int(rate * EQUAL_WINDOW_SECONDS) if args.capacity_equal_window else request_count for rate in rates}
     with dedicated_ollama(args.port, WORKERS) as (_, _, version, digest, configuration):
         rounds = []
+        label_offset = 300
         for repetition, rate_order in enumerate((rates, rates[::-1]), start=1):
             for rate in rate_order:
-                run = run_round(url, repetition, rate, 300 + len(rounds) * request_count, request_count)
-                if args.capacity or args.capacity_midpoint:
+                count = counts[rate]
+                run = run_round(url, repetition, rate, label_offset, count)
+                label_offset += count
+                if args.capacity or args.capacity_midpoint or args.capacity_equal_window:
                     run["halves"] = summarize_halves(run["requests"])
                 rounds.append(run)
-                print(f"Repetition {repetition}, {rate:g} arrivals/s: {run['successes']}/{request_count} passed", flush=True)
+                print(f"Repetition {repetition}, {rate:g} arrivals/s: {run['successes']}/{count} passed", flush=True)
 
     summary = {rate: summarize([run for run in rounds if run["target_arrivals_per_second"] == rate]) for rate in rates}
     report = {
         "recorded_at_utc": datetime.now(timezone.utc).isoformat(), "url": url,
         "ollama_version": version, "model": MODEL, "model_digest": digest, "server_configuration": configuration,
-        "client_in_flight_limit": WORKERS, "requests_per_round": request_count, "options": GENERATION_OPTIONS,
+        "client_in_flight_limit": WORKERS, "options": GENERATION_OPTIONS,
         "expected_reply": LONG_REPLY, "actual_replies": deduplicate_replies(rounds),
         "rounds": rounds, "summary": summary,
     }
+    if args.capacity_equal_window:
+        report["planned_arrival_window_seconds"] = EQUAL_WINDOW_SECONDS
+        report["requests_per_round_by_rate"] = counts
+    else:
+        report["requests_per_round"] = request_count
     args.output.write_text(json.dumps(report, separators=(",", ":")) + "\n", encoding="utf-8")
     print(json.dumps(summary, indent=2))
 

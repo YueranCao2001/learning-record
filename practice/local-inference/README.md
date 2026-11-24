@@ -206,3 +206,11 @@ python .\arrival_probe.py --capacity-midpoint --output .\capacity-midpoint-resul
 ```
 
 [中间速率逐次结果](results/2026-11-24-capacity-midpoint.json)
+
+用 `--capacity-equal-window` 对照 1.25 和 1.375 条/s。两档都在同一个 32 秒计划窗口内提交，分别提交 40 和 44 条，短、长输入各占一半。两档各跑两轮，第二轮反转测试顺序。
+
+```powershell
+python .\arrival_probe.py --capacity-equal-window --output .\capacity-equal-window-result.json
+```
+
+[等时长对照逐次结果](results/2026-11-24-capacity-equal-window.json)
