@@ -198,3 +198,11 @@ python .\arrival_probe.py --capacity --output .\capacity-result.json
 ```
 
 [容量实测逐次结果](results/2026-11-24-capacity.json)
+
+补测中间速率时，用 `--capacity-midpoint` 以每秒 1.375 条各提交两轮，每轮 48 条。模型、槽数、输入和输出验收与容量对照相同。
+
+```powershell
+python .\arrival_probe.py --capacity-midpoint --output .\capacity-midpoint-result.json
+```
+
+[中间速率逐次结果](results/2026-11-24-capacity-midpoint.json)

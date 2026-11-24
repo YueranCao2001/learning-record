@@ -17,6 +17,8 @@ RATES = (1.0, 2.0)
 REQUESTS_PER_ROUND = 10
 CAPACITY_RATES = (1.25, 1.5)
 CAPACITY_REQUESTS_PER_ROUND = 32
+MIDPOINT_RATE = 1.375
+MIDPOINT_REQUESTS_PER_ROUND = 48
 WORKERS = 2
 
 
@@ -87,10 +89,15 @@ def main():
     parser = argparse.ArgumentParser(description="Replay bounded open-loop arrivals on a loopback Ollama server.")
     parser.add_argument("--port", type=int, choices=range(1024, 65536), metavar="PORT", default=11435)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--capacity", action="store_true", help="Run longer windows at 1.25 and 1.5 arrivals per second.")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--capacity", action="store_true", help="Run longer windows at 1.25 and 1.5 arrivals per second.")
+    mode.add_argument("--capacity-midpoint", action="store_true", help="Run two 48-request windows at 1.375 arrivals per second.")
     args = parser.parse_args()
-    rates = CAPACITY_RATES if args.capacity else RATES
-    request_count = CAPACITY_REQUESTS_PER_ROUND if args.capacity else REQUESTS_PER_ROUND
+    rates, request_count = RATES, REQUESTS_PER_ROUND
+    if args.capacity:
+        rates, request_count = CAPACITY_RATES, CAPACITY_REQUESTS_PER_ROUND
+    elif args.capacity_midpoint:
+        rates, request_count = (MIDPOINT_RATE,), MIDPOINT_REQUESTS_PER_ROUND
     url = f"http://127.0.0.1:{args.port}/api/chat"
 
     with dedicated_ollama(args.port, WORKERS) as (_, _, version, digest, configuration):
@@ -98,7 +105,7 @@ def main():
         for repetition, rate_order in enumerate((rates, rates[::-1]), start=1):
             for rate in rate_order:
                 run = run_round(url, repetition, rate, 300 + len(rounds) * request_count, request_count)
-                if args.capacity:
+                if args.capacity or args.capacity_midpoint:
                     run["halves"] = summarize_halves(run["requests"])
                 rounds.append(run)
                 print(f"Repetition {repetition}, {rate:g} arrivals/s: {run['successes']}/{request_count} passed", flush=True)
