@@ -249,6 +249,14 @@ python .\admission_probe.py --budget-sweep --output .\admission-budget-sweep-res
 
 [预算扫描逐次结果](results/2026-11-25-admission-budget-sweep.json)
 
+用 `--order-check` 固定一条等待、1.6 秒放行预算，比较每批短输入先提交、长输入先提交，以及批次间交替。每组跑两轮，每轮五批，各长度的提交数在三组都相同。报告按输入长度给出完成分子和提交分母。
+
+```powershell
+python .\admission_probe.py --order-check --output .\admission-input-order-result.json
+```
+
+[输入顺序逐次结果](results/2026-11-25-admission-input-order.json)
+
 ### 复核等待预算
 
 在本目录按原始记录的 `client_wait_ms` 统计达到各档阈值的请求。该表用于选择下一次过载测试的参数。

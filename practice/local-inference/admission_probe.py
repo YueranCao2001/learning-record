@@ -19,6 +19,7 @@ from stream_probe import MODEL, probe
 WAIT_LIMIT = 1
 WAIT_BUDGET_MS = 1000
 BUDGET_SWEEP_MS = (1000, 1400, 1600)
+ORDER_CHECK_BUDGET_MS = BUDGET_SWEEP_MS[-1]
 REQUEST_COUNT = int(EQUAL_WINDOW_SECONDS * SHAPE_RATE)
 BREAKDOWN_REQUEST_COUNT = REQUEST_COUNT // 2
 OUTCOMES = ("completed", "deadline_before_http", "queue_full", "request_error")
@@ -55,7 +56,7 @@ def policy_limits(policy):
     return limit, budget_ms
 
 
-def run_round(url, repetition, policy, label_offset, request_count=REQUEST_COUNT, *, limits=None):
+def run_round(url, repetition, policy, label_offset, request_count=REQUEST_COUNT, *, limits=None, length_order="short_first"):
     wait_limit, budget_ms = policy_limits(policy) if limits is None else limits
     schedule = [1000 * (i // SHAPE_BURST_SIZE * SHAPE_BURST_SIZE) / SHAPE_RATE for i in range(request_count)]
     pending = deque()
@@ -96,9 +97,14 @@ def run_round(url, repetition, policy, label_offset, request_count=REQUEST_COUNT
 
                 now = (perf_counter() - origin) * 1000
                 if submitted < request_count and schedule[submitted] <= now:
+                    batch = submitted // SHAPE_BURST_SIZE
+                    starts_long = length_order == "long_first" or (
+                        length_order == "alternating" and (batch + repetition - 1) % 2 == 1
+                    )
+                    lengths = ("long", "short") if starts_long else ("short", "long")
                     request = {
                         "request_id": f"{label_offset + submitted:03d}", "planned_ms": schedule[submitted],
-                        "length": "short" if submitted % 2 == 0 else "long", "submitted_ms": now,
+                        "length": lengths[submitted % 2], "submitted_ms": now,
                         "deadline_ms": now + budget_ms if budget_ms is not None else None,
                     }
                     submitted += 1
@@ -146,6 +152,15 @@ def summarize(rounds):
     }
 
 
+def summarize_by_length(rounds):
+    rows = [row for run in rounds for row in run["requests"]]
+    return {
+        length: {"offered": sum(row["length"] == length for row in rows),
+                 "completed": sum(row["length"] == length and row["outcome"] == "completed" for row in rows)}
+        for length in ("short", "long")
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description="Compare finite client admission with the same loopback burst trace.")
     parser.add_argument("--port", type=int, choices=range(1024, 65536), metavar="PORT", default=11435)
@@ -153,6 +168,7 @@ def main():
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--policy-breakdown", action="store_true", help="Isolate queue capacity and waiting budget in two 20-request repetitions.")
     mode.add_argument("--budget-sweep", action="store_true", help="Try several waiting budgets with one waiting slot.")
+    mode.add_argument("--order-check", action="store_true", help="Compare short-first, long-first and alternating batches at a fixed budget.")
     args = parser.parse_args()
     url = f"http://127.0.0.1:{args.port}/api/chat"
     policies = ("baseline", "queue_only", "deadline_only", "bounded") if args.policy_breakdown else ("baseline", "bounded")
@@ -160,12 +176,16 @@ def main():
     if args.budget_sweep:
         limits = {f"budget_{budget}": (WAIT_LIMIT, budget) for budget in BUDGET_SWEEP_MS}
         policies = tuple(limits)
-    request_count = BREAKDOWN_REQUEST_COUNT if args.policy_breakdown or args.budget_sweep else REQUEST_COUNT
+    elif args.order_check:
+        policies = ("short_first", "long_first", "alternating")
+        limits = {policy: (WAIT_LIMIT, ORDER_CHECK_BUDGET_MS) for policy in policies}
+    request_count = BREAKDOWN_REQUEST_COUNT if args.policy_breakdown or args.budget_sweep or args.order_check else REQUEST_COUNT
     with dedicated_ollama(args.port, WORKERS) as (_, _, version, digest, configuration):
         rounds = []
         for repetition, order in enumerate((policies, policies[::-1]), start=1):
             for policy in order:
-                run = run_round(url, repetition, policy, 600 + len(rounds) * request_count, request_count, limits=limits[policy])
+                run = run_round(url, repetition, policy, 600 + len(rounds) * request_count, request_count,
+                                limits=limits[policy], length_order=policy if args.order_check else "short_first")
                 rounds.append(run)
                 print(f"Repetition {repetition}, {policy}: {summarize([run])['outcomes']}", flush=True)
 
@@ -178,12 +198,15 @@ def main():
         "expected_reply": LONG_REPLY, "actual_replies": deduplicate_replies(rounds), "rounds": rounds,
         "summary": {policy: summarize([run for run in rounds if run["policy"] == policy]) for policy in policies},
     }
-    if not args.budget_sweep:
+    if not args.budget_sweep and not args.order_check:
         report.update(bounded_waiting_limit=WAIT_LIMIT, bounded_wait_budget_ms=WAIT_BUDGET_MS)
-    if args.policy_breakdown or args.budget_sweep:
+    if args.policy_breakdown or args.budget_sweep or args.order_check:
         report["policies"] = {
             policy: dict(zip(("waiting_limit", "wait_budget_ms"), limits[policy])) for policy in policies
         }
+    if args.order_check:
+        for policy in policies:
+            report["summary"][policy]["by_length"] = summarize_by_length([run for run in rounds if run["policy"] == policy])
     args.output.write_text(json.dumps(report, separators=(",", ":")) + "\n", encoding="utf-8")
     print(json.dumps(report["summary"], indent=2))
 
