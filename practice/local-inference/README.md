@@ -241,6 +241,14 @@ python .\admission_probe.py --policy-breakdown --output .\admission-breakdown-re
 
 [队列与预算逐次结果](results/2026-11-25-admission-breakdown.json)
 
+用 `--budget-sweep` 固定一条等待名额，仅改变放行预算。1.0、1.4、1.6 秒各跑两轮，每轮五批共 20 条，保留逐条截止时间和实际放行时刻。
+
+```powershell
+python .\admission_probe.py --budget-sweep --output .\admission-budget-sweep-result.json
+```
+
+[预算扫描逐次结果](results/2026-11-25-admission-budget-sweep.json)
+
 ### 复核等待预算
 
 在本目录按原始记录的 `client_wait_ms` 统计达到各档阈值的请求。该表用于选择下一次过载测试的参数。
