@@ -19,6 +19,7 @@ from stream_probe import MODEL, probe
 WAIT_LIMIT = 1
 WAIT_BUDGET_MS = 1000
 REQUEST_COUNT = int(EQUAL_WINDOW_SECONDS * SHAPE_RATE)
+BREAKDOWN_REQUEST_COUNT = REQUEST_COUNT // 2
 OUTCOMES = ("completed", "deadline_before_http", "queue_full", "request_error")
 
 
@@ -47,9 +48,15 @@ def execute_request(url, request, origin):
     return row
 
 
-def run_round(url, repetition, policy, label_offset):
-    bounded = policy == "bounded"
-    schedule = [1000 * (i // SHAPE_BURST_SIZE * SHAPE_BURST_SIZE) / SHAPE_RATE for i in range(REQUEST_COUNT)]
+def policy_limits(policy):
+    limit = WAIT_LIMIT if policy in ("queue_only", "bounded") else None
+    budget_ms = WAIT_BUDGET_MS if policy in ("deadline_only", "bounded") else None
+    return limit, budget_ms
+
+
+def run_round(url, repetition, policy, label_offset, request_count=REQUEST_COUNT):
+    wait_limit, budget_ms = policy_limits(policy)
+    schedule = [1000 * (i // SHAPE_BURST_SIZE * SHAPE_BURST_SIZE) / SHAPE_RATE for i in range(request_count)]
     pending = deque()
     active = set()
     finished = []
@@ -71,7 +78,7 @@ def run_round(url, repetition, policy, label_offset):
             future.add_done_callback(notify_completion)
 
         with changed:
-            while len(finished) < REQUEST_COUNT:
+            while len(finished) < request_count:
                 done = {future for future in active if future.done()}
                 active.difference_update(done)
                 finished.extend(future.result() for future in done)
@@ -87,28 +94,28 @@ def run_round(url, repetition, policy, label_offset):
                         break
 
                 now = (perf_counter() - origin) * 1000
-                if submitted < REQUEST_COUNT and schedule[submitted] <= now:
+                if submitted < request_count and schedule[submitted] <= now:
                     request = {
                         "request_id": f"{label_offset + submitted:03d}", "planned_ms": schedule[submitted],
                         "length": "short" if submitted % 2 == 0 else "long", "submitted_ms": now,
-                        "deadline_ms": now + WAIT_BUDGET_MS if bounded else None,
+                        "deadline_ms": now + budget_ms if budget_ms is not None else None,
                     }
                     submitted += 1
                     if len(active) < WORKERS:
                         grant(request)
-                    elif bounded and len(pending) >= WAIT_LIMIT:
+                    elif wait_limit is not None and len(pending) >= wait_limit:
                         finish_before_http(request, "queue_full", now)
                     else:
                         pending.append(request)
                         max_pending = max(max_pending, len(pending))
                     continue
 
-                if len(finished) == REQUEST_COUNT:
+                if len(finished) == request_count:
                     break
                 wake_times = []
-                if submitted < REQUEST_COUNT:
+                if submitted < request_count:
                     wake_times.append(schedule[submitted])
-                if bounded and pending:
+                if budget_ms is not None and pending:
                     wake_times.append(pending[0]["deadline_ms"])
                 if any(future.done() for future in active):
                     continue
@@ -142,14 +149,16 @@ def main():
     parser = argparse.ArgumentParser(description="Compare finite client admission with the same loopback burst trace.")
     parser.add_argument("--port", type=int, choices=range(1024, 65536), metavar="PORT", default=11435)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--policy-breakdown", action="store_true", help="Isolate queue capacity and waiting budget in two 20-request repetitions.")
     args = parser.parse_args()
     url = f"http://127.0.0.1:{args.port}/api/chat"
-    policies = ("baseline", "bounded")
+    policies = ("baseline", "queue_only", "deadline_only", "bounded") if args.policy_breakdown else ("baseline", "bounded")
+    request_count = BREAKDOWN_REQUEST_COUNT if args.policy_breakdown else REQUEST_COUNT
     with dedicated_ollama(args.port, WORKERS) as (_, _, version, digest, configuration):
         rounds = []
         for repetition, order in enumerate((policies, policies[::-1]), start=1):
             for policy in order:
-                run = run_round(url, repetition, policy, 600 + len(rounds) * REQUEST_COUNT)
+                run = run_round(url, repetition, policy, 600 + len(rounds) * request_count, request_count)
                 rounds.append(run)
                 print(f"Repetition {repetition}, {policy}: {summarize([run])['outcomes']}", flush=True)
 
@@ -157,12 +166,16 @@ def main():
         "recorded_at_utc": datetime.now(timezone.utc).isoformat(), "url": url,
         "ollama_version": version, "model": MODEL, "model_digest": digest, "server_configuration": configuration,
         "client_in_flight_limit": WORKERS, "options": GENERATION_OPTIONS,
-        "requests_per_round": REQUEST_COUNT, "burst_size": SHAPE_BURST_SIZE,
+        "requests_per_round": request_count, "burst_size": SHAPE_BURST_SIZE,
         "burst_interval_ms": 1000 * SHAPE_BURST_SIZE / SHAPE_RATE,
         "bounded_waiting_limit": WAIT_LIMIT, "bounded_wait_budget_ms": WAIT_BUDGET_MS,
         "expected_reply": LONG_REPLY, "actual_replies": deduplicate_replies(rounds), "rounds": rounds,
         "summary": {policy: summarize([run for run in rounds if run["policy"] == policy]) for policy in policies},
     }
+    if args.policy_breakdown:
+        report["policies"] = {
+            policy: dict(zip(("waiting_limit", "wait_budget_ms"), policy_limits(policy))) for policy in policies
+        }
     args.output.write_text(json.dumps(report, separators=(",", ":")) + "\n", encoding="utf-8")
     print(json.dumps(report["summary"], indent=2))
 

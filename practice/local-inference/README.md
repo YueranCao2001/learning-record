@@ -233,6 +233,14 @@ python .\admission_probe.py --output .\bounded-admission-result.json
 
 报告保留逐条提交时间、放行截止、HTTP 开始、终态和实际回复。成功延迟分位数以成功回复为样本，完成率以全部提交为分母。[11 月 25 日逐次结果](results/2026-11-25-bounded-admission.json)
 
+加 `--policy-breakdown` 后，比较基线、仅限制等待队列、仅设置放行预算以及组合策略。每轮五批共 20 条，四种策略各跑两轮，第二轮反转顺序。报告保存每种策略的实际配置和每条请求的结果。
+
+```powershell
+python .\admission_probe.py --policy-breakdown --output .\admission-breakdown-result.json
+```
+
+[队列与预算逐次结果](results/2026-11-25-admission-breakdown.json)
+
 ### 复核等待预算
 
 在本目录按原始记录的 `client_wait_ms` 统计达到各档阈值的请求。该表用于选择下一次过载测试的参数。
