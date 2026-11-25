@@ -120,6 +120,7 @@
 - [DPO 实作：开发集与固定回归验收](daily/2026/11/2026-11-22-dpo-fixed-regression.md)
 - [本地推理实作：跑通第一条 HTTP 回复](daily/2026/11/2026-11-23-local-inference-http-smoke.md)
 - [本地推理实作：缩小可持续到达速率范围](daily/2026/11/2026-11-24-local-inference-capacity.md)
+- [本地推理实作：突发到达下的有限队列与放行预算](daily/2026/11/2026-11-25-local-inference-admission.md)
 
 ## 提交约定
 

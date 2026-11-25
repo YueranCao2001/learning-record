@@ -49,12 +49,14 @@ def validate_reply(final, text, model, expected):
         raise ValueError(f"Unexpected reply {text!r}, done reason {final.get('done_reason')!r}")
 
 
-def probe(opener, url, payload, stream, expected=EXPECTED):
+def probe(opener, url, payload, stream, expected=EXPECTED, *, before_http=None):
     request = urllib.request.Request(
         url, data=json.dumps({**payload, "stream": stream}).encode("utf-8"),
         headers={"Content-Type": "application/json"},
     )
     started = perf_counter()
+    if before_http is not None:
+        before_http(started)
     with opener.open(request, timeout=180) as response:
         if response.status != 200:
             raise ValueError(f"Expected HTTP 200, got {response.status}")

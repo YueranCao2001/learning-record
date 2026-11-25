@@ -223,6 +223,16 @@ python .\arrival_probe.py --arrival-shape --output .\arrival-shape-result.json
 
 比较平均到达速率和完成量时使用固定 32 秒窗口。`actual_arrivals_per_second` 仍按第一条和最后一条实际提交的间隔计算，适用于核对提交间隔。成批到达时另外使用 `arrivals_per_second_in_window` 做两组对照。[到达形态逐次结果](results/2026-11-24-arrival-shape.json)
 
+### 验证突发到达时的有限等待队列
+
+从本目录运行，脚本启用独立双槽回环实例，按每 3.2 秒四条的轨迹比较基线与最多一条等待、1000 ms 放行预算。两种策略各跑两轮并交换顺序。
+
+```powershell
+python .\admission_probe.py --output .\bounded-admission-result.json
+```
+
+报告保留逐条提交时间、放行截止、HTTP 开始、终态和实际回复。成功延迟分位数以成功回复为样本，完成率以全部提交为分母。[11 月 25 日逐次结果](results/2026-11-25-bounded-admission.json)
+
 ### 复核等待预算
 
 在本目录按原始记录的 `client_wait_ms` 统计达到各档阈值的请求。该表用于选择下一次过载测试的参数。
