@@ -2,6 +2,10 @@
 
 SFT、DPO、PPO 与 GRPO、Rollout 和奖励评估器。当前记录以概念及合成验证为主，真实模型训练的完成状态需要实际产物支持。
 
+## 客服意图路由微调
+
+11 月 30 日至 12 月 4 日计划在本机对 Qwen3-4B 做 QLoRA，以固定数据评估分类、JSON 输出和范围外拒识。阶段产物同时在 GitHub 和 Hugging Face 留可追溯版本。[项目计划](../practice/intent-routing/README.md)
+
 ## 日期笔记
 
 - 2026-11-22 [DPO 实作：开发集与固定回归验收](../daily/2026/11/2026-11-22-dpo-fixed-regression.md)
