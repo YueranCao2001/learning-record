@@ -56,9 +56,14 @@ def policy_limits(policy):
     return limit, budget_ms
 
 
-def run_round(url, repetition, policy, label_offset, request_count=REQUEST_COUNT, *, limits=None, length_order="short_first"):
+def run_round(url, repetition, policy, label_offset, request_count=REQUEST_COUNT, *, limits=None,
+              length_order="short_first", arrival_trace=None):
     wait_limit, budget_ms = policy_limits(policy) if limits is None else limits
-    schedule = [1000 * (i // SHAPE_BURST_SIZE * SHAPE_BURST_SIZE) / SHAPE_RATE for i in range(request_count)]
+    if arrival_trace is None:
+        schedule = [1000 * (i // SHAPE_BURST_SIZE * SHAPE_BURST_SIZE) / SHAPE_RATE for i in range(request_count)]
+    else:
+        schedule = [planned_ms for planned_ms, _ in arrival_trace]
+        request_count = len(schedule)
     pending = deque()
     active = set()
     finished = []
@@ -72,6 +77,12 @@ def run_round(url, repetition, policy, label_offset, request_count=REQUEST_COUNT
 
     def finish_before_http(request, outcome, now):
         finished.append({**request, "http_start_ms": None, "terminal_ms": now, "outcome": outcome})
+
+    def pop_waiting(now):
+        request = pending.popleft()
+        if arrival_trace is not None:
+            request["queue_exit_ms"] = now
+        return request
 
     with ThreadPoolExecutor(max_workers=WORKERS) as executor:
         def grant(request):
@@ -89,9 +100,9 @@ def run_round(url, repetition, policy, label_offset, request_count=REQUEST_COUNT
                     deadline = pending[0]["deadline_ms"]
                     now = (perf_counter() - origin) * 1000
                     if deadline is not None and now >= deadline:
-                        finish_before_http(pending.popleft(), "deadline_before_http", now)
+                        finish_before_http(pop_waiting(now), "deadline_before_http", now)
                     elif len(active) < WORKERS:
-                        grant(pending.popleft())
+                        grant(pop_waiting(now))
                     else:
                         break
 
@@ -107,12 +118,16 @@ def run_round(url, repetition, policy, label_offset, request_count=REQUEST_COUNT
                         "length": lengths[submitted % 2], "submitted_ms": now,
                         "deadline_ms": now + budget_ms if budget_ms is not None else None,
                     }
+                    if arrival_trace is not None:
+                        request.update(phase=arrival_trace[submitted][1], queue_enter_ms=None, queue_exit_ms=None)
                     submitted += 1
                     if len(active) < WORKERS:
                         grant(request)
                     elif wait_limit is not None and len(pending) >= wait_limit:
                         finish_before_http(request, "queue_full", now)
                     else:
+                        if arrival_trace is not None:
+                            request["queue_enter_ms"] = now
                         pending.append(request)
                         max_pending = max(max_pending, len(pending))
                     continue

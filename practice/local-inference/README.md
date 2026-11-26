@@ -257,6 +257,17 @@ python .\admission_probe.py --order-check --output .\admission-input-order-resul
 
 [输入顺序逐次结果](results/2026-11-25-admission-input-order.json)
 
+### 验证突发后的恢复
+
+`recovery_probe.py` 复用有限等待的调度逻辑。两种策略都限制两条在途，保护组额外限制一条等待和 1000 ms 放行预算。每轮先每秒一条发六条，再每两秒集中发四条、连续四批，最后在最后一批后 0.5 秒开始每秒发一条、共八条。各跑两轮，第二轮反转策略顺序。
+
+```powershell
+python .\recovery_probe.py --output .\admission-recovery-result.json
+python .\recovery_probe.py --recovery-requests 28 --output .\admission-recovery-extended.json
+```
+
+`--recovery-requests 28` 只延长回落后的低流量观察段，用于定位基线何时消化积压。报告按提交阶段保存完成、超时与拒绝。以第一条恢复请求的实际提交为时间零点，分别记录突发请求最后出队、最后到达终态，以及恢复段末尾连续完成且提交到 HTTP 不超过 50 ms 的起点。队列出入时间来自客户端调度器。[首测结果](results/2026-11-26-admission-recovery.json) · [延长观察结果](results/2026-11-26-admission-recovery-extended.json)
+
 ### 复核等待预算
 
 在本目录按原始记录的 `client_wait_ms` 统计达到各档阈值的请求。该表用于选择下一次过载测试的参数。
