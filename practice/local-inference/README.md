@@ -181,6 +181,17 @@ foreach ($trial in 1, 2) {
 
 [复验 1](results/matched-suffix-recheck/trial-01.json) · [复验 2](results/matched-suffix-recheck/trial-02.json)
 
+## 第二阶段一键验收
+
+在本目录运行 `stage2_acceptance.py`，默认只回查 11 月 24 至 26 日的 10 份原始记录。加 `--live` 后，在独立双槽回环服务复跑均匀到达、固定突发及流量回落，合计 88 条真实请求。
+
+```powershell
+python .\stage2_acceptance.py --output .\stage2-archive-audit.json
+python .\stage2_acceptance.py --live --output .\stage2-acceptance-result.json
+```
+
+归档审计覆盖请求 ID、回复正文、HTTP 时间及截止时间、两条在途上限和可重算的恢复指标。实时回归检查均匀段是否低等待、突发对照的终态顺序及保护组末尾四条恢复请求。结果保存原始报告指纹、复跑逐条记录与各项检查。[11 月 27 日验收结果](results/2026-11-27-stage2-acceptance.json) · [第二阶段报告](stage-report.md#第二阶段容量与过载恢复验收)
+
 ## 固定到达速率测试
 
 第二阶段使用独立的两槽回环服务，客户端最多两条请求在途。每轮按固定时间表提交 10 条请求，交替使用短、长输入，输出验收保持不变。分别测试每秒 1 条和 2 条，交替先后顺序，各跑两轮。下一条请求的提交时刻由时间表确定。

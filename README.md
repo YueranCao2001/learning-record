@@ -15,6 +15,8 @@
 
 围绕一个项目连续推进，先检查已有结果和未完成项，再确定当天要解决的问题。[最小 RAG 项目](topics/rag.md) 于 2026 年 10 月 21 日阶段收尾。10 月 22 日起进行 [大模型微调实践](topics/post-training.md)，完成 SFT 和小规模 DPO 阶段。11 月 23 日完成 [本地大模型推理服务与压测第一阶段](practice/local-inference/stage-report.md)，归档性能基线和五项回归验收。
 
+11 月 27 日完成 [本地推理容量与过载恢复验收](practice/local-inference/stage-report.md#第二阶段容量与过载恢复验收)，归档三天的指标复核和独立实例短回归。
+
 11 月 30 日至 12 月 4 日计划启动独立的客服意图路由微调项目，做基座与 QLoRA 对照，并同步复现记录和私有模型产物。[一周计划](practice/intent-routing/README.md)
 
 - 练习记录实际输入、运行方式、输出与失败案例；没有运行的任务明确列为待完成。
@@ -124,6 +126,7 @@
 - [本地推理实作：缩小可持续到达速率范围](daily/2026/11/2026-11-24-local-inference-capacity.md)
 - [本地推理实作：突发到达下的有限队列与放行预算](daily/2026/11/2026-11-25-local-inference-admission.md)
 - [本地推理实作：流量回落后的队列恢复](daily/2026/11/2026-11-26-local-inference-recovery.md)
+- [本地推理实作：容量与过载恢复阶段验收](daily/2026/11/2026-11-27-local-inference-stage-acceptance.md)
 
 ## 提交约定
 
