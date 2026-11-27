@@ -127,6 +127,7 @@
 - [本地推理实作：突发到达下的有限队列与放行预算](daily/2026/11/2026-11-25-local-inference-admission.md)
 - [本地推理实作：流量回落后的队列恢复](daily/2026/11/2026-11-26-local-inference-recovery.md)
 - [本地推理实作：容量与过载恢复阶段验收](daily/2026/11/2026-11-27-local-inference-stage-acceptance.md)
+- [客服意图路由微调：严格 JSON 逐条判分预检](daily/2026/11/2026-11-28-intent-routing-judge-preflight.md)
 
 ## 提交约定
 
